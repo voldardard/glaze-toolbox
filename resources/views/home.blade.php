@@ -108,6 +108,7 @@
         .form .search-button{
             position: absolute;
             right: 45px;
+            width: inherit;
         }
         .form button:hover,.form button:active,.form button:focus {
             background: #434343;
@@ -122,8 +123,11 @@
             text-decoration: none;
             font-weight: bolder;
         }
-        .form .register-form {
-            display: none;
+        .form .h1 {
+            color: #5C5C5C;
+            text-align: center;
+            font: bold 80px arial,sans-serif;
+            margin-bottom: 40px;
         }
         .red{
             color:red;
