@@ -34,6 +34,10 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     });
 
     Route::get('/login', function () {
+        $back_url = url()->previous();
+        if (strpos($back_url, 'logout') !== false) {
+            $back_url = Config::get('app.url')."/".Config::get('app.locale');
+        }
         session(['link' => url()->previous()]);
         return view('login');
     })->name('login');
