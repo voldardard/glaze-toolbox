@@ -27,6 +27,6 @@ class Register extends Controller{
             'password' => 'required|string',
         ]);
 
-        return Redirect::to(route('action'));
+        //return Redirect::to(route('action'));
     }
 }

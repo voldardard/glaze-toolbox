@@ -152,9 +152,20 @@
         <p class="message">@lang('login.l-003-notregistredyet') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/register">@lang('login.l-004-createaccount')</a></p>
         <p class="message">@lang('login.l-005-forgetPassword') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/forgot">@lang('login.l-006-resetyourpassword')</a></p>
 
-    @if (session('error'))
-            <br /> <br /><span class="red">{{ session('error') }}</span></div>
-    @endif
+
+        @if ($errors->any())
+            <div class="red">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session('error'))
+                <br /> <br /><span class="red">{{ session('error') }}</span></div>
+        @endif
 
     </div>
 </div>

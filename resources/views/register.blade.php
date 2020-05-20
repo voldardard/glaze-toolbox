@@ -154,9 +154,18 @@
         </form>
         <p class="message">@lang('login.l-014-alreadyregistred') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/login">@lang('login.l-015-connect')</a></p>
 
+        @if ($errors->any())
+            <div class="red">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if (session('error'))
             <br /> <br /><span class="red">{{ session('error') }}</span></div>
-    @endif
+        @endif
 
 </div>
 </div>
