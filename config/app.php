@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('LOCALE', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,12 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('LOCALE', null),
+
+    'availables_locale' => array(
+        "en"=>"English",
+        "fr"=>"Français",
+    ),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Get the language requested
+$locale = Request::segment(2);
+
+if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
+    App::setLocale($locale);
+}else{
+    App::setLocale(Config::get('app.locale'));
+}
+
+
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix' => Config::get('app.locale')], function () {
+
+    Route::get('/', function () {
+        echo "test";
+        return view('welcome');
+    });
+
 });
