@@ -39,6 +39,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $back_url = Config::get('app.url')."/".Config::get('app.locale');
         }
         session(['link' => url()->previous()]);
+        dd(session()->all());
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');
