@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->boolean('enable')->default(false);
             $table->boolean('admin')->default(false);
-
+            $table->string('locale', 10)->default('en');
         });
     }
 

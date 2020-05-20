@@ -36,6 +36,7 @@ class Register extends Controller{
                 "fsname" => $validatedData['fsname'],
                 "email" => $validatedData['email'],
                 "password" => $hashedpassword,
+                "locale"=> Config::get('app.locale'),
                 "created_at" => now(),
                 "updated_at" => now()
             ]);

@@ -24,6 +24,10 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
 Route::get('/logout', 'auth\Login@logout')->name('logout-classic');
 
 
+Route::get('/', function () {
+    return Redirect::to(\route('home'));
+})->middleware('auth.classic');;
+
 Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
     Route::middleware("auth.classic")->group(function () {
