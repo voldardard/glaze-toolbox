@@ -42,6 +42,7 @@ class Login extends Controller{
 
 
             if(! Hash::check(env('SALT1').$password.env('SALT2'), $user->password)){
+                //password missmatch
                 $this->message = Lang::get('login.l-007-usernameorpasswordmissmatch');
                 return false;
             }
@@ -61,6 +62,8 @@ class Login extends Controller{
 
 
         }else{
+            //user missmatch
+            $this->message = Lang::get('login.l-007-usernameorpasswordmissmatch');
             return false;
         }
     }
