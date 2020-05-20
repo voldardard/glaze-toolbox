@@ -27,7 +27,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');
-    Route::get('/login', function () {
+
+    Route::get('/register', function () {
         return view('register');
     })->name('register');
     Route::post('/register', 'auth\Register');
