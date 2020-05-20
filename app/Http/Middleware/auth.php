@@ -23,7 +23,7 @@ class auth
      */
     public function handle($request, Closure $next)
     {
-        $validator= alidator::make(session()->all(), [
+        $validator= Validator::make(session()->all(), [
             'username' => 'required|string|max:45',
             'name' => 'required|string',
             'fsname' => 'required|string',
