@@ -13,14 +13,11 @@ class CreateBakingTable extends Migration
      */
     public function up()
     {
-        Schema::create('baking', function (Blueprint $table) {
+        Schema::create('lands', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('orton');
-            $table->string('oven', 30);
-            $table->string('temperature');
-
-            $table->string('type', 30);
+            $table->string('name', 40);
+            $table->string('type', 30)->nullable();
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');
