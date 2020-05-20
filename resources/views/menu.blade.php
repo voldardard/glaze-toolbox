@@ -25,6 +25,9 @@
            -moz-box-sizing: border-box;
            box-sizing: border-box;
     }
+    #cssmenu ul .right{
+        float:right;
+    }
     #cssmenu:after,
     #cssmenu > ul:after {
         content: ".";
@@ -36,7 +39,7 @@
     }
     #cssmenu {
         width: auto;
-        border-bottom: 3px solid #47c9af;
+        border-bottom: 3px solid #5C5C5C;
         font-family: Roboto, sans-serif;
         line-height: 1;
     }
@@ -104,7 +107,7 @@
     #cssmenu > ul > li.active > a:after,
     #cssmenu > ul > li:hover > a:after,
     #cssmenu > ul > li > a:hover:after {
-        background: #47c9af;
+        background: #5C5C5C;
     }
 </style>
 <div id='cssmenu'>
