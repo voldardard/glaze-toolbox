@@ -109,21 +109,20 @@
     #cssmenu > ul > li > a:hover:after {
         background: #5C5C5C;
     }
-    #cssmenu #langs {
-        display: block;
-        position: absolute;
-    }
+
     #cssmenu #langs a{
-        display:none;
-    }
-    #cssmenu #langs:hover a{
-        display: block;
         padding: 15px 25px 12px 25px;
         font-size: 15px;
         font-weight: 400;
         text-decoration: none;
         color: white;
         background: #444;
+    }
+    #cssmenu #langs{
+        display:none;
+    }
+    #cssmenu #langsContainer:hover div{
+        display: block;
     }
 
 </style>
@@ -135,10 +134,11 @@
 
         <li class="right"><a href='#'>{{session('username')}}</a></li>
         <li class="right"><a href='/{{ app()->getLocale() }}/logout'>@lang('menu.m-004-logout')</a></li>
-        <li class="right" >
-            <a href="#">Languages</a>
-            <div id="langs">
-                @foreach (Config::get('app.availables_locale') as $lang => $language)
+        <li class="right" id="langsContainer" >
+            <a href="#" >Languages</a>
+                <div id="langs">
+
+            @foreach (Config::get('app.availables_locale') as $lang => $language)
                     <a href="href='/{{$lang}}" >{{$language}}</a>
                 @endforeach
             </div>
