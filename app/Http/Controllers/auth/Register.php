@@ -55,7 +55,7 @@ class Register extends Controller{
             "admin"=>$user->admin
         ]);*/
 
-        return Redirect::to(route('login'));
+        return Redirect::to(route('login'))->with('success', Lang::get('login.l-019-successfullycreated'));
 
 
     }
