@@ -27,6 +27,7 @@
     }
     #cssmenu ul .right{
         float:right;
+        width:140px;
     }
     #cssmenu:after,
     #cssmenu > ul:after {
@@ -76,7 +77,6 @@
         -ms-transition: all .2s ease;
         -o-transition: all .2s ease;
         transition: all .2s ease;
-        margin-right: -4px;
     }
     #cssmenu > ul > li.active > a,
     #cssmenu > ul > li:hover > a,
@@ -132,7 +132,7 @@
     #cssmenu #profile{
         display:none;
         position: fixed;
-        width: 123px;
+        width: 140px;
     }
     #cssmenu #langsContainer:hover div,
     #cssmenu #profileContainer:hover div{
