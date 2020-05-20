@@ -87,10 +87,10 @@
             background: #f2f2f2;
             width: 100%;
             border: 0;
-            margin: 0 0 15px;
-            padding: 15px;
+            margin: 0 0 25px;
+            padding: 25px;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 16px;
         }
         .form button {
             font-family: "Roboto", sans-serif;
@@ -99,9 +99,9 @@
             background-color: #151515;
             width: 100%;
             border: 0;
-            padding: 15px;
+            padding: 25px;
             color: #FFFFFF;
-            font-size: 14px;
+            font-size: 16px;
             transition: all;
             cursor: pointer;
         }
