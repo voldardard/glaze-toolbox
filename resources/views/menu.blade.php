@@ -112,7 +112,7 @@
     #cssmenu #langs{
         display:none;
     }
-    #cssmenu #langs:hover{
+    #cssmenu #langs:hover #langs{
         display:block;
         position: absolute;
     }
@@ -133,7 +133,7 @@
 
         <li class="right"><a href='#'>{{session('username')}}</a></li>
         <li class="right"><a href='/{{ app()->getLocale() }}/logout'>@lang('menu.m-004-logout')</a></li>
-        <li class="right">
+        <li class="right" >
             <a href="#">Languages</a>
             <div id="langs">
                 @foreach (Config::get('app.availables_locale') as $lang => $language)
