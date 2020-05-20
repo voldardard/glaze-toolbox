@@ -23,11 +23,13 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
 
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
-    Route::get('/', function () {
-        dd(session()->all());
-        return view('welcome');
-    })->name('home');
-
+    //authenticated route
+    Route::middleware("auth.classic")->group(function () {
+        Route::get('/', function () {
+            dd(session()->all());
+            return view('welcome');
+        })->name('home');
+    });
 
     Route::get('/login', function () {
         return view('login');
