@@ -35,14 +35,11 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
     Route::get('/login', function () {
         $back_url = url()->previous();
-        if (strpos($back_url, 'logout') !== false) {
-            $back_url = Config::get('app.url')."/".Config::get('app.locale');
+        if ( (strpos($back_url, 'logout') !== false) OR (strpos($back_url, 'login') !== false) ) {
+            $back_url = route('home');
         }
-        if (strpos($back_url, 'login') !== false) {
-            $back_url = Config::get('app.url')."/".Config::get('app.locale');
-        }
-        session(['link' => url()->previous()]);
-        dd(session()->all());
+        session(['link' => $back_url]);
+        print_r(session()->all());
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');
