@@ -149,8 +149,8 @@
             <button>Log-in</button>
             @csrf
         </form>
-        <p class="message">Pas encore enregistré ? &nbsp;&nbsp;<a href="#">Créer un compte !</a></p>
-        <p class="message">Mot de passe oublié ? &nbsp;&nbsp;<a href="https://films.robinsons.ch/forget.php">Retrouvez votre mot de passe</a></p>
+        <p class="message">Pas encore enregistré ? &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/register">Créer un compte !</a></p>
+        <p class="message">Mot de passe oublié ? &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/forgot">Retrouvez votre mot de passe</a></p>
 
     @if (session('error'))
             <br /> <br /><span class="red">{{ session('error') }}</span></div>
