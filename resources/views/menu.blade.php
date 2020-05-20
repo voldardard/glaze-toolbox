@@ -111,15 +111,24 @@
     }
 
     #cssmenu #langs a{
-        padding: 15px 25px 12px 25px;
+        padding: 7px 25px 12px 25px;
         font-size: 15px;
         font-weight: 400;
         text-decoration: none;
         color: white;
         background: #444;
     }
+    #cssmenu #langs a:hover{
+        background: #5C5C5C;
+    }
+    #cssmenu #langs a:last-child{
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
     #cssmenu #langs{
         display:none;
+        position: fixed;
+        width: 123px;
     }
     #cssmenu #langsContainer:hover div{
         display: block;
@@ -138,8 +147,8 @@
             <a href="#" >Languages</a>
                 <div id="langs">
 
-            @foreach (Config::get('app.availables_locale') as $lang => $language)
-                    <a href="href='/{{$lang}}" >{{$language}}</a>
+                @foreach (Config::get('app.availables_locale') as $lang => $language)
+                    <a href="/{{$lang}}" >{{$language}}</a>
                 @endforeach
             </div>
         </li>
