@@ -112,6 +112,18 @@
     #cssmenu #langs{
         display:none;
     }
+    #cssmenu #langs:hover{
+        display:block;
+        position: absolute;
+    }
+    #cssmenu #langs a{
+        padding: 15px 25px 12px 25px;
+        font-size: 15px;
+        font-weight: 400;
+        text-decoration: none;
+        color: white;
+        background: #444;
+    }
 </style>
 <div id='cssmenu'>
     <ul>
