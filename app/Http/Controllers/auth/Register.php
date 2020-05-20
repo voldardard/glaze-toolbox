@@ -20,10 +20,10 @@ class Register extends Controller{
 
     public function __invoke(Request $request){
         $validatedData = $request->validate([
-            'user' => 'required|string',
+            'user' => 'required|string|max:45',
             'name' => 'required|string',
             'fsname' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|max:60',
             'password' => 'required|string',
         ]);
 

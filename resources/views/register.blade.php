@@ -143,7 +143,7 @@
 <body>
 <div class="login-page">
     <div class="form">
-        <form class="login-form" method="POST" action="/{{ app()->getLocale() }}/login">
+        <form class="login-form" method="POST" action="/{{ app()->getLocale() }}/register">
             <input type="text" required name="name" placeholder="@lang('login.l-009-name')"/>
             <input type="text" required name="fsname" placeholder="@lang('login.l-010-fsname')"/>
             <input type="email" required name="email" placeholder="@lang('login.l-011-email')"/>
