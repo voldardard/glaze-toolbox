@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Register</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -144,19 +144,21 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" method="POST" action="/{{ app()->getLocale() }}/login">
-            <input type="text" autofocus required name="user" value="{{ old('user') }}" placeholder="@lang('login.l-001-username')"/>
+            <input type="text" required name="name" placeholder="@lang('login.l-009-name')"/>
+            <input type="text" required name="fsname" placeholder="@lang('login.l-010-fsname')"/>
+            <input type="email" required name="email" placeholder="@lang('login.l-011-email')"/>
+            <input type="text" required name="user" value="{{ old('user') }}" placeholder="@lang('login.l-001-username')"/>
             <input type="password" required name="password" placeholder="@lang('login.l-002-password')"/>
-            <button>@lang('login.l-013-login')</button>
+            <button>@lang('login.l-012-register')</button>
             @csrf
         </form>
-        <p class="message">@lang('login.l-003-notregistredyet') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/register">@lang('login.l-004-createaccount')</a></p>
-        <p class="message">@lang('login.l-005-forgetPassword') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/forgot">@lang('login.l-006-resetyourpassword')</a></p>
+        <p class="message">@lang('login.l-014-alreadyregistred') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/login">@lang('login.l-015-connect')</a></p>
 
-    @if (session('error'))
+        @if (session('error'))
             <br /> <br /><span class="red">{{ session('error') }}</span></div>
     @endif
 
-    </div>
+</div>
 </div>
 
 </body>
