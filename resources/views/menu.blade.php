@@ -110,7 +110,8 @@
         background: #5C5C5C;
     }
 
-    #cssmenu #langs a{
+    #cssmenu #langs a,
+    #cssmenu #profile a{
         padding: 7px 25px 12px 25px;
         font-size: 15px;
         font-weight: 400;
@@ -118,19 +119,23 @@
         color: white;
         background: #444;
     }
-    #cssmenu #langs a:hover{
+    #cssmenu #langs a:hover,
+    #cssmenu #profile a:hover{
         background: #5C5C5C;
     }
-    #cssmenu #langs a:last-child{
+    #cssmenu #langs a:last-child,
+    #cssmenu #profile a:last-child{
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
     }
-    #cssmenu #langs{
+    #cssmenu #langs,
+    #cssmenu #profile{
         display:none;
         position: fixed;
         width: 123px;
     }
-    #cssmenu #langsContainer:hover div{
+    #cssmenu #langsContainer:hover div,
+    #cssmenu #profileContainer:hover div{
         display: block;
     }
 
@@ -139,10 +144,14 @@
     <ul>
         <li class='active'><a href='/{{ app()->getLocale() }}/'>@lang('menu.m-001-home')</a></li>
         <li><a href='/{{ app()->getLocale() }}/categories'>@lang('menu.m-002-categories')</a></li>
-        <li><a href='/{{ app()->getLocale() }}/list'>@lang('menu.m-003-list')</a></li>
+        <li><a href='/{{ app()->getLocale() }}/insert'>@lang('menu.m-005-insert')</a></li>
 
-        <li class="right"><a href='#'>{{session('username')}}</a></li>
-        <li class="right"><a href='/{{ app()->getLocale() }}/logout'>@lang('menu.m-004-logout')</a></li>
+        <li class="right" id="profileContainer"><a href='#'><i class="fa fa-user" aria-hidden="true"></i> {{session('username')}}</a>
+            <div id="profile">
+                <a href='/{{ app()->getLocale() }}/list'>@lang('menu.m-003-list')</a>
+                <a href='/{{ app()->getLocale() }}/logout'>@lang('menu.m-004-logout')</a>
+            </div>
+        </li>
         <li class="right" id="langsContainer" >
             <a href="#" >Languages</a>
                 <div id="langs">
