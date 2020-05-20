@@ -109,14 +109,15 @@
     #cssmenu > ul > li > a:hover:after {
         background: #5C5C5C;
     }
-    #cssmenu #langs{
-        display:none;
-    }
-    #cssmenu #langs:hover #langs{
-        display:block;
+    #cssmenu #langs {
+        display: block;
         position: absolute;
     }
     #cssmenu #langs a{
+        display:none;
+    }
+    #cssmenu #langs:hover a{
+        display: block;
         padding: 15px 25px 12px 25px;
         font-size: 15px;
         font-weight: 400;
@@ -124,6 +125,7 @@
         color: white;
         background: #444;
     }
+
 </style>
 <div id='cssmenu'>
     <ul>
