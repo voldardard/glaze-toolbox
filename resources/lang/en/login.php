@@ -17,7 +17,7 @@ return [
     'l-014-alreadyregistred' => 'Already registered ?',
     'l-015-connect' => 'Connect !',
     'l-016-emailorusernameAlreadyInUse' => 'Email address or username already in use !',
-    'l-017-account_disable' => 'Account disabled ! <br/>If the account has just been created, it can take a little time to our team to validate your registration.<br/>',
+    'l-017-account_disable' => 'Account disabled ! <br/> <br/>If the account has just been created, it can take a little time to our team to validate your registration.',
     'l-018-unauthorized' => 'Not authorized',
     'l-019-successfullycreated' => 'Account successfully created ! <br/><br/> Your registration is now waiting for a validation from our team. <br/> <br/>You will receive an email when the account will be available',
     'l-020-expired' => 'Session expired',

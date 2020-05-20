@@ -32,7 +32,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
     Route::middleware("auth.classic")->group(function () {
         Route::get('/', function () {
-            dd(session()->all());
             return view('welcome');
         })->name('home');
     });
@@ -43,7 +42,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $back_url = route('home');
         }
         session(['link' => $back_url]);
-        print_r(session()->all());
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');

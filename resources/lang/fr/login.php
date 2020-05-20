@@ -17,9 +17,9 @@ return [
     'l-014-alreadyregistred' => 'Déjà enregistré ?',
     'l-015-connect' => 'Se connecter !',
     'l-016-emailorusernameAlreadyInUse' => 'Addresse email ou nom d\'utilisateur déjà utilisé !',
-    'l-017-account_disable' => 'Compte désactivé ! <br/> Si le compte vient d\'être créé, cela peut prendre un peu de temps à notre équipe pour valider votre inscription. <br/>',
+    'l-017-account_disable' => 'Compte désactivé ! <br/>  <br/> Si le compte vient d\'être créé, cela peut prendre un peu de temps à notre équipe pour valider votre inscription.',
     'l-018-unauthorized' => 'Accès non autorisé !',
-    'l-019-successfullycreated' => 'Compte créé avec succès ! <br/> Votre enregistrement est en attente d\'une validation de notre équipe<br/>Vous recevrez un email lorsque celui ci sera disponible',
+    'l-019-successfullycreated' => 'Compte créé avec succès ! <br/> <br/> Votre enregistrement est en attente d\'une validation de notre équipe<br/> <br/>Vous recevrez un email lorsque celui ci sera disponible',
     'l-020-expired' => 'Session expirée',
 
 
