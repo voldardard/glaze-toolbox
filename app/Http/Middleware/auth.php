@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Lang;
 
 class auth
 {
@@ -31,8 +32,9 @@ class auth
         ]);
 
         if ($validator->fails()) {
-            return Redirect::to(route('login'));
+            return Redirect::to(route('login'))->withError(Lang::get('login.l-018-unauthorized'));
         }
+        //if(session()->get('login'))
 
         return $next($request);
     }

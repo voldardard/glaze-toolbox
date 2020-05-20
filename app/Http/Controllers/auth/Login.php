@@ -51,7 +51,8 @@ class Login extends Controller{
                 "fsname"=>$user->fsname,
                 "id"=>$user->id,
                 "email"=>$user->email,
-                "admin"=>$user->admin
+                "admin"=>$user->admin,
+                "login"=>now(),
             ]);
             return true;
 
