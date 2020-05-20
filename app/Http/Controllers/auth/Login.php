@@ -24,6 +24,7 @@ class Login extends Controller{
             'password' => 'required|string',
         ]);
     print_r($validatedData);
+    die();
         if(! self::test_connection($request->input('user'), $request->input('password'))){
             return Redirect::back()->withError( Lang::get('login.l-007-usernameorpasswordmissmatch'))->withInput();
         }
