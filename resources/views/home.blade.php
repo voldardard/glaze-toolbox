@@ -116,7 +116,7 @@
     </style>
 </head>
 <body>
-@include('view.menu')
+@include('menu')
 <div class="search-page">
     <div class="form">
         <form class="search-form" method="POST" action="/{{ app()->getLocale() }}/search">
