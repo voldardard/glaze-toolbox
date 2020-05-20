@@ -32,7 +32,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
     Route::middleware("auth.classic")->group(function () {
         Route::get('/', function () {
-            return view('welcome');
+            return view('home');
         })->name('home');
     });
 

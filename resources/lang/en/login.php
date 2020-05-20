@@ -22,13 +22,4 @@ return [
     'l-019-successfullycreated' => 'Account successfully created ! <br/><br/> Your registration is now waiting for a validation from our team. <br/> <br/>You will receive an email when the account will be available',
     'l-020-expired' => 'Session expired',
 
-
-
-
-
-
-
-
-
-
 ];
