@@ -32,23 +32,16 @@ class Login extends Controller{
         $hashedpassword =Hash::make(env('SALT1').$password.env('SALT2'), ['rounds' => $rounds]);
 
         if(DB::table('users')->where(['username'=>$login, 'password'=>$hashedpassword])->exists()){
-            self::store_data($login);
-
+            session(DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $login)->first());
             return true;
         }else{
             return false;
         }
     }
-    private function store_data($login){
-        $user = DB::table('users')->where('username', $login)->first();
 
-        session(["name"=>$user->name, "fsname"=>$user->fsname, "username"=>$user->username, "id"=>$user->id, "email"=>$user->email]);
-
-    }
     public function logout(Request $request){
         $request->session()->flush();
         $request->session()->regenerate();
-        Cookie::forget('token');
         return Redirect::to(route('login'))->withError( "You've been disconnected" )->withInput();
 
     }
