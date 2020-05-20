@@ -30,10 +30,8 @@ class Register extends Controller{
         $rounds=(int)(strlen($validatedData['username'].env('ROUNDS').$validatedData['password'])/2);
         $hashedpassword =Hash::make(env('SALT1').$validatedData['password'].env('SALT2'), ['rounds' => $rounds]);
 
-        //DB::beginTransaction();
         try {
-            print_r($validatedData);
-            DB::table('users')->insert([
+            $id =DB::table('users')->insertgetid([
                 "username" => $validatedData['username'],
                 "name" => $validatedData['name'],
                 "fsname" => $validatedData['fsname'],
@@ -42,15 +40,11 @@ class Register extends Controller{
                 "created_at" => now(),
                 "updated_at" => now()
             ]);
-            print_r('enregistré: ');
         }catch (\Exception $e) {
-            DB::rollback();
             Log::info($e);
-            print_r($e);
-            die();
             return Redirect::back()->withError( Lang::get('login.l-016-emailorusernameAlreadyInUse'))->withInput();
         }
-        session(DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $validatedData['username'])->first());
+        session(DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('id', $id)->first());
 
         return Redirect::to(route('home'));
 
