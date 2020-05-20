@@ -27,7 +27,7 @@ class Login extends Controller{
         if(! self::test_connection($validatedData['username'], $validatedData['password'])){
             return Redirect::back()->withError( Lang::get('login.l-007-usernameorpasswordmissmatch'))->withInput();
         }
-        return Redirect::to(session('link'));
+        return Redirect::to(route('home'));
     }
     private function test_connection($login, $password){
 
