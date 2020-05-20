@@ -24,7 +24,7 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
     Route::get('/', function () {
-        print_r($_SESSION);
+        dd(session()->all());
         return view('welcome');
     })->name('home');
 
