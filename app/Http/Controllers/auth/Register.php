@@ -44,10 +44,9 @@ class Register extends Controller{
             Log::info($e);
             return Redirect::back()->withError( Lang::get('login.l-016-emailorusernameAlreadyInUse'))->withInput();
         }
-        $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('id', $id)->first();
-        print_r($user);
-        die();
-        //session($user);
+        $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('id', $id)->first()->toArray;
+
+        session($user);
 
         return Redirect::to(route('home'));
 
