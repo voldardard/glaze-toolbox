@@ -123,7 +123,7 @@
             text-decoration: none;
             font-weight: bolder;
         }
-        .form .h1 {
+        .form h1 {
             color: #5C5C5C;
             text-align: center;
             font: bold 80px arial,sans-serif;
