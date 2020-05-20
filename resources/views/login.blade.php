@@ -149,14 +149,14 @@
             <button>Log-in</button>
             @csrf
         </form>
-        <p class="message">Pas encore enregistré ? &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/register">Créer un compte !</a></p>
-        <p class="message">Mot de passe oublié ? &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/forgot">Retrouvez votre mot de passe</a></p>
+        <p class="message">@lang('login.l-003-notregistredyet') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/register">@lang('login.l-004-createaccount')</a></p>
+        <p class="message">@lang('login.l-005-forgetPassword') &nbsp;&nbsp;<a href="/{{ app()->getLocale() }}/forgot">@lang('login.l-006-resetyourpassword')</a></p>
 
     @if (session('error'))
             <br /> <br /><span class="red">{{ session('error') }}</span></div>
     @endif
 
-</div>
+    </div>
 </div>
 
 </body>
