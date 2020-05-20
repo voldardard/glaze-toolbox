@@ -24,7 +24,7 @@ class Login extends Controller{
         ]);
 
         if(! self::test_connection($request->input('user'), $request->input('password'))){
-            return Redirect::back()->withError( "Username or password missmatch")->withInput();
+            return Redirect::back()->withError( Lang::get('login.l-007-usernameorpasswordmissmatch'))->withInput();
         }
         return Redirect::to(route('action'));
     }
@@ -43,7 +43,7 @@ class Login extends Controller{
     public function logout(Request $request){
         $request->session()->flush();
         $request->session()->regenerate();
-        return Redirect::to(route('login'))->withError( "You've been disconnected" )->withInput();
+        return Redirect::to(route('login'))->withError(  Lang::get('login.l-008-disconnectSuccess') )->withInput();
 
     }
 }

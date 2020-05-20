@@ -7,6 +7,9 @@ return [
     'l-004-createaccount' => 'Create an account !',
     'l-005-forgetPassword' => 'Forget your password ?',
 'l-006-resetyourpassword' => 'Reset your password !',
+    'l-007-usernameorpasswordmissmatch' => 'Username or password missmatch !',
+    'l-008-disconnectSuccess' => 'You\'ve been successfully disconnected !',
+
 
 
 
