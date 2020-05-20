@@ -35,4 +35,9 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         return view('welcome');
     });
 
+
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+
 });
