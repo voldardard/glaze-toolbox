@@ -20,14 +20,14 @@ class Login extends Controller{
 
     public function __invoke(Request $request){
         $validatedData = $request->validate([
-            'user' => 'required|string',
+            'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        if(! self::test_connection($validatedData['user'], $validatedData['password'])){
+        if(! self::test_connection($validatedData['username'], $validatedData['password'])){
             return Redirect::back()->withError( Lang::get('login.l-007-usernameorpasswordmissmatch'))->withInput();
         }
-        return Redirect::to(route('action'));
+        return Redirect::to(route('home'));
     }
     private function test_connection($login, $password){
         $rounds=(int)(strlen($login.env('ROUNDS').$password)/2);

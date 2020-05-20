@@ -23,6 +23,11 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
 
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+
+
     Route::get('/login', function () {
         return view('login');
     })->name('login');

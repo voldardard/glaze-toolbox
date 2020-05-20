@@ -16,6 +16,8 @@ return [
     'l-013-login' => 'Log-in',
     'l-014-alreadyregistred' => 'Already registered ?',
     'l-015-connect' => 'Connect !',
+    'l-016-emailorusernameAlreadyInUse' => 'Email address or username already in use !',
+
 
 
 

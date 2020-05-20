@@ -144,7 +144,7 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" method="POST" action="/{{ app()->getLocale() }}/login">
-            <input type="text" autofocus required name="user" value="{{ old('user') }}" placeholder="@lang('login.l-001-username')"/>
+            <input type="text" autofocus required name="username" value="{{ old('username') }}" placeholder="@lang('login.l-001-username')"/>
             <input type="password" required name="password" placeholder="@lang('login.l-002-password')"/>
             <button>@lang('login.l-013-login')</button>
             @csrf

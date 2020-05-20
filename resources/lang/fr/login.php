@@ -16,4 +16,6 @@ return [
     'l-013-login' => 'Se connecter',
     'l-014-alreadyregistred' => 'Déjà enregistré ?',
     'l-015-connect' => 'Se connecter !',
+    'l-016-emailorusernameAlreadyInUse' => 'Addresse email ou nom d\'utilisateur déjà utilisé !',
+
 ];

@@ -144,10 +144,10 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" method="POST" action="/{{ app()->getLocale() }}/register">
-            <input type="text" required name="name" placeholder="@lang('login.l-009-name')"/>
-            <input type="text" required name="fsname" placeholder="@lang('login.l-010-fsname')"/>
-            <input type="email" required name="email" placeholder="@lang('login.l-011-email')"/>
-            <input type="text" required name="user" value="{{ old('user') }}" placeholder="@lang('login.l-001-username')"/>
+            <input type="text" required name="name"  value="{{ old('name') }}" placeholder="@lang('login.l-009-name')"/>
+            <input type="text" required name="fsname" value="{{ old('fsname') }}"  placeholder="@lang('login.l-010-fsname')"/>
+            <input type="email" required name="email" value="{{ old('email') }}"  placeholder="@lang('login.l-011-email')"/>
+            <input type="text" required name="username" value="{{ old('username') }}" placeholder="@lang('login.l-001-username')"/>
             <input type="password" required name="password" placeholder="@lang('login.l-002-password')"/>
             <button>@lang('login.l-012-register')</button>
             @csrf
