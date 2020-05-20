@@ -33,7 +33,7 @@ class Register extends Controller{
         DB::beginTransaction();
         try {
             $id = DB::table('users')->insertGetId(["username" => $validatedData['username'], "name" => $validatedData ['name'], "fsname" => $validatedData ['fsname'], "email" => $validatedData ['email'], "password" => $hashedpassword, "created_at" => now(), "updated_at" => now()]);
-            print_r('enregistré');
+            print_r('enregistré: '.$id);
             die();
         }catch (\Exception $e) {
             DB::rollback();
