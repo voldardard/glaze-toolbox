@@ -21,6 +21,8 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
     App::setLocale($locale);
 }
 
+Route::get('/logout', 'auth\Login@logout')->name('logout-classic');
+
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
@@ -40,5 +42,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         return view('register');
     })->name('register');
     Route::post('/register', 'auth\Register');
+    Route::get('/logout', 'auth\Login@logout')->name('logout');
+
 });
 
