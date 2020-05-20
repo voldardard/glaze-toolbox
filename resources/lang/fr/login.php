@@ -20,6 +20,7 @@ return [
     'l-017-account_disable' => 'Compte désactivé ! <br/> Si le compte vient d\'être créé, cela peut prendre un peu de temps à notre équipe pour valider votre inscription. <br/>',
     'l-018-unauthorized' => 'Accès non autorisé !',
     'l-019-successfullycreated' => 'Compte créé avec succès ! <br/> Votre enregistrement est en attente d\'une validation de notre équipe<br/>Vous recevrez un email lorsque celui ci sera disponible',
+    'l-020-expired' => 'Session expirée',
 
 
 ];
