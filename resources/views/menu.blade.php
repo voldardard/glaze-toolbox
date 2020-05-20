@@ -116,6 +116,7 @@
         <li><a href='/{{ app()->getLocale() }}/categories'>@lang('menu.m-002-categories')</a></li>
         <li><a href='/{{ app()->getLocale() }}/list'>@lang('menu.m-003-list')</a></li>
         <li class="right">
+            <a href="#">Languages</a>
             @foreach (Config::get('app.availables_locale') as $lang => $language)
                 <span id="{{$lang}}" >{{$language}}</span>
             @endforeach
