@@ -27,8 +27,7 @@ class Register extends Controller{
             'email' => 'required|email|max:60',
             'password' => 'required|string',
         ]);
-        $rounds=(int)(strlen($validatedData['username'].env('ROUNDS').$validatedData['password'])/2);
-        $hashedpassword =Hash::make(env('SALT1').$validatedData['password'].env('SALT2'), ['rounds' => $rounds]);
+        $hashedpassword =Hash::make(env('SALT1').$validatedData['password'].env('SALT2'));
 
         try {
             $id =DB::table('users')->insertgetid([

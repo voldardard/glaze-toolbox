@@ -30,13 +30,12 @@ class Login extends Controller{
         return Redirect::to(route('home'));
     }
     private function test_connection($login, $password){
-        $rounds=(int)(strlen($login.env('ROUNDS').$password)/2);
-        $hashedpassword =Hash::make(env('SALT1').$password.env('SALT2'), ['rounds' => $rounds]);
-        print_r($hashedpassword);
-        die();
 
-        if(DB::table('users')->where(['username'=>$login, 'password'=>$hashedpassword])->exists()){
-            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $login)->first();
+        if(DB::table('users')->where(['username'=>$login])->exists()){
+            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password")->where('username', $login)->first();
+            if(! Hash::check($password, $user->password)){
+                return false;
+            }
             session([
                 "username"=>$user->username,
                 "name"=>$user->name,
