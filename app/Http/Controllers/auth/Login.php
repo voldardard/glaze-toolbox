@@ -32,6 +32,8 @@ class Login extends Controller{
     private function test_connection($login, $password){
         $rounds=(int)(strlen($login.env('ROUNDS').$password)/2);
         $hashedpassword =Hash::make(env('SALT1').$password.env('SALT2'), ['rounds' => $rounds]);
+        print_r($hashedpassword);
+        die();
 
         if(DB::table('users')->where(['username'=>$login, 'password'=>$hashedpassword])->exists()){
             $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $login)->first();
