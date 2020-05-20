@@ -28,6 +28,9 @@ class Login extends Controller{
         return Redirect::to(route('action'));
     }
     private function test_connection($login, $password){
+        $var=env('ROUNDS');
+        echo $var;
+        die();
         $rounds=(int)(count_chars($login.env('ROUNDS').$password)/2);
         $hashedpassword =Hash::make(env('SALT1').$password.env('SALT2'), ['rounds' => $rounds]);
 
