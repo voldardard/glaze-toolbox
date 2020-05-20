@@ -166,7 +166,7 @@
             <br /> <br /><span class="green">{{ session('success') }}</span></div>
         @endif
         @if (session('error'))
-                <br /> <br /><span class="red">{{ session('error') }}</span></div>
+                <br /> <br /><span class="red">{!! session('error') !!}</span></div>
         @endif
 
     </div>
