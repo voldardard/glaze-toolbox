@@ -33,9 +33,7 @@ class Login extends Controller{
 
         if(DB::table('users')->where(['username'=>$login])->exists()){
             $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password")->where('username', $login)->first();
-            if(! Hash::check($password, $user->password)){
-                print_r('password missmatch');
-                die();
+            if(! Hash::check(env('SALT1').$password.env('SALT2'), $user->password)){
                 return false;
             }
             session([
