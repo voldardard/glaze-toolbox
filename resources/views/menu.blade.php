@@ -1,6 +1,17 @@
 <style>
     #cssmenu,
-    #cssmenu ul,
+    #cssmenu ul{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+        line-height: 1;
+        display: block;
+     /*   position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;*/
+    }
     #cssmenu ul li,
     #cssmenu ul li a {
         margin: 0;
@@ -9,10 +20,10 @@
         list-style: none;
         line-height: 1;
         display: block;
-        position: relative;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+         position: relative;
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
     }
     #cssmenu:after,
     #cssmenu > ul:after {
