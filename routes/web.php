@@ -34,6 +34,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     });
 
     Route::get('/login', function () {
+        session(['link' => url()->previous()]);
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');
