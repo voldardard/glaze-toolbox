@@ -68,7 +68,7 @@
             font-family: "Roboto", sans-serif;
         }
         .search-page {
-            width: 390px;
+            width: 80%;
             padding: 8% 0 0;
             margin: auto;
         }
@@ -76,7 +76,6 @@
             position: relative;
             z-index: 1;
             background: #FFFFFF;
-            max-width: 390px;
             margin: 0 auto 100px;
             padding: 45px;
             text-align: center;
@@ -105,6 +104,10 @@
             font-size: 14px;
             transition: all;
             cursor: pointer;
+        }
+        .form .search-button{
+            position: absolute;
+            right: 45px;
         }
         .form button:hover,.form button:active,.form button:focus {
             background: #434343;
@@ -145,8 +148,9 @@
 <div class="search-page">
     <div class="form">
         <form class="search-form" method="POST" action="/{{ app()->getLocale() }}/search">
+            <h1>Cera.Chat - lookup</h1>
             <input type="text" autofocus required name="search" placeholder="Ex: temoku kaki"/>
-            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
             @csrf
         </form>
     </div>
