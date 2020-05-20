@@ -36,7 +36,7 @@ class auth
             $request->session()->regenerate();
             return Redirect::to(route('login'))->withError(Lang::get('login.l-018-unauthorized'));
         }
-        if(session()->get('login')->diffInDays(now())<30){
+        if(session()->get('login')->diffInDays(now())>30){
             $request->session()->flush();
             $request->session()->regenerate();
             return Redirect::to(route('login'))->withError(Lang::get('login.l-020-expired'));
