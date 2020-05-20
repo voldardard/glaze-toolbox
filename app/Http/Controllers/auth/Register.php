@@ -33,12 +33,21 @@ class Register extends Controller{
         DB::beginTransaction();
         try {
             print_r($validatedData);
-            DB::table('users')->insert(["username" => $validatedData['username'], "name" => $validatedData['name'], "fsname" => $validatedData['fsname'], "email" => $validatedData['email'], "password" => $hashedpassword, "created_at" => now(), "updated_at" => now()]);
+            DB::table('users')->insert([
+                "username" => $validatedData['username'],
+                "name" => $validatedData['name'],
+                "fsname" => $validatedData['fsname'],
+                "email" => $validatedData['email'],
+                "password" => $hashedpassword,
+                "created_at" => now(),
+                "updated_at" => now()
+            ]);
             print_r('enregistré: ');
-            die();
         }catch (\Exception $e) {
             DB::rollback();
             Log::info($e);
+            print_r($e);
+            die();
             return Redirect::back()->withError( Lang::get('login.l-016-emailorusernameAlreadyInUse'))->withInput();
         }
         session(DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('usrname', $validatedData['username'])->first());
