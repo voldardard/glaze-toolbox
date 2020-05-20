@@ -22,22 +22,14 @@ if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
 }
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => Config::get('app.locale')], function () {
 
-    Route::get('/', function () {
-	echo CONFIG::get('app.locale');
-        echo "test";
-        return view('welcome');
-    });
 
 
     Route::get('/login', function () {
         return view('login');
     })->name('login');
+    Route::post('/login', 'auth\Login');
+
 
 });
