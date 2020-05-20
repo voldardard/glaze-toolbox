@@ -34,7 +34,15 @@ class Login extends Controller{
         $hashedpassword =Hash::make(env('SALT1').$password.env('SALT2'), ['rounds' => $rounds]);
 
         if(DB::table('users')->where(['username'=>$login, 'password'=>$hashedpassword])->exists()){
-            session(DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $login)->first());
+            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin")->where('username', $login)->first();
+            session([
+                "username"=>$user->username,
+                "name"=>$user->name,
+                "fsname"=>$user->fsname,
+                "id"=>$user->id,
+                "email"=>$user->email,
+                "admin"=>$user->admin
+            ]);
             return true;
         }else{
             return false;
