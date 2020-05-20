@@ -17,6 +17,7 @@ return [
     'l-014-alreadyregistred' => 'Already registered ?',
     'l-015-connect' => 'Connect !',
     'l-016-emailorusernameAlreadyInUse' => 'Email address or username already in use !',
+    'l-017-account_disable' => 'Account disabled ! <br/>If the account has just been created, it can take a little time to our team to validate your registration.<br/>',
 
 
 

@@ -17,6 +17,7 @@ use Lang;
 
 
 class Login extends Controller{
+    private $message;
 
     public function __invoke(Request $request){
         $validatedData = $request->validate([
@@ -25,15 +26,23 @@ class Login extends Controller{
         ]);
 
         if(! self::test_connection($validatedData['username'], $validatedData['password'])){
-            return Redirect::back()->withError( Lang::get('login.l-007-usernameorpasswordmissmatch'))->withInput();
+            return Redirect::back()->withError($this->message)->withInput();
         }
         return Redirect::to(route('home'));
     }
     private function test_connection($login, $password){
-
+        //user exist
         if(DB::table('users')->where(['username'=>$login])->exists()){
-            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password")->where('username', $login)->first();
+            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password", "enable")->where('username', $login)->first();
+
+            if($user->enable==false){
+                $this->message=Lang::get('login.l-017-account_disable');
+                return false;
+            }
+
+
             if(! Hash::check(env('SALT1').$password.env('SALT2'), $user->password)){
+                $this->message = Lang::get('login.l-007-usernameorpasswordmissmatch');
                 return false;
             }
             session([
@@ -45,6 +54,11 @@ class Login extends Controller{
                 "admin"=>$user->admin
             ]);
             return true;
+
+
+
+
+
         }else{
             return false;
         }

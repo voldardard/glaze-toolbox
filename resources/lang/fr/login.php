@@ -17,5 +17,7 @@ return [
     'l-014-alreadyregistred' => 'Déjà enregistré ?',
     'l-015-connect' => 'Se connecter !',
     'l-016-emailorusernameAlreadyInUse' => 'Addresse email ou nom d\'utilisateur déjà utilisé !',
+    'l-017-account_disable' => 'Compte désactivé ! <br/> Si le compte vient d\'être créé, cela peut prendre un peu de temps à notre équipe pour valider votre inscription. <br/>',
+
 
 ];
