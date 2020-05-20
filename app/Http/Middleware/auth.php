@@ -36,6 +36,10 @@ class auth
         }
         //if(session()->get('login'))
 
+        if(! DB::table('users')->where(['username'=>session()->get('username'), 'enable'=>true])->exists()){
+            return Redirect::to(route('login'))->withError(Lang::get('login.l-018-unauthorized'));
+        }
+
         return $next($request);
     }
 }
