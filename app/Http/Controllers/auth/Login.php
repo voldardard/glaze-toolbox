@@ -53,7 +53,7 @@ class Login extends Controller{
     public function logout(Request $request){
         $request->session()->flush();
         $request->session()->regenerate();
-        return Redirect::to(route('login'))->withError(  Lang::get('login.l-008-disconnectSuccess') )->withInput();
+        return Redirect::to(route('login'))->with('success', Lang::get('login.l-008-disconnectSuccess') )->withInput();
 
     }
 }

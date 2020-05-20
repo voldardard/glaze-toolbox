@@ -162,7 +162,9 @@
                 </ul>
             </div>
         @endif
-
+        @if (session('success'))
+            <br /> <br /><span class="green">{{ session('success') }}</span></div>
+        @endif
         @if (session('error'))
                 <br /> <br /><span class="red">{{ session('error') }}</span></div>
         @endif
