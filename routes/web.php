@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 //Get the language requested
 $locale = \Request::segment(1);
 
+
 if (in_array($locale, array_keys(Config::get('app.availables_locale')))){
     App::setLocale($locale);
 }

@@ -112,11 +112,16 @@
 </style>
 <div id='cssmenu'>
     <ul>
-        <li class='active'><a href='#'>Home</a></li>
-        <li><a href='#'>Catégories</a></li>
-        <li><a href='#'>List</a></li>
+        <li class='active'><a href='/{{ app()->getLocale() }}/'>@lang('menu.m-001-home')</a></li>
+        <li><a href='/{{ app()->getLocale() }}/categories'>@lang('menu.m-002-categories')</a></li>
+        <li><a href='/{{ app()->getLocale() }}/list'>@lang('menu.m-003-list')</a></li>
+        <li class="right">
+            @foreach (Config::get('app.availables_locale') as $lang => $language)
+                <span id="{{$lang}}" >{{$language}}</span>
+            @endforeach
+        </li>
         <li class="right"><a href='#'>{{session('username')}}</a></li>
-        <li class="right"><a href='/{{ app()->getLocale() }}/logout'>Logout</a></li>
+        <li class="right"><a href='/{{ app()->getLocale() }}/logout'>@lang('menu.m-004-logout')</a></li>
 
     </ul>
 </div>
