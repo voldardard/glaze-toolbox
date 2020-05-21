@@ -82,7 +82,7 @@ body{
     background: #434343;
 }
 .form #labels input{
-    width: 48%;
+    width: 30%;
     float: left;
     margin-right: 2%;
 }
@@ -98,7 +98,9 @@ body{
 }
 .form #labels .remove-label{
     position: relative;
-    right: 8%;
+    right: 3%;
+    padding-right: 0;
+    padding-left: 0
 }
 .form .left{
     float: left;

@@ -17,7 +17,8 @@ function add_label(){
     a.setAttribute('onclick', 'remove_label('+label_count+')');
 
     var i = document.createElement('i');
-    i.classList.add("fa fa-minus-square");
+    i.classList.add("fa");
+    i.classList.add("fa-minus-square");
     i.setAttribute('aria-hidden', 'true');
     a.innerHTML(i);
 
