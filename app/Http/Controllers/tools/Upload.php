@@ -21,9 +21,10 @@ use App;
 
 class Upload extends Controller{
     public function __invoke(Request $request){
+        print_r($_FILES);
         if (isset($_FILES['files'])) {
             $errors = [];
-            $path=[];
+            $uri=[];
             $path = public_path().'tmp/';
             $extensions = ['jpg', 'jpeg', 'png', 'gif'];
             $file_size_limit=2097152;
@@ -50,14 +51,14 @@ class Upload extends Controller{
 
                 if (empty($errors)) {
                     move_uploaded_file($file_tmp, $file);
-                    $path[]=url('tmp/'.$file_sha.$file_name);
+                    $uri[]=url('tmp/'.$file_sha.$file_name);
                 }
             }
 
             if ($errors){
                 return response($errors, 415);
             }else{
-                return response($path, 200);
+                return response($uri, 200);
             }
         }else{
             return response('No content', 204)->header('Content-Type', 'text/plain');
