@@ -1,4 +1,6 @@
 var label_count=0;
+const url = '/tmp/upload';
+
 
 function add_label(){
     label_count++;
@@ -32,4 +34,19 @@ function remove_label(label_id){
     document.getElementById( 'label-'+(label_id)).remove();
     document.getElementById( 'label-remove-'+(label_id)).remove();
 }
+function tmp_upload(id){
+    const files = document.getElementById(id).files;
+    formData = new FormData();
 
+    for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        formData.append('pic[]', file);
+    }
+
+    fetch(url, {
+        method: 'POST',
+        body: formData,
+    }).then(response => {
+        console.log(response)
+    });
+}
