@@ -33,7 +33,7 @@
                 <input type="text"  required name="category" placeholder="Categories"/>
                 <div id="labels">
                     <a onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
-                    <input type="text" placeholder="Label" name="label[0]" >
+                    <input type="text" placeholder="Label" name="label[0]" ><a class="remove_label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
 
                 </div>
             </div>
