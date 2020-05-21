@@ -129,4 +129,3 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-autocomplete(document.getElementById("add-categories"), countries);

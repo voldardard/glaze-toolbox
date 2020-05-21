@@ -49,6 +49,8 @@
         </form>
     </div>
 </div>
-
+<script type="text/javascript">
+    autocomplete(document.getElementById("add-categories"), countries);
+</script>
 </body>
 </html>
