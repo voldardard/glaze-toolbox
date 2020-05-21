@@ -46,6 +46,7 @@
 
             <div class="right">
                 <div id="upload">
+                    <h3>Recipe pictures</h3>
                     <input id="upload-pic" type="file" name="pic" />
                     <a onclick="console.log('upload....')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
                 </div>
