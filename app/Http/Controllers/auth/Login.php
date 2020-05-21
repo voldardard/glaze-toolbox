@@ -33,13 +33,15 @@ class Login extends Controller{
     private function test_connection($login, $password){
         //user exist
         if(DB::table('users')->where(['username'=>$login])->exists()){
-            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password", "enable")->where('username', $login)->first();
+            $user =DB::table('users')->select("name", "fsname", "username", "id", "email", "admin", "password", "enable", "locale")->where('username', $login)->first();
 
             if($user->enable==false){
                 $this->message=Lang::get('login.l-017-account_disable');
                 return false;
             }
-
+            if (in_array($user->locale, array_keys(Config::get('app.availables_locale')))){
+                App::setLocale($user->locale);
+            }
 
             if(! Hash::check(env('SALT1').$password.env('SALT2'), $user->password)){
                 //password missmatch
@@ -56,10 +58,6 @@ class Login extends Controller{
                 "login"=>now(),
             ]);
             return true;
-
-
-
-
 
         }else{
             //user missmatch

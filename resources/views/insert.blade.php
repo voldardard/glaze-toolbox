@@ -26,7 +26,7 @@
             <input type="text" autofocus required name="category" placeholder="Catégorie"/>
             <input type="text" autofocus required name="category" placeholder="Catégorie"/>
 
-            <button class="insert-button"></button>
+            <button class="insert-button">Enregistrer</button>
             @csrf
         </form>
     </div>
