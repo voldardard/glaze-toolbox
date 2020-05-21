@@ -16,6 +16,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/insert.js') }}"></script>
+
+
 </head>
 <body>
 @include('menu')
@@ -26,12 +30,11 @@
             <div class="left">
 
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
-                <input type="text" autofocus required name="category" placeholder="Catégorie"/>
-                <div id="labels">
-                    <a onclick="console.log('héhéhéhé')" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un label</a>
-                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
-                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
-                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
+                <input type="text"  required name="category" placeholder="Categories"/>
+                <div value="0" id="labels">
+                    <a onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
+                    <input type="text"  required name="label[0]" placeholder="Label"/>
+
                 </div>
             </div>
 
