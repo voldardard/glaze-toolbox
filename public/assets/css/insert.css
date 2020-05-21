@@ -84,7 +84,6 @@ body{
 .form #labels input{
     width: 30%;
     float: left;
-    margin-right: 2%;
 }
 .form #labels a{
     padding: 15px;

@@ -20,7 +20,7 @@ function add_label(){
     i.classList.add("fa");
     i.classList.add("fa-minus-square");
     i.setAttribute('aria-hidden', 'true');
-    a.innerHTML(i);
+    a.appendChild(i);
 
     container.appendChild(a);
 
