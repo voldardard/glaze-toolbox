@@ -111,6 +111,13 @@ body{
     float: right;
     width: 45%;
 }
+.form #upload-pic{
+    width: 70%;
+    margin-right: 5%;
+}
+.form #upload a{
+    cursor: pointer;
+}
 .form .message {
     margin: 15px 0 0;
     color: #b3b3b3;

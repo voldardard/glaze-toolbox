@@ -45,7 +45,10 @@
             </div>
 
             <div class="right">
-                <label>Add a picture</label><input type="file" name="pic" /><a onclick="console.log('upload....')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
+                <div id="upload">
+                    <input id="upload-pic" type="file" name="pic" />
+                    <a onclick="console.log('upload....')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
+                </div>
             </div>
             <br />
             <button class="insert-button">Enregistrer</button>
