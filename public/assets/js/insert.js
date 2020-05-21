@@ -36,7 +36,11 @@ function remove_label(label_id){
 }
 function tmp_upload(id){
     const files = document.getElementById(id).files;
+    const csrf = document.getElementsByName('_csrf-token').content;
     formData = new FormData();
+    const headers = new Headers({
+        'X-CSRF-TOKEN': csrf
+    });
 
     for (let i = 0; i < files.length; i++) {
         let file = files[i];
@@ -45,6 +49,7 @@ function tmp_upload(id){
 
     fetch(url, {
         method: 'POST',
+        headers,
         body: formData,
     }).then(response => {
         console.log(response)
