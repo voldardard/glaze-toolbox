@@ -22,10 +22,19 @@
 <div class="insert-page">
     <div class="form">
         <form class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert">
-            <input type="text" autofocus required name="title" placeholder="Title"/>
-            <input type="text" autofocus required name="category" placeholder="Catégorie"/>
-            <input type="text" autofocus required name="category" placeholder="Catégorie"/>
+            <div class="left">
 
+                <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
+                <input type="text" autofocus required name="category" placeholder="Catégorie"/>
+                <div id="labels">
+                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
+                </div>
+                <a onclick="console.log('héhéhéhé')" ><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="right">
+
+            </div>
             <button class="insert-button">Enregistrer</button>
             @csrf
         </form>
