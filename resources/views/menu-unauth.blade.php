@@ -4,7 +4,7 @@
             <a href="#" >Languages</a>
             <div id="langs">
                 @foreach (Config::get('app.availables_locale') as $lang => $language)
-                    <a href="/{{$lang}}" >{{$language}}</a>
+                    <a href="/{{$lang.session('current_route')}}" >{{$language}}</a>
                 @endforeach
             </div>
         </li>

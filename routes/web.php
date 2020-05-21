@@ -33,24 +33,24 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
     Route::middleware("auth.classic")->group(function () {
         Route::get('/', function () {
+            session(['current_route'=>'/']);
             return view('home');
         })->name('home');
     });
 
     Route::get('/login', function () {
-        print_r(url()->current());
-        print_r($_SERVER);
-        die();
+
         $back_url = url()->previous();
         if ( (strpos($back_url, 'logout') !== false) OR (strpos($back_url, 'login') !== false) ) {
             $back_url = route('home');
         }
-        session(['link' => $back_url]);
+        session(['link' => $back_url, 'current_route'=>'/login']);
         return view('login');
     })->name('login');
     Route::post('/login', 'auth\Login');
 
     Route::get('/register', function () {
+        session(['current_route'=>'/register']);
         return view('register');
     })->name('register');
     Route::post('/register', 'auth\Register');
