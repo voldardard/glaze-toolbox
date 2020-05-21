@@ -13,12 +13,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}" >
 
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
     <script src="{{ asset('js/insert.js') }}"></script>
 
@@ -38,13 +40,14 @@
                 </div>
                 <div id="labels">
                     <a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
-                    <input id="label-0" type="text" placeholder="Label" name="label[]" />
-                    <a id="label-remove-0" class="remove-label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                    <!--<input id="label-0" type="text" placeholder="Label" name="label[]" />
+                    <a id="label-remove-0" class="remove-label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>-->
 
                 </div>
             </div>
 
             <div class="right">
+                <div class="dropzone"></div>
 
             </div>
             <br />
