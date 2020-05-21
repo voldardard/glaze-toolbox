@@ -21,10 +21,12 @@
 @include('menu')
 <div class="insert-page">
     <div class="form">
-        <form class="insert-form" method="POST" action="/{{ app()->getLocale() }}/search">
-            <h1>Cera.Chat - lookup</h1>
-            <input type="text" autofocus required name="search" placeholder="Ex: temoku kaki"/>
-            <button class="insert-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <form class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert">
+            <input type="text" autofocus required name="title" placeholder="Title"/>
+            <input type="text" autofocus required name="category" placeholder="Catégorie"/>
+            <input type="text" autofocus required name="category" placeholder="Catégorie"/>
+
+            <button class="insert-button"></button>
             @csrf
         </form>
     </div>

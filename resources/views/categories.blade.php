@@ -22,8 +22,8 @@
 <div class="category-page">
     <div class="form">
         <form class="category-form" method="POST" action="/{{ app()->getLocale() }}/search">
-            <h1>Cera.Chat - lookup</h1>
-            <input type="text" autofocus required name="search" placeholder="Ex: temoku kaki"/>
+            <input type="text" autofocus required name="search" placeholder="Title"/>
+            <input type="text" required name
             <button class="category-button"><i class="fa fa-search" aria-hidden="true"></i></button>
             @csrf
         </form>

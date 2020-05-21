@@ -56,11 +56,6 @@ body{
     transition: all;
     cursor: pointer;
 }
-.form .insert-button{
-    position: absolute;
-    right: 45px;
-    width: inherit;
-}
 .form button:hover,.form button:active,.form button:focus {
     background: #434343;
 }
