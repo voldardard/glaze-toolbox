@@ -93,7 +93,8 @@ body{
     font-size: 13px;
 }
 .form #labels .insert-label{
-    width:100%;
+    width: 30%;
+    padding-left: 0;
 }
 .form #labels .remove-label{
     position: relative;

@@ -31,5 +31,4 @@ function remove_label(label_id){
     console.log("remove: "+label_id)
     document.getElementById( 'label-'+(label_id)).remove();
     document.getElementById( 'label-remove-'+(label_id)).remove();
-    label_count--;
 }
