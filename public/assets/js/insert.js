@@ -37,6 +37,7 @@ function remove_label(label_id){
 function tmp_upload(id){
     const files = document.getElementById(id).files;
     const csrf = document.getElementsByName('_csrf-token').content;
+    console.log(csrf);
     formData = new FormData();
     const headers = new Headers({
         'X-CSRF-TOKEN': csrf
