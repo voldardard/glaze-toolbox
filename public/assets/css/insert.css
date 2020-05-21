@@ -54,7 +54,7 @@ body{
     box-sizing: border-box;
     font-size: 16px;
 }
-.form #title input {
+.form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
