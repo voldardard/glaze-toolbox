@@ -88,11 +88,17 @@ body{
 }
 .form #labels a{
     padding: 15px;
-    width: 50%;
     float: left;
     cursor: pointer;
     text-align: left;
     font-size: 13px;
+}
+.form #labels .insert-label{
+    width:100%;
+}
+.form #labels .remove-label{
+    position: relative;
+    right: 8%;
 }
 .form .left{
     float: left;
