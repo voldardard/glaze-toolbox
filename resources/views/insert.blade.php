@@ -27,9 +27,12 @@
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
                 <input type="text" autofocus required name="category" placeholder="Catégorie"/>
                 <div id="labels">
+                    <a onclick="console.log('héhéhéhé')" >Ajouter un mot clef<i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
+                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
+                    <input type="text" autofocus required name="label[]" placeholder="Label"/>
                     <input type="text" autofocus required name="label[]" placeholder="Label"/>
                 </div>
-                <a onclick="console.log('héhéhéhé')" ><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
             </div>
 
             <div class="right">
