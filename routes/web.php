@@ -38,7 +38,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     });
 
     Route::get('/login', function () {
-        print_r(Request::url());
+        print_r(url()->current());
         print_r($_SERVER);
         die();
         $back_url = url()->previous();
