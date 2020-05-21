@@ -38,6 +38,9 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     });
 
     Route::get('/login', function () {
+        print_r(Request::url());
+        print_r($_SERVER);
+        die();
         $back_url = url()->previous();
         if ( (strpos($back_url, 'logout') !== false) OR (strpos($back_url, 'login') !== false) ) {
             $back_url = route('home');
