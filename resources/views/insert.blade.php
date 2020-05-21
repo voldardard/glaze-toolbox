@@ -31,9 +31,9 @@
 
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
                 <input type="text"  required name="category" placeholder="Categories"/>
-                <div value="0" id="labels">
+                <div id="labels">
                     <a onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
-                    <input type="text"  required name="label[0]" placeholder="Label"/>
+                    <input type="text" placeholder="Label" name="label[0]" >
 
                 </div>
             </div>

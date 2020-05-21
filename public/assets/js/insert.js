@@ -12,6 +12,5 @@ function add_label(){
 
     container.appendChild(input);
 
-    document.getElementById("labels").value=label_count;
 
 }
