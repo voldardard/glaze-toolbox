@@ -31,7 +31,7 @@
 
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
                 <div class="autocomplete" style="width:300px;">
-                    <input type="text" id="categories" required name="category" placeholder="Categories"/>
+                    <input type="text" id="add-categories" required name="category" placeholder="Categories"/>
                 </div>
                 <div id="labels">
                     <a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
