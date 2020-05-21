@@ -94,8 +94,11 @@ body{
     text-align: left;
     font-size: 13px;
 }
+.form  #labels div{
+    height: 50px;
+}
 .form #labels .insert-label{
-    width: 30%;
+    width: 15%;
     padding-left: 0;
 }
 .form #labels .remove-label{
