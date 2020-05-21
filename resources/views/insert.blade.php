@@ -26,14 +26,16 @@
 <div class="insert-page">
     <h1>Insert a new recipe</h1>
     <div class="form">
-        <form class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert">
+        <form autocomplete="off" class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert">
             <div class="left">
 
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
-                <input type="text"  required name="category" placeholder="Categories"/>
+                <div class="autocomplete" style="width:300px;">
+                    <input type="text" id="categories" required name="category" placeholder="Categories"/>
+                </div>
                 <div id="labels">
                     <a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add a label</a>
-                    <input id="label-0" type="text" placeholder="Label" name="label[0]" />
+                    <input id="label-0" type="text" placeholder="Label" name="label[]" />
                     <a id="label-remove-0" class="remove-label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
 
                 </div>
