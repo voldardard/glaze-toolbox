@@ -112,16 +112,24 @@ body{
     width: 45%;
 }
 .form #upload-pic{
-    width: 70%;
+    width: 80%;
     margin-right: 5%;
 }
 .form #upload a{
     cursor: pointer;
+    position: relative;
+    right: 18%;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
     font-size: 12px;
+}
+.form h3{
+    text-align: left;
+    margin-left: 25px;
 }
 .form .message a {
     color: #151515;
