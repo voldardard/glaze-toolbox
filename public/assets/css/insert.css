@@ -19,8 +19,8 @@ body{
     font-family: "Roboto", sans-serif;
 }
 .insert-page {
-    width: 80%;
-    padding: 8% 0 0;
+    width: 90%;
+    padding: 1% 0 0;
     margin: auto;
 }
 .form {
@@ -82,14 +82,16 @@ body{
     background: #434343;
 }
 .form #labels input{
-    width: 50%;
+    width: 48%;
     float: left;
+    margin-right: 2%;
 }
 .form #labels a{
     padding: 15px;
     width: 50%;
     float: left;
     cursor: pointer;
+    text-align: left;
 }
 .form .left{
     float: left;
