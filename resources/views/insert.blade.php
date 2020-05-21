@@ -29,7 +29,7 @@
 <div class="insert-page">
     <h1>Insert a new recipe</h1>
     <div class="form">
-        <form autocomplete="off" class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert">
+        <form autocomplete="off" class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert" enctype="multipart/form-data">
             <div class="left">
 
                 <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
@@ -48,8 +48,8 @@
             <div class="right">
                 <div id="upload">
                     <h3>Recipe pictures</h3>
-                    <input id="upload-pic" type="file" name="pic" />
-                    <a onclick="console.log('upload....')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
+                    <input  multiple id="upload-pic" type="file" name="pic[]" />
+                    <a onclick="tmp_upload('upload-pic')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
                 </div>
             </div>
             <br />
