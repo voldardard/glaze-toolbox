@@ -36,6 +36,10 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route'=>'/']);
             return view('home');
         })->name('home');
+        Route::get('/insert', function () {
+            session(['current_route'=>'/insert']);
+            return view('insert');
+        })->name('insert');
     });
 
     Route::get('/login', function () {
