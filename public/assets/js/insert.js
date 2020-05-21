@@ -10,11 +10,13 @@ function add_label(){
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', 'Label');
     input.setAttribute('name', 'label['+label_count+']');
+    input.id= 'label-'+(label_count);
     container.appendChild(input);
 
     var a = document.createElement('a');
     a.classList.add("remove-label");
     a.setAttribute('onclick', 'remove_label('+label_count+')');
+    a.id= 'label-remove-'+(label_count);
 
     var i = document.createElement('i');
     i.classList.add("fa");
@@ -24,8 +26,10 @@ function add_label(){
 
     container.appendChild(a);
 
-
-
-
-
+}
+function remove_label(label_id){
+    console.log("remove: "+label_id)
+    document.getElementById( 'label-'+(label_id)).remove();
+    document.getElementById( 'label-remove-'+(label_id)).remove();
+    label_count--;
 }
