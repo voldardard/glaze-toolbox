@@ -35,7 +35,7 @@ class Upload extends Controller{
             return response($validator, 415);
         }
 
-        $files = $request->file('file');
+        $files = $request->file('pic');
 
         $url=[];
         foreach ($files as $file){
