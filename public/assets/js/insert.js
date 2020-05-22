@@ -1,5 +1,5 @@
 var label_count=0;
-const url = '/tmp/upload';
+const url = '/upload';
 
 
 function add_label(){

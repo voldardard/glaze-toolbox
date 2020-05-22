@@ -29,7 +29,7 @@ Route::get('/', function () {
     return Redirect::to(\route('home'));
 })->middleware('auth.classic');;
 
-Route::post('/tmp/upload', 'tools\Upload')->middleware('auth.classic');;
+Route::post('/upload', 'tools\Upload')->middleware('auth.classic');;
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
     //authenticated route
