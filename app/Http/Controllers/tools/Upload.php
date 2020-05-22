@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Lang;
 use Config;
 use App;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class Upload extends Controller{
@@ -37,11 +37,13 @@ class Upload extends Controller{
 
         $files = $request->file('file');
 
-
+        $url=[];
         foreach ($files as $file){
-            Storage::put($file->getClientOriginalName(), file_get_contents($file));
-            Storage::disk('local')->put('')
+            Storage::disk('tmp')->put(time().sha1($file->getClientOriginalName()).$file->getClientOriginalExtension(), file_get_contents($file));
+            $url[]=Storage::disk('tmp')->url($file->getClientOriginalName());
         };
+
+        return response($url, 200);
 
 
     }
