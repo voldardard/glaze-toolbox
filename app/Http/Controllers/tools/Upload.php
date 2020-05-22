@@ -39,8 +39,9 @@ class Upload extends Controller{
 
         $url=[];
         foreach ($files as $file){
-            Storage::disk('tmp')->put(time().sha1($file->getClientOriginalName()).$file->getClientOriginalExtension(), file_get_contents($file));
-            $url[]=Storage::disk('tmp')->url($file->getClientOriginalName());
+            $file_name=time().'_'.sha1($file->getClientOriginalName()).'.'.$file->getClientOriginalExtension();
+            Storage::disk('tmp')->put($file_name, file_get_contents($file));
+            $url[]=Storage::disk('tmp')->url($file_name);
         };
 
         return response($url, 200);
