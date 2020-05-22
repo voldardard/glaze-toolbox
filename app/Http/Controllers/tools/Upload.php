@@ -40,6 +40,7 @@ class Upload extends Controller{
 
         foreach ($files as $file){
             Storage::put($file->getClientOriginalName(), file_get_contents($file));
+            Storage::disk('local')->put('')
         };
 
 
