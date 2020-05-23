@@ -107,6 +107,20 @@ body{
     padding-right: 0;
     padding-left: 0
 }
+.form #upload div{
+    padding: 3%;
+}
+.form #upload div img{
+    width: 80px;
+    float: left;
+}
+.form #upload div input{
+    float: right;
+    width: 68%;
+    margin: 20px;
+    height: 40px;
+    margin-right: 15%;
+}
 .form .left{
     float: left;
     width: 45%;
