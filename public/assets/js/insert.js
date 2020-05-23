@@ -78,10 +78,11 @@ function tmp_upload(id){
         body: formData,
     }).then(function(response) {
         if (!response.ok) {
-            response.json();
             alert_warning('There was a problem with connection');
             console.log(response);
             console.log('Mauvaise code d\'erreur http');
+        }else{
+            return response.json();
         }
     }).then(data => {
         // Work with JSON data here
