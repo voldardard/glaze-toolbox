@@ -54,6 +54,6 @@ function tmp_upload(id){
         body: formData,
     }).then(response => {
         response.json().
-        console.log(response.json())
+        console.log(response)
     }).then(data => console.log(data));
 }
