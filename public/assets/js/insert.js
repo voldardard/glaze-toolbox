@@ -53,7 +53,11 @@ function tmp_upload(id){
         headers,
         body: formData,
     }).then(response => {
-        response.json().
-        console.log(response)
-    }).then(data => console.log(data));
+            if(response.ok) {
+                response.json()
+            }else{
+
+            }
+        })
+
 }

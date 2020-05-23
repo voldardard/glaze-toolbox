@@ -14,18 +14,25 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}" >
 
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
     <script src="{{ asset('js/insert.js') }}"></script>
 
 
 </head>
 <body>
+<div class="alert alert-danger alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Warning!</strong> There was a problem with connection.
+</div>
 @include('menu')
 <div class="insert-page">
     <h1>Insert a new recipe</h1>
