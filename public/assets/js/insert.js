@@ -69,6 +69,21 @@ function stop_loading(iconId){
     icon.classList.remove("fa-spinner");
     icon.classList.add("fa-upload");
 }
+function create_miniature(id, url){
+    container = document.getElementById(id);
+    container.appendChild(div);
+
+    var img = document.createElement('img');
+    img.setAttribute('src', url);
+    div.append(img);
+
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('placeholder', 'Nom de l\'image');
+    input.setAttribute('name', 'pictures');
+
+    div.appendChild(input);
+}
 function tmp_upload(id, iconId){
     let json_answer;
     start_loading(iconId);
@@ -102,6 +117,10 @@ function tmp_upload(id, iconId){
         json_answer=data;
         document.getElementById(id).value="";
         stop_loading(iconId);
+        //var json = JSON.parse(data);// here data is your response
+        for (var key in data) {
+            create_miniature(id, url);
+        }
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
             alert_warning('There was a problem with connection : '+error.message);
