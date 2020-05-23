@@ -90,7 +90,7 @@ function tmp_upload(id){
         // Work with JSON data here
         console.log(data);
         json_answer=data;
-        files.value="";
+        document.getElementById(id).value="";
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
             alert_warning('There was a problem with connection : '+error.message);
