@@ -58,10 +58,7 @@
                     <h3>Recipe pictures</h3>
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
                     <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>Upload</a>
-                    <div>
-                        <img src="http://glaze.cera.chat/tmp/1590252157_73633cd3dbefd09496abe435fd7e098f87e59dc5.jpg" />
-                        <input type="text" required name="picture-1" placeholder="Nom de l'image"/>
-                    </div>
+
                 </div>
             </div>
             <br />
