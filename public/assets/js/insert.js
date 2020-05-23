@@ -34,6 +34,29 @@ function remove_label(label_id){
     document.getElementById( 'label-'+(label_id)).remove();
     document.getElementById( 'label-remove-'+(label_id)).remove();
 }
+function alert_warning(message){
+    var container = document.getElementById("alert");
+
+
+    var div = document.createElement('div');
+    div.classList.add("alert");
+    div.classList.add("alert-danger");
+    div.classList.add("alert-dismissible");
+    div.classList.add("fade");
+    div.classList.add("show");
+    div.classList.add("fixed-top");
+    div.innerHTML=message;
+
+    var button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.classList.add("close");
+    button.setAttribute('data-dismiss', 'alert');
+    button.innerHTML='x';
+    div.appendChild(button);
+
+    container.appendChild(div);
+
+}
 function tmp_upload(id){
     const files = document.getElementById(id).files;
     const csrf = document.getElementsByName('_csrf-token')[0].content;
@@ -52,12 +75,22 @@ function tmp_upload(id){
         method: 'POST',
         headers,
         body: formData,
-    }).then(response => {
-            if(response.ok) {
-                response.json()
-            }else{
+    }).then(function(response) {
+        if(response.ok) {
+            json_answer= response.json();
+            console.log(json_answer);
+        } else {
+            alert_warning('There was a problem with connection');
+            console.log(response);
+            console.log('Mauvaise réponse du réseau');
+        }
+    }).catch(function(error) {
+            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            alert_warning('There was a problem with connection');
+        });
 
-            }
-        })
+
+
+
 
 }

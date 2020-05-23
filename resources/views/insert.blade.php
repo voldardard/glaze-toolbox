@@ -29,10 +29,10 @@
 
 </head>
 <body>
-<div class="alert alert-danger alert-dismissible fade show">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>Warning!</strong> There was a problem with connection.
+<div id="alert">
+
 </div>
+
 @include('menu')
 <div class="insert-page">
     <h1>Insert a new recipe</h1>
