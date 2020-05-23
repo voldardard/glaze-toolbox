@@ -71,6 +71,8 @@ function stop_loading(iconId){
 }
 function create_miniature(id, url){
     container = document.getElementById(id);
+    var div = document.createElement('div');
+
     container.appendChild(div);
 
     var img = document.createElement('img');
