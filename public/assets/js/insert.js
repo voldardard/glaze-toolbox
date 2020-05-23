@@ -85,7 +85,7 @@ function tmp_upload(id){
         }
     }).then(data => {
         // Work with JSON data here
-        console.log(data)
+        console.log(data);
         json_answer=data;
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
