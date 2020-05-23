@@ -72,6 +72,7 @@ function stop_loading(iconId){
 function tmp_upload(id, iconId){
     let json_answer;
     start_loading(iconId);
+    files = document.getElementById(id).files;
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     console.log(csrf);
     formData = new FormData();
