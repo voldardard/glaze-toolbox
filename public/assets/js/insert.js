@@ -57,10 +57,21 @@ function alert_warning(message){
     container.appendChild(div);
 
 }
-function tmp_upload(id){
+function start_loading(iconId){
+    const icon = document.getElementById(iconId);
+    icon.classList.remove("fa-upload");
+    icon.classList.add("fa-spinner");
+
+
+}
+function stop_loading(iconId){
+    const icon = document.getElementById(iconId);
+    icon.classList.remove("fa-spinner");
+    icon.classList.add("fa-upload");
+}
+function tmp_upload(id, iconId){
     let json_answer;
-    const files = document.getElementById(id).files;
-    const icon = document.getElementById('upload-icon');
+    start_loading(iconId);
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     console.log(csrf);
     formData = new FormData();
@@ -79,9 +90,6 @@ function tmp_upload(id){
         body: formData,
     }).then(function(response) {
         if (!response.ok) {
-            alert_warning('There was a problem with connection');
-            console.log(response);
-            console.log('Mauvaise code d\'erreur http');
             throw Error(response.statusText);
         }else{
             return response.json();
@@ -91,10 +99,12 @@ function tmp_upload(id){
         console.log(data);
         json_answer=data;
         document.getElementById(id).value="";
+        stop_loading(iconId);
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
             alert_warning('There was a problem with connection : '+error.message);
-        });
+            stop_loading(iconId);
+    });
 
 
 
