@@ -32,9 +32,13 @@ class Upload extends Controller{
 
 
         if ($validator->fails()) {
-            return response($validator, 415);
-        }
+            return response($validator->message(), 415);
 
+        }
+        if (empty($request->file('pic'))){
+            return response("No file ", 415);
+
+        }
         $files = $request->file('pic');
 
         $url=[];
