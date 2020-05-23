@@ -60,6 +60,7 @@ function alert_warning(message){
 function tmp_upload(id){
     let json_answer;
     const files = document.getElementById(id).files;
+    const icon = document.getElementById('upload-icon');
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     console.log(csrf);
     formData = new FormData();
@@ -81,6 +82,7 @@ function tmp_upload(id){
             alert_warning('There was a problem with connection');
             console.log(response);
             console.log('Mauvaise code d\'erreur http');
+            throw Error(response.statusText);
         }else{
             return response.json();
         }
@@ -88,12 +90,12 @@ function tmp_upload(id){
         // Work with JSON data here
         console.log(data);
         json_answer=data;
+        files.value="";
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
-            alert_warning('There was a problem with connection');
+            alert_warning('There was a problem with connection : '+error.message);
         });
 
-    console.log('end transaction');
 
 
 

@@ -57,7 +57,7 @@
                 <div id="upload">
                     <h3>Recipe pictures</h3>
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
-                    <a onclick="tmp_upload('upload-pic')"><i class="fa fa-upload" aria-hidden="true"></i>Upload</a>
+                    <a onclick="tmp_upload('upload-pic')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>Upload</a>
                 </div>
             </div>
             <br />
