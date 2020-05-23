@@ -73,7 +73,6 @@ function create_miniature(id, url){
     container = document.getElementById(id);
     div = document.createElement('div');
 
-    container.appendChild(div);
 
     var img = document.createElement('img');
     img.setAttribute('src', url);
@@ -85,6 +84,8 @@ function create_miniature(id, url){
     input.setAttribute('name', 'pictures');
 
     div.appendChild(input);
+    container.appendChild(div);
+
 }
 function tmp_upload(id, iconId){
     let json_answer;
