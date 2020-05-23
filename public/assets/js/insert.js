@@ -58,6 +58,7 @@ function alert_warning(message){
 
 }
 function tmp_upload(id){
+    let json_answer;
     const files = document.getElementById(id).files;
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     console.log(csrf);
@@ -76,18 +77,21 @@ function tmp_upload(id){
         headers,
         body: formData,
     }).then(function(response) {
-        if(response.ok) {
-            json_answer= response.json();
-            console.log(json_answer);
-        } else {
+        if (!response.ok) {
             alert_warning('There was a problem with connection');
             console.log(response);
             console.log('Mauvaise réponse du réseau');
         }
+    }).then(data => {
+        // Work with JSON data here
+        console.log(data)
+        json_answer=data;
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
             alert_warning('There was a problem with connection');
         });
+
+    console.log('end transaction');
 
 
 
