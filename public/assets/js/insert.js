@@ -80,7 +80,7 @@ function tmp_upload(id){
         if (!response.ok) {
             alert_warning('There was a problem with connection');
             console.log(response);
-            console.log('Mauvaise réponse du réseau');
+            console.log('Mauvaise code d\'erreur http');
         }
     }).then(data => {
         // Work with JSON data here
