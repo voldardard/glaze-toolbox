@@ -87,7 +87,7 @@ function create_miniature(id, url){
     container.appendChild(div);
 
 }
-function tmp_upload(id, iconId){
+function tmp_upload(id, iconId, container){
     let json_answer;
     start_loading(iconId);
     files = document.getElementById(id).files;
@@ -122,7 +122,7 @@ function tmp_upload(id, iconId){
         stop_loading(iconId);
         //var json = JSON.parse(data);// here data is your response
         for (var key in data) {
-            create_miniature(id, url);
+            create_miniature(container, url);
         }
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
