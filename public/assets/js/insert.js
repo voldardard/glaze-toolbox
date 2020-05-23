@@ -122,7 +122,7 @@ function tmp_upload(id, iconId, container){
         stop_loading(iconId);
         var json = JSON.parse(data);// here data is your response
         for (var key in data) {
-            create_miniature(container, key->);
+            create_miniature(container, key);
         }
     }).catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
