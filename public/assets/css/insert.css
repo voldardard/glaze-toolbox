@@ -179,3 +179,12 @@ body{
     color: #646460;
     cursor: auto;
 }
+#alert{
+    position: absolute;
+    width: 98%;
+    margin-left: 1%;
+}
+#alert .alert{
+    position: relative;
+    margin-bottom: 5px;
+}
