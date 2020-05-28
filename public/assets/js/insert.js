@@ -134,15 +134,19 @@ function tmp_upload(id, iconId, container){
         if (!response.ok) {
             if(response.status===422){
                 response.json().then(data=>{
-                    console.log(data);
-                    console.log(data['errors']);
-                    console.log(data['errors']['pic.0']);
-                    console.log(data['errors']['pic.0'][0]);
+                    for (let i in data['errors']){
+                        for (let j in data['errors'][i]) {
+                            alert_warning('Input validation failed : ' + data['errors'][i][j]);
+                            console.log(data['errors'][i][j][0]);
 
-                    throw Error(data['errors']);
+                        }
+                    }
+                    stop_loading(iconId);
+                    document.getElementById(id).value="";
                 })
+            }else {
+                throw Error(response.statusText);
             }
-            throw Error(response.statusText);
         }else{
             return response.json();
         }
