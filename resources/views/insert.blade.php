@@ -49,9 +49,9 @@
         <form autocomplete="off" class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert" enctype="multipart/form-data">
             <div class="left">
 
-                <h1 id="title"><input type="text" autofocus required name="title" placeholder="Title"/></h1>
+                <h1 id="title"><input value="{{ old('title') }}" type="text" autofocus required name="title" placeholder="Title"/></h1>
                 <div class="autocomplete" >
-                    <input type="text" id="add-categories" required name="category" placeholder="Categories"/>
+                    <input type="text" id="add-categories" value="{{ old('category') }}" required name="category" placeholder="Categories"/>
                 </div>
                 <div id="labels">
 
