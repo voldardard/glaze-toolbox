@@ -30,8 +30,8 @@ Route::get('/', function () {
 })->middleware('auth.classic');;
 
 
-//Route::post('/upload', 'tools\Upload')->middleware('auth.classic');
-Route::post('/upload', 'tools\Upload');
+Route::post('/upload', 'tools\Upload')->middleware('auth.classic');
+//Route::post('/upload', 'tools\Upload');
 
 
 Route::group(['prefix' => Config::get('app.locale')], function () {

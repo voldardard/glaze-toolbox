@@ -28,8 +28,8 @@ class Insert extends Controller{
             'title' => 'required|string|max:45',
             'category' => 'required|string|max:45',
             'label.*' => 'string',
-            'pic.*' => 'image',
-            'pictures.*' => 'images'
+            'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
+            'pictures.*' => 'string'
         ]);
 
         print_r($validatedData);
