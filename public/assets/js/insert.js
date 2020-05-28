@@ -35,6 +35,10 @@ function remove_label(label_id){
     document.getElementById( 'label-'+(label_id)).remove();
     document.getElementById( 'label-remove-'+(label_id)).remove();
 }
+function miniature_remove(miniature_id){
+    console.log("remove: "+miniature_id)
+    document.getElementById( 'miniature-'+(miniature_id)).remove();
+}
 function alert_warning(message){
     var container = document.getElementById("alert");
 
@@ -93,7 +97,7 @@ function create_miniature(id, url){
 
     var a = document.createElement('a');
     a.classList.add("remove-label");
-    a.setAttribute('onclick', 'miniature('+miniature_count+')');
+    a.setAttribute('onclick', 'miniature_remove('+miniature_count+')');
     /*a.id= 'miniature-remove-'+(miniature_count);*/
     a.appendChild(i);
     div.appendChild(a);
