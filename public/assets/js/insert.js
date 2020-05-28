@@ -1,4 +1,5 @@
 var label_count=0;
+var miniature_count=0;
 const url = '/upload';
 
 
@@ -72,6 +73,8 @@ function stop_loading(iconId){
 function create_miniature(id, url){
     container = document.getElementById(id);
     div = document.createElement('div');
+    div.id= 'miniature-'+(label_count);
+
 
     var img = document.createElement('img');
     img.setAttribute('src', url);
@@ -90,8 +93,8 @@ function create_miniature(id, url){
 
     var a = document.createElement('a');
     a.classList.add("remove-label");
-    a.setAttribute('onclick', 'remove_label('+label_count+')');
-    a.id= 'label-remove-'+(label_count);
+    a.setAttribute('onclick', 'miniature('+miniature_count+')');
+    /*a.id= 'miniature-remove-'+(miniature_count);*/
     a.appendChild(i);
     div.appendChild(a);
 
