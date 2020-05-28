@@ -48,7 +48,7 @@
 
 @include('menu')
 <div class="insert-page">
-    <h1>Insert a new recipe</h1>
+    <h1>@lang('insert.i-010-insertNewRecipe')</h1>
     <div class="form">
         <form autocomplete="off" class="insert-form" method="POST" action="/{{ app()->getLocale() }}/insert" enctype="multipart/form-data">
             <div class="left">
@@ -68,7 +68,7 @@
 
             <div class="right">
                 <div id="upload">
-                    <h3>Recipe pictures</h3>
+                    <h3>@lang('insert.i-011-recipePictures')</h3>
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
                     <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>@lang('insert.i-009-upload')</a>
 
