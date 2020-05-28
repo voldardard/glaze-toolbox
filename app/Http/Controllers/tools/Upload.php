@@ -42,7 +42,7 @@ class Upload extends Controller{
 
         $request->validate([
             'pic.*' => 'required|mimes:jpg,jpeg,png,bmp|max:20000',
-        ]);
+        ], 'picture');
 
         $files = $request->file('pic');
 
