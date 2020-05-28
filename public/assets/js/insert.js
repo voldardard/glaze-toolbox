@@ -115,7 +115,8 @@ function tmp_upload(id, iconId, container){
     /*console.log(csrf);*/
     formData = new FormData();
     const headers = new Headers({
-        'X-CSRF-TOKEN': csrf
+        'X-CSRF-TOKEN': csrf,
+        'accept': 'application/json'
     });
 
 
