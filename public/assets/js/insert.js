@@ -130,7 +130,11 @@ function tmp_upload(id, iconId, container){
         headers,
         body: formData,
     }).then(function(response) {
+        console.log(response);
         if (!response.ok) {
+            console.log(response.message);
+            console.log('test');
+            console.log(response.json().message);
             throw Error(response.statusText);
         }else{
             return response.json();
