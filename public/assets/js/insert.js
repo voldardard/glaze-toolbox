@@ -73,7 +73,6 @@ function create_miniature(id, url){
     container = document.getElementById(id);
     div = document.createElement('div');
 
-
     var img = document.createElement('img');
     img.setAttribute('src', url);
     div.append(img);
@@ -82,8 +81,21 @@ function create_miniature(id, url){
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', 'Nom de l\'image');
     input.setAttribute('name', 'pictures');
-
     div.appendChild(input);
+
+    var i = document.createElement('i');
+    i.classList.add("fa");
+    i.classList.add("fa-minus-square");
+    i.setAttribute('aria-hidden', 'true');
+
+    var a = document.createElement('a');
+    a.classList.add("remove-label");
+    a.setAttribute('onclick', 'remove_label('+label_count+')');
+    a.id= 'label-remove-'+(label_count);
+    a.appendChild(i);
+    div.appendChild(a);
+
+
     container.appendChild(div);
 
 }
