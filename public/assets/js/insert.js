@@ -75,6 +75,7 @@ function stop_loading(iconId){
     icon.classList.add("fa-upload");
 }
 function create_miniature(id, url){
+    miniature_count++;
     container = document.getElementById(id);
     div = document.createElement('div');
     div.id= 'miniature-'+(label_count);
