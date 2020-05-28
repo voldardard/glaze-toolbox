@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\tools;
+namespace App\Http\Controllers\recipes;
 
 use GuzzleHttp\Client;
 use http\Env\Response;
