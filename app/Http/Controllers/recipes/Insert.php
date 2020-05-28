@@ -29,7 +29,7 @@ class Insert extends Controller{
             'category' => 'required|string|max:45',
             'label.*' => 'string',
             'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
-            'pictures.*' => 'string'
+            'pictures.*' => 'string|nullable'
         ]);
 
         print_r($validatedData);
