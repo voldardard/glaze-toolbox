@@ -42,6 +42,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route'=>'/insert']);
             return view('insert');
         })->name('insert');
+        Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {
             session(['current_route'=>'/categories']);
             return view('categories');
