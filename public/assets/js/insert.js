@@ -88,7 +88,7 @@ function create_miniature(id, url){
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', 'Nom de l\'image');
-    input.setAttribute('name', 'pictures['+url+']');
+    input.setAttribute('name', 'pictures['+url.replace('.', '::')+']');
     div.appendChild(input);
 
     var i = document.createElement('i');
