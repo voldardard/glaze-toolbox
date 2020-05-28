@@ -2,7 +2,13 @@ var label_count=0;
 var miniature_count=0;
 const url = '/upload';
 
-
+function translate(key){
+    if(key in lang){
+        return lang[key];
+    }else{
+        return key;
+    }
+}
 function add_label(){
     label_count++;
 
@@ -11,7 +17,7 @@ function add_label(){
 
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', 'Label');
+    input.setAttribute('placeholder', translate('label'));
     input.setAttribute('name', 'label[]');
     input.id= 'label-'+(label_count);
     container.appendChild(input);
@@ -87,7 +93,7 @@ function create_miniature(id, url){
 
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', 'Nom de l\'image');
+    input.setAttribute('placeholder', translate('pictureName'));
     input.setAttribute('name', 'pictures['+url.replace('.', '::')+']');
     div.appendChild(input);
 
@@ -136,7 +142,7 @@ function tmp_upload(id, iconId, container){
                 response.json().then(data=>{
                     for (let i in data['errors']){
                         for (let j in data['errors'][i]) {
-                            alert_warning('Input validation failed : ' + data['errors'][i][j]);
+                            alert_warning(translate('validationFailed') + data['errors'][i][j]);
                             console.log(data['errors'][i][j][0]);
 
                         }
@@ -162,7 +168,7 @@ function tmp_upload(id, iconId, container){
         }
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-            alert_warning('There was a problem with connection : '+error.message);
+            alert_warning(translate('problemConnecting')+error.message);
             stop_loading(iconId);
     });
 
