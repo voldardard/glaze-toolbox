@@ -31,12 +31,12 @@ function add_label(){
 
 }
 function remove_label(label_id){
-    console.log("remove: "+label_id)
+   /* console.log("remove: "+label_id)*/
     document.getElementById( 'label-'+(label_id)).remove();
     document.getElementById( 'label-remove-'+(label_id)).remove();
 }
 function miniature_remove(miniature_id){
-    console.log("remove: "+miniature_id)
+  /*  console.log("remove: "+miniature_id)*/
     document.getElementById( 'miniature-'+(miniature_id)).remove();
 }
 function alert_warning(message){
@@ -112,7 +112,7 @@ function tmp_upload(id, iconId, container){
     start_loading(iconId);
     files = document.getElementById(id).files;
     const csrf = document.getElementsByName('_csrf-token')[0].content;
-    console.log(csrf);
+    /*console.log(csrf);*/
     formData = new FormData();
     const headers = new Headers({
         'X-CSRF-TOKEN': csrf
@@ -136,7 +136,7 @@ function tmp_upload(id, iconId, container){
         }
     }).then(data => {
         // Work with JSON data here
-        console.log(data);
+       /* console.log(data);*/
         json_answer=data;
         document.getElementById(id).value="";
         stop_loading(iconId);
@@ -145,7 +145,7 @@ function tmp_upload(id, iconId, container){
             create_miniature(container, data[key]);
         }
     }).catch(function(error) {
-            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+         /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
             alert_warning('There was a problem with connection : '+error.message);
             stop_loading(iconId);
     });
