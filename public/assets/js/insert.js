@@ -135,7 +135,11 @@ function tmp_upload(id, iconId, container){
             if(response.status===422){
                 response.json().then(data=>{
                     console.log(data);
-                    throw Error(data.message);
+                    console.log(data['errors']);
+                    console.log(data['errors']['pic.0']);
+                    console.log(data['errors']['pic.0'][0]);
+
+                    throw Error(data['errors']);
                 })
             }
             throw Error(response.statusText);
