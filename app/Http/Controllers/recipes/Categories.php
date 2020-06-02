@@ -18,20 +18,10 @@ use App;
 use Illuminate\Support\Facades\Storage;
 
 
-class Insert extends Controller{
-    public function __invoke(Request $request)
+class Categories extends Controller{
+    public function get_all_categories()
     {
 
-
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:45',
-            'category' => 'required|string|max:45',
-            'label.*' => 'string',
-            'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
-            'pictures.*' => 'string|nullable'
-        ]);
-
-        print_r($validatedData);
 
 
 

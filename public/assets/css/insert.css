@@ -98,8 +98,8 @@ body{
     height: 50px;
 }
 .form #labels .insert-label{
-    width: 15%;
     padding-left: 0;
+    width: 20%;
 }
 .form #labels .remove-label{
     position: relative;
