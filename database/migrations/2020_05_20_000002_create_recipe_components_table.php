@@ -26,6 +26,10 @@ class CreateRecipeComponentsTable extends Migration
             $table->index('recipes_id');
             $table->foreign('recipes_id')->references('id')->on('recipes');
 
+            $table->unsignedBigInteger('categories_id');
+            $table->index('categories_id');
+            $table->foreign('categories_id')->references('id')->on('categories');
+
         });
     }
 
