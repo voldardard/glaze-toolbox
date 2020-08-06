@@ -39,7 +39,6 @@ function autocomplete(inp, arr) {
                     console.log(this.getElementsByTagName("input")[0].id);
 
                     const headers = new Headers({
-                        'X-CSRF-TOKEN': csrf,
                         'accept': 'application/json'
                     });
                     fetch('http://glaze.cera.chat/en/category/'+this.getElementsByTagName("input")[0].id, {
