@@ -37,6 +37,42 @@ function autocomplete(inp, arr) {
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     console.log(this.getElementsByTagName("input")[0].id);
+
+                    const headers = new Headers({
+                        'X-CSRF-TOKEN': csrf,
+                        'accept': 'application/json'
+                    });
+                    fetch('http://glaze.cera.chat/en/category/'+this.getElementsByTagName("input")[0].id, {
+                        method: 'GET',
+                        headers,
+                    }).then(function(response) {
+                        console.log(response);
+                        if (!response.ok) {
+
+                            throw Error('error:'+response.statusText+' statuscode:'+response.status);
+
+                        }else{
+                            return response.json();
+                        }
+                    }).then(data => {
+
+                        div=document.getElementById('categories');
+                        subdiv = document.createElement('div');
+                        subdiv.setAttribute("class", "autocomplete");
+                        input=document.createElement('input');
+                        input.setAttribute('name','category['+this.getElementsByTagName("input")[0].id+']');
+                        input.setAttribute("required", "required");
+                        input.setAttribute("type", "text");
+                        input.setAttribute("placeholder", "test");
+                        input.setAttribute("id", "add-categories-"+this.getElementsByTagName("input")[0].id);
+
+                        subdiv.appendChild(input);
+                        div.appendChild(subdiv);
+
+                        autocomplete(document.getElementById("add-categories-"+this.getElementsByTagName("input")[0].id), data);
+
+                    });
+
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();

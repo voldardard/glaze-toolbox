@@ -23,7 +23,6 @@
     <div class="form">
         <form class="category-form" method="POST" action="/{{ app()->getLocale() }}/search">
             <input type="text" autofocus required name="search" placeholder="Title"/>
-            <input type="text" required name
             <button class="category-button"><i class="fa fa-search" aria-hidden="true"></i></button>
             @csrf
         </form>

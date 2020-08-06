@@ -56,9 +56,10 @@
             <div class="left">
 
                 <h1 id="title"><input value="{{ old('title') }}" type="text" autofocus required name="title" placeholder="@lang('insert.i-006-title')"/></h1>
-
-                <div class="autocomplete" >
-                    <input type="text" id="add-categories" value="{{ old('category') }}" required name="category" placeholder="@lang('insert.i-007-category')"/>
+                <div id="categories">
+                    <div class="autocomplete" >
+                        <input type="text" id="add-categories" value="{{ old('category') }}" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
+                    </div>
                 </div>
                 <div id="labels">
 
