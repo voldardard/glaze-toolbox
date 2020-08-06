@@ -54,7 +54,7 @@ function autocomplete(inp, arr) {
                             return response.json();
                         }
                     }).then(data => {
-
+console.log(data);
                         div=document.getElementById('categories');
                         subdiv = document.createElement('div');
                         subdiv.setAttribute("class", "autocomplete");
