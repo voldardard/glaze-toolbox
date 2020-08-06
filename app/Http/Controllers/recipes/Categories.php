@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Storage;
 class Categories extends Controller{
     public function getCategory(Request $input, $parentID=null){
     if (is_null($parentID)){
-        $categories = DB::table('categories')->get(['id', 'name'])->whereNull('parent_id');
+        $categories = DB::table('categories')->select(['id', 'name'])->whereNull('parent_id')->get();
 
     }else {
         echo $parentID;
-        $categories = DB::table('categories')->get(['id', 'name'])->where('parent_id', '=', $parentID);
+        $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
     }
     print_r(json_encode($categories));
 
