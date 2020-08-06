@@ -26,7 +26,7 @@ class Categories extends Controller{
     }else {
         $categories = \DB::table('categories')->select(['id', 'name'])->where('parent_id',  $parentID);
     }
-    print_r($categories);
+    print_r(json_encode($categories));
 
 
     }
