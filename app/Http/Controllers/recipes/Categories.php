@@ -19,12 +19,33 @@ use Illuminate\Support\Facades\Storage;
 
 
 class Categories extends Controller{
-    public function get_all_categories()
-    {
+    public function getCategory(Request $input, $parentID=null){
+    if (is_null($parentID)){
+        $categories = \DB::table('categories')->select(['id', 'name'])->whereNull('parent_id');
 
-
+    }else {
+        $categories = \DB::table('categories')->select(['id', 'name'])->where('parent_id',  $parentID);
+    }
+    print_r($categories);
 
 
     }
+    public function getAllCategories(){
+        $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
+        foreach ($category as $key=>$value){
+            $category[$key]->name=self::getTranslation($value->name);
+        }
+        $arr=json_decode(json_encode($category), true);
+
+        $new = array();
+        foreach ($arr as $a){
+
+            $new[$a['parent']][] = $a;
+        }
+        $parent=($new[NULL]);
+        $data = self::createaTree($new, $parent);
+        return $data;
+    }
+
 
 }

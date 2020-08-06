@@ -50,6 +50,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route'=>'/categories']);
             return view('categories');
         })->name('categories');
+        Route::get('/category/{parentID?}', 'recipes\Categories@get_category')->where(['parentID'=>'[A-Za-z0-9]+']);
+
     });
 
     Route::get('/login', function () {
