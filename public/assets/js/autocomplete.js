@@ -28,6 +28,8 @@ function autocomplete(inp, arr) {
                 b = document.createElement("DIV");
                 /*make the matching letters bold:*/
                 b.innerHTML = "<strong>" + arr[i]['name'].substr(0, val.length) + "</strong>";
+                b.setAttribute("id", arr[i]['id']);
+
                 b.innerHTML += arr[i]['name'].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arr[i]['name'] + "'>";
@@ -35,6 +37,7 @@ function autocomplete(inp, arr) {
                 b.addEventListener("click", function(e) {
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
+                    console.log(this.getElementsByTagName("input")[0].id);
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
