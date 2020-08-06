@@ -24,7 +24,8 @@ class Categories extends Controller{
         $categories = DB::table('categories')->get(['id', 'name'])->whereNull('parent_id');
 
     }else {
-        $categories = DB::table('categories')->get(['id', 'name'])->where('parent_id',  $parentID);
+        echo $parentID;
+        $categories = DB::table('categories')->get(['id', 'name'])->where('parent_id', '=', $parentID);
     }
     print_r(json_encode($categories));
 
