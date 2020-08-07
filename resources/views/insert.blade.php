@@ -62,7 +62,7 @@
                         <a id="categories-remove-0" class="remove-categories" onclick="remove_category(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div><a class="insert-categories" onclick="add_category()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add subcategories</a></div>
+                <div><a class="insert-categories" id="add_category" onclick="add_category(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add subcategories</a></div>
 
                 <div id="labels">
 

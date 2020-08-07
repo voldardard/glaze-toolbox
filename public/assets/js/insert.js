@@ -9,6 +9,39 @@ function translate(key){
         return key;
     }
 }
+function add_category(level){
+    var div = document.getElementById('categories');
+    var subdiv = document.createElement('div');
+    subdiv.setAttribute("class", "autocomplete");
+    subdiv.setAttribute("level", (level));
+    subdiv.setAttribute("id", 'level-'+(level));
+
+
+    var input = document.createElement('input');
+    input.setAttribute("required", "required");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Sub-categories");
+    input.setAttribute("id", "add-categories-" + level);
+
+    var i= document.createElement('i');
+    i.setAttribute("class", "fa fa-minus-square");
+    i.setAttribute("aria-hidden", "true");
+    var a= document.createElement('a');
+    a.setAttribute("id", "categories-remove-" + (level));
+    a.setAttribute("class", "remove-categories");
+    a.setAttribute("onclick", "remove_category("+(level)+")");
+    a.appendChild(i);
+
+
+    subdiv.appendChild(input);
+    subdiv.appendChild(a);
+
+    div.appendChild(subdiv);
+
+    //update create button
+    var button = document.getElementById('add_category');
+    button.setAttribute("onclick", "add_category("+(level+1)+")");
+}
 function add_label(){
     label_count++;
 
