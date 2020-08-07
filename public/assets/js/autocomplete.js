@@ -59,10 +59,12 @@ function autocomplete(inp, arr, level) {
                 b.addEventListener("click", function(e) {
 
                     for(i=(level+1); i++; i<10){
-                        var levelBelow = document.getElementById( 'level-'+(i));
+                        var levelBelow = document.getElementById( 'level-'+i);
                         if(levelBelow){
+                            console.log('remove: level-'+i);
                             levelBelow.remove();
                         }else{
+                            console.log('nothing below, breaking');
                             break;
                         }
                     }
