@@ -89,10 +89,22 @@ function autocomplete(inp, arr, level) {
                             input.setAttribute('name', 'category[' + parentID + ']');
                             input.setAttribute("required", "required");
                             input.setAttribute("type", "text");
-                            input.setAttribute("placeholder", "test");
+                            input.setAttribute("placeholder", "Sub-categories");
                             input.setAttribute("id", "add-categories-" + parentID);
 
+                            i= document.createElement('i');
+                            i.setAttribute("class", "fa fa-minus-square");
+                            i.setAttribute("aria-hidden", "true");
+                            a= document.createElement('a');
+                            a.setAttribute("id", "categories-remove-" + (level+1));
+                            a.setAttribute("class", "remove-categories");
+                            a.setAttribute("onclick", "remove_category("+(level+1)+")");
+                            a.innerHTML=i;
+
+
                             subdiv.appendChild(input);
+                            subdiv.appendChild(a);
+
                             div.appendChild(subdiv);
 
                             autocomplete(document.getElementById("add-categories-" + parentID), data, (level+1));

@@ -58,7 +58,7 @@
                 <h1 id="title"><input value="{{ old('title') }}" type="text" autofocus required name="title" placeholder="@lang('insert.i-006-title')"/></h1>
                 <div id="categories">
                     <div class="autocomplete" level="0">
-                        <input type="text" id="add-categories" value="{{ old('category') }}" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
+                        <input type="text" id="add-categories" value="" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
                         <a id="categories-remove-0" class="remove-categories" onclick="remove_category(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
