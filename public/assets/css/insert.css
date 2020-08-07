@@ -174,12 +174,12 @@ body{
     text-decoration: none;
     font-weight: bolder;
 }
-.form #raw-container input{
+.form #raw-container div input{
     float: left;
     width: 25%;
     margin: 0 0 0 10px;
 }
-.form #raw-container input:first-child{
+.form #raw-container div input:first-child{
     margin: 0;
 }
 .form #raw-container div{
