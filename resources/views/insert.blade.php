@@ -62,7 +62,7 @@
                         <input type="text" id="add-categories" value="" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
                     </div>
                 </div>
-                <div><a class="insert-categories" id="add_category" onclick="add_category(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-012-addSubCategory')</a></div>
+                <div style="clear: both"><a class="insert-categories" id="add_category" onclick="add_category(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-012-addSubCategory')</a></div>
 
                 <div id="labels">
 
