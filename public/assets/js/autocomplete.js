@@ -39,6 +39,8 @@ function autocomplete(inp, arr, level) {
 
                     /*insert the value for the autocompleted text field:*/
                     inp.setAttribute('value', (this.getElementsByTagName("input")[0].value));
+                    inp.val = this.getElementsByTagName("input")[0].value;
+
                     console.log(this.getElementsByTagName("input")[0].value);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
