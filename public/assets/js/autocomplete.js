@@ -29,7 +29,7 @@ function fetchJson(method, url){
             return response.json();
         }
     }).then(data => {
-        console.log(data);
+        return data;
     });
 }
 
@@ -75,7 +75,9 @@ function autocomplete(inp, arr) {
                     console.log(this.getElementsByTagName("input")[0].id);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
-                    var json=fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID)
+                    var json=fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID);
+                    console.log('fetched:');
+                    console.log(json);
 
 
                     div=document.getElementById('categories');
