@@ -59,10 +59,10 @@
                 <div id="categories">
                     <div class="autocomplete" level="0">
                         <input type="text" id="add-categories" value="{{ old('category') }}" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
-                        <a id="categories-remove-0" class="remove-label" onclick="remove_category(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                        <a id="categories-remove-0" class="remove-categories" onclick="remove_category(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div><a class="insert-label" onclick="add_category()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add subcategories</a></div>
+                <div><a class="insert-categories" onclick="add_category()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add subcategories</a></div>
 
                 <div id="labels">
 
