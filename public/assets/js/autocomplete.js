@@ -59,8 +59,12 @@ function autocomplete(inp, arr, level) {
                 b.addEventListener("click", function(e) {
 
                     for(i=(level+1); i++; i<10){
-                        document.getElementById( 'level-'+(i)).remove();
-
+                        var levelBelow = document.getElementById( 'level-'+(i));
+                        if(levelBelow){
+                            levelBelow.remove();
+                        }else{
+                            break;
+                        }
                     }
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
