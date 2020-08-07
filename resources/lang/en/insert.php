@@ -12,6 +12,8 @@ return [
     'i-009-upload' => 'Upload',
     'i-010-insertNewRecipe' => 'Insert a new recipe',
     'i-011-recipePictures' => 'Recipe pictures',
+    'i-012-addSubCategory'=> 'Add sub-category',
+    'i-013-subCategory'=>'Sub-category'
 
 
 

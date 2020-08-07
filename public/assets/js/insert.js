@@ -43,7 +43,7 @@ function add_category(level){
     var input = document.createElement('input');
     input.setAttribute("required", "required");
     input.setAttribute("type", "text");
-    input.setAttribute("placeholder", "Sub-categories");
+    input.setAttribute("placeholder", translate('subCategory'));
     input.setAttribute("id", "add-categories-" + level);
 
     var i= document.createElement('i');

@@ -12,6 +12,10 @@ return [
     'i-009-upload' => 'Téléverser',
     'i-010-insertNewRecipe' => 'Insérer une nouvelle recette',
     'i-011-recipePictures' => 'Images de la recette',
+    'i-012-addSubCategory'=> 'Ajouter une sous-catégorie',
+        'i-013-subCategory'=>'Sous-catégorie'
+
+
 
 
 
