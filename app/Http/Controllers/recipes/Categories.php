@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\recipes;
 
-//use http\Env\Response;
-use http\Client\Response;
+use http\Env\Response;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +28,7 @@ class Categories extends Controller{
         echo $parentID;
         $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
     }
-    return Response::json($categories);
+    return response()->json($categories);
 
 
     }
