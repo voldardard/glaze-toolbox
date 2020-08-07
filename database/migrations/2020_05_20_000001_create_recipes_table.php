@@ -23,7 +23,7 @@ class CreateRecipesTable extends Migration
             $table->index('users_id');
             $table->foreign('users_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->index('parent_id');
             $table->foreign('parent_id')->references('id')->on('recipes');
 
