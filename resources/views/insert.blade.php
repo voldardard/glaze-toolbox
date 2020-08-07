@@ -78,7 +78,7 @@
                     <h3>@lang('insert.i-011-recipePictures')</h3>
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
                     <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>@lang('insert.i-009-upload')</a>
-
+<br/>
                     <h3>Ingrédients / matière première</h3>
                     <div id="raw-container">
                         <div id="raw-0">
