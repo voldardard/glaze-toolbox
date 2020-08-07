@@ -60,7 +60,7 @@ function autocomplete(inp, arr) {
                             if (err !== null) {
                                 alert('Something went wrong: ' + err);
                             } else {
-                                console.log('Your query: ' + data);
+                                console.log('Your query: ' + data.length);
 
                                 div=document.getElementById('categories');
                                 subdiv = document.createElement('div');
