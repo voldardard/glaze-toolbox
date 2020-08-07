@@ -76,7 +76,7 @@ class Insert extends Controller{
         //save preload pictures
         foreach($validatedData['pictures'] as $key => $value){
             $exploded=explode('/', $key);
-            $filename=str_replace('::', '.', $exploded[count($exploded)]);
+            $filename=str_replace('::', '.', $exploded[count($exploded)-1]);
 
             if(empty($value)) {
                 $exploded = explode('.', $filename);
