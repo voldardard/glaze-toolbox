@@ -59,7 +59,7 @@ function autocomplete(inp, arr) {
                             if (err !== null) {
                                 alert('Something went wrong: ' + err);
                             } else {
-                                console.log('Your query: ' + data.query);
+                                console.log('Your query: ' + data[0]);
 
                                 div=document.getElementById('categories');
                                 subdiv = document.createElement('div');
@@ -78,40 +78,6 @@ function autocomplete(inp, arr) {
                             }
                         });
 
-                    const headers = new Headers({
-                        'accept': 'application/json'
-                    });
-                    fetch('http://glaze.cera.chat/en/category/'+this.getElementsByTagName("input")[0].id, {
-                        method: 'GET',
-                        headers,
-                    }).then(function(response) {
-                        console.log(response);
-                        if (!response.ok) {
-
-                            throw Error('error:'+response.statusText+' statuscode:'+response.status);
-
-                        }else{
-                            console.log(response.json());
-                            return response.json();
-                        }
-                    }).then(data => {
-console.log(data);
-                        div=document.getElementById('categories');
-                        subdiv = document.createElement('div');
-                        subdiv.setAttribute("class", "autocomplete");
-                        input=document.createElement('input');
-                        input.setAttribute('name','category['+this.getElementsByTagName("input")[0].id+']');
-                        input.setAttribute("required", "required");
-                        input.setAttribute("type", "text");
-                        input.setAttribute("placeholder", "test");
-                        input.setAttribute("id", "add-categories-"+this.getElementsByTagName("input")[0].id);
-
-                        subdiv.appendChild(input);
-                        div.appendChild(subdiv);
-
-                        autocomplete(document.getElementById("add-categories-"+this.getElementsByTagName("input")[0].id), data);
-
-                    });
 
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
