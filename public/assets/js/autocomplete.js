@@ -75,31 +75,23 @@ function autocomplete(inp, arr) {
                     console.log(this.getElementsByTagName("input")[0].id);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
-                    fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID)
+                    var json=fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID)
 
-                    getJSON('http://glaze.cera.chat/en/category/'+parentID,
-                        function(err, data) {
-                            if (err !== null) {
-                                alert('Something went wrong: ' + err);
-                            } else {
-                                console.log(data.length);
 
-                                div=document.getElementById('categories');
-                                subdiv = document.createElement('div');
-                                subdiv.setAttribute("class", "autocomplete");
-                                input=document.createElement('input');
-                                input.setAttribute('name','category['+parentID+']');
-                                input.setAttribute("required", "required");
-                                input.setAttribute("type", "text");
-                                input.setAttribute("placeholder", "test");
-                                input.setAttribute("id", "add-categories-"+parentID);
+                    div=document.getElementById('categories');
+                    subdiv = document.createElement('div');
+                    subdiv.setAttribute("class", "autocomplete");
+                    input=document.createElement('input');
+                    input.setAttribute('name','category['+parentID+']');
+                    input.setAttribute("required", "required");
+                    input.setAttribute("type", "text");
+                    input.setAttribute("placeholder", "test");
+                    input.setAttribute("id", "add-categories-"+parentID);
 
-                                subdiv.appendChild(input);
-                                div.appendChild(subdiv);
+                    subdiv.appendChild(input);
+                    div.appendChild(subdiv);
 
-                                autocomplete(document.getElementById("add-categories-"+parentID), data);
-                            }
-                        });
+                    autocomplete(document.getElementById("add-categories-"+parentID), json);
 
 
                     /*close the list of autocompleted values,
