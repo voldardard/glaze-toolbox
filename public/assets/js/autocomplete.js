@@ -57,7 +57,7 @@ function autocomplete(inp, arr, level) {
                 b.innerHTML += "<input id='"+arr[i]['id']+"' type='hidden' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
-
+                    console.log('clicked, level:'+level);
                     for(var i=(level); i++; i<10){
                         console.log('trying to find:'+i);
                         var levelBelow = document.getElementById( 'level-'+i);
