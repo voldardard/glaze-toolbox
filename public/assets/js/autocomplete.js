@@ -65,6 +65,9 @@ function autocomplete(inp, arr) {
                     fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID, function(data){
                         console.log('fetched:');
                         console.log(data);
+                        if(data.length===0){
+                            break;
+                        }
 
 
                         div=document.getElementById('categories');
