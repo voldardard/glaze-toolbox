@@ -67,7 +67,7 @@ function add_category(level){
 }
 function remove_category(level){
 
-    for(var i=(level+1);  i<10; i++){
+    for(var i=(level);  i<6; i++){
         console.log('trying to find:'+i);
         var levelBelow = document.getElementById( 'level-'+i);
         if(levelBelow){
