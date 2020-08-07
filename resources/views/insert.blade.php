@@ -79,6 +79,17 @@
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
                     <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>@lang('insert.i-009-upload')</a>
 
+                    <h3>Ingrédients / matière première</h3>
+                    <div id="raw-container">
+                        <div id="raw-0">
+                            <input type="text" id="raw-name-0" value="" required name="raw[0][name]" placeholder="Matière première"/>
+                            <input type="text" id="raw-formula-0" value="" name="raw[0][formula]" placeholder="Formule"/>
+                            <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div style="clear: both"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
+
+
                 </div>
             </div>
             <br />
