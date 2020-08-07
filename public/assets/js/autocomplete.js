@@ -38,6 +38,8 @@ function autocomplete(inp, arr) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     console.log(this.getElementsByTagName("input")[0].id);
 
+
+
                     const headers = new Headers({
                         'accept': 'application/json'
                     });
@@ -51,6 +53,7 @@ function autocomplete(inp, arr) {
                             throw Error('error:'+response.statusText+' statuscode:'+response.status);
 
                         }else{
+                            console.log(response.json());
                             return response.json();
                         }
                     }).then(data => {
