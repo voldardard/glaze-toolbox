@@ -53,8 +53,9 @@ function autocomplete(inp, arr) {
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     console.log(this.getElementsByTagName("input")[0].id);
+                    var parentID=this.getElementsByTagName("input")[0].id;
 
-                    getJSON('http://glaze.cera.chat/en/category/'+this.getElementsByTagName("input")[0].id,
+                    getJSON('http://glaze.cera.chat/en/category/'+parentID,
                         function(err, data) {
                             if (err !== null) {
                                 alert('Something went wrong: ' + err);
@@ -65,16 +66,16 @@ function autocomplete(inp, arr) {
                                 subdiv = document.createElement('div');
                                 subdiv.setAttribute("class", "autocomplete");
                                 input=document.createElement('input');
-                                input.setAttribute('name','category['+this.getElementsByTagName("input")[0].id+']');
+                                input.setAttribute('name','category['+parentID+']');
                                 input.setAttribute("required", "required");
                                 input.setAttribute("type", "text");
                                 input.setAttribute("placeholder", "test");
-                                input.setAttribute("id", "add-categories-"+this.getElementsByTagName("input")[0].id);
+                                input.setAttribute("id", "add-categories-"+parentID);
 
                                 subdiv.appendChild(input);
                                 div.appendChild(subdiv);
 
-                                autocomplete(document.getElementById("add-categories-"+this.getElementsByTagName("input")[0].id), data);
+                                autocomplete(document.getElementById("add-categories-"+parentID), data);
                             }
                         });
 
