@@ -168,11 +168,15 @@ body{
 .form h3{
     text-align: left;
     margin-left: 25px;
+    margin-top: 40px;
 }
 .form .message a {
     color: #151515;
     text-decoration: none;
     font-weight: bolder;
+}
+.form #upload h3{
+    margin-top: 0;
 }
 .form #raw-container div input{
     float: left;
@@ -189,7 +193,7 @@ body{
     margin-top: 7px;
     width: 24px;
 }
-.form #raw-container #add_raw{
+.form #add_raw{
     width: 33%;
     margin:0;
 }
