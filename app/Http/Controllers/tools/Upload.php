@@ -23,23 +23,6 @@ class Upload extends Controller{
     public function __invoke(Request $request)
     {
 
-
-       /* $validator = Validator::make($request->all(), ['pic.*' => 'required|mimes:jpg,jpeg,png,bmp|max:20000'], [
-            'pic.*.required' => 'Please upload an image',
-            'pic.*.mimes' => 'Only jpeg,png and bmp images are allowed',
-            'pic.*.max' => 'Sorry! Maximum allowed size for an image is 20MB',
-        ]);
-
-
-        if ($validator->fails()) {
-            return response($validator->message(), 415);
-
-        }
-        if (empty($request->file('pic'))){
-            return response("No file ", 415);
-
-        }*/
-
         $request->validate([
             'pic.*' => 'required|mimes:jpg,jpeg,png,bmp|max:20000',
         ]);

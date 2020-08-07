@@ -34,7 +34,7 @@ class Insert extends Controller{
         //insert in recipes table
         $recipeID= DB::table('recipes')->insertGetId([
             'name'=>$validatedData['title'],
-            'version'=>'1.0',
+            'version'=>'1.0.0',
             'users_id'=>session()->get('id'),
             'parent_id'=>null,
             'created_at'=>now(),
@@ -72,6 +72,52 @@ class Insert extends Controller{
             }
 
         }
+
+        //save preload pictures
+        foreach($validatedData['pictures'] as $key => $value){
+            $exploded=explode('/', $key);
+            $filename=str_replace('::', '.', $exploded[count($exploded)]);
+
+            if(empty($value)) {
+                $exploded = explode('.', $filename);
+                $name = $exploded[0];
+            }else{
+                $name=$value;
+            }
+            Storage::disk('local')->move('tmp/'.$filename, 'pictures/'.$filename);
+            $url="/pictures/".$filename;
+            DB::table('pictures')->insert([
+                'path'=>$url,
+                'name'=>$name,
+                'recipes_id'=>$recipeID,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'deleted'=>false
+            ]);
+        }
+
+        //store new pictures
+        $files = $request->file('pic');
+
+        foreach ($files as $file){
+            $filename=time().'_'.sha1($file->getClientOriginalName()).'.'.$file->getClientOriginalExtension();
+            $url="/pictures/".$filename;
+            $exploded = explode('.', $filename);
+            $name = $exploded[0];
+
+            Storage::disk('pictures')->put($filename, file_get_contents($file));
+
+            DB::table('pictures')->insert([
+                'path'=>$url,
+                'name'=>$name,
+                'recipes_id'=>$recipeID,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'deleted'=>false
+            ]);
+        };
+
+
 
         print_r($validatedData);
         die();
