@@ -33,7 +33,7 @@ class Insert extends Controller{
 
         //insert in recipes table
         $recipeID= DB::table('recipes')->insertGetId([
-            'name'=>$validatedData->title,
+            'name'=>$validatedData['title'],
             'version'=>'1.0',
             'users_id'=>session()->get('id'),
             'parent_id'=>null
