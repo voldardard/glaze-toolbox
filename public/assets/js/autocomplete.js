@@ -99,7 +99,7 @@ function autocomplete(inp, arr, level) {
                             a.setAttribute("id", "categories-remove-" + (level+1));
                             a.setAttribute("class", "remove-categories");
                             a.setAttribute("onclick", "remove_category("+(level+1)+")");
-                            a.innerHTML=i;
+                            a.appendChild(i);
 
 
                             subdiv.appendChild(input);
