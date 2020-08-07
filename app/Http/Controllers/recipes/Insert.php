@@ -36,8 +36,42 @@ class Insert extends Controller{
             'name'=>$validatedData['title'],
             'version'=>'1.0',
             'users_id'=>session()->get('id'),
-            'parent_id'=>null
+            'parent_id'=>null,
+            'created_at'=>now(),
+            'updated_at'=>now()
         ]);
+
+        //insert categories
+        $mayExist=true;
+        $parent_id=null;
+        foreach($validatedData['category'] as $key => $value) {
+            if ($mayExist) {
+
+                if (!DB::table('categories')->where(['name' => $value, 'delete' => 0, 'level' => $key, 'parent_id' => $parent_id])->exists()) {
+                    $parent_id=DB::table('categories')->insertGetId([
+                        'parent_id'=>$parent_id,
+                        'name'=>$value,
+                        'level'=>$key,
+                        'created_at'=>now(),
+                        'updated_at'=>now(),
+                        'delete'=>false
+                    ]);
+                    $mayExist = false;
+                }else{
+                    $parent_id=DB::table('categories')->select('id')->where(['name' => $value, 'delete' => 0, 'level' => $key, 'parent_id' => $parent_id])->first()->id;
+                }
+            }else{
+                $parent_id=DB::table('categories')->insertGetId([
+                    'parent_id'=>$parent_id,
+                    'name'=>$value,
+                    'level'=>$key,
+                    'created_at'=>now(),
+                    'updated_at'=>now(),
+                    'delete'=>false
+                ]);
+            }
+
+        }
 
         print_r($validatedData);
         die();
