@@ -59,7 +59,6 @@
                 <div id="categories">
                     <div class="autocomplete" level="0">
                         <input type="text" id="add-categories" value="" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
-                        <a id="categories-remove-0" class="remove-categories" onclick="remove_category(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div><a class="insert-categories" id="add_category" onclick="add_category(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add subcategories</a></div>
