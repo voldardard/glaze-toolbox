@@ -1,24 +1,5 @@
 
-function fetchJson(method, url, callback){
-    console.log(url);
-    const headers = new Headers({
-        'accept': 'application/json'
-    });
 
-    fetch(url, {
-        method: method,
-        headers,
-    }).then(function(response) {
-        if (!response.ok) {
-            throw Error('error:'+response.statusText+' statuscode:'+response.status);
-
-        }else{
-            return response.json();
-        }
-    }).then(data => {
-        callback(data);
-    });
-}
 
 
 function autocomplete(inp, arr, level) {
@@ -53,18 +34,9 @@ function autocomplete(inp, arr, level) {
                 b.innerHTML += "<input id='"+arr[i]['id']+"' type='hidden' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
-                    console.log('clicked, level:'+level);
-                    for(var i=(level+1);  i<10; i++){
-                        console.log('trying to find:'+i);
-                        var levelBelow = document.getElementById( 'level-'+i);
-                        if(levelBelow){
-                            console.log('remove: level-'+i);
-                            levelBelow.remove();
-                        }else{
-                            console.log('nothing below, breaking');
-                            break;
-                        }
-                    }
+                    console.log('clicked input level:'+level);
+                    remove_category((level+1));
+
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     var parentID=this.getElementsByTagName("input")[0].id;
@@ -75,7 +47,7 @@ function autocomplete(inp, arr, level) {
                         if(data.length!==0) {
                             add_category((level+1));
                             console.log(data);
-                            autocomplete(document.getElementById("add-categories-" + parentID), data, (level+1));
+                            autocomplete(document.getElementById("add-categories-" + (level+1)), data, (level+1));
                         }
                     });
 
