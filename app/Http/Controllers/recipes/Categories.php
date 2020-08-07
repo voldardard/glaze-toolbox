@@ -18,6 +18,7 @@ use App;
 use Illuminate\Support\Facades\Storage;
 
 
+
 class Categories extends Controller{
     public function getCategory(Request $input, $parentID=null){
     if (is_null($parentID)){
@@ -27,7 +28,7 @@ class Categories extends Controller{
         echo $parentID;
         $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
     }
-    print_r(json_encode($categories));
+    return Response::json($categories);
 
 
     }
