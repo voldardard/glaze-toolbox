@@ -22,7 +22,8 @@ class Insert extends Controller{
     public function __invoke(Request $request)
     {
 
-
+print_r($request->all());
+die();
         $validatedData = $request->validate([
             'title' => 'required|string|max:45',
             'category' => 'required|string|max:45',
