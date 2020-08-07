@@ -26,9 +26,17 @@ class Insert extends Controller{
         $validatedData = $request->validate([
             'title' => 'required|string|max:45',
             'category.*' => 'required|string|max:45',
-            'label.*' => 'string',
+            'label.*' => 'string|max:45',
             'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
             'pictures.*' => 'string|nullable'
+        ]);
+
+        //insert in recipes table
+        $recipeID= DB::table('recipes')->insertGetId([
+            'name'=>$validatedData->title,
+            'version'=>'1.0',
+            'users_id'=>session()->get('id'),
+            'parent_id'=>null
         ]);
 
         print_r($validatedData);

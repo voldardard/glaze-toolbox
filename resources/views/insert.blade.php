@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="_csrf-token" content="{{ csrf_token() }}">
 
-    <title>Home</title>
+    <title>Insert</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
