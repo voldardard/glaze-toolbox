@@ -57,7 +57,7 @@
 
                 <h1 id="title"><input value="{{ old('title') }}" type="text" autofocus required name="title" placeholder="@lang('insert.i-006-title')"/></h1>
                 <div id="categories">
-                    <div class="autocomplete" >
+                    <div class="autocomplete" level="0">
                         <input type="text" id="add-categories" value="{{ old('category') }}" required name="category[0]" placeholder="@lang('insert.i-007-category')"/>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    autocomplete(document.getElementById("add-categories"), categories);
+    autocomplete(document.getElementById("add-categories"), categories, 0);
 </script>
 </body>
 </html>
