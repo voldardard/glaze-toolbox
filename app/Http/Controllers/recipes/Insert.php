@@ -74,58 +74,66 @@ class Insert extends Controller{
         }
 
         //save preload pictures
-        foreach($validatedData['pictures'] as $key => $value){
-            $exploded=explode('/', $key);
-            $filename=str_replace('::', '.', $exploded[count($exploded)-1]);
+        if(!empty($validatedData['pictures'])) {
+            foreach ($validatedData['pictures'] as $key => $value) {
+                $exploded = explode('/', $key);
+                $filename = str_replace('::', '.', $exploded[count($exploded) - 1]);
 
-            if(empty($value)) {
-                $exploded = explode('.', $filename);
-                $name = $exploded[0];
-            }else{
-                $name=$value;
+                if (empty($value)) {
+                    $exploded = explode('.', $filename);
+                    $name = $exploded[0];
+                } else {
+                    $name = $value;
+                }
+                Storage::disk('local')->move('tmp/' . $filename, 'pictures/' . $filename);
+                $url = "/pictures/" . $filename;
+                DB::table('pictures')->insert([
+                    'path' => $url,
+                    'name' => $name,
+                    'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                    'deleted' => false
+                ]);
             }
-            Storage::disk('local')->move('tmp/'.$filename, 'pictures/'.$filename);
-            $url="/pictures/".$filename;
-            DB::table('pictures')->insert([
-                'path'=>$url,
-                'name'=>$name,
-                'recipes_id'=>$recipeID,
-                'created_at'=>now(),
-                'updated_at'=>now(),
-                'deleted'=>false
-            ]);
         }
 
         //store new pictures
-        $files = $request->file('pic');
+        if(!empty($validatedData['pic'])) {
 
-        foreach ($files as $file){
-            $filename=time().'_'.sha1($file->getClientOriginalName()).'.'.$file->getClientOriginalExtension();
-            $url="/pictures/".$filename;
-            $exploded = explode('.', $filename);
-            $name = $exploded[0];
+            $files = $request->file('pic');
 
-            Storage::disk('pictures')->put($filename, file_get_contents($file));
+            foreach ($files as $file) {
+                $filename = time() . '_' . sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+                $url = "/pictures/" . $filename;
+                $exploded = explode('.', $filename);
+                $name = $exploded[0];
 
-            DB::table('pictures')->insert([
-                'path'=>$url,
-                'name'=>$name,
-                'recipes_id'=>$recipeID,
-                'created_at'=>now(),
-                'updated_at'=>now(),
-                'deleted'=>false
-            ]);
-        };
+                Storage::disk('pictures')->put($filename, file_get_contents($file));
+
+                DB::table('pictures')->insert([
+                    'path' => $url,
+                    'name' => $name,
+                    'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                    'deleted' => false
+                ]);
+            };
+        }
 
 
         //store labels
-        foreach($validatedData['label'] as $key => $value){
-            DB::table('labels')->insert([
-                'name'=>$value,
-                'recipes_id'=>$recipeID,
-                'created_at'=>now(),
-                'updated_at'=>now(),
-            ]);
+        if(!empty($validatedData['label'])) {
+
+            foreach ($validatedData['label'] as $key => $value) {
+                DB::table('labels')->insert([
+                    'name' => $value,
+                    'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
         }
 
         print_r($validatedData);
