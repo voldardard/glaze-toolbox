@@ -58,7 +58,7 @@ function autocomplete(inp, arr, level) {
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
 
-                    for(i=(level+1); i++; i<10){
+                    for(i=level; i++; i<10){
                         console.log('trying to find:'+i);
                         var levelBelow = document.getElementById( 'level-'+i);
                         if(levelBelow){
