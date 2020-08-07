@@ -1,3 +1,19 @@
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+    };
+    xhr.send();
+};
+
+
 function autocomplete(inp, arr) {
 /*    arr=[];
     for (i = 0; i < arr.length; i++) {
@@ -38,7 +54,29 @@ function autocomplete(inp, arr) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     console.log(this.getElementsByTagName("input")[0].id);
 
+                    getJSON('http://glaze.cera.chat/en/category/'+this.getElementsByTagName("input")[0].id,
+                        function(err, data) {
+                            if (err !== null) {
+                                alert('Something went wrong: ' + err);
+                            } else {
+                                console.log('Your query: ' + data.query);
 
+                                div=document.getElementById('categories');
+                                subdiv = document.createElement('div');
+                                subdiv.setAttribute("class", "autocomplete");
+                                input=document.createElement('input');
+                                input.setAttribute('name','category['+this.getElementsByTagName("input")[0].id+']');
+                                input.setAttribute("required", "required");
+                                input.setAttribute("type", "text");
+                                input.setAttribute("placeholder", "test");
+                                input.setAttribute("id", "add-categories-"+this.getElementsByTagName("input")[0].id);
+
+                                subdiv.appendChild(input);
+                                div.appendChild(subdiv);
+
+                                autocomplete(document.getElementById("add-categories-"+this.getElementsByTagName("input")[0].id), data);
+                            }
+                        });
 
                     const headers = new Headers({
                         'accept': 'application/json'
