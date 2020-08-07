@@ -57,6 +57,11 @@ function autocomplete(inp, arr, level) {
                 b.innerHTML += "<input id='"+arr[i]['id']+"' type='hidden' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
+
+                    for(i=(level+1); i++; i<10){
+                        document.getElementById( 'level-'+(i)).remove();
+
+                    }
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     console.log(this.getElementsByTagName("input")[0].id);
@@ -70,6 +75,8 @@ function autocomplete(inp, arr, level) {
                             subdiv = document.createElement('div');
                             subdiv.setAttribute("class", "autocomplete");
                             subdiv.setAttribute("level", (level+1));
+                            subdiv.setAttribute("id", 'level-'+(level+1));
+
 
                             input = document.createElement('input');
                             input.setAttribute('name', 'category[' + parentID + ']');
