@@ -38,6 +38,7 @@ function add_category(level){
     subdiv.setAttribute("class", "autocomplete");
     subdiv.setAttribute("level", (level));
     subdiv.setAttribute("id", 'level-'+(level));
+    subdiv.setAttribute("style", "width: "+(100-level)+"%; float: right;")
 
 
     var input = document.createElement('input');
