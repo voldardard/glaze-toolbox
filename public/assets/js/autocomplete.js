@@ -22,10 +22,6 @@ function fetchJson(method, url, callback){
 
 
 function autocomplete(inp, arr, level) {
-/*    arr=[];
-    for (i = 0; i < arr.length; i++) {
-        arr.push(categories[i]['name']);
-    }*/
 
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -71,7 +67,6 @@ function autocomplete(inp, arr, level) {
                     }
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
-                    console.log(this.getElementsByTagName("input")[0].id);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
                     fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID, function(data){
@@ -79,35 +74,7 @@ function autocomplete(inp, arr, level) {
                         console.log(data);
                         if(data.length!==0) {
                             add_category((level+1));
-         /*                   div = document.getElementById('categories');
-                            subdiv = document.createElement('div');
-                            subdiv.setAttribute("class", "autocomplete");
-                            subdiv.setAttribute("level", (level+1));
-                            subdiv.setAttribute("id", 'level-'+(level+1));
-
-
-                            input = document.createElement('input');
-                            input.setAttribute('name', 'category[' + parentID + ']');
-                            input.setAttribute("required", "required");
-                            input.setAttribute("type", "text");
-                            input.setAttribute("placeholder", "Sub-categories");
-                            input.setAttribute("id", "add-categories-" + parentID);
-
-                            i= document.createElement('i');
-                            i.setAttribute("class", "fa fa-minus-square");
-                            i.setAttribute("aria-hidden", "true");
-                            a= document.createElement('a');
-                            a.setAttribute("id", "categories-remove-" + (level+1));
-                            a.setAttribute("class", "remove-categories");
-                            a.setAttribute("onclick", "remove_category("+(level+1)+")");
-                            a.appendChild(i);
-
-
-                            subdiv.appendChild(input);
-                            subdiv.appendChild(a);
-
-                            div.appendChild(subdiv);*/
-
+                            console.log(data);
                             autocomplete(document.getElementById("add-categories-" + parentID), data, (level+1));
                         }
                     });
