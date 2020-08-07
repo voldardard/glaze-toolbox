@@ -12,6 +12,26 @@ var getJSON = function(url, callback) {
     };
     xhr.send();
 };
+function fetchJson(method, url){
+    console.log(url);
+    const headers = new Headers({
+        'accept': 'application/json'
+    });
+
+    fetch(url, {
+        method: method,
+        headers,
+    }).then(function(response) {
+        if (!response.ok) {
+            throw Error('error:'+response.statusText+' statuscode:'+response.status);
+
+        }else{
+            return response.json();
+        }
+    }).then(data => {
+        console.log(data);
+    });
+}
 
 
 function autocomplete(inp, arr) {
@@ -55,12 +75,14 @@ function autocomplete(inp, arr) {
                     console.log(this.getElementsByTagName("input")[0].id);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
+                    fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID)
+
                     getJSON('http://glaze.cera.chat/en/category/'+parentID,
                         function(err, data) {
                             if (err !== null) {
                                 alert('Something went wrong: ' + err);
                             } else {
-                                console.log('Your query: ' + data.length);
+                                console.log(data.length);
 
                                 div=document.getElementById('categories');
                                 subdiv = document.createElement('div');
