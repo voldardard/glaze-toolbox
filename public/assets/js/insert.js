@@ -42,6 +42,9 @@ function add_category(level){
     var button = document.getElementById('add_category');
     button.setAttribute("onclick", "add_category("+(level+1)+")");
 }
+function remove_category(level){
+    document.getElementById('level-'+level).remove();
+}
 function add_label(){
     label_count++;
 

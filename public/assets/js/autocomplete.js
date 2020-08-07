@@ -78,7 +78,8 @@ function autocomplete(inp, arr, level) {
                         console.log('fetched:');
                         console.log(data);
                         if(data.length!==0) {
-                            div = document.getElementById('categories');
+                            add_category((level+1));
+         /*                   div = document.getElementById('categories');
                             subdiv = document.createElement('div');
                             subdiv.setAttribute("class", "autocomplete");
                             subdiv.setAttribute("level", (level+1));
@@ -105,7 +106,7 @@ function autocomplete(inp, arr, level) {
                             subdiv.appendChild(input);
                             subdiv.appendChild(a);
 
-                            div.appendChild(subdiv);
+                            div.appendChild(subdiv);*/
 
                             autocomplete(document.getElementById("add-categories-" + parentID), data, (level+1));
                         }
