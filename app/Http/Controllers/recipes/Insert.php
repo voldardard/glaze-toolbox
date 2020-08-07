@@ -118,6 +118,15 @@ class Insert extends Controller{
         };
 
 
+        //store labels
+        foreach($validatedData['label'] as $key => $value){
+            DB::table('labels')->insert([
+                'name'=>$value,
+                'recipes_id'=>$recipeID,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ]);
+        }
 
         print_r($validatedData);
         die();
