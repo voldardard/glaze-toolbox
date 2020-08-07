@@ -89,7 +89,7 @@
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <div style="clear: both; width: 33%; margin:0"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
+                    <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
 
 
                 </div>
