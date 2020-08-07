@@ -82,21 +82,22 @@
 
 
                 </div>
-            </div>
-            <div id="raw">
-                <h3>Ingrédients / matière première</h3>
-                <div id="raw-container">
-                    <div id="raw-0">
-                        <input type="text" id="raw-name-0" value="" required name="raw[0][name]" placeholder="Matière première"/>
-                        <input type="text" id="raw-formula-0" value="" name="raw[0][formula]" placeholder="Formule"/>
-                        <input type="number" id="raw-quantity-0" value="" name="raw[0][formula]" placeholder="Quantités"/>
+                <div id="raw">
+                    <h3>Ingrédients / matière première</h3>
+                    <div id="raw-container">
+                        <div id="raw-0">
+                            <input type="text" id="raw-name-0" value="" required name="raw[0][name]" placeholder="Matière première"/>
+                            <input type="text" id="raw-formula-0" value="" name="raw[0][formula]" placeholder="Formule"/>
+                            <input type="number" id="raw-quantity-0" value="" name="raw[0][formula]" placeholder="Quantités"/>
 
-                        <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                            <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
+                    <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
 
+                </div>
             </div>
+
             <br />
             <button class="insert-button">@lang('insert.i-005-save')</button>
             @csrf
