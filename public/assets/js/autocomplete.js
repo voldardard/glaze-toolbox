@@ -37,8 +37,9 @@ function autocomplete(inp, arr, level) {
                     console.log('clicked input level:'+level);
                     remove_category((level+1));
 
-                    /*insert the value for the autocomplete text field:*/
-                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*insert the value for the autocompleted text field:*/
+                    inp.setAttribute('value', this.getElementsByTagName("input")[0].value);
+                    console.log(this.getElementsByTagName("input")[0].value);
                     var parentID=this.getElementsByTagName("input")[0].id;
 
                     fetchJson('GET', 'http://glaze.cera.chat/en/category/'+parentID, function(data){
