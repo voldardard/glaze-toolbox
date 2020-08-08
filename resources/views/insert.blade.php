@@ -100,7 +100,7 @@
                         <input type="text" id="bake-type" value="" name="bake[type]"
                                placeholder="Type"/>
                         <label>Remarque</label>
-                        <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"/>
+                        <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"></textarea>
 
                     </div>
                 </div>
