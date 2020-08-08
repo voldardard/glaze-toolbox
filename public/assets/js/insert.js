@@ -89,7 +89,7 @@ function add_raw(level) {
     var div = document.getElementById('raw-container');
     var subdiv = document.createElement('div');
     subdiv.setAttribute("id", 'raw-' + (level));
-    subdiv.setAttribute("id", 'raw-subdiv');
+    subdiv.setAttribute("class", 'raw-subdiv');
 
 
     var input = document.createElement('input');
