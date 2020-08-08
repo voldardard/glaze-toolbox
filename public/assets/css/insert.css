@@ -192,7 +192,7 @@ body{
 .form #raw-container div .remove-raw {
     margin-top: 11px;
     width: 24px;
-    position: relative;
+    position: revert;
     float: left;
     cursor: pointer;
 
