@@ -126,15 +126,19 @@ function autocomplete_category(inp, arr, level) {
 
 function autocomplete_raw(inp, arr, level) {
 
+    console.log(arr);
+
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
-    inp.addEventListener("input", function(e) {
+    inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
-        if (!val) { return false;}
+        if (!val) {
+            return false;
+        }
         currentFocus = -1;
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
@@ -162,19 +166,6 @@ function autocomplete_raw(inp, arr, level) {
                     inp.value = this.getElementsByTagName("input")[0].value;
 
                     console.log(this.getElementsByTagName("input")[0].value);
-                    var parentID=this.getElementsByTagName("input")[0].id;
-
-                    fetchJson('GET', 'http://glaze.cera.chat/en/raw/', function(data){
-                        console.log('fetched:');
-                        console.log(data);
-                        if(data.length!==0) {
-                            add_raw((level+1));
-                            console.log(data);
-                            autocomplete_category(document.getElementById("add-categories-" + (level+1)), data, (level+1));
-                        }
-                    });
-
-
 
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
