@@ -141,24 +141,10 @@ class Insert extends Controller{
         }
 
         if (!empty($validatedData['raw'])) {
-            $mayExist = true;
 
             foreach ($validatedData['raw'] as $key => $value) {
-                if ($mayExist) {
 
-                    if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->exists()) {
-                        $raw_id = DB::table('raw_materials')->insertGetId([
-                            'name' => $value['name'],
-                            'formula' => $value['formula'],
-                            'locale' => Config::get('app.locale'),
-                            'created_at' => now(),
-                            'updated_at' => now()
-                        ]);
-                        $mayExist = false;
-                    } else {
-                        $raw_id = DB::table('raw_materials')->select('id')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
-                    }
-                } else {
+                if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->exists()) {
                     $raw_id = DB::table('raw_materials')->insertGetId([
                         'name' => $value['name'],
                         'formula' => $value['formula'],
@@ -166,7 +152,10 @@ class Insert extends Controller{
                         'created_at' => now(),
                         'updated_at' => now()
                     ]);
+                } else {
+                    $raw_id = DB::table('raw_materials')->select('id')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
                 }
+
                 DB::table('recipe_components')->insert([
                     'quantity' => $value['quantity'],
                     'raw_id' => $raw_id,
