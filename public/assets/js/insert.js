@@ -117,7 +117,7 @@ function add_raw(level) {
     var a = document.createElement('a');
     a.setAttribute("id", "raw-remove-" + (level));
     a.setAttribute("class", "remove-raw");
-    a.setAttribute("onclick", "raw(" + (level) + ")");
+    a.setAttribute("onclick", "remove_raw(" + (level) + ")");
     a.appendChild(i);
 
 
