@@ -187,6 +187,7 @@ body{
     margin-left: 25px;
 }
 .form #raw-container div{
+    clear: both;
     padding: 0;
 }
 .form #raw-container div .remove-raw {
