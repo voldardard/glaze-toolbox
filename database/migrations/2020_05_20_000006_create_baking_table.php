@@ -20,7 +20,7 @@ class CreateBakingTable extends Migration
             $table->string('oven', 30);
             $table->string('temperature');
 
-            $table->string('type', 30);
+            $table->string('type', 30)->nullable();
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');

@@ -248,6 +248,12 @@ body{
     width: 100%;
 }
 
+#information-land .autocomplete-items {
+    width: 49%;
+    margin: auto;
+    position: relative;
+}
+
 .red {
     color: red;
     font-weight: bolder;
