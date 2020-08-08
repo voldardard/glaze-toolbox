@@ -140,10 +140,46 @@ class Insert extends Controller{
             }
         }
 
+        if (!empty($validatedData['raw'])) {
+            $mayExist = true;
+
+            foreach ($validatedData['raw'] as $key => $value) {
+                if ($mayExist) {
+
+                    if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => app()->getLocale()])->exists()) {
+                        $raw_id = DB::table('raw_materials')->insertGetId([
+                            'name' => $value['name'],
+                            'formula' => $value,
+                            'locale' => app()->getLocale(),
+                            'created_at' => now(),
+                            'updated_at' => now()
+                        ]);
+                        $mayExist = false;
+                    } else {
+                        $raw_id = DB::table('categories')->select('id')->where(['name' => $value, 'delete' => 0, 'level' => $key, 'parent_id' => $parent_id])->first()->id;
+                    }
+                } else {
+                    $raw_id = DB::table('raw_materials')->insertGetId([
+                        'name' => $value['name'],
+                        'formula' => $value,
+                        'locale' => app()->getLocale(),
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+                }
+                DB::table('recipe_componentsMasquer')->insert([
+                    'quantity' => $value['quantity'],
+                    'raw_id' => $raw_id,
+                    'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+
+
+            }
+        }
         print_r($validatedData);
         die();
-
-
 
 
     }
