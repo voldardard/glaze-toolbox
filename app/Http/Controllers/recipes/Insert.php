@@ -31,7 +31,14 @@ class Insert extends Controller{
             'pictures.*' => 'string|nullable',
             'raw.*.name' => 'string|required|max:45',
             'raw.*.quantity' => 'integer|required',
-            'raw.*.formula' => 'string|max:45|nullable'
+            'raw.*.formula' => 'string|max:45|nullable',
+            'land' => 'string|required|max:45',
+            'bake.orton' => 'string|required|max:45',
+            'bake.oven' => 'string|required|max:45',
+            'bake.type' => 'string|nullable|max:45',
+            'bake.temp' => 'integer|required',
+            'remarks' => 'string|nullable',
+
 
         ]);
 
@@ -168,6 +175,39 @@ class Insert extends Controller{
 
             }
         }
+        if (!empty($validatedData['land'])) {
+            DB::table('recipe_components')->insert([
+                'name' => $validatedData['land'],
+                'recipes_id' => $recipeID,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'locale' => Config::get('app.locale'),
+
+            ]);
+        }
+        if (!empty($validatedData['bake'])) {
+            DB::table('baking')->insert([
+                'oven' => $validatedData['bake']['oven'],
+                'orton' => $validatedData['bake']['orton'],
+                'temperature' => $validatedData['bake']['temp'],
+                'type' => $validatedData['bake']['type'],
+                'recipes_id' => $recipeID,
+                'created_at' => now(),
+                'updated_at' => now(),
+
+            ]);
+        }
+        if (!empty($validatedData['remarks'])) {
+            DB::table('baking')->insert([
+                'text' => $validatedData['remarks'],
+                'locale' => Config::get('app.locale'),
+                'recipes_id' => $recipeID,
+                'created_at' => now(),
+                'updated_at' => now(),
+
+            ]);
+        }
+
         print_r($validatedData);
         die();
 

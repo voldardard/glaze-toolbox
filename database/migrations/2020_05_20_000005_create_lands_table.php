@@ -17,7 +17,7 @@ class CreateLandsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 40);
-            $table->string('type', 30)->nullable();
+            $table->string('locale', 10)->default('en');
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');

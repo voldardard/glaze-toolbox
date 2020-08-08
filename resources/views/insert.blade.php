@@ -86,7 +86,7 @@
                     <div id="information-container">
                         <div id="information-land">
                             <label>Land</label>
-                            <input type="text" id="land-name" value="" required name="land[name]"
+                            <input type="text" id="land-name" value="" required name="land"
                                    placeholder="Name"/>
 
                         </div>
