@@ -90,7 +90,7 @@ function autocomplete_category(inp, arr, level) {
         }
     });
     /*execute a function when user click in input:*/
-    inp.addEventListener("focus", function (e) {
+    inp.addEventListener("focusin", function (e) {
         console.log('clicked');
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
