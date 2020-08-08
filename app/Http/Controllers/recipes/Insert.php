@@ -145,6 +145,8 @@ class Insert extends Controller{
 
             foreach ($validatedData['raw'] as $key => $value) {
                 if ($mayExist) {
+                    print_r($value);
+                    die();
 
                     if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => app()->getLocale()])->exists()) {
                         $raw_id = DB::table('raw_materials')->insertGetId([
