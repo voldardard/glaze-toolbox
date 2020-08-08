@@ -47,7 +47,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Params=new \stdClass();
             $Params->raw= $Controller->getRaw();
             $Params->categories=$Controller->getCategory();
-            return view('insert', $Params);
+            return view('insert')->with('Params', $Params);
         })->name('insert');
         Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {
