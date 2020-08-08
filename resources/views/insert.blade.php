@@ -88,18 +88,17 @@
                             <label>Land</label>
                             <input type="text" id="land-name" value="" required name="land[name]"
                                    placeholder="Name"/>
-                            <input type="text" id="land-type" value="" name="land[type]"
-                                   placeholder="Type"/>
+
                         </div>
 
                         <div id="information-bake">
                             <label>Baking</label>
                             <input type="text" id="bake-orton" value="" required name="bake[orton]"
                                    placeholder="Orton"/>
-                            <input type="text" id="bake-oven" value="" name="bake[oven]"
+                            <input type="text" id="bake-oven" value="" required name="bake[oven]"
                                    placeholder="Oven"/>
-                            <input type="text" id="bake-temp" value="" name="bake[temp]"
-                                   placeholder="Température"/>
+                            <input type="number" id="bake-temp" value="" required name="bake[temp]"
+                                   placeholder="Température (C°)"/>
                             <input type="text" id="bake-type" value="" name="bake[type]"
                                    placeholder="Type"/>
                         </div>
