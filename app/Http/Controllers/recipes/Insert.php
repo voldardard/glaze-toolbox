@@ -156,7 +156,7 @@ class Insert extends Controller{
                         ]);
                         $mayExist = false;
                     } else {
-                        $raw_id = DB::table('categories')->select('id')->->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
+                        $raw_id = DB::table('categories')->select('id')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
                     }
                 } else {
                     $raw_id = DB::table('raw_materials')->insertGetId([
