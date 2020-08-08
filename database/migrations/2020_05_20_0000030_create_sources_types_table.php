@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRemarksTable extends Migration
+class CreateSourcesTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateRemarksTable extends Migration
      */
     public function up()
     {
-        Schema::create('remarks', function (Blueprint $table) {
+        Schema::create('sources_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('text');
+            $table->string('name');
             $table->string('locale', 10)->default('en');
-
-            $table->unsignedBigInteger('recipes_id');
-            $table->index('recipes_id');
-            $table->foreign('recipes_id')->references('id')->on('recipes');
 
         });
     }
@@ -33,6 +29,6 @@ class CreateRemarksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remarks');
+        Schema::dropIfExists('sources_types');
     }
 }

@@ -17,9 +17,12 @@ class CreateSourcesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('type', 30);
             $table->string('author');
             $table->string('description');
+
+            $table->unsignedBigInteger('type_id');
+            $table->index('type_id');
+            $table->foreign('type_id')->references('id')->on('sources_types');
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');

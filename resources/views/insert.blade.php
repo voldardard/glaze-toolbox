@@ -107,7 +107,7 @@
 
                         <div id="information-remarks">
                             <label>Remarque</label>
-                            <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"></textarea>
+                            <textarea id="remarks" value="" name="remarks" placeholder="Remarques"></textarea>
                         </div>
 
                     </div>
