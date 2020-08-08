@@ -42,14 +42,12 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('home');
         })->name('home');
         Route::get('/insert', function () {
-            session(['current_route'=>'/insert']);
+            session(['current_route' => '/insert']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
-            $Params=new \stdClass();
-            $raw = $Controller->getRaw();
-            $Params->raw = $raw->content();
-            $Params->categories = $Controller->getCategory();
-            print_r($Params);
-            die();
+            $Params = new \stdClass();
+            $Params->raw = $Controller->getRaw()->content();
+            $Params->categories = $Controller->getCategory()->content();
+
             return view('insert')->with('Params', $Params);
         })->name('insert');
         Route::post('/insert', 'recipes\Insert');
