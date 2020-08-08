@@ -37,6 +37,8 @@
         };
         {!! 'var categories = '.$Params->categories !!}
         {!! 'var raw = '.$Params->raw !!}
+        {!! 'var lands = '.$Params->lands !!}
+
     </script>
     <script src="{{ asset('js/insert.js') }}"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
@@ -155,6 +157,7 @@
 <script type="text/javascript">
     autocomplete_category(document.getElementById("add-categories"), categories, 0);
     autocomplete_raw(document.getElementById("raw-name-0"), raw, 0);
+    autocomplete(document.getElementById("land-name"), lands);
 
 </script>
 </body>
