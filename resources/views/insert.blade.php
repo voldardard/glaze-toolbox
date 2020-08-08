@@ -90,16 +90,18 @@
                             <input type="text" id="raw-formula-0" value="" name="raw[0][formula]" placeholder="Formule"/>
                             <input type="number" id="raw-quantity-0" value="" name="raw[0][quantity]" placeholder="Quantités"/>
 
-                            <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                            <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
+                                        class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
+                    <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)"><i
+                                    class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
 
                 </div>
             </div>
 
-            <br />
-            <button class="insert-button">@lang('insert.i-005-save')</button>
+            <br/>
+            <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
             @csrf
         </form>
     </div>
