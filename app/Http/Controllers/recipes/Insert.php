@@ -30,7 +30,7 @@ class Insert extends Controller{
             'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
             'pictures.*' => 'string|nullable',
             'raw.*.name' => 'string|required|max:45',
-            'raw.*.quantity' => 'number|required',
+            'raw.*.quantity' => 'integer|required',
             'raw.*.formula' => 'string|max:45'
 
         ]);
