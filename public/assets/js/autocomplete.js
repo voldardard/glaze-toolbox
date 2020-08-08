@@ -153,10 +153,11 @@ function autocomplete_raw(inp, arr, level) {
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
                 /*make the matching letters bold:*/
-                b.innerHTML = "<div class='first-input'><strong>" + arr[i]['name'].substr(0, val.length) + "</strong></div>";
+                b.innerHTML = "<div class='first-input'><strong>" + arr[i]['name'].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i]['name'].substr(val.length) + "</div>";
+
                 b.innerHTML += "<div class='second-input'>" + arr[i]['formula'] + "</div>";
 
-                b.innerHTML += arr[i]['name'].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' formula='" + arr[i]['formula'] + "' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
