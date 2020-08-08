@@ -82,25 +82,32 @@
 
                 </div>
                 <div id="information">
-                    <h3>Détail</h3>
+                    <h3>Détails</h3>
                     <div id="information-container">
-                        <label>Land</label>
-                        <input type="text" id="land-name" value="" required name="land[name]"
-                               placeholder="Name"/>
-                        <input type="text" id="land-type" value="" name="land[type]"
-                               placeholder="Type"/>
+                        <div id="information-land">
+                            <label>Land</label>
+                            <input type="text" id="land-name" value="" required name="land[name]"
+                                   placeholder="Name"/>
+                            <input type="text" id="land-type" value="" name="land[type]"
+                                   placeholder="Type"/>
+                        </div>
 
-                        <label>Baking</label>
-                        <input type="text" id="bake-orton" value="" required name="bake[orton]"
-                               placeholder="Orton"/>
-                        <input type="text" id="bake-oven" value="" name="bake[oven]"
-                               placeholder="Oven"/>
-                        <input type="text" id="bake-temp" value="" name="bake[temp]"
-                               placeholder="Température"/>
-                        <input type="text" id="bake-type" value="" name="bake[type]"
-                               placeholder="Type"/>
-                        <label>Remarque</label>
-                        <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"></textarea>
+                        <div id="information-bake">
+                            <label>Baking</label>
+                            <input type="text" id="bake-orton" value="" required name="bake[orton]"
+                                   placeholder="Orton"/>
+                            <input type="text" id="bake-oven" value="" name="bake[oven]"
+                                   placeholder="Oven"/>
+                            <input type="text" id="bake-temp" value="" name="bake[temp]"
+                                   placeholder="Température"/>
+                            <input type="text" id="bake-type" value="" name="bake[type]"
+                                   placeholder="Type"/>
+                        </div>
+
+                        <div id="information-remarks">
+                            <label>Remarque</label>
+                            <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"></textarea>
+                        </div>
 
                     </div>
                 </div>
