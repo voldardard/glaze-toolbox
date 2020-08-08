@@ -95,20 +95,20 @@ function add_raw(level) {
     var input = document.createElement('input');
     input.setAttribute("required", "required");
     input.setAttribute("type", "text");
-    input.setAttribute("placeholder", "Matière première");
+    input.setAttribute("placeholder", translate('rawMaterials'));
     input.setAttribute("name", 'raw[' + level + '][name]');
     input.setAttribute("id", "raw-name-" + level);
 
     var input2 = document.createElement('input');
     input2.setAttribute("type", "text");
-    input2.setAttribute("placeholder", "Formule");
+    input2.setAttribute("placeholder", translate('formula'));
     input2.setAttribute("name", 'raw[' + level + '][formula]');
     input2.setAttribute("id", "raw-formula-" + level);
 
     var input3 = document.createElement('input');
     input.setAttribute("required", "required");
     input3.setAttribute("type", "number");
-    input3.setAttribute("placeholder", "Quantités");
+    input3.setAttribute("placeholder", translate('quantity'));
     input3.setAttribute("name", 'raw[' + level + '][quantity]');
     input3.setAttribute("id", "raw-quantity-" + level);
 

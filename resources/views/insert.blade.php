@@ -16,16 +16,25 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}" >
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}">
 
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        var lang = {"subCategory":"@lang('insert.i-013-subCategory')", "problemConnecting":"@lang('insert.i-001-problemConnecting')", "validationFailed":"@lang('insert.i-002-validationFailed')", "pictureName":"@lang('insert.i-003-pictureName')", "label":"@lang('insert.i-004-label')"};
+        var lang = {
+            "formula": "@lang('insert.i-017-formula')",
+            "quantity": "@lang('insert.i-018-quantity')",
+            "rawMaterials": "@lang('insert.i-016-RawMaterials')",
+            "subCategory": "@lang('insert.i-013-subCategory')",
+            "problemConnecting": "@lang('insert.i-001-problemConnecting')",
+            "validationFailed": "@lang('insert.i-002-validationFailed')",
+            "pictureName": "@lang('insert.i-003-pictureName')",
+            "label": "@lang('insert.i-004-label')"
+        };
         {!! 'var categories = '.$Params->categories !!}
         {!! 'var raw = '.$Params->raw !!}
     </script>
@@ -76,29 +85,33 @@
             <div class="right">
                 <div id="upload">
                     <h3>@lang('insert.i-011-recipePictures')</h3>
-                    <input  multiple id="upload-pic" type="file" name="pic[]" />
-                    <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>@lang('insert.i-009-upload')</a>
+                    <input multiple id="upload-pic" type="file" name="pic[]"/>
+                    <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon"
+                                                                                      class="fa fa-upload"
+                                                                                      aria-hidden="true"></i>@lang('insert.i-009-upload')
+                    </a>
                     <br/>
 
 
                 </div>
                 <div id="raw">
-                    <h3>Ingrédients / matière première</h3>
+                    <h3>@lang('insert.i-015-MaterialsRaw')</h3>
                     <div id="raw-container">
                         <div id="raw-0" class="raw-subdiv">
                             <input type="text" id="raw-name-0" value="" required name="raw[0][name]"
-                                   placeholder="Matière première"/>
+                                   placeholder="@lang('insert.i-016-RawMaterials')"/>
                             <input type="text" id="raw-formula-0" value="" name="raw[0][formula]"
-                                   placeholder="Formule"/>
+                                   placeholder="@lang('insert.i-017-formula')"/>
                             <input type="number" required id="raw-quantity-0" value="" name="raw[0][quantity]"
-                                   placeholder="Quantités"/>
+                                   placeholder="@lang('insert.i-018-quantity')"/>
 
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)"><i
-                                    class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un élément</a></div>
+                                    class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
+                        </a></div>
 
                 </div>
             </div>
