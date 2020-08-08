@@ -149,7 +149,7 @@ class Insert extends Controller{
                     if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->exists()) {
                         $raw_id = DB::table('raw_materials')->insertGetId([
                             'name' => $value['name'],
-                            'formula' => $value,
+                            'formula' => $value['formula'],
                             'locale' => Config::get('app.locale'),
                             'created_at' => now(),
                             'updated_at' => now()
@@ -161,7 +161,7 @@ class Insert extends Controller{
                 } else {
                     $raw_id = DB::table('raw_materials')->insertGetId([
                         'name' => $value['name'],
-                        'formula' => $value,
+                        'formula' => $value['formula'],
                         'locale' => Config::get('app.locale'),
                         'created_at' => now(),
                         'updated_at' => now()
