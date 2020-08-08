@@ -167,7 +167,7 @@ class Insert extends Controller{
                         'updated_at' => now()
                     ]);
                 }
-                DB::table('recipe_componentsMasquer')->insert([
+                DB::table('recipe_components')->insert([
                     'quantity' => $value['quantity'],
                     'raw_id' => $raw_id,
                     'recipes_id' => $recipeID,
