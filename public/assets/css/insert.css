@@ -198,6 +198,11 @@ body{
 
 }
 
+#raw-container div {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
 .form #raw-container .autocomplete-items {
     float: left;
     width: 25%;
