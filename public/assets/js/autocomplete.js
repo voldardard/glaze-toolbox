@@ -115,7 +115,34 @@ function autocomplete_category(inp, arr, level) {
 
             /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' value='" + arr[i]['name'] + "'>";
+            b.addEventListener("click", function (e) {
+                console.log('clicked input level:' + level);
+                remove_category((level + 1));
+
+                /*insert the value for the autocompleted text field:*/
+                inp.setAttribute('value', (this.getElementsByTagName("input")[0].value));
+                inp.value = this.getElementsByTagName("input")[0].value;
+
+                console.log(this.getElementsByTagName("input")[0].value);
+                var parentID = this.getElementsByTagName("input")[0].id;
+
+                fetchJson('GET', 'http://glaze.cera.chat/en/category/' + parentID, function (data) {
+                    console.log('fetched:');
+                    console.log(data);
+                    if (data.length !== 0) {
+                        add_category((level + 1));
+                        console.log(data);
+                        autocomplete_category(document.getElementById("add-categories-" + (level + 1)), data, (level + 1));
+                    }
+                });
+
+
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+            });
             a.appendChild(b);
+
         }
     });
 
