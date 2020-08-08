@@ -26,8 +26,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         var lang = {"subCategory":"@lang('insert.i-013-subCategory')", "problemConnecting":"@lang('insert.i-001-problemConnecting')", "validationFailed":"@lang('insert.i-002-validationFailed')", "pictureName":"@lang('insert.i-003-pictureName')", "label":"@lang('insert.i-004-label')"};
-        {{ 'var categories = '.$Params->categories }}
-        {{ 'var raw = '.$Params->raw }}
+        {!! 'var categories = '.$Params->categories !!}
+        {!! 'var raw = '.$Params->raw !!}
     </script>
     <script src="{{ asset('js/insert.js') }}"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
