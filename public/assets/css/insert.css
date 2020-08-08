@@ -231,13 +231,31 @@ body{
 
 }
 
+#information label {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#information-land input {
+    width: 49%;
+}
+
+#information-bake input {
+    width: 24%;
+}
+
+#information-remarks textarea {
+    width: 100%;
+}
+
 .red {
     color: red;
     font-weight: bolder;
     text-align: center;
 }
-.green{
-    color:green;
+
+.green {
+    color: green;
     font-weight: bolder;
     text-align: center;
 }
