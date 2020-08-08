@@ -78,17 +78,20 @@
                     <h3>@lang('insert.i-011-recipePictures')</h3>
                     <input  multiple id="upload-pic" type="file" name="pic[]" />
                     <a onclick="tmp_upload('upload-pic', 'upload-icon', 'upload')"><i id="upload-icon" class="fa fa-upload" aria-hidden="true"></i>@lang('insert.i-009-upload')</a>
-<br/>
+                    <br/>
 
 
                 </div>
                 <div id="raw">
                     <h3>Ingrédients / matière première</h3>
                     <div id="raw-container">
-                        <div id="raw-0">
-                            <input type="text" id="raw-name-0" value="" required name="raw[0][name]" placeholder="Matière première"/>
-                            <input type="text" id="raw-formula-0" value="" name="raw[0][formula]" placeholder="Formule"/>
-                            <input type="number" id="raw-quantity-0" value="" name="raw[0][quantity]" placeholder="Quantités"/>
+                        <div id="raw-0" class="raw-subdiv">
+                            <input type="text" id="raw-name-0" value="" required name="raw[0][name]"
+                                   placeholder="Matière première"/>
+                            <input type="text" id="raw-formula-0" value="" name="raw[0][formula]"
+                                   placeholder="Formule"/>
+                            <input type="number" id="raw-quantity-0" value="" name="raw[0][quantity]"
+                                   placeholder="Quantités"/>
 
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>
