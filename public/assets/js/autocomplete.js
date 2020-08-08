@@ -90,7 +90,7 @@ function autocomplete_category(inp, arr, level) {
         }
     });
     /*execute a function when user click in input:*/
-    inp.addEventListener("click", function (e) {
+    inp.addEventListener("focus", function (e) {
         console.log('clicked');
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
@@ -103,11 +103,9 @@ function autocomplete_category(inp, arr, level) {
         /*append the DIV element as a child of the autocomplete container:*/
         this.parentNode.appendChild(a);
         console.log('div created and apended');
-        console.log(arr);
 
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
-            console.log(arr[i]);
 
             /*check if the item starts with the same letters as the text field value:*/
             /*create a DIV element for each matching element:*/
