@@ -176,7 +176,7 @@ class Insert extends Controller{
             }
         }
         if (!empty($validatedData['land'])) {
-            DB::table('recipe_components')->insert([
+            DB::table('lands')->insert([
                 'name' => $validatedData['land'],
                 'recipes_id' => $recipeID,
                 'created_at' => now(),
@@ -198,7 +198,7 @@ class Insert extends Controller{
             ]);
         }
         if (!empty($validatedData['remarks'])) {
-            DB::table('baking')->insert([
+            DB::table('remarks')->insert([
                 'text' => $validatedData['remarks'],
                 'locale' => Config::get('app.locale'),
                 'recipes_id' => $recipeID,
