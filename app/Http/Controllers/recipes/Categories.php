@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 class Categories extends Controller{
-    public function getCategory(Request $input, $parentID=null){
+    public function getCategory($parentID=null){
     if (is_null($parentID)){
         $categories = DB::table('categories')->select(['id', 'name'])->whereNull('parent_id')->get();
 
