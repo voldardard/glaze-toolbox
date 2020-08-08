@@ -31,7 +31,7 @@ class Insert extends Controller{
             'pictures.*' => 'string|nullable',
             'raw.*.name' => 'string|required|max:45',
             'raw.*.quantity' => 'integer|required',
-            'raw.*.formula' => 'string|max:45'
+            'raw.*.formula' => 'string|max:45|nullable'
 
         ]);
 
