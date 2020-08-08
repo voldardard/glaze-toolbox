@@ -142,8 +142,9 @@ function remove_raw(level) {
 
 
     //update create button
-    var button = document.getElementById('add_raw');
-    button.setAttribute("onclick", "add_raw(" + (level) + ")");
+    //do not decrease or risk to have same id 2 time
+    // var button = document.getElementById('add_raw');
+    // button.setAttribute("onclick", "add_raw(" + (level) + ")");
 }
 
 function add_label() {
