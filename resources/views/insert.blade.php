@@ -75,10 +75,34 @@
 
                 <div id="labels">
 
-                    <div><a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-008-addlabel')</a></div>
+                    <div><a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-008-addlabel')</a>
+                    </div>
                     <!--<input id="label-0" type="text" placeholder="Label" name="label[]" />
                     <a id="label-remove-0" class="remove-label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>-->
 
+                </div>
+                <div id="information">
+                    <h3>Détail</h3>
+                    <div id="information-container">
+                        <label>Land</label>
+                        <input type="text" id="land-name" value="" required name="land[name]"
+                               placeholder="Name"/>
+                        <input type="text" id="land-type" value="" name="land[type]"
+                               placeholder="Type"/>
+
+                        <label>Baking</label>
+                        <input type="text" id="bake-orton" value="" required name="bake[orton]"
+                               placeholder="Orton"/>
+                        <input type="text" id="bake-oven" value="" name="bake[oven]"
+                               placeholder="Oven"/>
+                        <input type="text" id="bake-temp" value="" name="bake[temp]"
+                               placeholder="Température"/>
+                        <input type="text" id="bake-type" value="" name="bake[type]"
+                               placeholder="Type"/>
+                        <label>Remarque</label>
+                        <textarea id="remarks" value="" required name="remarks" placeholder="Remarques"/>
+
+                    </div>
                 </div>
             </div>
 
