@@ -17,6 +17,7 @@ class CreateLabelsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 45);
+            $table->string('locale', 10)->default('en');
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');

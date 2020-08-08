@@ -31,6 +31,11 @@ class Categories extends Controller{
 
 
     }
+    public function getRaw(){
+        $raw = DB::table('raw_materials')->select(['name', 'formula', 'locale'])->get();
+        return response()->json($raw);
+
+    }
     public function getAllCategories(){
         $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
         foreach ($category as $key=>$value){

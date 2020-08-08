@@ -16,6 +16,8 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('locale', 10)->default('en');
+
             $table->timestamps();
             $table->double('version');
 

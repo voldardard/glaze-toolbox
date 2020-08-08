@@ -51,6 +51,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('categories');
         })->name('categories');
         Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID'=>'[A-Za-z0-9]+']);
+        Route::get('/raw', 'recipes\Categories@getRaw');
+
 
     });
 

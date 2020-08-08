@@ -16,7 +16,8 @@ class CreateRawMaterialsTable extends Migration
         Schema::create('raw_materials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('formula');
+            $table->string('formula')->nullable();
+            $table->string('locale', 10)->default('en');
             $table->timestamps();
         });
     }
