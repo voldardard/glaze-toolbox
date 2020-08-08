@@ -129,9 +129,15 @@ function add_raw(level) {
 
     div.appendChild(subdiv);
 
+
+    //enable autocomplete
+    autocomplete_raw(document.getElementById("raw-name-" + level), raw, level);
+
     //update create button
     var button = document.getElementById('add_raw');
     button.setAttribute("onclick", "add_raw(" + (level + 1) + ")");
+
+
 }
 
 function remove_raw(level) {
