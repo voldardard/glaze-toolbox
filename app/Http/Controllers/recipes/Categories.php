@@ -32,7 +32,7 @@ class Categories extends Controller{
 
     }
     public function getRaw(){
-        $raw = DB::table('raw_materials')->select(['id', 'name', 'formula', 'locale'])->get();
+        $raw = DB::table('raw_materials')->select(['id', 'name', 'formula'])->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($raw);
 
     }

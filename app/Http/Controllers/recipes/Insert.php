@@ -37,12 +37,13 @@ class Insert extends Controller{
 
         //insert in recipes table
         $recipeID= DB::table('recipes')->insertGetId([
-            'name'=>$validatedData['title'],
-            'version'=>'1.0.0',
-            'users_id'=>session()->get('id'),
-            'parent_id'=>null,
-            'created_at'=>now(),
-            'updated_at'=>now()
+            'name' => $validatedData['title'],
+            'version' => '1.0.0',
+            'users_id' => session()->get('id'),
+            'parent_id' => null,
+            'locale' => Config::get('app.locale'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         //insert categories
