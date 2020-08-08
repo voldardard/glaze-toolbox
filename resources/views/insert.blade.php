@@ -93,7 +93,7 @@
 
                         <div id="information-bake">
                             <label>Baking</label>
-                            <input type="text" id="bake-orton" value="" required name="bake[orton]"
+                            <input type="number" id="bake-orton" value="" required name="bake[orton]"
                                    placeholder="Orton"/>
                             <input type="text" id="bake-oven" value="" required name="bake[oven]"
                                    placeholder="Oven"/>

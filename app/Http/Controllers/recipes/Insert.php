@@ -33,7 +33,7 @@ class Insert extends Controller{
             'raw.*.quantity' => 'integer|required',
             'raw.*.formula' => 'string|max:45|nullable',
             'land' => 'string|required|max:45',
-            'bake.orton' => 'string|required|max:45',
+            'bake.orton' => 'integer|required',
             'bake.oven' => 'string|required|max:45',
             'bake.type' => 'string|nullable|max:45',
             'bake.temp' => 'integer|required',
