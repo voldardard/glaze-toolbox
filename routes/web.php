@@ -45,7 +45,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route'=>'/insert']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params=new \stdClass();
-            $Params->raw= $Controller->getRaw();
+            $raw= $Controller->getRaw();
+            $Params->raw =$raw->data;
             $Params->categories=$Controller->getCategory();
             print_r($Params);
             die();
