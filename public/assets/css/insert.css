@@ -214,12 +214,13 @@ body{
 .form #raw-container .autocomplete-items div {
     padding-left: 10px;
     padding-right: 10px;
+    text-align: left;
 }
 
 .form #raw-container .autocomplete-items span {
     margin-left: 10px;
     float: right;
-
+    font-size: small;
 }
 
 .form #add_raw {
