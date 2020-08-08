@@ -28,7 +28,11 @@ class Insert extends Controller{
             'category.*' => 'required|string|max:45',
             'label.*' => 'string|max:45',
             'pic.*' => 'mimes:jpg,jpeg,png,bmp|max:20000',
-            'pictures.*' => 'string|nullable'
+            'pictures.*' => 'string|nullable',
+            'raw.*.name' => 'string|required|max:45',
+            'raw.*.quantity' => 'number|required',
+            'raw.*.formula' => 'string|max:45'
+
         ]);
 
         //insert in recipes table
