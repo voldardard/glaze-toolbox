@@ -74,7 +74,7 @@ function remove_category(level){
         console.log('trying to find:'+i);
         var levelBelow = document.getElementById( 'level-'+i);
         if(levelBelow){
-            console.log('Remove: level-'+i);
+            console.log('Remove: level-' + i);
             levelBelow.remove();
         }
     }
@@ -82,9 +82,71 @@ function remove_category(level){
 
     //update create button
     var button = document.getElementById('add_category');
-    button.setAttribute("onclick", "add_category("+(level)+")");
+    button.setAttribute("onclick", "add_category(" + (level) + ")");
 }
-function add_label(){
+
+function add_raw(level) {
+    var div = document.getElementById('raw-container');
+    var subdiv = document.createElement('div');
+    subdiv.setAttribute("id", 'raw-' + (level));
+
+
+    var input = document.createElement('input');
+    input.setAttribute("required", "required");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Matière première");
+    input.setAttribute("name", 'raw[' + level + '][name]');
+    input.setAttribute("id", "raw-name-" + level);
+
+    var input2 = document.createElement('input');
+    input2.setAttribute("type", "text");
+    input2.setAttribute("placeholder", "Formule");
+    input2.setAttribute("name", 'raw[' + level + '][formula]');
+    input2.setAttribute("id", "raw-formula-" + level);
+
+    var input3 = document.createElement('input');
+    input.setAttribute("required", "required");
+    input3.setAttribute("type", "number");
+    input3.setAttribute("placeholder", "Quantités");
+    input3.setAttribute("name", 'raw[' + level + '][quantity]');
+    input3.setAttribute("id", "raw-quantity-" + level);
+
+    var i = document.createElement('i');
+    i.setAttribute("class", "fa fa-minus-square");
+    i.setAttribute("aria-hidden", "true");
+    var a = document.createElement('a');
+    a.setAttribute("id", "raw-remove-" + (level));
+    a.setAttribute("class", "remove-raw");
+    a.setAttribute("onclick", "raw(" + (level) + ")");
+    a.appendChild(i);
+
+
+    subdiv.appendChild(input);
+    subdiv.appendChild(input2);
+    subdiv.appendChild(input3);
+    subdiv.appendChild(a);
+
+    div.appendChild(subdiv);
+
+    //update create button
+    var button = document.getElementById('add_raw');
+    button.setAttribute("onclick", "add_raw(" + (level + 1) + ")");
+}
+
+function remove_raw(level) {
+    var raw = document.getElementById('raw-' + level);
+    if (raw) {
+        console.log('Remove: raw-' + level);
+        raw.remove();
+    }
+
+
+    //update create button
+    var button = document.getElementById('add_raw');
+    button.setAttribute("onclick", "add_raw(" + (level) + ")");
+}
+
+function add_label() {
     label_count++;
 
 
