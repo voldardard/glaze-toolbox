@@ -90,7 +90,7 @@
                                    placeholder="Matière première"/>
                             <input type="text" id="raw-formula-0" value="" name="raw[0][formula]"
                                    placeholder="Formule"/>
-                            <input type="number" id="raw-quantity-0" value="" name="raw[0][quantity]"
+                            <input type="number" required id="raw-quantity-0" value="" name="raw[0][quantity]"
                                    placeholder="Quantités"/>
 
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
