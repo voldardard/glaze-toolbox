@@ -202,6 +202,7 @@ body{
     float: left;
     width: 25%;
     margin-left: 25px;
+    position: relative;
 }
 
 .form #add_raw {

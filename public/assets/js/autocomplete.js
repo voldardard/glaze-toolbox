@@ -157,13 +157,17 @@ function autocomplete_raw(inp, arr, level) {
 
                 b.innerHTML += arr[i]['name'].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
-                b.innerHTML += "<input id='"+arr[i]['id']+"' type='hidden' value='" + arr[i]['name'] + "'>";
+                b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' formula='" + arr[i]['formula'] + "' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
 
                     /*insert the value for the autocompleted text field:*/
                     inp.setAttribute('value', (this.getElementsByTagName("input")[0].value));
                     inp.value = this.getElementsByTagName("input")[0].value;
+                    if (this.getElementsByTagName("input")[0].getAttribute('formula') !== "null") {
+                        console.log(this.getElementsByTagName("input")[0].getAttribute('formula'));
+                        document.getElementById('raw-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                    }
 
                     console.log(this.getElementsByTagName("input")[0].value);
 
