@@ -15,7 +15,7 @@ return [
     'i-012-addSubCategory' => 'Ajouter une sous-catégorie',
     'i-013-subCategory' => 'Sous-catégorie',
     'i-014-addAnElement' => 'Ajouter un élément',
-    'i-015-MaterialsRaw' => 'Matériel / Matières première',
+    'i-015-MaterialsRaw' => 'Ingrédients / Matières première',
     'i-016-RawMaterials' => 'Matière première',
     'i-017-formula' => 'Formule',
     'i-018-quantity' => 'Quantité'
