@@ -206,9 +206,20 @@ body{
 
 .form #raw-container .autocomplete-items {
     float: left;
-    width: 25%;
+    width: 50%;
     margin-left: 25px;
     position: revert;
+}
+
+.form #raw-container .autocomplete-items .first-input {
+    width: 50%;
+
+}
+
+.form #raw-container .autocomplete-items .second-input {
+    width: 50%;
+    float: right;
+
 }
 
 .form #add_raw {
@@ -217,8 +228,9 @@ body{
     cursor: pointer;
 
 }
-.red{
-    color:red;
+
+.red {
+    color: red;
     font-weight: bolder;
     text-align: center;
 }

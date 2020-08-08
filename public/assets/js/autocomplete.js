@@ -151,7 +151,7 @@ function autocomplete_raw(inp, arr, level) {
             /*check if the item starts with the same letters as the text field value:*/
             if (arr[i]['name'].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 /*create a DIV element for each matching element:*/
-                b = document.createElement("DIV");
+                b = document.createElement("div");
                 /*make the matching letters bold:*/
                 b.innerHTML = "<div class='first-input'><strong>" + arr[i]['name'].substr(0, val.length) + "</strong>";
                 b.innerHTML += arr[i]['name'].substr(val.length) + "</div>";
