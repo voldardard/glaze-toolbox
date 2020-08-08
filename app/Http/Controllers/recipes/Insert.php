@@ -146,23 +146,23 @@ class Insert extends Controller{
             foreach ($validatedData['raw'] as $key => $value) {
                 if ($mayExist) {
 
-                    if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => app()->getLocale()])->exists()) {
+                    if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->exists()) {
                         $raw_id = DB::table('raw_materials')->insertGetId([
                             'name' => $value['name'],
                             'formula' => $value,
-                            'locale' => app()->getLocale(),
+                            'locale' => Config::get('app.locale'),
                             'created_at' => now(),
                             'updated_at' => now()
                         ]);
                         $mayExist = false;
                     } else {
-                        $raw_id = DB::table('categories')->select('id')->where(['name' => $value, 'delete' => 0, 'level' => $key, 'parent_id' => $parent_id])->first()->id;
+                        $raw_id = DB::table('categories')->select('id')->->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
                     }
                 } else {
                     $raw_id = DB::table('raw_materials')->insertGetId([
                         'name' => $value['name'],
                         'formula' => $value,
-                        'locale' => app()->getLocale(),
+                        'locale' => Config::get('app.locale'),
                         'created_at' => now(),
                         'updated_at' => now()
                     ]);
