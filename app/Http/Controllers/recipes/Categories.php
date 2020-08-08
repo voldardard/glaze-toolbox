@@ -27,24 +27,35 @@ class Categories extends Controller{
     }else {
         $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
     }
-    return response()->json($categories);
+        return response()->json($categories);
 
 
     }
-    public function getRaw(){
+
+    public function getRaw()
+    {
         $raw = DB::table('raw_materials')->select(['id', 'name', 'formula'])->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($raw);
 
     }
-    public function getAllCategories(){
+
+    public function getLand()
+    {
+        $land = DB::table('lands')->select(['id', 'name'])->get();
+        return response()->json($land);
+
+    }
+
+    public function getAllCategories()
+    {
         $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
-        foreach ($category as $key=>$value){
-            $category[$key]->name=self::getTranslation($value->name);
+        foreach ($category as $key => $value) {
+            $category[$key]->name = self::getTranslation($value->name);
         }
-        $arr=json_decode(json_encode($category), true);
+        $arr = json_decode(json_encode($category), true);
 
         $new = array();
-        foreach ($arr as $a){
+        foreach ($arr as $a) {
 
             $new[$a['parent']][] = $a;
         }

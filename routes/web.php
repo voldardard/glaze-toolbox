@@ -52,11 +52,12 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         })->name('insert');
         Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {
-            session(['current_route'=>'/categories']);
+            session(['current_route' => '/categories']);
             return view('categories');
         })->name('categories');
-        Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID'=>'[A-Za-z0-9]+']);
+        Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[A-Za-z0-9]+']);
         Route::get('/raw', 'recipes\Categories@getRaw');
+        Route::get('/lands', 'recipes\Categories@getLand');
 
 
     });
