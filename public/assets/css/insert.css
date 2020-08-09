@@ -176,22 +176,30 @@ body{
     text-decoration: none;
     font-weight: bolder;
 }
-.form #upload h3{
+.form #upload h3 {
     margin-top: 0;
 }
-.form #raw-container div input{
+
+.form #raw-container div input,
+.form #raw-extra-container div input {
     float: left;
     width: 25%;
     margin: 0 0 0 10px;
 }
-.form #raw-container div input:first-child{
+
+.form #raw-container div input:first-child,
+.form #raw-extra-container div input:first-child {
     margin-left: 25px;
 }
-.form #raw-container div{
+
+.form #raw-container div,
+.form #raw-extra-container div {
     clear: both;
     padding: 0;
 }
-.form #raw-container div .remove-raw {
+
+.form #raw-container div .remove-raw,
+.form #raw-extra-container div .remove-raw-extra {
     margin-top: 11px;
     width: 24px;
     position: relative;
@@ -200,30 +208,35 @@ body{
 
 }
 
-#raw-container .raw-subdiv {
+#raw-container .raw-subdiv,
+#raw-extra-container .raw-extra-subdiv {
     height: 50px;
     margin-bottom: 10px;
 }
 
-.form #raw-container .autocomplete-items {
+.form #raw-container .autocomplete-items,
+.form #raw-extra-container .autocomplete-items {
     margin-top: 50px;
     width: 51%;
     margin-left: 25px;
 }
 
-.form #raw-container .autocomplete-items div {
+.form #raw-container .autocomplete-items div,
+.form #raw-extra-container .autocomplete-items div {
     padding-left: 10px;
     padding-right: 10px;
     text-align: left;
 }
 
-.form #raw-container .autocomplete-items span {
+.form #raw-container .autocomplete-items span,
+.form #raw-extra-container .autocomplete-items span {
     margin-left: 10px;
     float: right;
     font-size: small;
 }
 
-.form #add_raw {
+.form #add_raw,
+.form #add_raw_extra {
     width: 33%;
     margin: 0;
     cursor: pointer;
