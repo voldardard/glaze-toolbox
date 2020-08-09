@@ -281,13 +281,19 @@ body{
 }
 
 #sources-container .block {
-    width: 24%;
+    width: 32%;
     display: inline-block;
 }
 
 #sources-container textarea {
     clear: both;
     width: 97%;
+}
+
+.form .boxed {
+    padding: 5px;
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-bottom: 15px;
 }
 
 .red {

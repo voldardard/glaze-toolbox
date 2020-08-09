@@ -88,7 +88,7 @@
                 </div>
                 <div id="information">
                     <h3>Détails</h3>
-                    <div id="information-container">
+                    <div id="information-container" class="boxed">
                         <div id="information-land">
                             <label>Land</label>
                             <div class="autocomplete">
@@ -133,7 +133,7 @@
                 </div>
                 <div id="raw">
                     <h3>@lang('insert.i-015-MaterialsRaw')</h3>
-                    <div id="raw-container">
+                    <div id="raw-container" class="boxed">
                         <div id="raw-0" class="raw-subdiv">
                             <div class="autocomplete">
                                 <input type="text" id="raw-name-0" value="" required name="raw[0][name]"
@@ -164,7 +164,7 @@
                 <div id="sources">
                     <h3>Sources</h3>
                     <div id="sources-container">
-                        <div id="sources-0">
+                        <div id="sources-0" class="boxed">
                             <div class="line">
                                 <span>Sources 0 - </span><input type="text" id="sources-name-0" class="block" value=""
                                                                 required name="sources[0][name]"
