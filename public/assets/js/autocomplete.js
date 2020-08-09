@@ -90,7 +90,7 @@ function autocomplete_category(inp, arr, level) {
     });
     /*execute a function when user click in input:*/
     inp.addEventListener("focusin", function (e) {
-        console.log('clicked');
+        console.log('focusin');
         focusin = true;
 
         var a, b, i, val = this.value;
@@ -145,6 +145,12 @@ function autocomplete_category(inp, arr, level) {
             a.appendChild(b);
 
         }
+    });
+    /*execute a function when user click in input:*/
+    inp.addEventListener("focusout", function (e) {
+        console.log('focusout');
+        focusin = false;
+
     });
 
     function addActive(x) {
