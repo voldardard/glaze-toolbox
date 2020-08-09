@@ -166,6 +166,9 @@
                     <div id="sources-container">
                         <div id="sources-0">
                             <div class="line">
+                                <span>Sources 0 - </span><input type="text" id="sources-name-0" class="block" value=""
+                                                                required name="sources[0][name]"
+                                                                placeholder="Name / Titre"/>
                                 <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)"><i
                                             class="fa fa-minus-square" aria-hidden="true"></i></a>
                             </div>
@@ -177,11 +180,8 @@
                                 <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
                                        placeholder="Auteur"/>
                             </div>
-                            <input type="text" id="sources-name-0" class="block" value="" required
-                                   name="sources[0][name]" placeholder="Name"/>
                             <input type="number" id="sources-year-0" class="block" value="" min="1700" max="2100"
-                                   name="sources[0][year]"
-                                   placeholder="Year"/>
+                                   name="sources[0][year]" placeholder="Year"/>
                             <textarea id="sources-description-0" value="" name="sources[0][description]"
                                       placeholder="Description"></textarea>
                         </div>
