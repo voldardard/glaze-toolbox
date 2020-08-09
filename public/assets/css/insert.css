@@ -296,6 +296,10 @@ body{
     margin-bottom: 15px;
 }
 
+.form #sources-container .line {
+    margin-bottom: 15px;
+}
+
 .red {
     color: red;
     font-weight: bolder;
