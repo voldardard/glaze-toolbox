@@ -143,12 +143,12 @@
                                    placeholder="@lang('insert.i-017-formula')"/>
                             <input type="number" required id="raw-quantity-0" value="" name="raw[0][quantity]"
                                    placeholder="@lang('insert.i-018-quantity')"/>
-                            <span>Total : --------------------------- 100% (sur 100gr)</span>
 
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
+                    <span id="raw-total">Total : --------------------------- 100% (sur 100gr)</span>
                     <div style="clear: both; padding: 0;">
                         <a class="insert-raw" id="add_raw" onclick="add_raw(1)">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
