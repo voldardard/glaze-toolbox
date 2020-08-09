@@ -91,6 +91,8 @@ function add_raw(level) {
     subdiv.setAttribute("id", 'raw-' + (level));
     subdiv.setAttribute("class", 'raw-subdiv');
 
+    var subsubdiv = document.createElement('div');
+    subsubdiv.setAttribute("class", 'autocomplete');
 
     var input = document.createElement('input');
     input.setAttribute("required", "required");
@@ -122,7 +124,8 @@ function add_raw(level) {
     a.appendChild(i);
 
 
-    subdiv.appendChild(input);
+    subsubdiv.appendChild(input);
+    subdiv.appendChild(subsubdiv);
     subdiv.appendChild(input2);
     subdiv.appendChild(input3);
     subdiv.appendChild(a);
@@ -160,6 +163,8 @@ function add_raw_extra(level) {
     subdiv.setAttribute("id", 'raw-extra-' + (level));
     subdiv.setAttribute("class", 'raw-extra-subdiv');
 
+    var subsubdiv = document.createElement('div');
+    subsubdiv.setAttribute("class", 'autocomplete');
 
     var input = document.createElement('input');
     input.setAttribute("required", "required");
@@ -191,7 +196,8 @@ function add_raw_extra(level) {
     a.appendChild(i);
 
 
-    subdiv.appendChild(input);
+    subsubdiv.appendChild(input);
+    subdiv.appendChild(subsubdiv);
     subdiv.appendChild(input2);
     subdiv.appendChild(input3);
     subdiv.appendChild(a);
