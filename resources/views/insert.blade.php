@@ -162,21 +162,22 @@
 
                             <a id="raw-extra-remove-0" class="remove-raw-extra" onclick="remove_raw_extra(0)"><i
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>--}}
-                        </div>
                     </div>
-                    <div style="clear: both; padding: 0;"><a class="insert-raw-extra" id="add_raw_extra"
-                                                             onclick="add_raw_extra(1)"><i
-                                    class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
-                        </a></div>
-
                 </div>
-            </div>
+                <div style="clear: both; padding: 0;"><a class="insert-raw-extra" id="add_raw_extra"
+                                                         onclick="add_raw_extra(1)"><i
+                                class="fa fa-plus-circle"
+                                aria-hidden="true"></i> @lang('insert.i-019-addAnExtraElement')
+                    </a></div>
 
-            <br/>
-            <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
-            @csrf
-        </form>
+            </div>
     </div>
+
+    <br/>
+    <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
+    @csrf
+    </form>
+</div>
 </div>
 <script type="text/javascript">
     autocomplete_category(document.getElementById("add-categories"), categories, 0);

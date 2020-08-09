@@ -18,7 +18,9 @@ return [
     'i-015-MaterialsRaw' => 'Ingrédients / Matières première',
     'i-016-RawMaterials' => 'Matière première',
     'i-017-formula' => 'Formule',
-    'i-018-quantity' => 'Quantité'
+    'i-018-quantity' => 'Quantité',
+    'i-019-addAnExtraElement' => 'Ajouter un supplément',
+
 
 
 

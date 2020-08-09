@@ -18,7 +18,8 @@ return [
     'i-015-MaterialsRaw' => 'Materials / Raw elements',
     'i-016-RawMaterials' => 'Raw materials',
     'i-017-formula' => 'Formula',
-    'i-018-quantity' => 'Quantity'
+    'i-018-quantity' => 'Quantity',
+    'i-019-addAnExtraElement' => 'Add an extra element',
 
 
 ];
