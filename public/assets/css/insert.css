@@ -258,6 +258,13 @@ body{
 
 }
 
+.form #raw #raw-total {
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
 #information label {
     width: 100%;
     margin-top: 10px;
@@ -281,13 +288,13 @@ body{
 }
 
 #sources-container .block {
-    width: 32%;
+    width: 32.9%;
     display: inline-block;
 }
 
 #sources-container textarea {
     clear: both;
-    width: 97%;
+    width: 100%;
 }
 
 .form .boxed {
@@ -298,6 +305,7 @@ body{
 
 .form #sources-container .line {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .red {

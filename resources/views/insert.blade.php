@@ -148,12 +148,13 @@
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <span id="raw-total">Total : --------------------------- 100% (sur 100gr)</span>
                     <div style="clear: both; padding: 0;">
                         <a class="insert-raw" id="add_raw" onclick="add_raw(1)">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
                         </a>
                     </div>
+                    <span id="raw-total">Total : --------------------------- 100% (sur 100gr)</span>
+
                     <div id="raw-extra-container" class="boxed">
                     </div>
                 </div>
