@@ -1,7 +1,6 @@
 
 
-
-
+var focusin = false;
 function autocomplete_category(inp, arr, level) {
 
     /*the autocomplete function takes two arguments,
@@ -92,6 +91,8 @@ function autocomplete_category(inp, arr, level) {
     /*execute a function when user click in input:*/
     inp.addEventListener("focusin", function (e) {
         console.log('clicked');
+        focusin = true;
+
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
@@ -392,6 +393,7 @@ function autocomplete(inp, arr) {
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function (e) {
         console.log('removed');
+        console.log(focusin);
         closeAllLists(e.target);
     });
 }
