@@ -36,6 +36,7 @@
             "label": "@lang('insert.i-004-label')"
         };
         {!! 'var categories = '.$Params->categories !!}
+        {!! 'var lands = '.$Params->lands !!}
         {!! 'var raw = '.$Params->raw !!}
         {!! 'var authors = '.$Params->sources_author !!}
         {!! 'var types = '.$Params->sources_type !!}
