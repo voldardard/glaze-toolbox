@@ -154,6 +154,75 @@ function remove_raw(level) {
     // button.setAttribute("onclick", "add_raw(" + (level) + ")");
 }
 
+function add_raw(level) {
+    var div = document.getElementById('raw-container');
+    var subdiv = document.createElement('div');
+    subdiv.setAttribute("id", 'raw-extra-' + (level));
+    subdiv.setAttribute("class", 'raw-extra-subdiv');
+
+
+    var input = document.createElement('input');
+    input.setAttribute("required", "required");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", translate('rawMaterials'));
+    input.setAttribute("name", 'raw-extra[' + level + '][name]');
+    input.setAttribute("id", "raw-extra-name-" + level);
+
+    var input2 = document.createElement('input');
+    input2.setAttribute("type", "text");
+    input2.setAttribute("placeholder", translate('formula'));
+    input2.setAttribute("name", 'raw-extra[' + level + '][formula]');
+    input2.setAttribute("id", "raw-extra-formula-" + level);
+
+    var input3 = document.createElement('input');
+    input.setAttribute("required", "required");
+    input3.setAttribute("type", "number");
+    input3.setAttribute("placeholder", translate('quantity'));
+    input3.setAttribute("name", 'raw-extra[' + level + '][quantity]');
+    input3.setAttribute("id", "raw-extra-quantity-" + level);
+
+    var i = document.createElement('i');
+    i.setAttribute("class", "fa fa-minus-square");
+    i.setAttribute("aria-hidden", "true");
+    var a = document.createElement('a');
+    a.setAttribute("id", "raw-extra-remove-" + (level));
+    a.setAttribute("class", "remove-raw-extra");
+    a.setAttribute("onclick", "remove_raw_extra(" + (level) + ")");
+    a.appendChild(i);
+
+
+    subdiv.appendChild(input);
+    subdiv.appendChild(input2);
+    subdiv.appendChild(input3);
+    subdiv.appendChild(a);
+
+    div.appendChild(subdiv);
+
+
+    //enable autocomplete
+    autocomplete_raw(document.getElementById("raw-extra-name-" + level), raw, level);
+
+    //update create button
+    var button = document.getElementById('add_raw_extra');
+    button.setAttribute("onclick", "add_raw_extra(" + (level + 1) + ")");
+
+
+}
+
+function remove_raw_extra(level) {
+    var raw = document.getElementById('raw-extra-' + level);
+    if (raw) {
+        console.log('Remove: raw-extra-' + level);
+        raw.remove();
+    }
+
+
+    //update create button
+    //do not decrease or risk to have same id 2 time
+    // var button = document.getElementById('add_raw');
+    // button.setAttribute("onclick", "add_raw(" + (level) + ")");
+}
+
 function add_label() {
     label_count++;
 
