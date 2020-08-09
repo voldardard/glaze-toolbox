@@ -41,7 +41,7 @@ class Categories extends Controller{
 
     public function getLand()
     {
-        $land = DB::table('lands')->distinct()->select(['id', 'name'])->groupBy('name')->get();
+        $land = DB::table('lands')->distinct()->select(['name'])->groupBy('name')->get();
         return response()->json($land);
 
     }

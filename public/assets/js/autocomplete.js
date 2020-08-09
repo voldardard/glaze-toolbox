@@ -332,7 +332,7 @@ function autocomplete(inp, arr) {
                 /*make the matching letters bold:*/
                 b.innerHTML = "<strong>" + arr[i]['name'].substr(0, val.length) + "</strong>" + arr[i]['name'].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
-                b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' value='" + arr[i]['name'] + "'>";
+                b.innerHTML += "<input type='hidden' value='" + arr[i]['name'] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function (e) {
 
@@ -396,7 +396,7 @@ function autocomplete(inp, arr) {
             /*make the matching letters bold:*/
             b.innerHTML = "<strong>" + arr[i]['name'] + "</strong>";
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' value='" + arr[i]['name'] + "'>";
+            b.innerHTML += "<input type='hidden' value='" + arr[i]['name'] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function (e) {
 
