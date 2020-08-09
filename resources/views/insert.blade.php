@@ -174,6 +174,9 @@
                         </div>
                         <input type="text" id="sources-name-0" class="block" value="" required name="sources[0][name]"
                                placeholder="Name"/>
+                        <input type="number" id="sources-year-0" class="block" value="" min="1700" max="2100"
+                               name="sources[0][year]"
+                               placeholder="Year"/>
                         <textarea id="sources-description-0" value="" name="sources[0][description]"
                                   placeholder="Description"></textarea>
 
