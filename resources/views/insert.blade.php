@@ -158,6 +158,24 @@
                         <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-019-addAnExtraElement')
                     </a>
                 </div>
+                <div id="sources">
+                    <div id="sources-container">
+                        <div class="autocomplete">
+                            <input type="text" id="sources-type-0" value="" required name="sources[0][type]" placeholder="Type"/>
+                        </div>
+                        <div class="autocomplete">
+                            <input type="text" id="sources-author-0" value="" required name="sources[0][author]" placeholder="Auteur"/>
+                        </div>
+                        <input type="text" id="sources-name-0" value="" required name="sources[0][name]" placeholder="Name"/>
+                        <textarea id="sources-description-0" value="" name="sources[0][description]" placeholder="Description"></textarea>
+
+                    </div>
+                    <div style="clear: both; padding: 0;">
+                        <a class="insert-source" id="add_sources" onclick="add_sources(1)">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une source
+                        </a>
+                    </div>
+                </div>
 
             </div>
             <br/>

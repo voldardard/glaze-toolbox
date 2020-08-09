@@ -41,11 +41,19 @@ class Categories extends Controller{
 
     public function getLand()
     {
-        $land = DB::table('lands')->distinct()->select(['name'])->groupBy('name')->get();
+        $land = DB::table('lands')->distinct()->select(['name'])->groupBy('name')->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($land);
 
     }
 
+    public function getAuthor(){
+        $author = DB::table('sources')->distinct()->select(['author'])->groupBy('author')->get();
+        return response()->json($author);
+    }
+    public function getType(){
+        $type = DB::table('sources_types')->distinct()->select(['name'])->groupBy('name')->where(['locale' => Config::get('app.locale')])->get();
+        return response()->json($type);
+    }
     public function getAllCategories()
     {
         $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
