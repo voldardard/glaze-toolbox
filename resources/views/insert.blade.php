@@ -183,7 +183,7 @@
     autocomplete_category(document.getElementById("add-categories"), categories, 0);
     autocomplete_raw(document.getElementById("raw-name-0"), raw, 0);
 
-    autocomplete_raw(document.getElementById("raw-extra-name-0"), raw, 0);
+    //autocomplete_raw(document.getElementById("raw-extra-name-0"), raw, 0);
 
     autocomplete(document.getElementById("land-name"), lands);
 
