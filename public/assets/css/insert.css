@@ -43,6 +43,21 @@ body{
     box-sizing: border-box;
     font-size: 16px;
 }
+
+.form textarea {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 25px;
+    margin-bottom: 25px;
+    padding: 15px;
+    font-size: 13px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
 .form #title input {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -263,6 +278,16 @@ body{
 #information-land .autocomplete-items {
     width: 49%;
     margin: auto;
+}
+
+#sources-container .block {
+    width: 32%;
+    display: inline-block;
+}
+
+#sources-container textarea {
+    clear: both;
+    width: 97%;
 }
 
 .red {

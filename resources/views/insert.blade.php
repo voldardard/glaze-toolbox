@@ -174,7 +174,7 @@
                         </div>
                         <input type="text" id="sources-name-0" class="block" value="" required name="sources[0][name]"
                                placeholder="Name"/>
-                        <textarea id="sources-description-0" class="block" value="" name="sources[0][description]"
+                        <textarea id="sources-description-0" value="" name="sources[0][description]"
                                   placeholder="Description"></textarea>
 
                     </div>
