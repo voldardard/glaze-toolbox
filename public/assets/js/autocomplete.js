@@ -191,7 +191,7 @@ function autocomplete_category(inp, arr, level) {
 
 
 
-function autocomplete_raw(inp, arr, level) {
+function autocomplete_raw(inp, arr, level, extra = false) {
 
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -229,7 +229,11 @@ function autocomplete_raw(inp, arr, level) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     if (this.getElementsByTagName("input")[0].getAttribute('formula') !== "null") {
                         console.log(this.getElementsByTagName("input")[0].getAttribute('formula'));
-                        document.getElementById('raw-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                        if (!extra) {
+                            document.getElementById('raw-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                        } else {
+                            document.getElementById('raw-extra-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                        }
                     }
 
                     console.log(this.getElementsByTagName("input")[0].value);

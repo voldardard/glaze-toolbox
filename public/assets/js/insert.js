@@ -206,7 +206,7 @@ function add_raw_extra(level) {
 
 
     //enable autocomplete
-    autocomplete_raw(document.getElementById("raw-extra-name-" + level), raw, level);
+    autocomplete_raw(document.getElementById("raw-extra-name-" + level), raw, level, true);
 
     //update create button
     var button = document.getElementById('add_raw_extra');
