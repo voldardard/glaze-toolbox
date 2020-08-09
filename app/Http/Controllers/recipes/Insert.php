@@ -32,6 +32,9 @@ class Insert extends Controller{
             'raw.*.name' => 'string|required|max:45',
             'raw.*.quantity' => 'integer|required',
             'raw.*.formula' => 'string|max:45|nullable',
+            'raw-extra.*.name' => 'string|required|max:45',
+            'raw-extra.*.quantity' => 'integer|required',
+            'raw-extra.*.formula' => 'string|max:45|nullable',
             'land' => 'string|required|max:45',
             'bake.orton' => 'integer|required',
             'bake.oven' => 'string|required|max:45',
@@ -168,6 +171,35 @@ class Insert extends Controller{
                     'quantity' => $value['quantity'],
                     'raw_id' => $raw_id,
                     'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'extra' => false,
+                    'updated_at' => now()
+                ]);
+
+
+            }
+        }
+        if (!empty($validatedData['raw-extra'])) {
+
+            foreach ($validatedData['raw-extra'] as $key => $value) {
+
+                if (!DB::table('raw_materials')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->exists()) {
+                    $raw_id = DB::table('raw_materials')->insertGetId([
+                        'name' => $value['name'],
+                        'formula' => $value['formula'],
+                        'locale' => Config::get('app.locale'),
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+                } else {
+                    $raw_id = DB::table('raw_materials')->select('id')->where(['name' => $value['name'], 'formula' => $value['formula'], 'locale' => Config::get('app.locale')])->first()->id;
+                }
+
+                DB::table('recipe_components')->insert([
+                    'quantity' => $value['quantity'],
+                    'raw_id' => $raw_id,
+                    'recipes_id' => $recipeID,
+                    'extra' => true,
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);

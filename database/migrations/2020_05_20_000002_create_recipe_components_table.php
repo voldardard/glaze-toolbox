@@ -17,6 +17,7 @@ class CreateRecipeComponentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->double('quantity');
+            $table->boolean('extra')->default(false);
 
             $table->unsignedBigInteger('raw_id');
             $table->index('raw_id');

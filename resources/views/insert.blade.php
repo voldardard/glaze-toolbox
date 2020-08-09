@@ -149,7 +149,7 @@
                                     class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
                         </a></div>
                     <div id="raw-extra-container">
-                        <div id="raw-extra-0" class="raw-subdiv">
+{{--                        <div id="raw-extra-0" class="raw-subdiv">
                             <div class="autocomplete">
                                 <input type="text" id="raw-extra-name-0" value="" required name="raw-extra[0][name]"
                                        placeholder="@lang('insert.i-016-RawMaterials')"/>
@@ -161,7 +161,7 @@
                                    placeholder="@lang('insert.i-018-quantity')"/>
 
                             <a id="raw-extra-remove-0" class="remove-raw-extra" onclick="remove_raw_extra(0)"><i
-                                        class="fa fa-minus-square" aria-hidden="true"></i></a>
+                                        class="fa fa-minus-square" aria-hidden="true"></i></a>--}}
                         </div>
                     </div>
                     <div style="clear: both; padding: 0;"><a class="insert-raw-extra" id="add_raw_extra"
