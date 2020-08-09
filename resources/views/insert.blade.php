@@ -88,8 +88,10 @@
                     <div id="information-container">
                         <div id="information-land">
                             <label>Land</label>
-                            <input type="text" id="land-name" value="" required name="land"
-                                   placeholder="Name"/>
+                            <div class="autocomplete">
+                                <input type="text" id="land-name" value="" required name="land"
+                                       placeholder="Name"/>
+                            </div>
 
                         </div>
 
@@ -130,8 +132,10 @@
                     <h3>@lang('insert.i-015-MaterialsRaw')</h3>
                     <div id="raw-container">
                         <div id="raw-0" class="raw-subdiv">
-                            <input type="text" id="raw-name-0" value="" required name="raw[0][name]"
-                                   placeholder="@lang('insert.i-016-RawMaterials')"/>
+                            <div class="autocomplete">
+                                <input type="text" id="raw-name-0" value="" required name="raw[0][name]"
+                                       placeholder="@lang('insert.i-016-RawMaterials')"/>
+                            </div>
                             <input type="text" id="raw-formula-0" value="" name="raw[0][formula]"
                                    placeholder="@lang('insert.i-017-formula')"/>
                             <input type="number" required id="raw-quantity-0" value="" name="raw[0][quantity]"
