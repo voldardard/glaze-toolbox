@@ -206,10 +206,9 @@ body{
 }
 
 .form #raw-container .autocomplete-items {
-    float: left;
+    margin-top: 50px;
     width: 51%;
     margin-left: 25px;
-    position: revert;
 }
 
 .form #raw-container .autocomplete-items div {
@@ -251,7 +250,6 @@ body{
 #information-land .autocomplete-items {
     width: 49%;
     margin: auto;
-    position: relative;
 }
 
 .red {
