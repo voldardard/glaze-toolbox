@@ -145,39 +145,26 @@
                                         class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <div style="clear: both; padding: 0;"><a class="insert-raw" id="add_raw" onclick="add_raw(1)"><i
-                                    class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
-                        </a></div>
+                    <div style="clear: both; padding: 0;">
+                        <a class="insert-raw" id="add_raw" onclick="add_raw(1)">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
+                        </a>
+                    </div>
                     <div id="raw-extra-container">
-{{--                        <div id="raw-extra-0" class="raw-subdiv">
-                            <div class="autocomplete">
-                                <input type="text" id="raw-extra-name-0" value="" required name="raw-extra[0][name]"
-                                       placeholder="@lang('insert.i-016-RawMaterials')"/>
-                            </div>
-                            <input type="text" id="raw-extra-formula-0" value="" name="raw-extra[0][formula]"
-                                   placeholder="@lang('insert.i-017-formula')"/>
-                            <input type="number" required id="raw-extra-quantity-0" value=""
-                                   name="raw-extra[0][quantity]"
-                                   placeholder="@lang('insert.i-018-quantity')"/>
-
-                            <a id="raw-extra-remove-0" class="remove-raw-extra" onclick="remove_raw_extra(0)"><i
-                                        class="fa fa-minus-square" aria-hidden="true"></i></a>--}}
                     </div>
                 </div>
-                <div style="clear: both; padding: 0;"><a class="insert-raw-extra" id="add_raw_extra"
-                                                         onclick="add_raw_extra(1)"><i
-                                class="fa fa-plus-circle"
-                                aria-hidden="true"></i> @lang('insert.i-019-addAnExtraElement')
-                    </a></div>
+                <div style="clear: both; padding: 0;">
+                    <a class="insert-raw-extra" id="add_raw_extra" onclick="add_raw_extra(1)">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-019-addAnExtraElement')
+                    </a>
+                </div>
 
             </div>
+            <br/>
+            <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
+            @csrf
+        </form>
     </div>
-
-    <br/>
-    <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
-    @csrf
-    </form>
-</div>
 </div>
 <script type="text/javascript">
     autocomplete_category(document.getElementById("add-categories"), categories, 0);
