@@ -37,7 +37,9 @@
         };
         {!! 'var categories = '.$Params->categories !!}
         {!! 'var raw = '.$Params->raw !!}
-        {!! 'var lands = '.$Params->lands !!}
+        {!! 'var authors = '.$Params->sources_author !!}
+        {!! 'var types = '.$Params->sources_type !!}
+
 
     </script>
     <script src="{{ asset('js/insert.js') }}"></script>
@@ -191,6 +193,9 @@
     //autocomplete_raw(document.getElementById("raw-extra-name-0"), raw, 0);
 
     autocomplete(document.getElementById("land-name"), lands);
+    autocomplete(document.getElementById("sources-author-0"), authors);
+    autocomplete(document.getElementById("sources-type-0"), types);
+
 
 </script>
 </body>

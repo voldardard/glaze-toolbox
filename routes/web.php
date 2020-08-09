@@ -48,6 +48,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Params->raw = $Controller->getRaw()->content();
             $Params->categories = $Controller->getCategory()->content();
             $Params->lands = $Controller->getLand()->content();
+            $Params->sources_type = $Controller->getType()->content();
+            $Params->sources_author = $Controller->getAuthor()->content();
 
 
             return view('insert')->with('Params', $Params);
