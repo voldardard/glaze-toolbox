@@ -161,7 +161,7 @@ function add_raw_extra(level) {
     var div = document.getElementById('raw-extra-container');
     var subdiv = document.createElement('div');
     subdiv.setAttribute("id", 'raw-extra-' + (level));
-    subdiv.setAttribute("class", 'raw-extra-subdiv');
+    subdiv.setAttribute("class", 'raw-extra-subdiv boxed');
 
     var subsubdiv = document.createElement('div');
     subsubdiv.setAttribute("class", 'autocomplete');
