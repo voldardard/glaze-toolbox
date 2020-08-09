@@ -153,7 +153,7 @@
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
                         </a>
                     </div>
-                    <div id="raw-extra-container">
+                    <div id="raw-extra-container" class="boxed">
                     </div>
                 </div>
                 <div style="clear: both; padding: 0;">
