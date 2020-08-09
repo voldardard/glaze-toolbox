@@ -162,15 +162,20 @@
                     </a>
                 </div>
                 <div id="sources">
+                    <h3>Sources</h3>
                     <div id="sources-container">
-                        <div class="autocomplete">
-                            <input type="text" id="sources-type-0" value="" required name="sources[0][type]" placeholder="Type"/>
+                        <div class="autocomplete block">
+                            <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
+                                   placeholder="Type"/>
                         </div>
-                        <div class="autocomplete">
-                            <input type="text" id="sources-author-0" value="" required name="sources[0][author]" placeholder="Auteur"/>
+                        <div class="autocomplete block">
+                            <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
+                                   placeholder="Auteur"/>
                         </div>
-                        <input type="text" id="sources-name-0" value="" required name="sources[0][name]" placeholder="Name"/>
-                        <textarea id="sources-description-0" value="" name="sources[0][description]" placeholder="Description"></textarea>
+                        <input type="text" id="sources-name-0" class="block" value="" required name="sources[0][name]"
+                               placeholder="Name"/>
+                        <textarea id="sources-description-0" class="block" value="" name="sources[0][description]"
+                                  placeholder="Description"></textarea>
 
                     </div>
                     <div style="clear: both; padding: 0;">
