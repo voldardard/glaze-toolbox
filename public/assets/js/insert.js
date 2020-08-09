@@ -304,6 +304,9 @@ function add_sources(level) {
     subdiv.appendChild(element3);
     subdiv.appendChild(element4);
 
+    div.appendChild(subdiv);
+
+
     //enable autocomplete
     autocomplete(document.getElementById("sources-author-" + level), authors);
     autocomplete(document.getElementById("sources-type-" + level), types);
