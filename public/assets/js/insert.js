@@ -222,11 +222,105 @@ function remove_raw_extra(level) {
         raw.remove();
     }
 
+}
+
+function add_sources(level) {
+    var div = document.getElementById('sources-container');
+    var subdiv = document.createElement('div');
+    subdiv.setAttribute("id", 'sources-' + (level));
+    subdiv.setAttribute("class", 'boxed');
+
+    var line = document.createElement('div');
+    line.setAttribute("class", 'line');
+
+    var span = document.createElement('span');
+    span.innerText = "Sources " + level + " - ";
+
+    var input = document.createElement('input');
+    input.setAttribute("required", "required");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Name / Titre");
+    input.setAttribute("name", 'sources[' + level + '][name]');
+    input.setAttribute("id", "sources-name-" + level);
+    input.setAttribute("class", 'block');
+
+    var i = document.createElement('i');
+    i.setAttribute("class", "fa fa-minus-square");
+    i.setAttribute("aria-hidden", "true");
+    var a = document.createElement('a');
+    a.setAttribute("id", "sources-remove-" + (level));
+    a.setAttribute("class", "remove-sources");
+    a.setAttribute("onclick", "remove_sources(" + (level) + ")");
+    a.appendChild(i);
+
+    line.appendChild(span);
+    line.appendChild(input);
+    line.appendChild(a);
+
+
+    var element1 = document.createElement('div');
+    element1.setAttribute("class", 'autocomplete block');
+    var input2 = document.createElement('input');
+    input2.setAttribute("required", "required");
+    input2.setAttribute("type", "text");
+    input2.setAttribute("placeholder", "Type");
+    input2.setAttribute("name", 'sources[' + level + '][type]');
+    input2.setAttribute("id", "sources-type-" + level);
+    input2.setAttribute("class", 'block');
+    element1.appendChild(input2);
+
+    var element2 = document.createElement('div');
+    element2.setAttribute("class", 'autocomplete block');
+    var input3 = document.createElement('input');
+    input3.setAttribute("required", "required");
+    input3.setAttribute("type", "text");
+    input3.setAttribute("placeholder", "Auteur");
+    input3.setAttribute("name", 'sources[' + level + '][author]');
+    input3.setAttribute("id", "sources-author-" + level);
+    input3.setAttribute("class", 'block');
+    element2.appendChild(input2);
+
+    var element3 = document.createElement('input');
+    element3.setAttribute("required", "required");
+    element3.setAttribute("type", "number");
+    element3.setAttribute("placeholder", "Year");
+    element3.setAttribute("name", 'sources[' + level + '][year]');
+    element3.setAttribute("id", "sources-year-" + level);
+    element3.setAttribute("class", 'block');
+    element3.setAttribute("min", '1700');
+    element3.setAttribute("max", '2100');
+
+    var element4 = document.createElement('textarea');
+    element4.setAttribute("required", "required");
+    element4.setAttribute("type", "number");
+    element4.setAttribute("placeholder", "Description");
+    element4.setAttribute("name", 'sources[' + level + '][description]');
+    element4.setAttribute("id", "sources-description-" + level);
+    element4.setAttribute("class", 'block');
+
+    subdiv.appendChild(line);
+    subdiv.appendChild(element1);
+    subdiv.appendChild(element2);
+    subdiv.appendChild(element3);
+    subdiv.appendChild(element4);
+
+    //enable autocomplete
+    autocomplete(document.getElementById("sources-author-" + level), authors);
+    autocomplete(document.getElementById("sources-type-" + level), types);
 
     //update create button
-    //do not decrease or risk to have same id 2 time
-    // var button = document.getElementById('add_raw');
-    // button.setAttribute("onclick", "add_raw(" + (level) + ")");
+    var button = document.getElementById('add_sources');
+    button.setAttribute("onclick", "add_sources(" + (level + 1) + ")");
+
+
+}
+
+function remove_sources(level) {
+    var raw = document.getElementById('sources-' + level);
+    if (raw) {
+        console.log('Remove: sources-' + level);
+        raw.remove();
+    }
 }
 
 function add_label() {

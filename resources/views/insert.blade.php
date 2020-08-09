@@ -153,7 +153,7 @@
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
                         </a>
                     </div>
-                    <span id="raw-total">Total : --------------------------- 100% (sur 100gr)</span>
+                    <span id="raw-total">Total : --------------------------------------------------------------------------------- 100% (sur 100gr)</span>
 
                     <div id="raw-extra-container" class="boxed">
                     </div>
@@ -168,9 +168,10 @@
                     <div id="sources-container">
                         <div id="sources-0" class="boxed">
                             <div class="line">
-                                <span>Sources 0 - </span><input type="text" id="sources-name-0" class="block" value=""
-                                                                required name="sources[0][name]"
-                                                                placeholder="Name / Titre"/>
+                                <span>Sources 0 - </span>
+                                <input type="text" id="sources-name-0" class="block" value=""
+                                       required name="sources[0][name]"
+                                       placeholder="Name / Titre"/>
                                 <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)"><i
                                             class="fa fa-minus-square" aria-hidden="true"></i></a>
                             </div>
