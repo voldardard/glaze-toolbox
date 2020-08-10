@@ -46,14 +46,22 @@ class Categories extends Controller{
 
     }
 
-    public function getAuthor(){
-        $author = DB::table('sources')->distinct()->select(['author'])->groupBy('author')->get();
+    public function getAuthor($typeID = null)
+    {
+        if (is_null($typeID)) {
+            $author = DB::table('sources')->distinct()->select(['author'])->groupBy('author')->get();
+        } else {
+            $author = DB::table('sources')->distinct()->select(['author'])->where(['type_id' => $typeID])->groupBy('author')->get();
+        }
         return response()->json($author);
     }
-    public function getType(){
+
+    public function getType()
+    {
         $type = DB::table('sources_types')->distinct()->select(['name'])->groupBy('name')->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($type);
     }
+
     public function getAllCategories()
     {
         $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
