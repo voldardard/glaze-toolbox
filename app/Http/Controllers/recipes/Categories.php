@@ -58,7 +58,7 @@ class Categories extends Controller{
 
     public function getType()
     {
-        $type = DB::table('sources_types')->distinct()->select(['name'])->groupBy('name')->where(['locale' => Config::get('app.locale')])->get();
+        $type = DB::table('sources_types')->distinct()->select(['id', 'name'])->groupBy('name')->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($type);
     }
 

@@ -218,7 +218,7 @@
 
     autocomplete(document.getElementById("land-name"), lands);
     autocomplete(document.getElementById("sources-author-0"), authors);
-    autocomplete(document.getElementById("sources-type-0"), types);
+    autocomplete_complex(document.getElementById("sources-type-0"), types, autocomplete_callback(0, 'http://glaze.cera.chat/fr/sources/author/type/'));
 
 
 </script>

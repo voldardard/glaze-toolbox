@@ -25,20 +25,70 @@ function fetchJson(method, url, callback){
 }
 
 //-------------
-function translate(key){
-    if(key in lang){
+function translate(key) {
+    if (key in lang) {
         return lang[key];
-    }else{
+    } else {
         return key;
     }
 }
-function add_category(level){
+
+class autocomplete_author_callback {
+    constructor(level, url) {
+        this.level = level;
+        this.url = url;
+    }
+
+    click = function (parentID) {
+
+        //remove event listener
+        var inp = document.getElementById('sources-author-' + this.level);
+        inp.removeEventListener('focusin', null);
+        inp.removeEventListener('input', null);
+        inp.removeEventListener('focusout', null);
+        inp.removeEventListener('keydown', null);
+
+        fetchJson('GET', this.url + parentID, function (data) {
+            console.log('fetched:');
+            console.log(data);
+            if (data.length !== 0) {
+                console.log(data);
+                autocomplete(document.getElementById("sources-author-" + this.level), data);
+            }
+        });
+
+    }
+}
+
+class autocomplete_categories_callback {
+    constructor(level, url) {
+        this.level = level;
+        this.url = url;
+    }
+
+    click = function (parentID) {
+        remove_category((level + 1));
+
+        fetchJson('GET', this.url + parentID, function (data) {
+            console.log('fetched:');
+            console.log(data);
+            if (data.length !== 0) {
+                add_category((level + 1));
+                console.log(data);
+                autocomplete_category(document.getElementById("add-categories-" + (level + 1)), data, (level + 1));
+            }
+        });
+
+    }
+}
+
+function add_category(level) {
     var div = document.getElementById('categories');
     var subdiv = document.createElement('div');
     subdiv.setAttribute("class", "autocomplete");
     subdiv.setAttribute("level", (level));
-    subdiv.setAttribute("id", 'level-'+(level));
-    subdiv.setAttribute("style", "width: "+(100-level)+"%; float: right;")
+    subdiv.setAttribute("id", 'level-' + (level));
+    subdiv.setAttribute("style", "width: " + (100 - level) + "%; float: right;")
 
 
     var input = document.createElement('input');
