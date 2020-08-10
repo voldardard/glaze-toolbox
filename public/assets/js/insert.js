@@ -46,13 +46,13 @@ class autocomplete_author_callback {
         inp.removeEventListener('input', null);
         inp.removeEventListener('focusout', null);
         inp.removeEventListener('keydown', null);
+        const level = this.level;
 
         fetchJson('GET', this.url + parentID, function (data) {
             console.log('fetched:');
-            console.log(data);
             if (data.length !== 0) {
                 console.log(data);
-                autocomplete(document.getElementById("sources-author-" + this.level), data);
+                autocomplete(document.getElementById("sources-author-" + level), data);
             }
         });
 
