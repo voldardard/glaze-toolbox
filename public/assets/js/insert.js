@@ -223,26 +223,42 @@ function remove_raw_extra(level) {
     }
 
 }
-
+/*
+                   <div id="sources-0" class="boxed">
+                            <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)">
+                                <i class="fa fa-minus-square" aria-hidden="true"></i>
+                            </a>
+                            <div class="line">
+                                <div class="block">
+                                    <input type="text" id="sources-name-0" value="" required
+                                           name="sources[0][name]" placeholder="Name / Titre"/>
+                                </div>
+                                <div class="block">
+                                    <input type="number" id="sources-year-0" value="" min="1700"
+                                           max="2100" name="sources[0][year]" placeholder="Year"/>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="autocomplete block">
+                                    <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
+                                           placeholder="Type"/>
+                                </div>
+                                <div class="autocomplete block">
+                                    <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
+                                           placeholder="Auteur"/>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <textarea id="sources-description-0" value="" name="sources[0][description]"
+                                          placeholder="Description"></textarea>
+                            </div>
+                        </div>
+ */
 function add_sources(level) {
-    var div = document.getElementById('sources-container');
+    var div = document.getElementById('sources-container');//get container
     var subdiv = document.createElement('div');
     subdiv.setAttribute("id", 'sources-' + (level));
     subdiv.setAttribute("class", 'boxed');
-
-    var line = document.createElement('div');
-    line.setAttribute("class", 'line');
-
-    var span = document.createElement('span');
-    span.innerText = "Sources " + level + " - ";
-
-    var input = document.createElement('input');
-    input.setAttribute("required", "required");
-    input.setAttribute("type", "text");
-    input.setAttribute("placeholder", "Name / Titre");
-    input.setAttribute("name", 'sources[' + level + '][name]');
-    input.setAttribute("id", "sources-name-" + level);
-    input.setAttribute("class", 'block');
 
     var i = document.createElement('i');
     i.setAttribute("class", "fa fa-minus-square");
@@ -253,56 +269,76 @@ function add_sources(level) {
     a.setAttribute("onclick", "remove_sources(" + (level) + ")");
     a.appendChild(i);
 
-    line.appendChild(span);
-    line.appendChild(input);
-    line.appendChild(a);
-
+    var line = document.createElement('div');
+    line.setAttribute("class", 'line');
 
     var element1 = document.createElement('div');
-    element1.setAttribute("class", 'autocomplete block');
-    var input2 = document.createElement('input');
-    input2.setAttribute("required", "required");
-    input2.setAttribute("type", "text");
-    input2.setAttribute("placeholder", "Type");
-    input2.setAttribute("name", 'sources[' + level + '][type]');
-    input2.setAttribute("id", "sources-type-" + level);
-    input2.setAttribute("class", 'block');
-    element1.appendChild(input2);
+    element1.setAttribute("class", 'block');
+    var input = document.createElement('input');
+    input.setAttribute("required", "required");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Name / Titre");
+    input.setAttribute("name", 'sources[' + level + '][name]');
+    input.setAttribute("id", "sources-name-" + level);
+    input.setAttribute("class", 'block');
 
     var element2 = document.createElement('div');
-    element2.setAttribute("class", 'autocomplete block');
+    element2.setAttribute("class", 'block');
+    var input2 = document.createElement('input');
+    input2.setAttribute("required", "required");
+    input2.setAttribute("type", "number");
+    input2.setAttribute("placeholder", "Year");
+    input2.setAttribute("name", 'sources[' + level + '][year]');
+    input2.setAttribute("id", "sources-year-" + level);
+    input2.setAttribute("class", 'block');
+    input2.setAttribute("min", '1700');
+    input2.setAttribute("max", '2100');
+    element1.appendChild(input);
+    element2.appendChild(input2);
+    line.appendChild(element1);
+    line.appendChild(element2);
+
+
+    var line2 = document.createElement('div');
+    line2.setAttribute("class", 'line');
+    var element3 = document.createElement('div');
+    element3.setAttribute("class", 'autocomplete block');
     var input3 = document.createElement('input');
     input3.setAttribute("required", "required");
     input3.setAttribute("type", "text");
-    input3.setAttribute("placeholder", "Auteur");
-    input3.setAttribute("name", 'sources[' + level + '][author]');
-    input3.setAttribute("id", "sources-author-" + level);
+    input3.setAttribute("placeholder", "Type");
+    input3.setAttribute("name", 'sources[' + level + '][type]');
+    input3.setAttribute("id", "sources-type-" + level);
     input3.setAttribute("class", 'block');
-    element2.appendChild(input2);
+    var element4 = document.createElement('div');
+    element4.setAttribute("class", 'autocomplete block');
+    var input4 = document.createElement('input');
+    input4.setAttribute("required", "required");
+    input4.setAttribute("type", "text");
+    input4.setAttribute("placeholder", "Auteur");
+    input4.setAttribute("name", 'sources[' + level + '][author]');
+    input4.setAttribute("id", "sources-author-" + level);
+    input4.setAttribute("class", 'block');
+    element3.appendChild(input3);
+    element4.appendChild(input4);
+    line2.appendChild(element3);
+    line2.appendChild(element4);
 
-    var element3 = document.createElement('input');
-    element3.setAttribute("required", "required");
-    element3.setAttribute("type", "number");
-    element3.setAttribute("placeholder", "Year");
-    element3.setAttribute("name", 'sources[' + level + '][year]');
-    element3.setAttribute("id", "sources-year-" + level);
-    element3.setAttribute("class", 'block');
-    element3.setAttribute("min", '1700');
-    element3.setAttribute("max", '2100');
+    var line3 = document.createElement('div');
+    line3.setAttribute("class", 'line');
+    var textarea = document.createElement('textarea');
+    textarea.setAttribute("required", "required");
+    textarea.setAttribute("type", "number");
+    textarea.setAttribute("placeholder", "Description");
+    textarea.setAttribute("name", 'sources[' + level + '][description]');
+    textarea.setAttribute("id", "sources-description-" + level);
+    textarea.setAttribute("class", 'block');
+    line3.appendChild(textarea);
 
-    var element4 = document.createElement('textarea');
-    element4.setAttribute("required", "required");
-    element4.setAttribute("type", "number");
-    element4.setAttribute("placeholder", "Description");
-    element4.setAttribute("name", 'sources[' + level + '][description]');
-    element4.setAttribute("id", "sources-description-" + level);
-    element4.setAttribute("class", 'block');
-
+    subdiv.appendChild(a);
     subdiv.appendChild(line);
-    subdiv.appendChild(element1);
-    subdiv.appendChild(element2);
-    subdiv.appendChild(element3);
-    subdiv.appendChild(element4);
+    subdiv.appendChild(line2);
+    subdiv.appendChild(line3);
 
     div.appendChild(subdiv);
 
