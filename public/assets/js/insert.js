@@ -280,7 +280,6 @@ function add_sources(level) {
     input.setAttribute("placeholder", "Name / Titre");
     input.setAttribute("name", 'sources[' + level + '][name]');
     input.setAttribute("id", "sources-name-" + level);
-    input.setAttribute("class", 'block');
 
     var element2 = document.createElement('div');
     element2.setAttribute("class", 'block');
@@ -290,7 +289,6 @@ function add_sources(level) {
     input2.setAttribute("placeholder", "Year");
     input2.setAttribute("name", 'sources[' + level + '][year]');
     input2.setAttribute("id", "sources-year-" + level);
-    input2.setAttribute("class", 'block');
     input2.setAttribute("min", '1700');
     input2.setAttribute("max", '2100');
     element1.appendChild(input);
@@ -309,7 +307,6 @@ function add_sources(level) {
     input3.setAttribute("placeholder", "Type");
     input3.setAttribute("name", 'sources[' + level + '][type]');
     input3.setAttribute("id", "sources-type-" + level);
-    input3.setAttribute("class", 'block');
     var element4 = document.createElement('div');
     element4.setAttribute("class", 'autocomplete block');
     var input4 = document.createElement('input');
@@ -318,7 +315,6 @@ function add_sources(level) {
     input4.setAttribute("placeholder", "Auteur");
     input4.setAttribute("name", 'sources[' + level + '][author]');
     input4.setAttribute("id", "sources-author-" + level);
-    input4.setAttribute("class", 'block');
     element3.appendChild(input3);
     element4.appendChild(input4);
     line2.appendChild(element3);
