@@ -49,9 +49,9 @@ class Categories extends Controller{
     public function getAuthor($typeID = null)
     {
         if (is_null($typeID)) {
-            $author = DB::table('sources')->distinct()->select(['author'])->groupBy('author')->get();
+            $author = DB::table('sources')->distinct()->select(['author as name'])->groupBy('author')->get();
         } else {
-            $author = DB::table('sources')->distinct()->select(['author'])->where(['type_id' => $typeID])->groupBy('author')->get();
+            $author = DB::table('sources')->distinct()->select(['author as name'])->where(['type_id' => $typeID])->groupBy('author')->get();
         }
         return response()->json($author);
     }
