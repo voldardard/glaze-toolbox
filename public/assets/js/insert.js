@@ -405,7 +405,9 @@ function add_sources(level) {
 
     //enable autocomplete
     autocomplete(document.getElementById("sources-author-" + level), authors);
-    autocomplete(document.getElementById("sources-type-" + level), types);
+    //autocomplete(document.getElementById("sources-type-" + level), types);
+    autocomplete_complex(document.getElementById("sources-type-" + level), types, new autocomplete_author_callback(level, 'http://glaze.cera.chat/fr/sources/author/type/'));
+
 
     //update create button
     var button = document.getElementById('add_sources');
