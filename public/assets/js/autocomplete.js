@@ -558,12 +558,18 @@ function autocomplete_complex(inp, arr, callback) {
             b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' value='" + arr[i]['name'] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function (e) {
+                console.log('clické');
+
                 /*insert the value for the autocompleted text field:*/
                 inp.setAttribute('value', (this.getElementsByTagName("input")[0].value));
                 inp.value = this.getElementsByTagName("input")[0].value;
                 var parentID = this.getElementsByTagName("input")[0].id;
+                console.log('parentID:' + parentID);
+
 
                 if (typeof callback.click() === 'function') {
+                    console.log('est une fonction');
+
                     callback.click(parentID);
                 }
 

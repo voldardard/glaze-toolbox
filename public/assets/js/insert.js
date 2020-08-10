@@ -40,7 +40,6 @@ class autocomplete_author_callback {
     }
 
     click = function (parentID) {
-
         //remove event listener
         var inp = document.getElementById('sources-author-' + this.level);
         inp.removeEventListener('focusin', null);
