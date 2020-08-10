@@ -153,7 +153,7 @@
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-014-addAnElement')
                         </a>
                     </div>
-                    <span id="raw-total">Total : --------------------------------------------------------------------------------- 100% (sur 100gr)</span>
+                    <!--<span id="raw-total">Total : --------------------------------------------------------------------------------- 100% (sur 100gr)</span>-->
 
                     <div id="raw-extra-container" class="boxed">
                     </div>
@@ -169,24 +169,34 @@
                         <div id="sources-0" class="boxed">
                             <div class="line">
                                 <span>Sources 0 - </span>
-                                <input type="text" id="sources-name-0" class="block" value=""
-                                       required name="sources[0][name]"
-                                       placeholder="Name / Titre"/>
+
                                 <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)"><i
                                             class="fa fa-minus-square" aria-hidden="true"></i></a>
                             </div>
-                            <div class="autocomplete block">
-                                <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
-                                       placeholder="Type"/>
+                            <div class="line">
+                                <div class="block">
+                                    <input type="text" id="sources-name-0" class="block" value="" required
+                                           name="sources[0][name]" placeholder="Name / Titre"/>
+                                </div>
+                                <div class="block">
+                                    <input type="number" id="sources-year-0" class="block" value="" min="1700"
+                                           max="2100" name="sources[0][year]" placeholder="Year"/>
+                                </div>
                             </div>
-                            <div class="autocomplete block">
-                                <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
-                                       placeholder="Auteur"/>
+                            <div class="line">
+                                <div class="autocomplete block">
+                                    <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
+                                           placeholder="Type"/>
+                                </div>
+                                <div class="autocomplete block">
+                                    <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
+                                           placeholder="Auteur"/>
+                                </div>
                             </div>
-                            <input type="number" id="sources-year-0" class="block" value="" min="1700" max="2100"
-                                   name="sources[0][year]" placeholder="Year"/>
-                            <textarea id="sources-description-0" value="" name="sources[0][description]"
-                                      placeholder="Description"></textarea>
+                            <div class="line">
+                                <textarea id="sources-description-0" value="" name="sources[0][description]"
+                                          placeholder="Description"></textarea>
+                            </div>
                         </div>
                     </div>
                     <div style="clear: both; padding: 0;">
