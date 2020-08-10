@@ -46,6 +46,7 @@ class autocomplete_author_callback {
         inp.removeEventListener('input', null);
         inp.removeEventListener('focusout', null);
         inp.removeEventListener('keydown', null);
+        console.log('removed event listener');
         const level = this.level;
 
         fetchJson('GET', this.url + parentID, function (data) {
@@ -53,6 +54,8 @@ class autocomplete_author_callback {
             if (data.length !== 0) {
                 console.log(data);
                 autocomplete(document.getElementById("sources-author-" + level), data);
+            } else {
+                console.log('no data, no autocompletion');
             }
         });
 
