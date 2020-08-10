@@ -66,6 +66,8 @@ class autocomplete_categories_callback {
     }
 
     click = function (parentID) {
+        const level = this.level;
+
         remove_category((level + 1));
 
         fetchJson('GET', this.url + parentID, function (data) {
