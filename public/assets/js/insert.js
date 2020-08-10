@@ -294,7 +294,6 @@ function add_sources(level) {
     element1.appendChild(input);
     element2.appendChild(input2);
     line.appendChild(element1);
-    line.innerHTML = '&nbsp';
     line.appendChild(element2);
 
 
