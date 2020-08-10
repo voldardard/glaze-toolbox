@@ -86,7 +86,7 @@ class autocomplete_categories_callback {
             if (data.length !== 0) {
                 add_category((level + 1));
                 console.log(data);
-                autocomplete_complex(document.getElementById("add-categories-" + (level + 1)), data, new autocomplete_categories_callback(0, url));
+                autocomplete_complex(document.getElementById("add-categories-" + (level + 1)), data, new autocomplete_categories_callback((level + 1), url));
 //                autocomplete_category(document.getElementById("add-categories-" + (level + 1)), data, (level + 1));
             }
         });
