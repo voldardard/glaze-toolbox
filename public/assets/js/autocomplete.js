@@ -567,7 +567,7 @@ function autocomplete_complex(inp, arr, callback) {
                 console.log('parentID:' + parentID);
 
 
-                if (typeof callback.click() === 'function') {
+                if (typeof callback.click === 'function') {
                     console.log('est une fonction');
 
                     callback.click(parentID);
