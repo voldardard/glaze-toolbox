@@ -41,16 +41,22 @@ class autocomplete_author_callback {
 
     click = function (parentID) {
         //remove event listener
-        var inp = document.getElementById('sources-author-' + this.level);
-        inp.removeEventListener('focusin', null);
-        inp.removeEventListener('input', null);
-        inp.removeEventListener('focusout', null);
-        inp.removeEventListener('keydown', null);
+        /*       var inp = document.getElementById('sources-author-' + this.level);
+               inp.removeEventListener('focusin', null);
+               inp.removeEventListener('input', null);
+               inp.removeEventListener('focusout', null);
+               inp.removeEventListener('keydown', null);*/
+        var el = document.getElementById('sources-author-' + this.level),
+            elClone = el.cloneNode(true);
+        el.parentNode.replaceChild(elClone, el);
+
         console.log('removed event listener');
         const level = this.level;
 
         fetchJson('GET', this.url + parentID, function (data) {
             console.log('fetched:');
+            console.log(data);
+
             if (data.length !== 0) {
                 console.log(data);
                 autocomplete(document.getElementById("sources-author-" + level), data);
