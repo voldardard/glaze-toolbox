@@ -294,6 +294,7 @@ function add_sources(level) {
     element1.appendChild(input);
     element2.appendChild(input2);
     line.appendChild(element1);
+    line.append("&nbsp;");
     line.appendChild(element2);
 
 
@@ -318,6 +319,7 @@ function add_sources(level) {
     element3.appendChild(input3);
     element4.appendChild(input4);
     line2.appendChild(element3);
+    line2.append("&nbsp;");
     line2.appendChild(element4);
 
     var line3 = document.createElement('div');
