@@ -278,10 +278,12 @@ body{
     text-align: left;
 }
 
-#information-land label,
-#information-land .autocomplete {
+#information-land label {
     width: 10%;
     display: inline-block;
+}
+
+#information-land .autocomplete {
     width: 49%;
     display: inline;
 }
