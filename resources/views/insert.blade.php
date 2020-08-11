@@ -86,39 +86,40 @@
 
                 <div id="labels">
 
-                    <div><a class="insert-label" onclick="add_label()" ><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-008-addlabel')</a>
+                    <div><a class="insert-label" onclick="add_label()"><i class="fa fa-plus-circle"
+                                                                          aria-hidden="true"></i> @lang('insert.i-008-addlabel')
+                        </a>
                     </div>
                     <!--<input id="label-0" type="text" placeholder="Label" name="label[]" />
                     <a id="label-remove-0" class="remove-label" onclick="remove_label(0)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>-->
 
                 </div>
                 <div id="information">
-                    <h3>Détails</h3>
+                    <h3>@lang('insert.i-027-details')</h3>
                     <div id="information-container" class="boxed">
                         <div id="information-land">
-                            <label>Land</label>
                             <div class="autocomplete">
                                 <input type="text" id="land-name" value="" required name="land"
-                                       placeholder="Name"/>
+                                       placeholder="@lang('insert.i-029-landname')"/>
                             </div>
 
                         </div>
 
                         <div id="information-bake">
-                            <label>Baking</label>
+                            <label>@lang('insert.i-030-baking')</label>
                             <input type="number" id="bake-orton" value="" required name="bake[orton]"
-                                   placeholder="Orton"/>
+                                   placeholder="@lang('insert.i-031-orton')"/>
                             <input type="text" id="bake-oven" value="" required name="bake[oven]"
-                                   placeholder="Oven"/>
+                                   placeholder="@lang('insert.i-032-oven')"/>
                             <input type="number" id="bake-temp" value="" required name="bake[temp]"
-                                   placeholder="Température (C°)"/>
+                                   placeholder="@lang('insert.i-033-temperature')"/>
                             <input type="text" id="bake-type" value="" name="bake[type]"
-                                   placeholder="Type"/>
+                                   placeholder="@lang('insert.i-034-type')"/>
                         </div>
 
                         <div id="information-remarks">
-                            <label>Remarque</label>
-                            <textarea id="remarks" value="" name="remarks" placeholder="Remarques"></textarea>
+                            <textarea id="remarks" value="" name="remarks"
+                                      placeholder="@lang('insert.i-028-remarks')"></textarea>
                         </div>
 
                     </div>

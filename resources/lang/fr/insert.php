@@ -26,7 +26,15 @@ return [
     'i-023-type' => 'Type',
     'i-024-author' => 'Auteur',
     'i-025-description' => 'Description',
-    'i-026-addASource' => 'Ajouter une source'
+    'i-026-addASource' => 'Ajouter une source',
+    'i-027-details' => 'Détails',
+    'i-028-remarks' => 'Remarques',
+    'i-029-landname' => 'Nom de l\'argile',
+    'i-030-baking' => 'Cuisson',
+    'i-031-orton' => 'Orton',
+    'i-032-oven' => 'Oven',
+    'i-033-temperature' => 'Température (C°)',
+    'i-034-type' => 'Type'
 
 
 

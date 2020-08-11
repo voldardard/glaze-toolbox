@@ -270,6 +270,7 @@ body{
 
 #information-land input {
     width: 49%;
+    margin-right: 49%;
 }
 
 #information-land {
@@ -291,7 +292,7 @@ body{
 }
 
 #information-remarks textarea {
-    width: 100%;
+    width: 98%;
 }
 
 #information-land .autocomplete-items {

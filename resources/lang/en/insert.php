@@ -26,6 +26,14 @@ return [
     'i-023-type' => 'Type',
     'i-024-author' => 'Author',
     'i-025-description' => 'Description',
-    'i-026-addASource' => 'Add a source'
+    'i-026-addASource' => 'Add a source',
+    'i-027-details' => 'Details',
+    'i-028-remarks' => 'Remarks',
+    'i-029-landname' => 'Land name',
+    'i-030-baking' => 'Baking',
+    'i-031-orton' => 'Orton',
+    'i-032-oven' => 'Oven',
+    'i-033-temperature' => 'Temperature (C°)',
+    'i-034-type' => 'Type'
 
 ];
