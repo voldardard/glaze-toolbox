@@ -30,7 +30,7 @@ class Login extends Controller{
         if(! self::test_connection($validatedData['username'], $validatedData['password'])){
             return Redirect::back()->withError($this->message)->withInput();
         }
-        return Redirect::to(route('home'));
+        return redirect(App::getLocale());
     }
     private function test_connection($login, $password){
         //user exist
