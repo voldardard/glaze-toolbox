@@ -20,6 +20,13 @@ return [
     'i-017-formula' => 'Formule',
     'i-018-quantity' => 'Quantité (%)',
     'i-019-addAnExtraElement' => 'Ajouter un supplément',
+    'i-020-sources' => 'Sources',
+    'i-021-name' => 'Name / Titre',
+    'i-022-year' => 'Year',
+    'i-023-type' => 'Type',
+    'i-024-author' => 'Auteur',
+    'i-025-description' => 'Description',
+    'i-026-addASource' => 'Ajouter une source'
 
 
 

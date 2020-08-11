@@ -25,6 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        var locale = "{{ str_replace('_', '-', app()->getLocale()) }}";
         var lang = {
             "formula": "@lang('insert.i-017-formula')",
             "quantity": "@lang('insert.i-018-quantity')",
@@ -33,7 +34,12 @@
             "problemConnecting": "@lang('insert.i-001-problemConnecting')",
             "validationFailed": "@lang('insert.i-002-validationFailed')",
             "pictureName": "@lang('insert.i-003-pictureName')",
-            "label": "@lang('insert.i-004-label')"
+            "label": "@lang('insert.i-004-label')",
+            "type": @lang('insert.i-023-type'),
+            "author":@lang('insert.i-024-author'),
+            "description":@lang('insert.i-025-description'),
+            "year":@lang('insert.i-022-year'),
+            "name": @lang('insert.i-021-name')
         };
         {!! 'var categories = '.$Params->categories !!}
         {!! 'var lands = '.$Params->lands !!}
@@ -164,7 +170,7 @@
                     </a>
                 </div>
                 <div id="sources">
-                    <h3>Sources</h3>
+                    <h3>@lang('insert.i-020-sources')</h3>
                     <div id="sources-container">
                         <div id="sources-0" class="boxed">
                             <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)">
@@ -173,32 +179,32 @@
                             <div class="line">
                                 <div class="block">
                                     <input type="text" id="sources-name-0" value="" required
-                                           name="sources[0][name]" placeholder="Name / Titre"/>
+                                           name="sources[0][name]" placeholder="@lang('insert.i-021-name')"/>
                                 </div>
                                 <div class="block">
                                     <input type="number" id="sources-year-0" value="" min="1700"
-                                           max="2100" name="sources[0][year]" placeholder="Year"/>
+                                           max="2100" name="sources[0][year]" placeholder="@lang('insert.i-022-year')"/>
                                 </div>
                             </div>
                             <div class="line">
                                 <div class="autocomplete block">
                                     <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
-                                           placeholder="Type"/>
+                                           placeholder="@lang('insert.i-023-type')"/>
                                 </div>
                                 <div class="autocomplete block">
                                     <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
-                                           placeholder="Auteur"/>
+                                           placeholder="@lang('insert.i-024-author')"/>
                                 </div>
                             </div>
                             <div class="line">
                                 <textarea id="sources-description-0" value="" name="sources[0][description]"
-                                          placeholder="Description"></textarea>
+                                          placeholder="@lang('insert.i-025-description')"></textarea>
                             </div>
                         </div>
                     </div>
                     <div style="clear: both; padding: 0;">
                         <a class="insert-source" id="add_sources" onclick="add_sources(1)">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une source
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('insert.i-026-addASource')
                         </a>
                     </div>
                 </div>
@@ -211,11 +217,11 @@
     </div>
 </div>
 <script type="text/javascript">
-    autocomplete_complex(document.getElementById("add-categories"), categories, new autocomplete_categories_callback(0, 'http://glaze.cera.chat/{{ str_replace('_', '-', app()->getLocale()) }}/category/'));
+    autocomplete_complex(document.getElementById("add-categories"), categories, new autocomplete_categories_callback(0, '/' + locale + '/category/'));
     autocomplete_raw(document.getElementById("raw-name-0"), raw, 0);
     autocomplete(document.getElementById("land-name"), lands);
     autocomplete(document.getElementById("sources-author-0"), authors);
-    autocomplete_complex(document.getElementById("sources-type-0"), types, new autocomplete_author_callback(0, 'http://glaze.cera.chat/{{ str_replace('_', '-', app()->getLocale()) }}/sources/author/type/'));
+    autocomplete_complex(document.getElementById("sources-type-0"), types, new autocomplete_author_callback(0, '/' + locale + '/sources/author/type/'));
 
 
 </script>

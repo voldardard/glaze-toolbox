@@ -285,39 +285,8 @@ function remove_raw_extra(level) {
     }
 
 }
-/*
-                   <div id="sources-0" class="boxed">
-                            <a id="sources-remove-0" class="remove-sources" onclick="remove_sources(0)">
-                                <i class="fa fa-minus-square" aria-hidden="true"></i>
-                            </a>
-                            <div class="line">
-                                <div class="block">
-                                    <input type="text" id="sources-name-0" value="" required
-                                           name="sources[0][name]" placeholder="Name / Titre"/>
-                                </div>
-                                <div class="block">
-                                    <input type="number" id="sources-year-0" value="" min="1700"
-                                           max="2100" name="sources[0][year]" placeholder="Year"/>
-                                </div>
-                            </div>
-                            <div class="line">
-                                <div class="autocomplete block">
-                                    <input type="text" id="sources-type-0" value="" required name="sources[0][type]"
-                                           placeholder="Type"/>
-                                </div>
-                                <div class="autocomplete block">
-                                    <input type="text" id="sources-author-0" value="" required name="sources[0][author]"
-                                           placeholder="Auteur"/>
-                                </div>
-                            </div>
-                            <div class="line">
-                                <textarea id="sources-description-0" value="" name="sources[0][description]"
-                                          placeholder="Description"></textarea>
-                            </div>
-                        </div>
- */
 function add_sources(level) {
-    var div = document.getElementById('sources-container');//get container
+    var div = document.getElementById('sources-container');
     var subdiv = document.createElement('div');
     subdiv.setAttribute("id", 'sources-' + (level));
     subdiv.setAttribute("class", 'boxed');
@@ -339,7 +308,7 @@ function add_sources(level) {
     var input = document.createElement('input');
     input.setAttribute("required", "required");
     input.setAttribute("type", "text");
-    input.setAttribute("placeholder", "Name / Titre");
+    input.setAttribute("placeholder", translate('name'));
     input.setAttribute("name", 'sources[' + level + '][name]');
     input.setAttribute("id", "sources-name-" + level);
 
@@ -348,7 +317,7 @@ function add_sources(level) {
     var input2 = document.createElement('input');
     input2.setAttribute("required", "required");
     input2.setAttribute("type", "number");
-    input2.setAttribute("placeholder", "Year");
+    input2.setAttribute("placeholder", translate('year'));
     input2.setAttribute("name", 'sources[' + level + '][year]');
     input2.setAttribute("id", "sources-year-" + level);
     input2.setAttribute("min", '1700');
@@ -367,7 +336,7 @@ function add_sources(level) {
     var input3 = document.createElement('input');
     input3.setAttribute("required", "required");
     input3.setAttribute("type", "text");
-    input3.setAttribute("placeholder", "Type");
+    input3.setAttribute("placeholder", translate('type'));
     input3.setAttribute("name", 'sources[' + level + '][type]');
     input3.setAttribute("id", "sources-type-" + level);
     var element4 = document.createElement('div');
@@ -375,7 +344,7 @@ function add_sources(level) {
     var input4 = document.createElement('input');
     input4.setAttribute("required", "required");
     input4.setAttribute("type", "text");
-    input4.setAttribute("placeholder", "Auteur");
+    input4.setAttribute("placeholder", translate('author'));
     input4.setAttribute("name", 'sources[' + level + '][author]');
     input4.setAttribute("id", "sources-author-" + level);
     element3.appendChild(input3);
@@ -389,7 +358,7 @@ function add_sources(level) {
     var textarea = document.createElement('textarea');
     textarea.setAttribute("required", "required");
     textarea.setAttribute("type", "number");
-    textarea.setAttribute("placeholder", "Description");
+    textarea.setAttribute("placeholder", translate('description'));
     textarea.setAttribute("name", 'sources[' + level + '][description]');
     textarea.setAttribute("id", "sources-description-" + level);
     textarea.setAttribute("class", 'block');
@@ -406,7 +375,7 @@ function add_sources(level) {
     //enable autocomplete
     autocomplete(document.getElementById("sources-author-" + level), authors);
     //autocomplete(document.getElementById("sources-type-" + level), types);
-    autocomplete_complex(document.getElementById("sources-type-" + level), types, new autocomplete_author_callback(level, 'http://glaze.cera.chat/fr/sources/author/type/'));
+    autocomplete_complex(document.getElementById("sources-type-" + level), types, new autocomplete_author_callback(level, '/' + locale + '/sources/author/type/'));
 
 
     //update create button
