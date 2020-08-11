@@ -82,6 +82,55 @@ function autocomplete_raw(inp, arr, level, extra = false) {
             }
         }
     });
+    inp.addEventListener("focusin", function (e) {
+        console.log('focusin');
+        focusin = true;
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            /*create a DIV element for each matching element:*/
+            b = document.createElement("div");
+            /*make the matching letters bold:*/
+            b.innerHTML = "<strong>" + arr[i]['name'] + "</strong><span>" + arr[i]['formula'] + "</span>";
+            /*insert a input field that will hold the current array item's value:*/
+            b.innerHTML += "<input id='" + arr[i]['id'] + "' type='hidden' formula='" + arr[i]['formula'] + "' value='" + arr[i]['name'] + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            b.addEventListener("click", function (e) {
+
+                /*insert the value for the autocompleted text field:*/
+                inp.setAttribute('value', (this.getElementsByTagName("input")[0].value));
+                inp.value = this.getElementsByTagName("input")[0].value;
+                if (this.getElementsByTagName("input")[0].getAttribute('formula') !== "null") {
+                    if (!extra) {
+                        document.getElementById('raw-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                    } else {
+                        document.getElementById('raw-extra-formula-' + level).value = this.getElementsByTagName("input")[0].getAttribute('formula');
+                    }
+                }
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+            });
+            a.appendChild(b);
+        }
+    });
+    /*execute a function when user click in input:*/
+    inp.addEventListener("focusout", function (e) {
+        console.log('focusout');
+        focusin = false;
+
+    });
+
     function addActive(x) {
         /*a function to classify an item as "active":*/
         if (!x) return false;
