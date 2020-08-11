@@ -123,17 +123,23 @@
     background: #5C5C5C;
 }
 #cssmenu #langs a:last-child,
-#cssmenu #profile a:last-child{
+#cssmenu #profile a:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
 #cssmenu #langs,
-#cssmenu #profile{
-    display:none;
+#cssmenu #profile {
+    display: none;
     position: fixed;
     width: 140px;
 }
+
 #cssmenu #langsContainer:hover div,
-#cssmenu #profileContainer:hover div{
+#cssmenu #profileContainer:hover div {
     display: block;
+}
+
+#cssmenu a {
+    cursor: pointer;
 }
