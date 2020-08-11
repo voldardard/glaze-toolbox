@@ -336,7 +336,7 @@ function add_sources(level) {
     var input3 = document.createElement('input');
     input3.setAttribute("required", "required");
     input3.setAttribute("type", "text");
-    input3.setAttribute("placeholder", translate('type'));
+    input3.setAttribute("placeholder", translate('sources_type'));
     input3.setAttribute("name", 'sources[' + level + '][type]');
     input3.setAttribute("id", "sources-type-" + level);
     var element4 = document.createElement('div');
