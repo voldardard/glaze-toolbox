@@ -274,6 +274,18 @@ body{
     width: 49%;
 }
 
+#information-land {
+    text-align: left;
+}
+
+#information-land label,
+#information-land .autocomplete {
+    width: 10%;
+    display: inline-block;
+    width: 49%;
+    display: inline;
+}
+
 #information-bake input {
     width: 24%;
 }
@@ -283,8 +295,8 @@ body{
 }
 
 #information-land .autocomplete-items {
-    width: 49%;
-    margin: auto;
+    width: 99%;
+    margin-top: 15px;
 }
 
 #sources-container .block {
