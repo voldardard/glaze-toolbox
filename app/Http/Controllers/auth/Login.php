@@ -51,14 +51,16 @@ class Login extends Controller{
                 return false;
             }
             session([
-                "username"=>$user->username,
-                "name"=>$user->name,
-                "fsname"=>$user->fsname,
-                "id"=>$user->id,
-                "email"=>$user->email,
-                "admin"=>$user->admin,
-                "login"=>now(),
+                "username" => $user->username,
+                "name" => $user->name,
+                "fsname" => $user->fsname,
+                "id" => $user->id,
+                "email" => $user->email,
+                "admin" => $user->admin,
+                "login" => now(),
             ]);
+            App::setLocale($user->locale);
+
             return true;
 
         }else{
