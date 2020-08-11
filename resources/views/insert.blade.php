@@ -35,11 +35,11 @@
             "validationFailed": "@lang('insert.i-002-validationFailed')",
             "pictureName": "@lang('insert.i-003-pictureName')",
             "label": "@lang('insert.i-004-label')",
-            "sources_type": @lang('insert.i-023-type'),
-            "author":@lang('insert.i-024-author'),
-            "description":@lang('insert.i-025-description'),
-            "year":@lang('insert.i-022-year'),
-            "name": @lang('insert.i-021-name')
+            "sources_type": "@lang('insert.i-023-type')",
+            "author": "@lang('insert.i-024-author')",
+            "description": "@lang('insert.i-025-description')",
+            "year": "@lang('insert.i-022-year')",
+            "name": "@lang('insert.i-021-name')"
         };
         {!! 'var categories = '.$Params->categories !!}
         {!! 'var lands = '.$Params->lands !!}
