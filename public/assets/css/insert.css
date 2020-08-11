@@ -205,11 +205,11 @@ body{
     margin-left: 25px;
 }
 
-.form #raw-container div,
+/*.form #raw-container div,
 .form #raw-extra-container div {
     clear: both;
     padding: 0;
-}
+}*/
 
 .form #raw-container div .remove-raw,
 .form #raw-extra-container div .remove-raw-extra {
