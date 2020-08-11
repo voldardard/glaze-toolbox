@@ -124,9 +124,6 @@
 
                     </div>
                 </div>
-            </div>
-
-            <div class="right">
                 <div id="upload">
                     <h3>@lang('insert.i-011-recipePictures')</h3>
                     <input multiple id="upload-pic" type="file" name="pic[]"/>
@@ -138,6 +135,10 @@
 
 
                 </div>
+            </div>
+
+            <div class="right">
+
                 <div id="raw">
                     <h3>@lang('insert.i-015-MaterialsRaw')</h3>
                     <div id="raw-container" class="boxed">
