@@ -20,6 +20,12 @@ return [
     'i-017-formula' => 'Formula',
     'i-018-quantity' => 'Quantity (%)',
     'i-019-addAnExtraElement' => 'Add an extra element',
-
+    'i-020-sources' => 'Sources',
+    'i-021-name' => 'Name / Title',
+    'i-022-year' => 'Year',
+    'i-023-type' => 'Type',
+    'i-024-author' => 'Author',
+    'i-025-description' => 'Description',
+    'i-026-addASource' => 'Add a source'
 
 ];
