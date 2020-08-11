@@ -361,7 +361,6 @@ function add_sources(level) {
     textarea.setAttribute("placeholder", translate('description'));
     textarea.setAttribute("name", 'sources[' + level + '][description]');
     textarea.setAttribute("id", "sources-description-" + level);
-    textarea.setAttribute("class", 'block');
     line3.appendChild(textarea);
 
     subdiv.appendChild(a);

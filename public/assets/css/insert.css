@@ -293,6 +293,7 @@ body{
 
 #information-remarks textarea {
     width: 98%;
+    margin-top: 15px;
 }
 
 #information-land .autocomplete-items {
@@ -303,11 +304,12 @@ body{
 #sources-container .block {
     width: 48%;
     display: inline-block;
+    margin-bottom: 0;
 }
 
 #sources-container textarea {
     clear: both;
-    width: 100%;
+    width: 96%;
 }
 
 .form .boxed {
@@ -317,7 +319,7 @@ body{
 }
 
 .form #sources-container .line {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: left;
 }
 
