@@ -312,6 +312,11 @@ body{
     float: right;
 }
 
+.form #sources #add_sources,
+.form #sources-container .remove-sources {
+    cursor: pointer;
+}
+
 .red {
     color: red;
     font-weight: bolder;
