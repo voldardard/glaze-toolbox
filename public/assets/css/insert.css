@@ -164,10 +164,8 @@ body{
 }
 .form #upload a{
     cursor: pointer;
-    position: relative;
-    right: 18%;
-    padding-right: 0;
-    padding-left: 0;
+    margin-top: 15px;
+    float: right;
 }
 .form #upload div a{
     margin-top: 28px;
