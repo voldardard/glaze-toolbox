@@ -58,7 +58,7 @@ class Categories extends Controller{
             $view->parent = Crypt::encryptString($recipe->parent_id);
         }
 
-        $view->components = array();
+//        $view->components = array();
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($components as $key => $value) {
             $raw_materials = DB::table('raw_materials')->select(['name', 'formula'])->where(['id' => $value->raw_id])->first();
@@ -72,7 +72,7 @@ class Categories extends Controller{
         }
         $view->baking = DB::table('baking')->select(['orton', 'oven', 'temperature', 'type'])->where(['recipes_id' => $decryptedID])->first();
 
-        $view->labels = array();
+        //  $view->labels = array();
         $labels = DB::table('labels')->select(['name'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($labels as $value) {
             $view->labels[] = $value['name'];
