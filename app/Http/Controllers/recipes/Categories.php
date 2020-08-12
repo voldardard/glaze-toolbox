@@ -52,13 +52,13 @@ class Categories extends Controller{
         $view->id = $recipe->id;
         $view->name = $recipe->name;
         $view->version = $recipe->version;
+        $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
+
         if (!is_null($recipe->parent_id)) {
             $view->parent = Crypt::encryptString($recipe->parent_id);
         }
+
         $view->components = array();
-        $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
-
-
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($components as $key => $value) {
             $raw_materials = DB::table('raw_materials')->select(['name', 'formula'])->where(['id' => $value->raw_id])->first();
@@ -70,7 +70,14 @@ class Categories extends Controller{
 
             $view->components[] = $raw;
         }
+        $view->baking = DB::table('baking')->select(['orton', 'oven', 'temperature', 'type'])->where(['recipes_id' => $decryptedID])->first();
 
+        $view->labels = array();
+        $labels = DB::table('labels')->select(['name'])->where(['recipes_id' => $decryptedID])->get();
+        foreach ($labels as $value) {
+            $view->labels[] = $value['name'];
+        }
+        $view->land = DB::table('lands')->select(['name',])->where(['recipes_id' => $decryptedID])->first()->name;
 
         print_r($view);
 
