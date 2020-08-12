@@ -54,7 +54,7 @@ class Categories extends Controller{
         $view->version = $recipe->version;
         $view->parent = Crypt::encryptString($recipe->parent_id);
         $view->components = array();
-        $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $value->raw_id])->first();
+        $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
 
 
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
