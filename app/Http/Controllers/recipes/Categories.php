@@ -35,8 +35,6 @@ class Categories extends Controller{
 
     public function createCategoriesTree($catId, $child = array())
     {
-        $child = new \stdClass();
-
         $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
         $child[$category->level] = $category;
         if ($category->level > 0) {
