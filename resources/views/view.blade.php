@@ -45,7 +45,7 @@
 <div class="view-page">
     <div id="categories">
         @foreach($Params->categories as $category)
-            <span class="block"><a href="/category/{{$category->id}}"><i class="fas fa-chevron-right"></i>{$category->name}}</a></span>
+            <span class="block"><a href="/category/{{$category->id}}"><i class="fas fa-chevron-right"></i>{{$category->name}}</a></span>
         @endforeach
     </div>
 </div>
