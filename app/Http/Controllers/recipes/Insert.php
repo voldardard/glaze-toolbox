@@ -50,16 +50,7 @@ class Insert extends Controller{
 
         ]);
 
-        //insert in recipes table
-        $recipeID= DB::table('recipes')->insertGetId([
-            'name' => $validatedData['title'],
-            'version' => '1.0.0',
-            'users_id' => session()->get('id'),
-            'parent_id' => null,
-            'locale' => Config::get('app.locale'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+
 
         //insert categories
         $mayExist=true;
@@ -82,19 +73,30 @@ class Insert extends Controller{
                 }
             }else{
                 $parent_id=DB::table('categories')->insertGetId([
-                    'parent_id'=>$parent_id,
-                    'name'=>$value,
-                    'level'=>$key,
-                    'created_at'=>now(),
-                    'updated_at'=>now(),
-                    'delete'=>false
+                    'parent_id' => $parent_id,
+                    'name' => $value,
+                    'level' => $key,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                    'delete' => false
                 ]);
             }
 
         }
 
+        //insert in recipes table
+        $recipeID = DB::table('recipes')->insertGetId([
+            'name' => $validatedData['title'],
+            'version' => '1.0.0',
+            'users_id' => session()->get('id'),
+            'categories_id' => $parent_id,
+            'locale' => Config::get('app.locale'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
         //save preload pictures
-        if(!empty($validatedData['pictures'])) {
+        if (!empty($validatedData['pictures'])) {
             foreach ($validatedData['pictures'] as $key => $value) {
                 $exploded = explode('/', $key);
                 $filename = str_replace('::', '.', $exploded[count($exploded) - 1]);

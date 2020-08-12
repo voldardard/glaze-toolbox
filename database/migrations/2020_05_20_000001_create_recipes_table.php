@@ -25,6 +25,10 @@ class CreateRecipesTable extends Migration
             $table->index('users_id');
             $table->foreign('users_id')->references('id')->on('users');
 
+            $table->unsignedBigInteger('categories_id');
+            $table->index('categories_id');
+            $table->foreign('categories_id')->references('id')->on('categories');
+
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->index('parent_id');
             $table->foreign('parent_id')->references('id')->on('recipes');
