@@ -52,8 +52,7 @@ class Categories extends Controller{
         $view->id = $recipe->id;
         $view->name = $recipe->name;
         $view->version = $recipe->version;
-        if (!is_null($recipe->parent_id)) ;
-        {
+        if (!is_null($recipe->parent_id)) {
             $view->parent = Crypt::encryptString($recipe->parent_id);
         }
         $view->components = array();
