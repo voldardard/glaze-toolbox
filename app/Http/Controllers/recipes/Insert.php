@@ -256,7 +256,7 @@ class Insert extends Controller{
                         'updated_at' => now()
                     ]);
                 } else {
-                    $source_type_id = DB::table('raw_materials')->select('id')->where(['name' => $value['type'], 'locale' => Config::get('app.locale')])->first()->id;
+                    $source_type_id = DB::table('sources_types')->select('id')->where(['name' => $value['type'], 'locale' => Config::get('app.locale')])->first()->id;
                 }
 
                 DB::table('recipe_components')->insert([
