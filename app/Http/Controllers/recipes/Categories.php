@@ -52,7 +52,10 @@ class Categories extends Controller{
         $view->id = $recipe->id;
         $view->name = $recipe->name;
         $view->version = $recipe->version;
-        $view->parent = Crypt::encryptString($recipe->parent_id);
+        if (!is_null($recipe->parent_id)) ;
+        {
+            $view->parent = Crypt::encryptString($recipe->parent_id);
+        }
         $view->components = array();
         $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
 
