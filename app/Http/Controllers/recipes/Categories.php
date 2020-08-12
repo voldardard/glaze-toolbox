@@ -61,9 +61,7 @@ class Categories extends Controller{
         }
         $view->id = $recipe->id;
         $view->crypted_id = $recipeID;
-        //$view->categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $recipe->categories_id])->first();
-        $categoriesTree = self::createCategoriesTree($recipe->categories_id);
-        $view->categories = ksort($categoriesTree);
+        $view->categories = array_reverse(self::createCategoriesTree($recipe->categories_id), true);
         $view->name = $recipe->name;
         $view->version = $recipe->version;
         $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
