@@ -49,7 +49,7 @@
         @foreach($Params->categories as $category)
             <span class="block"><a href="/category/{{$category->id}}"><i class="fa fa-chevron-right"></i> {{$category->name}}</a></span>
         @endforeach
-        <h1 class="block">{{$Params->name}}</h1><span>{{$Params->version}}</span>
+        <h1 class="block">{{$Params->name}}</h1><span class="block">{{$Params->version}}</span>
         <div id="author">
             <span>Created by {{$Params->creator->fsname." ".$Params->creator->name}}</span>
         </div>
