@@ -79,6 +79,26 @@ class Categories extends Controller{
         }
         $view->land = DB::table('lands')->select(['name',])->where(['recipes_id' => $decryptedID])->first()->name;
 
+        $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $decryptedID, 'deleted' => false])->get();
+        foreach ($pictures as $value) {
+            $view->pictures[] = $value;
+        }
+        if (DB::table('remarks')->select(['text'])->where(['recipes_id' => $decryptedID])->exists()) {
+            $view->remark = DB::table('remarks')->select(['text'])->where(['recipes_id' => $decryptedID])->first()->text;
+        }
+
+        $sources = DB::table('sources')->select(['name', 'author', 'description', 'type_id'])->where(['recipes_id' => $decryptedID])->get();
+        foreach ($sources as $key => $value) {
+            $sources_type = DB::table('sources_types')->select(['name'])->where(['id' => $value->type_id])->first();
+            $source = new \stdClass();
+            $source->type = $sources_type->name;
+            $source->name = $value->name;
+            $source->author = $value->author;
+            $source->description = $value->description;
+
+            $view->sources[] = $source;
+        }
+        print_r('<pre>');
         print_r($view);
 
     }
