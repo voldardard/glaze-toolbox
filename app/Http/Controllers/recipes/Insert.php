@@ -41,6 +41,11 @@ class Insert extends Controller{
             'bake.type' => 'string|nullable|max:45',
             'bake.temp' => 'integer|required',
             'remarks' => 'string|nullable',
+            'sources.*.name' => 'string|required|max:45',
+            'sources.*.year' => 'integer|required|min:1700|max:2100',
+            'sources.*.type' => 'string|required|max:45',
+            'sources.*.author' => 'string|required|max:45',
+            'sources.*.description' => 'string|nullable',
 
 
         ]);
@@ -238,6 +243,34 @@ class Insert extends Controller{
                 'updated_at' => now(),
 
             ]);
+        }
+        if (!empty($validatedData['sources'])) {
+
+            foreach ($validatedData['sources'] as $key => $value) {
+
+                if (!DB::table('sources_types')->where(['name' => $value['type'], 'locale' => Config::get('app.locale')])->exists()) {
+                    $source_type_id = DB::table('sources_types')->insertGetId([
+                        'name' => $value['type'],
+                        'locale' => Config::get('app.locale'),
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+                } else {
+                    $source_type_id = DB::table('raw_materials')->select('id')->where(['name' => $value['type'], 'locale' => Config::get('app.locale')])->first()->id;
+                }
+
+                DB::table('recipe_components')->insert([
+                    'name' => $value['name'],
+                    'author' => $value['author'],
+                    'description' => $value['description'],
+                    'type_id' => $source_type_id,
+                    'recipes_id' => $recipeID,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+
+
+            }
         }
 
         print_r($validatedData);
