@@ -18,7 +18,7 @@ class CreateSourcesTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('author');
-            $table->string('description');
+            $table->string('description')->nullable();
 
             $table->unsignedBigInteger('type_id');
             $table->index('type_id');
