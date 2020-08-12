@@ -45,13 +45,17 @@ class Categories extends Controller{
 
 
         if (DB::table('recipes')->where(['id' => $decryptedID])->exists()) {
-            $recipe = DB::table('recipes')->select(['id', 'name'])->where(['id' => $decryptedID])->first();
+            $recipe = DB::table('recipes')->select(['id', 'name', 'users_id', 'parent_id', 'version'])->where(['id' => $decryptedID])->first();
         } else {
             abort('404');
         }
         $view->id = $recipe->id;
         $view->name = $recipe->name;
+        $view->version = $recipe->version;
+        $view->parent = Crypt::encryptString($recipe->parent_id);
         $view->components = array();
+        $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $value->raw_id])->first();
+
 
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($components as $key => $value) {
@@ -62,9 +66,10 @@ class Categories extends Controller{
             $raw->name = $value->quantity;
             $raw->extra = $value->extra;
 
-
             $view->components[] = $raw;
         }
+
+
         print_r($view);
 
     }
