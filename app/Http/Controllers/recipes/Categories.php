@@ -51,7 +51,7 @@ class Categories extends Controller{
         }
         $view->id = $recipe->id;
         $view->name = $recipe->name;
-        $view->components[] = array();
+        $view->components = array();
 
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($components as $key => $value) {
