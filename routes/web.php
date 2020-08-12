@@ -58,10 +58,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/view']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = json_decode($Controller->buildView($recipeID)->content());
-            print_r('<pre>');
-            print_r($Params);
-            print_r('</pre>');
-            die();
             return view('view')->with('Params', $Params);
         })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
 
