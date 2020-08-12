@@ -54,6 +54,20 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
             return view('insert')->with('Params', $Params);
         })->name('insert');
+        Route::get('/view/{recipeID}', function () {
+            session(['current_route' => '/insert']);
+            $Controller = new \App\Http\Controllers\recipes\Categories();
+            $Params = new \stdClass();
+            $Params->raw = $Controller->getRaw()->content();
+            $Params->categories = $Controller->getCategory()->content();
+            $Params->lands = $Controller->getLand()->content();
+            $Params->sources_type = $Controller->getType()->content();
+            $Params->sources_author = $Controller->getAuthor()->content();
+
+
+            return view('insert')->with('Params', $Params);
+        })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('insert');
+
         Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {
             session(['current_route' => '/categories']);
@@ -65,6 +79,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         Route::get('/sources/type', 'recipes\Categories@getType');
         Route::get('/sources/author', 'recipes\Categories@getAuthor');
         Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
+        Route::get('/jsonview/{recipeID?}', 'recipes\Categories@buildView')->where(['recipeID' => '[0-9]+']);
 
 
     });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\recipes;
 
 use http\Env\Response;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -21,14 +22,39 @@ use Illuminate\Support\Facades\Storage;
 
 class Categories extends Controller{
     public function getCategory($parentID=null){
-    if (is_null($parentID)){
-        $categories = DB::table('categories')->select(['id', 'name'])->whereNull('parent_id')->get();
+        if (is_null($parentID)) {
+            $categories = DB::table('categories')->select(['id', 'name'])->whereNull('parent_id')->get();
 
-    }else {
-        $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
-    }
+        } else {
+            $categories = DB::table('categories')->select(['id', 'name'])->where('parent_id', $parentID)->get();
+        }
         return response()->json($categories);
 
+
+    }
+
+    public function buildView($recipeID)
+    {
+        $view = new \stdClass();
+
+        try {
+            $decryptedID = Crypt::decryptString($recipeID);
+        } catch (DecryptException $e) {
+            abort('404');
+        }
+
+
+        if (DB::table('recipes')->where(['id' => $decryptedID])->exists()) {
+            $recipe = DB::table('recipes')->select(['id', 'name'])->where(['id' => $decryptedID])->first();
+        } else {
+            abort('404');
+        }
+        $view->id = $recipe->id;
+        $view->name = $recipe->name;
+        $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
+        foreach ($components as $key => $value) {
+            print_r($value);
+        }
 
     }
 
