@@ -45,10 +45,13 @@
 
 @include('menu')
 <div class="view-page">
-    <div id="categories">
+    <div id="head">
         @foreach($Params->categories as $category)
             <span class="block"><a href="/category/{{$category->id}}"><i class="fa fa-chevron-right"></i> {{$category->name}}</a></span>
         @endforeach
-        <h1 class="block">{{$Params->name}}</h1>
+        <h1 class="block">{{$Params->name}}</h1><span>{{$Params->version}}</span>
+        <div id="author">
+            <span>Created by {{$Params->fsname." ".$Params->name}}</span>
+        </div>
     </div>
 </div>

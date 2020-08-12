@@ -1,17 +1,17 @@
-#categories {
+#head {
     margin-top: 10px;
 }
 
-#categories .block {
+#head .block {
     margin-left: 10px;
 }
 
-#categories .block a {
+#head .block a {
     text-decoration: none;
     color: #444444;
     font-weight: bold;
 }
 
-#categories h1 {
+#head h1 {
     color: #444444;
 }
