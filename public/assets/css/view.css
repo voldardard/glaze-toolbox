@@ -1,5 +1,7 @@
 #head {
     margin-top: 10px;
+    color: #444444;
+
 }
 
 #head .block {
@@ -11,10 +13,6 @@
     text-decoration: none;
     color: #444444;
     font-weight: bold;
-}
-
-#head h1 {
-    color: #444444;
 }
 
 #head #author {
