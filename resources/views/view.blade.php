@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="_csrf-token" content="{{ csrf_token() }}">
 
-    <title>Insert</title>
+    <title>{{$Params->name}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -43,5 +43,9 @@
 
 @include('menu')
 <div class="view-page">
-    <div></div>
+    <div id="categories">
+        @foreach($Params->categories as $category)
+            <span class="block"><a href="/category/{{$category->id}}"><i class="fas fa-chevron-right"></i>{$category->name}}</a></span>
+        @endforeach
+    </div>
 </div>
