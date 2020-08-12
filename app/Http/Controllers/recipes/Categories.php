@@ -77,7 +77,7 @@ class Categories extends Controller{
         //  $view->labels = array();
         $labels = DB::table('labels')->select(['name'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($labels as $value) {
-            $view->labels[] = $value['name'];
+            $view->labels[] = $value->name;
         }
         $view->land = DB::table('lands')->select(['name',])->where(['recipes_id' => $decryptedID])->first()->name;
 
