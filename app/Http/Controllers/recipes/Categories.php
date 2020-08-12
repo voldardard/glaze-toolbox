@@ -113,7 +113,7 @@ class Categories extends Controller{
             $view->sources[] = $source;
         }
 
-        return response($view);
+        return response()->json($view);
 
 
     }
