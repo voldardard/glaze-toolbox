@@ -45,7 +45,7 @@ class Categories extends Controller{
 
 
         if (DB::table('recipes')->where(['id' => $decryptedID])->exists()) {
-            $recipe = DB::table('recipes')->select(['id', 'name', 'users_id', 'parent_id', 'version'])->where(['id' => $decryptedID])->first();
+            $recipe = DB::table('recipes')->select(['id', 'name', 'users_id', 'parent_id', 'version', 'categories_id'])->where(['id' => $decryptedID])->first();
         } else {
             abort('404');
         }
