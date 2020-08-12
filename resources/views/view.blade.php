@@ -51,7 +51,7 @@
         @endforeach
         <h1 class="block">{{$Params->name}}</h1><span>{{$Params->version}}</span>
         <div id="author">
-            <span>Created by {{$Params->fsname." ".$Params->name}}</span>
+            <span>Created by {{$Params->creator->fsname." ".$Params->creator->name}}</span>
         </div>
     </div>
 </div>
