@@ -51,10 +51,21 @@ class Categories extends Controller{
         }
         $view->id = $recipe->id;
         $view->name = $recipe->name;
+        $view->components[] = array();
+
         $components = DB::table('recipe_components')->select(['quantity', 'extra', 'raw_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($components as $key => $value) {
-            print_r($value);
+            $raw_materials = DB::table('raw_materials')->select(['name', 'formula'])->where(['id' => $value->raw_id])->first();
+            $raw = new \stdClass();
+            $raw->name = $raw_materials->name;
+            $raw->formula = $raw_materials->formula;
+            $raw->name = $value->quantity;
+            $raw->extra = $value->extra;
+
+
+            $view->components[] = $raw;
         }
+        print_r($view);
 
     }
 
