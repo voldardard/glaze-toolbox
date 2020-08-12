@@ -259,7 +259,7 @@ class Insert extends Controller{
                     $source_type_id = DB::table('sources_types')->select('id')->where(['name' => $value['type'], 'locale' => Config::get('app.locale')])->first()->id;
                 }
 
-                DB::table('recipe_components')->insert([
+                DB::table('sources')->insert([
                     'name' => $value['name'],
                     'author' => $value['author'],
                     'description' => $value['description'],
