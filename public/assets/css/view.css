@@ -4,6 +4,7 @@
 
 #head .block {
     margin-left: 10px;
+    display: inline;
 }
 
 #head .block a {
@@ -14,4 +15,9 @@
 
 #head h1 {
     color: #444444;
+}
+
+#head #author {
+    float: right;
+    margin-right: 10px;
 }
