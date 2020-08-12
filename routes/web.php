@@ -55,18 +55,13 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('insert')->with('Params', $Params);
         })->name('insert');
         Route::get('/view/{recipeID}', function () {
-            session(['current_route' => '/insert']);
+            session(['current_route' => '/view']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
-            $Params->raw = $Controller->getRaw()->content();
-            $Params->categories = $Controller->getCategory()->content();
-            $Params->lands = $Controller->getLand()->content();
-            $Params->sources_type = $Controller->getType()->content();
-            $Params->sources_author = $Controller->getAuthor()->content();
+            $Params->view = $Controller->buildView()->content();
 
-
-            return view('insert')->with('Params', $Params);
-        })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('insert');
+            return view('view')->with('Params', $Params);
+        })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
 
         Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {

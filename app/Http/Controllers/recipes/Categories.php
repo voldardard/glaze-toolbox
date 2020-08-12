@@ -101,8 +101,9 @@ class Categories extends Controller{
 
             $view->sources[] = $source;
         }
-        print_r('<pre>');
-        print_r($view);
+
+        return response()->json($view);
+
 
     }
 
