@@ -79,8 +79,9 @@ class Categories extends Controller{
         foreach ($labels as $value) {
             $view->labels[] = $value->name;
         }
-        $view->land = DB::table('lands')->select(['name',])->where(['recipes_id' => $decryptedID])->first()->name;
-
+        if (DB::table('lands')->where(['recipes_id' => $decryptedID])->exists()) {
+            $view->land = DB::table('lands')->select(['name',])->where(['recipes_id' => $decryptedID])->first()->name;
+        }
         $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $decryptedID, 'deleted' => false])->get();
         foreach ($pictures as $value) {
             $view->pictures[] = $value;
