@@ -20,9 +20,9 @@ class CreatePicturesTable extends Migration
             $table->string('path');
             $table->boolean('deleted');
 
-            $table->unsignedBigInteger('recipes_id');
+            $table->unsignedBigInteger('recipes_id')->nullable();
             $table->index('recipes_id');
-            $table->foreign('recipes_id')->references('id')->on('recipes');
+            $table->foreign('recipes_id')->references('id')->on('recipes')->onDelete('set null');
 
         });
     }

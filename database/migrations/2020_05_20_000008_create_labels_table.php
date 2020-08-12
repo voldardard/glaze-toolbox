@@ -21,7 +21,7 @@ class CreateLabelsTable extends Migration
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');
-            $table->foreign('recipes_id')->references('id')->on('recipes');
+            $table->foreign('recipes_id')->references('id')->on('recipes')->onDelete('cascade');;
 
         });
     }
