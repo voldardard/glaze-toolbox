@@ -36,13 +36,11 @@ class Categories extends Controller{
     public function createCategoriesTree($catId, $child = array())
     {
         $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
-        print_r($category);
         $child[$category->level] = $category;
         if ($category->level > 0) {
             $this->createCategoriesTree($category->parent_id, $child);
-        } else {
-            return $child;
         }
+        return $child;
     }
 
     public function buildView($recipeID)
