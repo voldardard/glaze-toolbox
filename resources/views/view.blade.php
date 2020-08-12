@@ -49,6 +49,6 @@
         @foreach($Params->categories as $category)
             <span class="block"><a href="/category/{{$category->id}}"><i class="fa fa-chevron-right"></i> {{$category->name}}</a></span>
         @endforeach
-        <span class="block"><i class="fa fa-chevron-right"></i> {{$Params->name}}</span>
+        <h1 class="block">{{$Params->name}}</h1>
     </div>
 </div>
