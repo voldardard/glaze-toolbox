@@ -43,4 +43,5 @@
 
 @include('menu')
 <div class="view-page">
+    <div></div>
 </div>

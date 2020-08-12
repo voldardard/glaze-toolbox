@@ -57,10 +57,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         Route::get('/view/{recipeID}', function ($recipeID) {
             session(['current_route' => '/view']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
-            $Params = new \stdClass();
-            $Params->view = $Controller->buildView($recipeID)->content();
-
-            return view('view')->with('Params', $Params);
+            return view('view')->with('Params', $Controller->buildView($recipeID)->content());
         })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
 
         Route::post('/insert', 'recipes\Insert');

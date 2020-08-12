@@ -33,6 +33,19 @@ class Categories extends Controller{
 
     }
 
+    public function createCategoriesTree($catId, $child = array())
+    {
+        $child = new \stdClass();
+
+        $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
+        $child[$category->level] = $category;
+        if ($category->level > 0) {
+            $this->createCategoriesTree($category->parent_id, $child);
+        } else {
+            return $child;
+        }
+    }
+
     public function buildView($recipeID)
     {
         $view = new \stdClass();
@@ -51,7 +64,8 @@ class Categories extends Controller{
         }
         $view->id = $recipe->id;
         $view->crypted_id = $recipeID;
-        $view->categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $recipe->categories_id])->first();
+        //$view->categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $recipe->categories_id])->first();
+        $view->categories = self::createCategoriesTree($recipe->categories_id);
         $view->name = $recipe->name;
         $view->version = $recipe->version;
         $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
