@@ -79,7 +79,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         Route::get('/sources/type', 'recipes\Categories@getType');
         Route::get('/sources/author', 'recipes\Categories@getAuthor');
         Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
-        Route::get('/jsonview/{recipeID?}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
+        Route::get('/jsonview/{recipeID}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
 
 
     });
