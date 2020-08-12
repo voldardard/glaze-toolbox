@@ -38,7 +38,7 @@ class Categories extends Controller{
         $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
         $child[$category->level] = $category;
         if ($category->level > 0) {
-            $this->createCategoriesTree($category->parent_id, $child);
+            $child = $this->createCategoriesTree($category->parent_id, $child);
         }
         return $child;
     }
