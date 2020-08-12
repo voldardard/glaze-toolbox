@@ -1,0 +1,13 @@
+#categories {
+    margin-top: 10px;
+}
+
+#categories .block {
+    margin-left: 10px;
+}
+
+#categories .block a {
+    text-decoration: none;
+    color: #444444;
+    font-weight: bold;
+}
