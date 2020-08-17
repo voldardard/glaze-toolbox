@@ -221,5 +221,3 @@ function goToIndexSlide(index) {
         sliding();
     }
 }
-
-slideInitial();

@@ -80,3 +80,8 @@
     @endif
 
 </div>
+<script>
+
+    slideInitial();
+</script>
+</body>
