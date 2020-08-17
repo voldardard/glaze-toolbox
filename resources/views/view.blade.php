@@ -67,14 +67,14 @@
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     @for($i=0; $i< count($Params->pictures); $i++)
-                        <li data-target="#myCarousel" data-slide-to="{{$i}}" @if($i==0)class="active"@endif></li>
+                        <li data-target="#myCarousel" data-slide-to="{{$i}}" @if($i==0) class="active" @endif></li>
                     @endfor
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     @foreach($Params->pictures as $key => $value)
-                        <div class="item @if($key==0)active@endif">
+                        <div class="item @if($key==0) active @endif ">
                             <img src="{{$value->path}}" alt="{{$value->name}}}}" width="460" height="345">
                             <div class="carousel-caption">
                                 <h3>{{$value->name}}</h3>
