@@ -81,7 +81,10 @@
 
 </div>
 <script>
-
+    const container = document.querySelector('.slider-container');
+    var slide = document.querySelectorAll('.slider-single');
+    var slideTotal = slide.length - 1;
+    var slideCurrent = -1;
     slideInitial();
 </script>
 </body>
