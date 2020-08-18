@@ -216,7 +216,8 @@ function goToIndexSlide(index) {
     }
 }
 
-function openInFullscreen(path) {
+function openInFullscreen(element) {
+    var path = element.getAttribute("src");
     var pic = document.getElementById("fullscreenPic");
     pic.setAttribute("src", path)
 

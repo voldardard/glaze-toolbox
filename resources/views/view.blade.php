@@ -74,9 +74,8 @@
                         @foreach($Params->pictures as $key => $photo)
 
                             <div class="slider-single">
-                                <div href="#" onclick="openInFullscreen({{$photo->path}})">
-                                    <img class="slider-single-image" src="{{$photo->path}}" alt="{{$photo->name}}"/>
-                                </div>
+                                <img onclick="openInFullscreen(this)" class="slider-single-image" src="{{$photo->path}}"
+                                     alt="{{$photo->name}}"/>
                                 <h1 class="slider-single-title">{{$photo->name}}</h1>
                             </div>
                         @endforeach
