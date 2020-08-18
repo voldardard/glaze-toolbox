@@ -85,7 +85,7 @@
             </div>
         @endif
         <div id="remarks">
-            {{$Params->remarks}}
+            {{$Params->remark}}
         </div>
     </div>
     <div id="right">
