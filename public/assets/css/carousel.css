@@ -269,6 +269,11 @@ body {
     cursor: pointer;
 }
 
+.slider-container .slider-right:hover,
+.slider-container .slider-left:hover {
+    background-color: white;
+}
+
 .slider-container .not-visible {
     display: none !important;
 }

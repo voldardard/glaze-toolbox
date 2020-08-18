@@ -62,22 +62,38 @@
             @endforeach
         </div>
     </div>
-    @if(!empty($Params->pictures))
-        <div id="carousel" class="container">
-            <div class="slider-container">
+    <div id="left">
+        @if(!empty($Params->pictures))
+            <div id="carousel" class="container">
+                <div class="slider-container">
 
-                <div class="slider-content">
-                    @foreach($Params->pictures as $key => $photo)
+                    <div class="slider-content">
+                        @foreach($Params->pictures as $key => $photo)
 
-                        <div class="slider-single">
-                            <img class="slider-single-image" src="{{$photo->path}}" alt="{{$photo->name}}"/>
-                            <h1 class="slider-single-title">{{$photo->name}}</h1>
-                        </div>
-                    @endforeach
+                            <div class="slider-single">
+                                <img class="slider-single-image" src="{{$photo->path}}" alt="{{$photo->name}}"/>
+                                <h1 class="slider-single-title">{{$photo->name}}</h1>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
+        @endif
+        <div id="remarks">
+
         </div>
-    @endif
+    </div>
+    <div id="right">
+        <div id="baking">
+
+        </div>
+        <div id="components">
+
+        </div>
+        <div id="sources">
+
+        </div>
+    </div>
 
 </div>
 <script>
