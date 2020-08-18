@@ -47,6 +47,7 @@
 
 @include('menu')
 <div id="previewPic">
+    <i class="fa fa-times" onclick="closeFullscreen()" aria-hidden="true"></i>
     <img id="fullscreenPic" src="/pictures/1597234559_893fc09a25ad33b27968f507dd0d4338e3850ffd.png"/>
 </div>
 <div id="page" class="view-page">

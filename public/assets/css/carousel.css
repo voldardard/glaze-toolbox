@@ -207,6 +207,7 @@ body {
 }
 
 .slider-container .slider-content .slider-single.active .slider-single-image {
+    cursor: nesw-resize;
     opacity: 1;
     transform: translateX(0%) scale(1);
 }
@@ -298,6 +299,14 @@ body {
 #previewPic img {
     margin: auto;
     display: block;
+}
+
+#previewPic i {
+    font-size: 5em;
+    position: absolute;
+    right: 2%;
+    display: block;
+    cursor: pointer;
 }
 
 .blur {
