@@ -47,6 +47,7 @@
 
 @include('menu')
 <div class="view-page">
+    <div id="previewPic"><img src="/pictures/1597234559_893fc09a25ad33b27968f507dd0d4338e3850ffd.png"/></div>
     <div id="head">
         @foreach($Params->categories as $category)
             <span class="block"><a href="/category/{{$category->id}}"><i class="fa fa-chevron-right"></i> {{$category->name}}</a></span>

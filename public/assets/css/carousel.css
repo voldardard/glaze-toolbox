@@ -111,13 +111,15 @@ body {
 .slider-container .slider-content .slider-single .slider-single-title {
     display: block;
     float: left;
-    margin: 16px 0 0 20px;
+    /*   margin: 16px 0 0 20px;*/
     font-size: 20px;
-    font-family: "karla";
+    font-family: "karla", serif;
     font-weight: 400;
     color: #444444;
     transition: 500ms cubic-bezier(0.17, 0.67, 0.55, 1.43);
     opacity: 0;
+    width: 100%;
+    word-break: break-all;
 }
 
 .slider-container .slider-content .slider-single .slider-single-likes {
