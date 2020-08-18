@@ -215,3 +215,23 @@ function goToIndexSlide(index) {
         sliding();
     }
 }
+
+function openInFullscreen(path) {
+    var pic = document.getElementById("fullscreenPic");
+    pic.setAttribute("src", path)
+
+    var fullscreen = document.getElementById("previewPic");
+    fullscreen.style["display"] = "block";
+
+    var blured = document.getElementById("page");
+    blured.setAttribute("class", 'view-page blur');
+}
+
+function closeFullscreen() {
+    var fullscreen = document.getElementById("previewPic");
+    fullscreen.style["display"] = "none";
+
+    var blured = document.getElementById("page");
+    blured.setAttribute("class", 'view-page');
+}
+

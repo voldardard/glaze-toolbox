@@ -284,3 +284,26 @@ body {
     width: 50%;
     float: left;
 }
+
+#previewPic {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#previewPic img {
+    margin: auto;
+    display: block;
+}
+
+.blur {
+    -webkit-filter: blur(30px);
+    -moz-filter: blur(30px);
+    -o-filter: blur(30px);
+    -ms-filter: blur(30px);
+    filter: blur(30px);
+}
