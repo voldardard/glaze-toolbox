@@ -24,7 +24,8 @@ body {
 .slider-container {
     position: relative;
     width: 800px;
-    height: 600px;
+    height: 450px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .slider-container .bullet-container {
@@ -56,7 +57,7 @@ body {
 .slider-container .slider-content {
     position: relative;
     left: 50%;
-    top: 35%;
+    top: 45%;
     width: 70%;
     height: 60%;
     transform: translate(-50%, -50%);
@@ -243,7 +244,7 @@ body {
     z-index: 3;
     display: block;
     right: 85%;
-    top: 30%;
+    top: 45%;
     color: #444;
     transform: translateY(-50%);
     padding: 20px 15px;
@@ -260,7 +261,7 @@ body {
     z-index: 3;
     display: block;
     left: 85%;
-    top: 30%;
+    top: 45%;
     color: #444;
     transform: translateY(-50%);
     padding: 20px 15px;
