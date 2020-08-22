@@ -24,3 +24,14 @@
 #carousel, #remarks, #baking, #components, #sources {
     clear: both;
 }
+
+#right {
+    width: 49%;
+    float: right;
+    margin-right: 15px;
+}
+
+#left {
+    width: 49%;
+    float: left;
+}

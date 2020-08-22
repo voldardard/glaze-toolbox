@@ -77,7 +77,7 @@ class Categories extends Controller{
             $raw = new \stdClass();
             $raw->name = $raw_materials->name;
             $raw->formula = $raw_materials->formula;
-            $raw->name = $value->quantity;
+            $raw->quantity = $value->quantity;
             $raw->extra = $value->extra;
 
             $view->components[] = $raw;
