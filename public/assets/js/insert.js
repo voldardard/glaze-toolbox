@@ -566,7 +566,7 @@ function listen_input(input) {
         var quantities = document.getElementsByClassName('quantity-to-sum');
         for (var i = 0; i < quantities.length; ++i) {
             var item = quantities[i];
-            quantity += item.value;
+            quantity += Number(item.value);
         }
         console.log('total quantity: ' + quantity);
     });
