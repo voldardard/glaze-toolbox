@@ -215,7 +215,8 @@
 
             </div>
             <br/>
-            <button style="margin-top:40px;" disabled class="disabled insert-button">@lang('insert.i-005-save')</button>
+            <button id="submit" style="margin-top:40px;" disabled
+                    class="disabled insert-button">@lang('insert.i-005-save')</button>
             @csrf
         </form>
     </div>

@@ -573,5 +573,22 @@ function listen_input(input) {
             quantity += Number(item.value);
         }
         console.log('total quantity: ' + quantity);
+        if (quantity === 100) {
+            enable_submit();
+        } else {
+            disable_submit();
+        }
     });
+}
+
+function enable_submit() {
+    var submit = document.getElementById('submit');
+    submit.setAttribute('class', 'insert-button')
+    submit.disabled = false;
+}
+
+function disable_submit() {
+    var submit = document.getElementById('submit');
+    submit.setAttribute('class', 'disabled insert-button')
+    submit.disabled = true;
 }
