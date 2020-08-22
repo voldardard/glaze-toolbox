@@ -49,13 +49,18 @@ class Insert extends Controller{
 
 
         ]);
-
+        $total = 0;
+        foreach ($validatedData['raw'] as $value) {
+            $total += $value->quantity;
+        }
+        if ($total != 100)
+            return Redirect::back()->withError('total raw material not egal to 100')->withInput();
 
 
         //insert categories
-        $mayExist=true;
-        $parent_id=null;
-        foreach($validatedData['category'] as $key => $value) {
+        $mayExist = true;
+        $parent_id = null;
+        foreach ($validatedData['category'] as $key => $value) {
             if ($mayExist) {
 
                 if (!DB::table('categories')->where(['name' => $value, 'delete' => 0, 'level' => $key, 'parent_id' => $parent_id])->exists()) {
