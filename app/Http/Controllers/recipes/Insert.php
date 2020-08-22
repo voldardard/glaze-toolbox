@@ -51,7 +51,7 @@ class Insert extends Controller{
         ]);
         $total = 0;
         foreach ($validatedData['raw'] as $value) {
-            $total += $value->quantity;
+            $total += $value['quantity'];
         }
         if ($total != 100)
             return Redirect::back()->withError('total raw material not egal to 100')->withInput();
