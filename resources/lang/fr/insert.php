@@ -32,7 +32,7 @@ return [
     'i-029-landname' => 'Nom de l\'argile',
     'i-030-baking' => 'Cuisson',
     'i-031-orton' => 'Orton',
-    'i-032-oven' => 'Oven',
+    'i-032-oven' => 'Four',
     'i-033-temperature' => 'Température (C°)',
     'i-034-type' => 'Type'
 

@@ -85,14 +85,51 @@
             </div>
         @endif
         <div id="remarks">
+            <i class="fa fa-quote-left" aria-hidden="true"></i>
             {{$Params->remark}}
+            <i class="fa fa-quote-right" aria-hidden="true"></i>
         </div>
     </div>
     <div id="right">
         <div id="baking">
+            <span id="orton"><span class="legend">Orton: </span>{{$Params->baking->orton}}</span>
+            <span id="oven"><span class="legend">Four: </span>{{$Params->baking->oven}}</span>
+            <span id="temperature"><span class="legend">Température: </span>{{$Params->baking->temperature}}</span>
+            <span id="type"><span class="legend">Type: </span>{{$Params->baking->type}}</span>
 
         </div>
         <div id="components">
+            <table class="table">
+                <thead class="thead-dark table-striped">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Formule</th>
+                    <th scope="col">Quantité</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+
 
         </div>
         <div id="sources">
