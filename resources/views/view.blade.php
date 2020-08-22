@@ -92,10 +92,11 @@
     </div>
     <div id="right">
         <div id="baking">
-            <span id="orton"><span class="legend">Orton: </span>{{$Params->baking->orton}}</span>
-            <span id="oven"><span class="legend">Four: </span>{{$Params->baking->oven}}</span>
-            <span id="temperature"><span class="legend">Température: </span>{{$Params->baking->temperature}}</span>
-            <span id="type"><span class="legend">Type: </span>{{$Params->baking->type}}</span>
+            <h3>Cuisson</h3>
+            <div id="orton"><span class="legend">Orton: </span>{{$Params->baking->orton}}</div>
+            <div id="oven"><span class="legend">Four: </span>{{$Params->baking->oven}}</div>
+            <div id="temperature"><span class="legend">Température: </span>{{$Params->baking->temperature}}</div>
+            <div id="type"><span class="legend">Type: </span>{{$Params->baking->type}}</div>
 
         </div>
         <div id="components">
@@ -105,7 +106,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Formule</th>
-                    <th scope="col">Quantité</th>
+                    <th scope="col">Quantité (%)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,6 +116,12 @@
                         <td>{{ $value->name }}</td>
                         <td>{{ $value->formula }}</td>
                         <td>{{ $value->quantity }}</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td>100</td>
                     </tr>
                 @endforeach
                 </tbody>
