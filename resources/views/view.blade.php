@@ -111,18 +111,55 @@
                 </thead>
                 <tbody>
                 @foreach($Params->components as $key => $value)
+                    @if(! $value->extra)
                     <tr>
                         <th scope="row">{{ $key }}</th>
                         <td>{{ $value->name }}</td>
                         <td>{{ $value->formula }}</td>
                         <td>{{ $value->quantity }}</td>
                     </tr>
+                    @endif
                 @endforeach
                 <tr class="table-dark">
                     <th scope="row"></th>
                     <td></td>
                     <td></td>
                     <td>100</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead class="thead-dark table-striped">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Formule</th>
+                    <th scope="col">Quantité (%)</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                @foreach($Params->components as $key => $value)
+                    @if($value->extra)
+                        <tr>
+                            <th scope="row">{{ $key }}</th>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->formula }}</td>
+                            <td>{{ $value->quantity }}</td>
+                        </tr>
+                        @php($quantity=100)
+                        $quantity+=$value->quantity;
+                        @endphp
+                    @endif
+                    @php
+
+                            @endphp
+                @endforeach
+                <tr class="table-dark">
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td>{{ $quantity }}</td>
                 </tr>
                 </tbody>
             </table>
