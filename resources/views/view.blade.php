@@ -101,6 +101,7 @@
         </div>
         <div id="components">
             <div style="display: none">{{ $quantity=100 }}</div>
+            <h3>Matière première / composants de la recette</h3>
             <table class="table">
                 <thead class="thead-dark table-striped">
                 <tr>
@@ -129,6 +130,7 @@
                 </tr>
                 </tbody>
             </table>
+            <h3>Composants supplémentaires de la recette</h3>
             <table class="table">
                 <thead class="thead-dark table-striped">
                 <tr>
