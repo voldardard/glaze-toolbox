@@ -100,6 +100,7 @@
 
         </div>
         <div id="components">
+            <div style="display: none">{{ $quantity=100 }}</div>
             <table class="table">
                 <thead class="thead-dark table-striped">
                 <tr>
@@ -124,7 +125,7 @@
                     <th scope="row"></th>
                     <td></td>
                     <td></td>
-                    <td>100</td>
+                    <td>{{ $quantity }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -147,13 +148,10 @@
                             <td>{{ $value->formula }}</td>
                             <td>{{ $value->quantity }}</td>
                         </tr>
-                        @php($quantity=100)
-                        $quantity+=$value->quantity;
-                        @endphp
-                    @endif
-                    @php
+                        <div style="display: none">{{ $quantity += $value->quantity }}</div>
 
-                            @endphp
+                    @endif
+
                 @endforeach
                 <tr class="table-dark">
                     <th scope="row"></th>
