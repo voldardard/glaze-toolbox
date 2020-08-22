@@ -109,7 +109,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                @php($i=0);
                 @foreach($Params->components as $key => $value)
                     <tr>
                         <th scope="row">{{ $key }}</th>
