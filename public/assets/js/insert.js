@@ -175,6 +175,7 @@ function add_raw(level) {
     input3.setAttribute("placeholder", translate('quantity'));
     input3.setAttribute("name", 'raw[' + level + '][quantity]');
     input3.setAttribute("id", "raw-quantity-" + level);
+    input3.setAttribute('class', 'quantity-to-sum')
 
     var i = document.createElement('i');
     i.setAttribute("class", "fa fa-minus-square");
@@ -551,13 +552,22 @@ function tmp_upload(id, iconId, container){
         }
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-            alert_warning(translate('problemConnecting')+error.message);
-            stop_loading(iconId);
+        alert_warning(translate('problemConnecting') + error.message);
+        stop_loading(iconId);
     });
 
 
+}
 
-
-
-
+function listen_input(input) {
+    input.addEventListener("focusout", function (e) {
+        var quantity = 0;
+        console.log('focusout of quantity');
+        var quantities = document.getElementsByClassName('quantity-to-sum');
+        for (var i = 0; i < quantities.length; ++i) {
+            var item = quantities[i];
+            quantity += item.value;
+        }
+        console.log('total quantity: ' + quantity);
+    });
 }

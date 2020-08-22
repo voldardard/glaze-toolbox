@@ -351,7 +351,12 @@ body{
     width: 98%;
     margin-left: 1%;
 }
-#alert .alert{
+#alert .alert {
     position: relative;
     margin-bottom: 5px;
+}
+
+.disabled {
+    background: #434343 !important;
+    cursor: inherit !important;
 }

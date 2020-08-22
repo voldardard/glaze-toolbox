@@ -150,7 +150,8 @@
                             </div>
                             <input type="text" id="raw-formula-0" value="" name="raw[0][formula]"
                                    placeholder="@lang('insert.i-017-formula')"/>
-                            <input type="number" required id="raw-quantity-0" value="" name="raw[0][quantity]"
+                            <input type="number" required id="raw-quantity-0" class="quantity-to-sum" value=""
+                                   name="raw[0][quantity]"
                                    placeholder="@lang('insert.i-018-quantity')"/>
 
                             <a id="raw-remove-0" class="remove-raw" onclick="remove_raw(0)"><i
@@ -214,7 +215,7 @@
 
             </div>
             <br/>
-            <button style="margin-top:40px;" class="insert-button">@lang('insert.i-005-save')</button>
+            <button style="margin-top:40px;" disabled class="disabled insert-button">@lang('insert.i-005-save')</button>
             @csrf
         </form>
     </div>
@@ -225,7 +226,7 @@
     autocomplete(document.getElementById("land-name"), lands);
     autocomplete(document.getElementById("sources-author-0"), authors);
     autocomplete_complex(document.getElementById("sources-type-0"), types, new autocomplete_author_callback(0, '/' + locale + '/sources/author/type/'));
-
+    listen_input(document.getElementById('raw-quantity-0'));
 
 </script>
 </body>
