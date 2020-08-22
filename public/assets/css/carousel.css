@@ -121,6 +121,7 @@ body {
     opacity: 0;
     width: 100%;
     word-break: break-all;
+    margin-top: 20px;
 }
 
 .slider-container .slider-content .slider-single .slider-single-likes {
@@ -280,11 +281,6 @@ body {
 
 .slider-container .not-visible {
     display: none !important;
-}
-
-#carousel {
-    width: 50%;
-    float: left;
 }
 
 #previewPic {

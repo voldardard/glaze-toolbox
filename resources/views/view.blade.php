@@ -68,7 +68,7 @@
     </div>
     <div id="left">
         @if(!empty($Params->pictures))
-            <div id="carousel" class="container">
+            <div id="carousel">
                 <div class="slider-container">
 
                     <div class="slider-content">
@@ -85,6 +85,7 @@
             </div>
         @endif
         <div id="remarks">
+            <h3>Remarques</h3>
             <i class="fa fa-quote-left" aria-hidden="true"></i>
             {{$Params->remark}}
             <i class="fa fa-quote-right" aria-hidden="true"></i>
