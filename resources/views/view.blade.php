@@ -117,13 +117,13 @@
                         <td>{{ $value->formula }}</td>
                         <td>{{ $value->quantity }}</td>
                     </tr>
-                    <tr class="table-dark">
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td>100</td>
-                    </tr>
                 @endforeach
+                <tr class="table-dark">
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td>100</td>
+                </tr>
                 </tbody>
             </table>
 
