@@ -199,6 +199,10 @@ function add_raw(level) {
     //enable autocomplete
     autocomplete_raw(document.getElementById("raw-name-" + level), raw, level);
 
+    //enable count verification to enable button
+    listen_input(document.getElementById('raw-quantity-' + level));
+
+
     //update create button
     var button = document.getElementById('add_raw');
     button.setAttribute("onclick", "add_raw(" + (level + 1) + ")");
