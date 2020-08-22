@@ -94,11 +94,24 @@
     <div id="right">
         <div id="baking">
             <h3>Cuisson</h3>
-            <div id="orton"><span class="legend">Orton: </span>{{$Params->baking->orton}}</div>
-            <div id="oven"><span class="legend">Four: </span>{{$Params->baking->oven}}</div>
-            <div id="temperature"><span class="legend">Température: </span>{{$Params->baking->temperature}}</div>
-            <div id="type"><span class="legend">Type: </span>{{$Params->baking->type}}</div>
-
+            <table class="table">
+                <thead class="thead-dark table-striped">
+                <tr>
+                    <th scope="col">Orton</th>
+                    <th scope="col">Four</th>
+                    <th scope="col">Température</th>
+                    <th scope="col">Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">{{$Params->baking->orton}}</th>
+                    <td>{{$Params->baking->oven}}</td>
+                    <td>{{$Params->baking->temperature}}</td>
+                    <td>{{$Params->baking->type}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div id="components">
             <div style="display: none">{{ $quantity=100 }}</div>
