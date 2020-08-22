@@ -51,7 +51,7 @@
     display: block;
 }
 
-#remarks i:nth-child(2) {
+#remarks i:last-child {
     float: right;
 }
 
