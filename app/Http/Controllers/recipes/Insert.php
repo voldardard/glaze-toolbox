@@ -42,7 +42,7 @@ class Insert extends Controller{
             'bake.temp' => 'integer|required',
             'remarks' => 'string|nullable',
             'sources.*.name' => 'string|required|max:45',
-            'sources.*.year' => 'integer|required|min:1700|max:2100',
+            'sources.*.year' => 'integer|min:1700|max:2100',
             'sources.*.type' => 'string|required|max:45',
             'sources.*.author' => 'string|required|max:45',
             'sources.*.description' => 'string|nullable',
