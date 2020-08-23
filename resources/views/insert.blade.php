@@ -227,7 +227,6 @@
     autocomplete_raw(document.getElementById("raw-name-0"), raw, 0);
     autocomplete(document.getElementById("land-name"), lands);
     autocomplete(document.getElementById("sources-author-0"), authors);
-    autocomplete(document.getElementById("label-0"), labels);
     autocomplete_complex(document.getElementById("sources-type-0"), types, new autocomplete_author_callback(0, '/' + locale + '/autocomplete/sources/author/type/'));
     listen_input(document.getElementById('raw-quantity-0'));
 
