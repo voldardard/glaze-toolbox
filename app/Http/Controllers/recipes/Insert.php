@@ -157,7 +157,7 @@ class Insert extends Controller{
 
                 if (!empty($value)) {
                     if (DB::table('labels')->where(['name' => $value, 'locale' => Config::get('app.locale')])->exists()) {
-                        $label_id = DB::table('labels')->select('id')->where(['name' => $value, 'locale' => Config::get('app.locale')])->first()->id;
+                        $label_id = DB::table('labels')->select('id')->where(['name' => $value])->first()->id;
                     } else {
                         $label_id = DB::table('labels')->insertGetId([
                             'name' => $value,
