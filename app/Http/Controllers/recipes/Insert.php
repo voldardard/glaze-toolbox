@@ -154,12 +154,27 @@ class Insert extends Controller{
         if(!empty($validatedData['label'])) {
 
             foreach ($validatedData['label'] as $key => $value) {
-                DB::table('labels')->insert([
-                    'name' => $value,
-                    'recipes_id' => $recipeID,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
+
+                if (!empty($value)) {
+                    if (DB::table('labels')->where(['name' => $value, 'locale' => Config::get('app.locale')])->exists()) {
+                        $label_id = DB::table('labels')->select('id')->where(['name' => $value, 'locale' => Config::get('app.locale')])->first()->id;
+                    } else {
+                        $label_id = DB::table('labels')->insertGetId([
+                            'name' => $value,
+                            'recipes_id' => $recipeID,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                    }
+                    DB::table('recipe_label')->insert([
+                        'labels_id' => $label_id,
+                        'recipes_id' => $recipeID,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+
+                }
+
             }
         }
 

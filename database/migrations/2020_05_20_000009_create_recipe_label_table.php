@@ -16,7 +16,6 @@ class CreateRecipeLabelTable extends Migration
         Schema::create('recipe_labels', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('locale', 10)->default('en');
 
             $table->unsignedBigInteger('recipes_id');
             $table->index('recipes_id');
