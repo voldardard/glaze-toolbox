@@ -61,12 +61,15 @@
         <div id="author">
             <span>Created by {{$Params->creator->fsname." ".$Params->creator->name}}</span>
         </div>
-        <div id="labels">
-            @foreach($Params->labels as $label)
-                <span class="label"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{$label}}"><i
-                                class="fa fa-tag" aria-hidden="true"></i> {{$label}}</span>
-            @endforeach
-        </div>
+        @if(!empty($Params->labels))
+
+            <div id="labels">
+                @foreach($Params->labels as $label)
+                    <span class="label"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{$label}}"><i
+                                    class="fa fa-tag" aria-hidden="true"></i> {{$label}}</span>
+                @endforeach
+            </div>
+        @endif
     </div>
     <div id="left">
         @if(!empty($Params->pictures))
