@@ -27,10 +27,14 @@ class Login extends Controller{
             'password' => 'required|string',
         ]);
 
-        if(! self::test_connection($validatedData['username'], $validatedData['password'])){
+        if (!self::test_connection($validatedData['username'], $validatedData['password'])) {
             return Redirect::back()->withError($this->message)->withInput();
         }
-        return redirect(App::getLocale());
+        if (!empty(session()->get('url'))) {
+            return redirect(session()->get('url'));
+        } else {
+            return redirect(App::getLocale());
+        }
     }
     private function test_connection($login, $password){
         //user exist
