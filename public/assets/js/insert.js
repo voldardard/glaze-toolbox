@@ -403,6 +403,8 @@ function add_label() {
 
     var div = document.createElement('div');
     div.setAttribute('class', 'autocomplete');
+    div.id = 'label-container-' + (label_count);
+
 
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
@@ -432,8 +434,7 @@ function add_label() {
 }
 function remove_label(label_id){
    /* console.log("remove: "+label_id)*/
-    document.getElementById( 'label-'+(label_id)).remove();
-    document.getElementById( 'label-remove-'+(label_id)).remove();
+    document.getElementById('label-container-' + (label_id)).remove();
 }
 function miniature_remove(miniature_id){
   /*  console.log("remove: "+miniature_id)*/
