@@ -131,6 +131,13 @@ class Categories extends Controller{
 
     }
 
+    public function getLabels()
+    {
+        $labels = DB::table('labels')->select(['name'])->where(['locale' => Config::get('app.locale')])->get();
+        return response()->json($labels);
+
+    }
+
     public function getAuthor($typeID = null)
     {
         if (is_null($typeID)) {

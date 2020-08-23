@@ -73,6 +73,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
             Route::get('/raw', 'recipes\Categories@getRaw');
             Route::get('/lands', 'recipes\Categories@getLand');
+            Route::get('/labels', 'recipes\Categories@getLabels');
             Route::get('/sources/type', 'recipes\Categories@getType');
             Route::get('/sources/author', 'recipes\Categories@getAuthor');
             Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
