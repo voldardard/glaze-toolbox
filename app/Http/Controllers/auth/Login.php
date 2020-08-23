@@ -31,7 +31,10 @@ class Login extends Controller{
             return Redirect::back()->withError($this->message)->withInput();
         }
         if (!empty(session()->get('link'))) {
-            return redirect(session()->get('url'));
+            print_r('link:' . session()->get('link'));
+            print_r('url: ' . session()->get('url'));
+            die();
+            //return redirect(session()->get('url'));
         } else {
             return redirect(App::getLocale());
         }
