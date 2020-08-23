@@ -85,7 +85,7 @@ class Categories extends Controller{
         $view->baking = DB::table('baking')->select(['orton', 'oven', 'temperature', 'type'])->where(['recipes_id' => $decryptedID])->first();
 
         //  $view->labels = array();
-        $labels_id = DB::table('recipe_label')->select(['labels_id'])->where(['recipes_id' => $decryptedID])->get();
+        $labels_id = DB::table('recipe_labels')->select(['labels_id'])->where(['recipes_id' => $decryptedID])->get();
         foreach ($labels_id as $value) {
             $view->labels[] = DB::table('labels')->select('name')->where(['id' => $value->labels_id])->first()->name;
         }

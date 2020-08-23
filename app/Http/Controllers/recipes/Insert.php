@@ -166,7 +166,7 @@ class Insert extends Controller{
                             'updated_at' => now(),
                         ]);
                     }
-                    DB::table('recipe_label')->insert([
+                    DB::table('recipe_labels')->insert([
                         'labels_id' => $label_id,
                         'recipes_id' => $recipeID,
                         'created_at' => now(),
