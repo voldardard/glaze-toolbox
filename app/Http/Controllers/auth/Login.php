@@ -32,8 +32,6 @@ class Login extends Controller{
         }
         if (!empty(session()->get('backurl'))) {
             return redirect(session()->get('backurl'));
-        } elseif (!empty(session()->get('link'))) {
-            return redirect(session()->get('link'));
         } else {
             return redirect(App::getLocale());
         }
