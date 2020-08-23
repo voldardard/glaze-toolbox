@@ -156,7 +156,7 @@ class Insert extends Controller{
             foreach ($validatedData['label'] as $key => $value) {
 
                 if (!empty($value)) {
-                    if (DB::table('labels')->where(['name' => $value, 'locale' => Config::get('app.locale')])->exists()) {
+                    if (DB::table('labels')->where(['name' => $value])->exists()) {
                         $label_id = DB::table('labels')->select('id')->where(['name' => $value])->first()->id;
                     } else {
                         $label_id = DB::table('labels')->insertGetId([
