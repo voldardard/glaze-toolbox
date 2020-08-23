@@ -133,7 +133,7 @@ class Categories extends Controller{
 
     public function getLabels()
     {
-        $labels = DB::table('labels')->select(['name'])->where(['locale' => Config::get('app.locale')])->get();
+        $labels = DB::table('labels')->select(['name'])->get();
         return response()->json($labels);
 
     }

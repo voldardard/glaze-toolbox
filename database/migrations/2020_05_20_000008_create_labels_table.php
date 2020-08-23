@@ -17,7 +17,6 @@ class CreateLabelsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 45)->unique();
-            $table->string('locale', 10)->default('en');
 
 
         });
