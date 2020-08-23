@@ -30,6 +30,8 @@ class Login extends Controller{
         if (!self::test_connection($validatedData['username'], $validatedData['password'])) {
             return Redirect::back()->withError($this->message)->withInput();
         }
+        print_r(session()->all());
+        die();
         if (!empty(session()->get('url'))) {
             return redirect(session()->get('url'));
         } else {
