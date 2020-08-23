@@ -66,14 +66,18 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/categories']);
             return view('categories');
         })->name('categories');
-        Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
-        Route::get('/raw', 'recipes\Categories@getRaw');
-        Route::get('/lands', 'recipes\Categories@getLand');
-        Route::get('/sources/type', 'recipes\Categories@getType');
-        Route::get('/sources/author', 'recipes\Categories@getAuthor');
-        Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
-        Route::get('/jsonview/{recipeID}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
 
+        Route::group(['prefix' => 'autocomplete'], function () {
+
+
+            Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
+            Route::get('/raw', 'recipes\Categories@getRaw');
+            Route::get('/lands', 'recipes\Categories@getLand');
+            Route::get('/sources/type', 'recipes\Categories@getType');
+            Route::get('/sources/author', 'recipes\Categories@getAuthor');
+            Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
+            Route::get('/jsonview/{recipeID}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
+        });
 
     });
 

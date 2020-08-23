@@ -379,7 +379,7 @@ function add_sources(level) {
     //enable autocomplete
     autocomplete(document.getElementById("sources-author-" + level), authors);
     //autocomplete(document.getElementById("sources-type-" + level), types);
-    autocomplete_complex(document.getElementById("sources-type-" + level), types, new autocomplete_author_callback(level, '/' + locale + '/sources/author/type/'));
+    autocomplete_complex(document.getElementById("sources-type-" + level), types, new autocomplete_author_callback(level, '/' + locale + '/autocomplete/sources/author/type/'));
 
 
     //update create button
