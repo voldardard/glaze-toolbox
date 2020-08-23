@@ -33,7 +33,7 @@ class Login extends Controller{
         print_r(session()->all());
         if (!empty(session()->get('link'))) {
             print_r('link:' . session()->get('link'));
-            print_r('url: ' . session()->get('url'));*/
+            print_r('url: ' . session()->get('url'));
             die();
             return redirect(session()->get('link'));
         } else {
