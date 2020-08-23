@@ -30,10 +30,10 @@ class Login extends Controller{
         if (!self::test_connection($validatedData['username'], $validatedData['password'])) {
             return Redirect::back()->withError($this->message)->withInput();
         }
-        print_r(session()->all());
-        die();
-        if (!empty(session()->get('link'))) {
-            return redirect(session()->get('link'));
+        if (!empty(session()->get('backurl'))) {
+            return redirect(session()->get('backurl'));
+        } elseif (!empty(session()->get('link'))) {
+            return redirect(session->get('link'));
         } else {
             return redirect(App::getLocale());
         }
