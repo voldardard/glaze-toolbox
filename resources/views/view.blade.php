@@ -66,7 +66,7 @@
             <div id="labels">
                 @foreach($Params->labels as $label)
                     <span class="label"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{$label}}"><i
-                                    class="fa fa-tag" aria-hidden="true"></i> {{$label}}</span>
+                                    class="fa fa-tag" aria-hidden="true"></i> {{$label}}</a></span>
                 @endforeach
             </div>
         @endif
