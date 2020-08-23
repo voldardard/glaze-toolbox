@@ -16,12 +16,9 @@ class CreateLabelsTable extends Migration
         Schema::create('labels', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', 45);
+            $table->string('name', 45)->unique();
             $table->string('locale', 10)->default('en');
 
-            $table->unsignedBigInteger('recipes_id');
-            $table->index('recipes_id');
-            $table->foreign('recipes_id')->references('id')->on('recipes')->onDelete('cascade');;
 
         });
     }

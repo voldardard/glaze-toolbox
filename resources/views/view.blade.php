@@ -53,7 +53,8 @@
 <div id="page" class="view-page">
     <div id="head">
         @foreach($Params->categories as $category)
-            <span class="block"><a href="/category/{{$category->id}}"><i class="fa fa-chevron-right"></i> {{$category->name}}</a></span>
+            <span class="block"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{$category->id}}"><i
+                            class="fa fa-chevron-right"></i> {{$category->name}}</a></span>
         @endforeach
         <i class="fa fa-chevron-right"></i>
         <h1 class="block">{{$Params->name}}</h1><span class="block">{{$Params->version}}</span>
@@ -62,7 +63,8 @@
         </div>
         <div id="labels">
             @foreach($Params->labels as $label)
-                <span class="label"><i class="fa fa-tag" aria-hidden="true"></i> {{$label}}</span>
+                <span class="label"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{$label}}"><i
+                                class="fa fa-tag" aria-hidden="true"></i> {{$label}}</span>
             @endforeach
         </div>
     </div>
