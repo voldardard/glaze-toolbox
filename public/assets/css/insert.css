@@ -98,14 +98,17 @@ body{
     background: #434343;
 }
 .form #labels input {
-    width: 30%;
     float: left;
     margin-bottom: 15px;
 }
 
-.form#labels:first-child {
+.form #labels:first-child {
     width: 100%;
     height: 50px;
+}
+
+.form #labels .autocomplete {
+    width: 30%;
 }
 
 .form #labels a {
