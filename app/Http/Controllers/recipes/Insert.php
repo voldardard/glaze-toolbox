@@ -161,7 +161,6 @@ class Insert extends Controller{
                     } else {
                         $label_id = DB::table('labels')->insertGetId([
                             'name' => $value,
-                            'recipes_id' => $recipeID,
                             'created_at' => now(),
                             'updated_at' => now(),
                         ]);
