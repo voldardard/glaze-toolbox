@@ -98,7 +98,6 @@ body{
     background: #434343;
 }
 .form #labels input {
-    float: left;
     margin-bottom: 15px;
 }
 
@@ -109,6 +108,8 @@ body{
 
 .form #labels .autocomplete {
     width: 30%;
+    float: left;
+    margin-right: 1%;
 }
 
 .form #labels a {
@@ -125,8 +126,8 @@ body{
     padding-left: 0;
     width: 20%;
 }
-.form #labels .remove-label{
-    position: relative;
+.form #labels .remove-label {
+    position: absolute;
     right: 3%;
     padding-right: 0;
     padding-left: 0
