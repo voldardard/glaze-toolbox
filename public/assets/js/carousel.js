@@ -235,4 +235,9 @@ function closeFullscreen() {
     var blured = document.getElementById("page");
     blured.setAttribute("class", 'view-page');
 }
-
+document.body.addEventListener('keypress', function (e) {
+    if (e.key == "Escape") {
+        console.log('escape');
+        closeFullscreen();
+    }
+});
