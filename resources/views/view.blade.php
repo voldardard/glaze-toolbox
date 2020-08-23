@@ -84,12 +84,15 @@
                 </div>
             </div>
         @endif
-        <div id="remarks">
-            <h3>Remarques</h3>
-            <i class="fa fa-quote-left" aria-hidden="true"></i>
-            {{$Params->remark}}
-            <i class="fa fa-quote-right" aria-hidden="true"></i>
-        </div>
+        @if(! empty($Params->remark))
+            <div id="remarks">
+                <h3>Remarques</h3>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                {{ $Params->remark}}
+
+                <i class="fa fa-quote-right" aria-hidden="true"></i>
+            </div>
+        @endif
     </div>
     <div id="right">
         <div id="baking">
