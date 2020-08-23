@@ -80,7 +80,8 @@ class Login extends Controller{
     public function logout(Request $request){
         $request->session()->flush();
         $request->session()->regenerate();
-        $request->session()->set('link', App::getLocale());
+        session(['link' => App::getLocale()]);
+
         return Redirect::to(route('login'))->with('success', Lang::get('login.l-008-disconnectSuccess'));
 
     }
