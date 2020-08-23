@@ -132,7 +132,13 @@ body{
     padding-right: 0;
     padding-left: 0
 }
-.form #categories .remove-categories{
+
+.form #labels .autocomplete-items,
+.form #labels .autocomplete-items div {
+    height: initial;
+}
+
+.form #categories .remove-categories {
     position: absolute;
     right: 3%;
     padding-right: 0;
