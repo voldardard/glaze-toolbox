@@ -34,12 +34,13 @@ class auth
         if ($validator->fails()) {
             $request->session()->flush();
             $request->session()->regenerate();
-            $request->session()->put('url', $request->url());
+            $request->session()->put('backurl', $request->url());
             return Redirect::to(route('login'))->withError(Lang::get('login.l-020-expired'));
         }
         if(session()->get('login')->diffInDays(now())>30){
             $request->session()->flush();
             $request->session()->regenerate();
+            $request->session()->put('backurl', $request->url());
             return Redirect::to(route('login'))->withError(Lang::get('login.l-020-expired'));
         }
 
