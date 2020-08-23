@@ -398,8 +398,6 @@ function remove_sources(level) {
 }
 
 function add_label() {
-    label_count++;
-
 
     var container = document.getElementById("labels");
 
@@ -412,8 +410,8 @@ function add_label() {
 
     var a = document.createElement('a');
     a.classList.add("remove-label");
-    a.setAttribute('onclick', 'remove_label('+label_count+')');
-    a.id= 'label-remove-'+(label_count);
+    a.setAttribute('onclick', 'remove_label(' + label_count + ')');
+    a.id = 'label-remove-' + (label_count);
 
     var i = document.createElement('i');
     i.classList.add("fa");
@@ -422,6 +420,10 @@ function add_label() {
     a.appendChild(i);
 
     container.appendChild(a);
+
+    autocomplete(document.getElementById("label-" + (label_count)), labels);
+
+    label_count++;
 
 }
 function remove_label(label_id){
