@@ -97,12 +97,18 @@ body{
 .form button:hover,.form button:active,.form button:focus {
     background: #434343;
 }
-.form #labels input{
+.form #labels input {
     width: 30%;
     float: left;
     margin-bottom: 15px;
 }
-.form #labels a{
+
+.form#labels:first-child {
+    width: 100%;
+    height: 50px;
+}
+
+.form #labels a {
     padding: 15px;
     float: left;
     cursor: pointer;

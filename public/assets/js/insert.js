@@ -401,12 +401,15 @@ function add_label() {
 
     var container = document.getElementById("labels");
 
+    var div = document.createElement('div');
+    div.setAttribute('class', 'autocomplete');
+
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', translate('label'));
     input.setAttribute('name', 'label[]');
-    input.id= 'label-'+(label_count);
-    container.appendChild(input);
+    input.id = 'label-' + (label_count);
+    div.appendChild(input);
 
     var a = document.createElement('a');
     a.classList.add("remove-label");
@@ -419,7 +422,8 @@ function add_label() {
     i.setAttribute('aria-hidden', 'true');
     a.appendChild(i);
 
-    container.appendChild(a);
+    div.appendChild(a);
+    container.appendChild(div);
 
     autocomplete(document.getElementById("label-" + (label_count)), labels);
 
