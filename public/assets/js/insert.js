@@ -463,23 +463,25 @@ function alert_warning(message){
     container.appendChild(div);
 
 }
-function start_loading(iconId){
+function start_loading(iconId) {
     const icon = document.getElementById(iconId);
     icon.classList.remove("fa-upload");
     icon.classList.add("fa-spinner");
 
 
 }
-function stop_loading(iconId){
+
+function stop_loading(iconId) {
     const icon = document.getElementById(iconId);
     icon.classList.remove("fa-spinner");
     icon.classList.add("fa-upload");
 }
-function create_miniature(id, url){
+
+function create_miniature(id, url, realname = null) {
     miniature_count++;
     container = document.getElementById(id);
     div = document.createElement('div');
-    div.id= 'miniature-'+(miniature_count);
+    div.id = 'miniature-' + (miniature_count);
 
 
     var img = document.createElement('img');
@@ -488,6 +490,7 @@ function create_miniature(id, url){
 
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
+    input.setAttribute('value', realname);
     input.setAttribute('placeholder', translate('pictureName'));
     input.setAttribute('name', 'pictures['+url.replace('.', '::')+']');
     div.appendChild(input);
@@ -559,7 +562,7 @@ function tmp_upload(id, iconId, container){
         stop_loading(iconId);
         //var json = JSON.parse(data);// here data is your response
         for (var key in data) {
-            create_miniature(container, data[key]);
+            create_miniature(container, data[key]['url'], data[key]['realname']);
         }
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/

@@ -133,8 +133,7 @@ class Insert extends Controller{
             foreach ($files as $file) {
                 $filename = time() . '_' . sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
                 $url = "/pictures/" . $filename;
-                $exploded = explode('.', $filename);
-                $name = $exploded[0];
+                $name = $file->getClientOriginalName();
 
                 Storage::disk('pictures')->put($filename, file_get_contents($file));
 
