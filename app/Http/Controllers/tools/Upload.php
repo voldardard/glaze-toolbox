@@ -29,18 +29,18 @@ class Upload extends Controller{
 
         $files = $request->file('pic');
 
-        $url=[];
+        $pictures = [];
         foreach ($files as $file){
             $file_name = time() . '_' . sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
             Storage::disk('tmp')->put($file_name, file_get_contents($file));
             //$url[]=Storage::disk('tmp')->url($file_name);
-            $url[] = "/tmp/" . $file_name;
             $picture = new \stdClass();
             $picture->url = "/tmp/" . $file_name;
             $picture->realname = $file->getClientOriginalName();
+            $pictures[] = $picture;
         };
 
-        return response($url, 200);
+        return response($pictures, 200);
 
 
     }
