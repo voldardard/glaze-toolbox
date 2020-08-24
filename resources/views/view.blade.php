@@ -94,7 +94,6 @@
             <div id="remarks">
                 <h3>Remarques</h3>
                 <i class="fa fa-quote-left" aria-hidden="true"></i>
-                {{ //$Params->remark}}
                 {!! nl2br(e($Params->remark)) !!}
 
                 <i class="fa fa-quote-right" aria-hidden="true"></i>
