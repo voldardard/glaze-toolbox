@@ -477,7 +477,7 @@ function stop_loading(iconId) {
     icon.classList.add("fa-upload");
 }
 
-function create_miniature(id, url, realname = null) {
+function create_miniature(id, picture) {
     miniature_count++;
     container = document.getElementById(id);
     div = document.createElement('div');
@@ -488,11 +488,14 @@ function create_miniature(id, url, realname = null) {
     img.setAttribute('src', url);
     div.append(img);
 
+    if (!picture.realname) {
+        picture.realname = "";
+    }
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
-    input.setAttribute('value', realname);
+    input.setAttribute('value', picture.realname);
     input.setAttribute('placeholder', translate('pictureName'));
-    input.setAttribute('name', 'pictures['+url.replace('.', '::')+']');
+    input.setAttribute('name', 'pictures[' + picture.url.replace('.', '::') + ']');
     div.appendChild(input);
 
     var i = document.createElement('i');
@@ -562,7 +565,8 @@ function tmp_upload(id, iconId, container){
         stop_loading(iconId);
         //var json = JSON.parse(data);// here data is your response
         for (var key in data) {
-            create_miniature(container, data[key]['url'], data[key]['realname']);
+            console.log(data[key]);
+            create_miniature(container, data[key]);
         }
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
