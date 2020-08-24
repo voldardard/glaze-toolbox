@@ -559,11 +559,12 @@ function tmp_upload(id, iconId, container){
         }
     }).then(data => {
         // Work with JSON data here
-       /* console.log(data);*/
-        json_answer=data;
-        document.getElementById(id).value="";
+        /* console.log(data);*/
+        json_answer = data;
+        document.getElementById(id).value = "";
         stop_loading(iconId);
-        //var json = JSON.parse(data);// here data is your response
+        //var json = JSON.parse(data);// here data is your response$
+        console.log(data);
         for (var key in data) {
             console.log(data[key]);
             create_miniature(container, data[key]);
