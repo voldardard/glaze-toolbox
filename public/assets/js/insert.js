@@ -485,7 +485,7 @@ function create_miniature(id, picture) {
 
 
     var img = document.createElement('img');
-    img.setAttribute('src', url);
+    img.setAttribute('src', picture.url);
     div.append(img);
 
     if (!picture.realname) {
