@@ -36,7 +36,8 @@ class Upload extends Controller{
             //$url[]=Storage::disk('tmp')->url($file_name);
             $picture = new \stdClass();
             $picture->url = "/tmp/" . $file_name;
-            $picture->realname = $file->getClientOriginalName();
+            $exploded = explode('.', $file->getClientOriginalName());
+            $picture->realname = $exploded[0];
             $pictures[] = $picture;
         };
 
