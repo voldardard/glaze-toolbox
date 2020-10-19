@@ -173,7 +173,7 @@ class Categories extends Controller{
 
       $categories = DB::table('categories')->select(['id', 'name'])->where(['level'=>0])->get();
       $arr = json_decode(json_encode($categories), true);
-      print_r($arr);
+      //print_r($arr);
       $data=array();
       //new \stdClass();
       foreach ($arr as $key => $value) {
