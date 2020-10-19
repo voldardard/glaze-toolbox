@@ -66,8 +66,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
-            $Params->categories = json_decode($Controller->getAllCategories()->content());
-            print_r(json_decode($Controller->getAllCategories()->content()));
+            $Params->categories = json_decode($Controller->getAllCategories()->content(), true);
+            print_r(json_decode($Controller->getAllCategories()->content()), true);
             return view('categories')->with('Params', $Params);
         })->name('categories');
 
