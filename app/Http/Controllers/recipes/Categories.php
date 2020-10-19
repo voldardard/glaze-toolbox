@@ -182,23 +182,6 @@ class Categories extends Controller{
         $data[$value['id']]->childrens = self::createaTree($value['id']);
       }
       return $data;
-
-
-      die();
-        $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
-        foreach ($category as $key => $value) {
-            $category[$key]->name = self::getTranslation($value->name);
-        }
-        $arr = json_decode(json_encode($category), true);
-
-        $new = array();
-        foreach ($arr as $a) {
-
-            $new[$a['parent']][] = $a;
-        }
-        $parent=($new[NULL]);
-        $data = self::createaTree($new, $parent);
-        return $data;
     }
 
 

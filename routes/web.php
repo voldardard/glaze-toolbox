@@ -64,11 +64,14 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         Route::post('/insert', 'recipes\Insert');
         Route::get('/categories', function () {
             session(['current_route' => '/categories']);
-            return view('categories');
+            $Controller = new \App\Http\Controllers\recipes\Categories();
+            $Params = new \stdClass();
+            $Params->categories = json_decode($Controller->getAllCategories()->content());
+
+            return view('categories')->with('Params', $Params);
         })->name('categories');
 
         Route::group(['prefix' => 'autocomplete'], function () {
-
           Route::get('/categories', 'recipes\Categories@getAllCategories');
             Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
             Route::get('/raw', 'recipes\Categories@getRaw');

@@ -20,13 +20,16 @@
 <body>
 @include('menu')
 <div class="category-page">
-    <div class="form">
-        <form class="category-form" method="POST" action="/{{ app()->getLocale() }}/search">
-            <input type="text" autofocus required name="search" placeholder="Title"/>
-            <button class="category-button"><i class="fa fa-search" aria-hidden="true"></i></button>
-            @csrf
-        </form>
-    </div>
+  @if(count($Params->categories) > 0)
+    <ul>
+    @foreach ($Params->categories as $category)
+        {{ $category->name }}
+        @include('partials.categories', ['Params'=>$category])
+    @endforeach
+    </ul>
+@else
+    @include('partials.categories-none')
+@endif
 </div>
 
 </body>
