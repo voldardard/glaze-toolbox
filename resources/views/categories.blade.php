@@ -20,13 +20,10 @@
 <body>
 @include('menu')
 <div class="category-page">
-  @php
-    var_dump($Params);
-  @endphp
   @if(count($Params->categories) > 0)
     <ul>
     @foreach ($Params->categories as $category)
-        {{ $category['name'] }}
+        <li>{{ $category['name'] }}</li>
         @include('partials.categories', ['Params'=>$category])
     @endforeach
     </ul>
