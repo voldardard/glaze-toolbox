@@ -158,9 +158,9 @@ class Categories extends Controller{
     {
 
       $categories = DB::table('categories')->select(['id', 'name'])->where(['level'=>0])->get();
-      foreach ($categories as $key => $value) {
-          print_r($categories);
-      }
+      $arr = json_decode(json_encode($categories), true);
+      print_r($arr);
+      $data = self::createaTree($new, $parent);
 
 
       die();
