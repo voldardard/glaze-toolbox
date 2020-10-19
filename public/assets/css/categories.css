@@ -19,9 +19,18 @@ body{
     font-family: "Roboto", sans-serif;
 }
 .category-page {
-    width: 80%;
-    padding: 8% 0 0;
-    margin: auto;
+    width: 50%;
+}
+.category-page ul li {
+    margin: 0;
+        margin-bottom: 0px;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 10px;
+    margin-bottom: 5px;
 }
 .form {
     position: relative;
