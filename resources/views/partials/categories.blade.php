@@ -1,4 +1,4 @@
-@if(count($Params->childrens) > 0)
+@if(count($Params['childrens']) > 0)
   <ul>
   @foreach ($Params->categories as $category)
       <li>{{ $category['name'] }}</li>
