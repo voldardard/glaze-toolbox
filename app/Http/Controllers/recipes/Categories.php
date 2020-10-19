@@ -181,7 +181,7 @@ class Categories extends Controller{
         $data[$value['id']]->name=$value['name'];
         $data[$value['id']]->childrens = self::createaTree($value['id']);
       }
-      return $data;
+      return response()->json($data);
     }
 
 
