@@ -153,6 +153,20 @@ class Categories extends Controller{
         $type = DB::table('sources_types')->distinct()->select(['id', 'name'])->groupBy('name', 'id')->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($type);
     }
+    private function createaTree($parent_id){
+      $categories = DB::table('categories')->select(['id', 'name'])->where(['parent_id'=>$parent_id])->get();
+      $arr = json_decode(json_encode($categories), true);
+      print_r($arr);
+      $data=array();
+      //new \stdClass();
+      foreach ($arr as $key => $value) {
+        $data[$value['id']]= new \stdClass();
+        $data[$value['id']]->name=$value['name'];
+        $data[$value['id']]->childrens = self::createaTree($value['id']);
+      }
+      return $data;
+
+    }
 
     public function getAllCategories()
     {
@@ -160,7 +174,14 @@ class Categories extends Controller{
       $categories = DB::table('categories')->select(['id', 'name'])->where(['level'=>0])->get();
       $arr = json_decode(json_encode($categories), true);
       print_r($arr);
-      $data = self::createaTree($new, $parent);
+      $data=array();
+      //new \stdClass();
+      foreach ($arr as $key => $value) {
+        $data[$value['id']]= new \stdClass();
+        $data[$value['id']]->name=$value['name'];
+        $data[$value['id']]->childrens = self::createaTree($value['id']);
+      }
+      print_r($data);
 
 
       die();
