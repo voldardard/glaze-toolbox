@@ -26,7 +26,7 @@
   @if(count($Params->categories) > 0)
     <ul>
     @foreach ($Params->categories as $category)
-        {{ $category->name }}
+        {{ $category['name'] }}
         @include('partials.categories', ['Params'=>$category])
     @endforeach
     </ul>
