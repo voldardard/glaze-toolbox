@@ -69,7 +69,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
         Route::group(['prefix' => 'autocomplete'], function () {
 
-
+          Route::get('/categories', 'recipes\Categories@getAllCategories');
             Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
             Route::get('/raw', 'recipes\Categories@getRaw');
             Route::get('/lands', 'recipes\Categories@getLand');
@@ -101,4 +101,3 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
     Route::get('/logout', 'auth\Login@logout')->name('logout');
 
 });
-

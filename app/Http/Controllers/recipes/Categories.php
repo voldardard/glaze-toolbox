@@ -156,6 +156,14 @@ class Categories extends Controller{
 
     public function getAllCategories()
     {
+
+      $categories = DB::table('categories')->select(['id', 'name'])->where(['level'=>0])->get();
+      foreach ($categories as $key => $value) {
+          print_r($categories);
+      }
+
+
+      die();
         $category = \DB::select('SELECT category_name as name, category_id as id, fk_category_id as parent FROM `TB_Category` WHERE category_dlDate IS NULL');
         foreach ($category as $key => $value) {
             $category[$key]->name = self::getTranslation($value->name);
