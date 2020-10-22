@@ -21,7 +21,7 @@ body{
 .category-page {
     width: 98%;
 }
-category-page ul li {
+.category-page ul li {
     list-style: none;
     line-height: 1;
     display: block;
