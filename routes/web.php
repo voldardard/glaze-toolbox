@@ -70,6 +70,14 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('categories')->with('Params', $Params);
         })->name('categories');
 
+        Route::get('/categories22', function () {
+            session(['current_route' => '/categories']);
+            $Controller = new \App\Http\Controllers\recipes\Categories();
+            $Params = new \stdClass();
+            $Params->categories = json_decode($Controller->getAllCategories()->content(), true);
+            return view('categories22')->with('Params', $Params);
+        })->name('categories');
+
         Route::group(['prefix' => 'autocomplete'], function () {
           Route::get('/categories', 'recipes\Categories@getAllCategories');
             Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);
