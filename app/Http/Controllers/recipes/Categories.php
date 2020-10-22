@@ -162,6 +162,7 @@ class Categories extends Controller{
       foreach ($arr as $key => $value) {
         $data[$value['id']]= new \stdClass();
         $data[$value['id']]->name=$value['name'];
+        $data[$value['id']]->id=$value['id'];
         $data[$value['id']]->childrens = self::createaTree($value['id']);
       }
       return $data;
