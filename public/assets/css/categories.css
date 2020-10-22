@@ -21,18 +21,31 @@ body{
 .category-page {
     width: 98%;
 }
-.category-page ul li {
-    list-style: none;
-    line-height: 1;
-    display: block;
-    position: relative;
-    height: 25px;
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    padding: 10px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    margin-bottom: 5px;
+.category-page #categories_list .categories_item {
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding-left: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 5px;
+}
+.category-page #slector_list .selector_item {
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding-left: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 5px;
 }
 .category-page ul li a{
     text-decoration: none;
