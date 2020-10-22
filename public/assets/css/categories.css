@@ -19,17 +19,20 @@ body{
     font-family: "Roboto", sans-serif;
 }
 .category-page {
-    width: 50%;
+    width: 98%;
 }
-.category-page ul li {
-    margin: 0;
-        margin-bottom: 0px;
-    border: 0;
+category-page ul li {
     list-style: none;
     line-height: 1;
     display: block;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    position: relative;
+    height: 25px;
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
     padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin-bottom: 5px;
 }
 .form {
