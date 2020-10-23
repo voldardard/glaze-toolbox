@@ -14,14 +14,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
 
     <script type="text/javascript">
         var locale = "{{ str_replace('_', '-', app()->getLocale()) }}";
         var lang = {
-            "formula": "@lang('insert.i-017-formula')",
-
+          "problemConnecting": "@lang('insert.i-001-problemConnecting')",
+          "validationFailed": "@lang('insert.i-002-validationFailed')",
         };
 
 
