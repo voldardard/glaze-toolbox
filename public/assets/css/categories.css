@@ -25,7 +25,6 @@ body{
   list-style: none;
   line-height: 1;
   display: block;
-  position: relative;
   height: 40px;
   position: relative;
   z-index: 1;
@@ -34,11 +33,15 @@ body{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-bottom: 5px;
 }
-.category-page #slector_list .selector_item {
+.category-page #categories_list .categories_item div{
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+}
+.category-page #categories_list .selector_list .selector_item {
   list-style: none;
   line-height: 1;
   display: block;
-  position: relative;
   height: 40px;
   position: relative;
   z-index: 1;
