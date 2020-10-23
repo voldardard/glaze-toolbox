@@ -144,6 +144,8 @@ function save_name(id){
          console.log(data);
         json_answer = data;
         stop_loading(lmnt, "fa-floppy-o");
+        cancel_name(id, value);
+
         //var json = JSON.parse(data);// here data is your response$
         console.log(data);
         for (var key in data) {
