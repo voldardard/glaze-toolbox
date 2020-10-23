@@ -55,7 +55,7 @@ class Categories extends Controller{
           DB::table('categories')->where(['id' => $categoryID])->update(['name'=>$validatedData['name']]);
         }
 
-        return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$category['name'], "validation"=>$validatedData]);
+        return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$validatedData['name'], "validation"=>$validatedData]);
 
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
