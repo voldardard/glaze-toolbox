@@ -37,6 +37,7 @@
     @include('partials.categories-none')
 @endif
 </div>
+<script src="text/javascript">closeSelectorEvent()</script>
 
 </body>
 </html>
