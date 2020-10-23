@@ -1,5 +1,5 @@
 @if(count($Category['childrens']) > 0)
-  <u class="categories_list"l>
+  <ul class="categories_list"l>
   @foreach ($Category['childrens'] as $category)
       <li  class="categories_item">
         <a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
