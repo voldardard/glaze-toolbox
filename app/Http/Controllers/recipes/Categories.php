@@ -48,7 +48,7 @@ class Categories extends Controller{
               $category=json_decode($request->getContent(), true);
 
 
-              return response()->json(["categoryID"=>$categoryID, "request"=>$category['name']]);
+              return response()->json(["categoryID"=>$categoryID, "request"=> $requet->all(), "categoryName"=>$category['name']]);
 
     }
 
