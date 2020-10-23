@@ -65,7 +65,7 @@ function update_name(id, value){
   var i2= document.createElement('i');
   i2.setAttribute("class", "fa fa-times");
   i2.setAttribute("aria-hidden", "true");
-  i2.setAttribute("onclick", "cance_namel("+(id)+", '"+(value)+"')");
+  i2.setAttribute("onclick", "cancel_name("+(id)+", '"+(value)+"')");
 
 
   div.append(input);
@@ -88,7 +88,7 @@ function cancel_name(id, value){
   i.setAttribute("class", "fa fa-pencil-square-o");
   i.setAttribute("aria-hidden", "true");
   i2.setAttribute("onclick", "update_name("+(id)+", '"+(value)+"')");
-  
+
   div.append(input);
   div.append(i);
 
