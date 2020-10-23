@@ -87,7 +87,7 @@ function cancel_name(id, value){
   var i= document.createElement('i');
   i.setAttribute("class", "fa fa-pencil-square-o");
   i.setAttribute("aria-hidden", "true");
-  i2.setAttribute("onclick", "update_name("+(id)+", '"+(value)+"')");
+  i.setAttribute("onclick", "update_name("+(id)+", '"+(value)+"')");
 
   div.append(input);
   div.append(i);
