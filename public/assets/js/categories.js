@@ -45,8 +45,9 @@ function closeAll(){
 };
 function update_name(id, value){
   div= document.getElementById('name-'+id);
-  div.innerHTML('');
-
+  while(div.firstChild){
+      div.removeChild(div.firstChild);
+  }
   var input = document.createElement('input');
   input.setAttribute("required", "required");
   input.setAttribute("type", "text");
