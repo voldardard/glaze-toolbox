@@ -39,6 +39,7 @@ body{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   min-width: 200px;
   right: 60px;
+  cursor:pointer;
 }
 .category-page .categories_list .categories_item .selector span{
   height: 40px;
@@ -62,7 +63,6 @@ body{
   padding-right: 20px;
   overflow: scroll;
   height: 80vh;
-  cursor:pointer;
 }
 .category-page .categories_list .selector_list .selector_item {
   list-style: none;
