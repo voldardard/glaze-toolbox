@@ -131,7 +131,7 @@ function save_name(id){
 
                         }
                     }
-                    stop_loading(iconId);
+                    stop_loading(lmnt, "fa-floppy-o");
                     document.getElementById(id).value="";
                 })
             }else {
@@ -145,17 +145,16 @@ function save_name(id){
         /* console.log(data);*/
         json_answer = data;
         document.getElementById(id).value = "";
-        stop_loading(iconId);
+        stop_loading(lmnt, "fa-floppy-o");
         //var json = JSON.parse(data);// here data is your response$
         console.log(data);
         for (var key in data) {
             console.log(data[key]);
-            create_miniature(container, data[key]);
         }
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
         alert_warning(translate('problemConnecting') + error.message);
-        stop_loading(iconId);
+        stop_loading(lmnt, "fa-floppy-o");
     });
 
 }
