@@ -8,16 +8,18 @@ function selector(element, ul){
 
 
   function closeAll(elmnt){
-    var ul = document.getElementsByClassName("selector-disabled");
-    for (var i = 0; i < ul.length; i++) {
-        if (elmnt != ul[i]) {
-            ul.setAttribute("style", "display: none;");
+    console.log('closeAll triggered');
+    var uls = document.getElementsByClassName("selector-disabled");
+    for (var i = 0; i < uls.length; i++) {
+        if (elmnt != uls[i]) {
+            uls.setAttribute("style", "display: none;");
         }
     }
   }
 
 
   document.addEventListener("click", function (e) {
+    console.log('click outside');
       if (!focusin) {
           console.log('removed');
           closeAll(e.target);
