@@ -23,6 +23,7 @@ function closeSelectorEvent(){
 function closeAll(){
   console.log('closeAll triggered');
   var uls = document.getElementsByClassName("selector-disabled");
+  console.log('got element');
   for (var i = 0; i < uls.length; i++) {
       console.log("close"+i);
       //if (elmnt != uls[i]) {
