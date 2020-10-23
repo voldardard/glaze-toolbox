@@ -44,22 +44,22 @@ class Categories extends Controller{
         return $child;
     }
     public function editCategories(Request $request, $categoryID){
+      $validatedData = $request->validate([
+            'name' => 'string|max:45',
+            'parent_id' => 'integer',
+      ]);
+
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
 
-              $validatedData = $request->validate([
-                    'name' => 'string|max:45',
-                    'parent_id' => 'integer',
-              ]);
-
-
-              if( (isset($validatedData['name'])) && (!empty($validatedData['name'])) ){
-                DB::table('categories')->update(['name'=>$validatedData['name']])->where(['id' => $categoryID]);
-              }
-
-              return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$category['name'], "validation"=>$validatedData]);
-        }else{
-          return response()->json(['message'=>"Category does not exist"], 400);
+        if( (isset($validatedData['name'])) && (!empty($validatedData['name'])) ){
+          DB::table('categories')->where(['id' => $categoryID])->update(['name'=>$validatedData['name']]);
         }
+
+        return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$category['name'], "validation"=>$validatedData]);
+
+      }else{
+        return response()->json(['message'=>"Category does not exist"], 400);
+      }
 
     }
 
