@@ -52,7 +52,7 @@ class Categories extends Controller{
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
 
         if( (isset($validatedData['name'])) && (!empty($validatedData['name'])) ){
-          DB::table('categories')->where(['id' => $categoryID])->update(['name'=>$validatedData['name']]);
+          DB::table('categories')->where('id',  $categoryID)->update(['name'=>$validatedData['name']]);
         }
 
         return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$validatedData['name'], "validation"=>$validatedData]);
