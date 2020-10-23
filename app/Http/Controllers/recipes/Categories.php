@@ -45,13 +45,9 @@ class Categories extends Controller{
     }
     public function editCategories(Request $request, $categoryID){
 
-              $validatedData = $request->validate([
-                  'name' => 'string|max:45',
-                  'parent_id' => 'integer'
-              ]);
+              $category=json_decode($request->getContent(), true)
 
-
-              return response()->json(["categoryID"=>$categoryID, "request"=>$request->getContent()]);
+              return response()->json(["categoryID"=>$categoryID, "request"=>$category]);
 
     }
 
