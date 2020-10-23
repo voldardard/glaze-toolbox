@@ -23,10 +23,10 @@
   @if(count($Params->categories) > 0)
     <ul class="categories_list">
     @foreach ($Params->categories as $category)
-	<li class="categories_item">
-		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
-    @include('partials.categories-selector', ['Params'=>$Params])
-	</li>
+	   <li class="categories_item">
+  		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+      @include('partials.categories-selector', ['Params'=>$Params])
+	   </li>
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
     </ul>
