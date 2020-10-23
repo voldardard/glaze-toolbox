@@ -7,8 +7,8 @@
       <li class="selector_item selector_greyed">{{ $sub_category['name'] }}</li>
     @else
       <li class="selector_item" onclick="change_category({{ $categoryID }}, {{ $sub_category['id'] }})">{{ $sub_category['name'] }}</li>
+      @include('partials.categories-selector-childrens', ['Params'=>$sub_category])
     @endif
-    @include('partials.categories-selector-childrens', ['Params'=>$sub_category])
   @endforeach
   </ul>
 
