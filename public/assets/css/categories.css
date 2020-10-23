@@ -86,6 +86,11 @@ body{
   position: relative;
   cursor: pointer;
 }
+
+.category-page .categories_list .selector_list .selector_greyed {
+  cursor:default;
+  color:white;
+}
 .category-page ul li a{
     text-decoration: none;
     color: #5C5C5C;
