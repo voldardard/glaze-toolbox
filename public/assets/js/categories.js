@@ -24,6 +24,7 @@ function closeAll(){
   console.log('closeAll triggered');
   var uls = document.getElementsByClassName("selector-disabled");
   for (var i = 0; i < uls.length; i++) {
+      console.log("close"+i);
       //if (elmnt != uls[i]) {
           uls[i].setAttribute("style", "display: none;");
       //}
