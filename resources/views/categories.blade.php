@@ -26,6 +26,7 @@
 
 
     </script>
+    <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/categories.js') }}"></script>
     <script src="{{ asset('js/errors.js') }}"></script>
 

@@ -50,6 +50,7 @@
 
 
     </script>
+    <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/insert.js') }}"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
     <script src="{{ asset('js/errors.js') }}"></script>

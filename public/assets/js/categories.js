@@ -1,14 +1,5 @@
 focusin=false;
-function start_loading(icon, name="fa-check-circle"){
-    console.log('start_loading');
-    icon.classList.remove(name);
-    icon.classList.add("fa-spinner");
-}
-function stop_loading(icon, name="fa-check-circle"){
-    console.log('stop_loading');
-    icon.classList.remove("fa-spinner");
-    icon.classList.add(name);
-}
+
 function selector(element, ul){
   element.addEventListener("click", function (e) {
       console.log('click on selector');
