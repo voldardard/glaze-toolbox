@@ -57,7 +57,30 @@ class Categories extends Controller{
             'updated_at'=>now()
           ]);
         }
+        if( (isset($validatedData['parent_id'])) && (!empty($validatedData['parent_id'])) ){
+          $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
+          if(!empty($parent)){
+            $level=($parent->level+1);
+            DB::beginTransaction();
 
+            try {
+              DB::table('categories')->where('id',  $categoryID)->update([
+                'parent_id'=>$validatedData['parent_id'],
+                'level'=>$level,
+                'updated_at'=>now()
+              ]);
+              DB::commit();
+            } catch (\Throwable $e) {
+                DB::rollback();
+                return response()->json(['message'=>$e], 400);
+            }
+            return response()->json(['message'=>"Cetegory updated successfully"]);
+
+
+          }else{
+            return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
+          }
+        }
         return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$validatedData['name'], "validation"=>$validatedData]);
 
       }else{
