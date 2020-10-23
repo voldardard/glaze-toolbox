@@ -33,7 +33,7 @@ body{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-bottom: 5px;
 }
-.category-page .categories_list .categories_item div{
+.category-page .categories_list .categories_item .selector{
   min-height: 40px;
   display: inline-block;
   position: absolute;
@@ -41,8 +41,21 @@ body{
   width: 200px;
   right: 60px;
 }
-.category-page .categories_list .categories_item div ul{
+.category-page .categories_list .categories_item .selector span{
+  height: 40px;
+  display: block;
+  padding-top: 10px;
+  text-align:center;
+}
+.category-page .categories_list .selector_disabled{
   display:none;
+}
+.category-page .categories_list .selector_list{
+  z-index: 15;
+  display: block;
+  background-color: aqua;
+  position: absolute;
+  margin-top: -10px;
 }
 .category-page .categories_list .selector_list .selector_item {
   list-style: none;
