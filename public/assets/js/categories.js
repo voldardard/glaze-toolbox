@@ -52,19 +52,44 @@ function update_name(id, value){
   input.setAttribute("required", "required");
   input.setAttribute("type", "text");
   input.setAttribute("placeholder", 'Category name');
-  input.setAttribute("name", 'category_name_input');
+  input.setAttribute("id", 'category_name_input-'+id);
   input.setAttribute("value", value);
 
 
   var i= document.createElement('i');
   i.setAttribute("class", "fa fa-floppy-o");
   i.setAttribute("aria-hidden", "true");
+  i.setAttribute("onclick", "save_name("+(id)+")");
+
 
   var i2= document.createElement('i');
   i2.setAttribute("class", "fa fa-times");
   i2.setAttribute("aria-hidden", "true");
+  i2.setAttribute("onclick", "cance_namel("+(id)+", '"+(value)+"')");
+
 
   div.append(input);
   div.append(i);
   div.append(i2);
 };
+function cancel_name(id, value){
+  div= document.getElementById('name-'+id);
+  while(div.firstChild){
+      div.removeChild(div.firstChild);
+  }
+
+
+  var a = document.createElement('a');
+  a.setAttribute("href", "/category/"+id);
+  a.innerHTML=value;
+
+
+  var i= document.createElement('i');
+  i.setAttribute("class", "fa fa-pencil-square-o");
+  i.setAttribute("aria-hidden", "true");
+  i2.setAttribute("onclick", "update_name("+(id)+", '"+(value)+"')");
+  
+  div.append(input);
+  div.append(i);
+
+}
