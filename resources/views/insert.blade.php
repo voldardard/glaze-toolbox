@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/insert.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/errors.css') }}" >
 
 
     <!-- Scripts -->

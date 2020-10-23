@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/errors.css') }}" >
 
     <script type="text/javascript">
         var locale = "{{ str_replace('_', '-', app()->getLocale()) }}";
