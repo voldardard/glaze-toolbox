@@ -49,24 +49,21 @@ body{
 
 .category-page .categories_list .selector_list{
   z-index: 15;
-  display: block;
-  background-color: aqua;
-  position: absolute;
-  margin-top: -10px;
+  background-color: #5c5c5c;
+  position: relative;
+  color:white;
 }
 .category-page .categories_list .selector_disabled{
   display:none;
+  padding-left: 10px;
+  margin-top: -10px;
+  padding-top: 10px;
 }
 .category-page .categories_list .selector_list .selector_item {
   list-style: none;
-  line-height: 1;
   display: block;
-  height: 40px;
+  height: 20px;
   position: relative;
-  background: #FFFFFF;
-  padding-left: 10px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-bottom: 5px;
 }
 .category-page ul li a{
     text-decoration: none;
