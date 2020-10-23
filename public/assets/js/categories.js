@@ -1,4 +1,4 @@
-function selector(element){
+function selector(element, ul){
   console.log('activate in');
 
   element.addEventListener("mouseover", function (e) {
@@ -6,12 +6,12 @@ function selector(element){
   });
   element.addEventListener("click", function (e) {
       console.log('click on selector');
-        element.setAttribute("style", "display: block;")
+        ul.setAttribute("style", "display: block;")
   });
 
   element.addEventListener("mouseout", function (e) {
       console.log('mouse out of selector');
-      element.setAttribute("style", "display: none;")
+      ul.setAttribute("style", "display: none;")
   });
 
 }

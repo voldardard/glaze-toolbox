@@ -7,9 +7,9 @@
     @include('partials.categories-selector-childrens', ['Params'=>$sub_category])
   @endforeach
   </ul>
-  <script type="text/javascript">
-    console.log("Activate selector-list-{{ $category['id'] }}")
-    selector(document.getElementById("selector-list-{{ $category['id'] }}"));
-  </script>
+
 </div>
+<script type="text/javascript">
+  selector(document.getElementById("{{ $category['id'] }}"), document.getElementById("selector-list-{{ $category['id'] }}"));
+</script>
 @endif
