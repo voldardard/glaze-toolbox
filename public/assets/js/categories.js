@@ -142,9 +142,8 @@ function save_name(id){
         }
     }).then(data => {
         // Work with JSON data here
-        /* console.log(data);*/
+         console.log(data);
         json_answer = data;
-        document.getElementById(id).value = "";
         stop_loading(lmnt, "fa-floppy-o");
         //var json = JSON.parse(data);// here data is your response$
         console.log(data);
