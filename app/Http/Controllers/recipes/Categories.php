@@ -49,7 +49,7 @@ class Categories extends Controller{
                   'parent_id' => 'integer'
               ]);
 
-              print_r('$categoryID');
+              print_r($categoryID);
               print_r($validatedData['name']);
     }
 
