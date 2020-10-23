@@ -1,22 +1,27 @@
 function selector(element, ul){
-
+  focusin=false;
   element.addEventListener("click", function (e) {
+    focusin=true;
       console.log('click on selector');
-        ul.setAttribute("style", "display: block;")
-        ul.addEventListener("mouseover", function (e) {
-            console.log('mouse hover of selector-items');
-        });
-        ul.addEventListener("mouseout", function (e) {
-            console.log('mouse out of selector-item');
-            ul.setAttribute("style", "display: none;")
-        });
+        ul.setAttribute("style", "display: block;");
   });
 
 
-  element.addEventListener("focusout", function (e) {
-      console.log('focus out of selector');
+  function closeAll(elmnt){
+    var ul = document.getElementsByClassName("selector-disabled");
+    for (var i = 0; i < ul.length; i++) {
+        if (elmnt != ul[i]) {
+            ul.setAttribute("style", "display: none;");
+        }
+    }
+  }
 
-      ul.setAttribute("style", "display: none;")
+
+  document.addEventListener("click", function (e) {
+      if (!focusin) {
+          console.log('removed');
+          closeAll(e.target);
+      }
   });
 
 }
