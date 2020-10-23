@@ -62,6 +62,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
 
         Route::post('/insert', 'recipes\Insert');
+        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategories')->where(['categoryID' => '[a-zA-Z0-9]+']);
         Route::get('/categories', function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
@@ -70,13 +71,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('categories')->with('Params', $Params);
         })->name('categories');
 
-        Route::get('/categories22', function () {
-            session(['current_route' => '/categories']);
-            $Controller = new \App\Http\Controllers\recipes\Categories();
-            $Params = new \stdClass();
-            $Params->categories = json_decode($Controller->getAllCategories()->content(), true);
-            return view('categories22')->with('Params', $Params);
-        })->name('categories');
 
         Route::group(['prefix' => 'autocomplete'], function () {
           Route::get('/categories', 'recipes\Categories@getAllCategories');

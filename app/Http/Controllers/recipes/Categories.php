@@ -42,6 +42,16 @@ class Categories extends Controller{
         }
         return $child;
     }
+    public function editCategories(Request $request, $categoryID){
+
+              $validatedData = $request->validate([
+                  'name' => 'string|max:45',
+                  'parent_id' => 'integer'
+              ]);
+
+              print_r('$categoryID');
+              print_r($validatedData['name']);
+    }
 
     public function buildView($recipeID)
     {
