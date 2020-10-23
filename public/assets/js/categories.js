@@ -192,8 +192,8 @@ function change_category(id, parent_id){
       // Work with JSON data here
        console.log(data);
       json_answer = data;
-      cancel_name(id, value);
       alert_success(data['message']);
+      location.reload();
 
   }).catch(function(error) {
        /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
