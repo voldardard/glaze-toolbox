@@ -10,6 +10,14 @@ function selector(element, ul){
       ul.setAttribute("style", "display: block;");
       console.log('set attribute block');
   });
+  element.addEventListener("mouseout", function (e) {
+      console.log('mouseout of div');
+      focusin=false;
+  });
+  element.addEventListener("mousehover", function (e) {
+      console.log('mousehover of div');
+      focusin=true;
+  });
 
 };
 function closeSelectorEvent(){
