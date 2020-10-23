@@ -1,9 +1,13 @@
-function open_selector(id){
+function selector(id){
   element = document.getElementById('selector-list-'+id);
+  console.log('Enter in');
 
 
   element.addEventListener("mouseover", function (e) {
-      console.log('focus in of selector');
+      console.log('focus hover of selector');
+  });
+  element.addEventListener("click", function (e) {
+      console.log('focus click of selector');
         element.setAttribute("style", "display: block;")
   });
 
