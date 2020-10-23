@@ -108,7 +108,7 @@ function save_name(id){
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     const headers = new Headers({
         'X-CSRF-TOKEN': csrf,
-        'accept': 'application/json'
+        'Accept': 'application/json'
     });
 
     //create object
