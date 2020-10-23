@@ -45,7 +45,7 @@ class Categories extends Controller{
     }
     public function editCategories(Request $request, $categoryID){
 
-              $category=json_decode($request->getContent(), true)
+              $category=json_decode($request->getContent(), true);
 
               return response()->json(["categoryID"=>$categoryID, "request"=>$category]);
 
