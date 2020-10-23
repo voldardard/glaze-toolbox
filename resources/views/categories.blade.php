@@ -25,9 +25,9 @@
     @foreach ($Params->categories as $category)
 	<li class="categories_item">
 		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
-    @include('partials.categories-selector', ['Params'=>$Params]) 
+    @include('partials.categories-selector', ['Params'=>$Params])
 	</li>
-	@include('partials.categories', ['Params'=>$category])
+	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
     </ul>
 @else

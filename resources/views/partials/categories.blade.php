@@ -1,10 +1,11 @@
-@if(count($Params['childrens']) > 0)
+@if(count($Category['childrens']) > 0)
   <u class="categories_list"l>
-  @foreach ($Params['childrens'] as $category)
+  @foreach ($Category['childrens'] as $category)
       <li  class="categories_item">
         <a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+        @include('partials.categories-selector', ['Params'=>$Params])
       </li>
-      @include('partials.categories', ['Params'=>$category])
+      @include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
   @endforeach
   </ul>
 @endif
