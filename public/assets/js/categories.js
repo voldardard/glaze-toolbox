@@ -10,7 +10,7 @@ function selector(element, ul){
 };
 function closeSelectorEvent(){
   console.log('Close Selector triggered');
-  closeSelectorEvent()=function(){};
+  //closeSelectorEvent()=function(){};
 
   function closeAll(elmnt){
     console.log('closeAll triggered');
