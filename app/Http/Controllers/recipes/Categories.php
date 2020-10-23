@@ -50,7 +50,7 @@ class Categories extends Controller{
               ]);
 
               print_r($categoryID);
-              print_r($equest->input()->all());
+              print_r($request->input()->all());
     }
 
     public function buildView($recipeID)
