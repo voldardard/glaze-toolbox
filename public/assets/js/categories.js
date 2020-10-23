@@ -14,8 +14,8 @@ function selector(element, ul){
       console.log('mouseout of div');
       focusin=false;
   });
-  element.addEventListener("mousehover", function (e) {
-      console.log('mousehover of div');
+  element.addEventListener("mouseover", function (e) {
+      console.log('mouseover of div');
       focusin=true;
   });
 
