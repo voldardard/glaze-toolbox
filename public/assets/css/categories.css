@@ -21,7 +21,7 @@ body{
 .category-page {
     width: 98%;
 }
-.category-page #categories_list .categories_item {
+.category-page .categories_list .categories_item {
   list-style: none;
   line-height: 1;
   display: block;
@@ -33,12 +33,15 @@ body{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-bottom: 5px;
 }
-.category-page #categories_list .categories_item div{
-  height: 40px;
+.category-page .categories_list .categories_item div{
+  min-height: 40px;
   display: inline-block;
   position: absolute;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 200px;
+  margin-left: 70px;
 }
-.category-page #categories_list .selector_list .selector_item {
+.category-page .categories_list .selector_list .selector_item {
   list-style: none;
   line-height: 1;
   display: block;

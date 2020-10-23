@@ -21,10 +21,21 @@
 @include('menu')
 <div class="category-page">
   @if(count($Params->categories) > 0)
-    <ul>
+    <ul class="categories_list">
     @foreach ($Params->categories as $category)
-        <li><a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a></li>
-        @include('partials.categories', ['Params'=>$category])
+	<li class="categories_item">
+		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+		<div id="{{ $category['id'] }}">
+			<span>Déplacer</span>
+			<ul class="selector_list">
+			@foreach ($Params->categories as $category22)
+				<li class="selector_item" onclick="change_category({{ $category['id'] }}, {{ $category22['id'] }})">{{ $category22['name'] }}</li>
+				@include('partials.categories', ['Params'=>$category])
+			@endforeach
+			</ul>
+		</div>
+	</li>
+	@include('partials.categories', ['Params'=>$category])
     @endforeach
     </ul>
 @else
