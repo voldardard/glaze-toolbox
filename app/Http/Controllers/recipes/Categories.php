@@ -49,8 +49,9 @@ class Categories extends Controller{
                   'parent_id' => 'integer'
               ]);
 
-              print_r($categoryID);
-              print_r($request->input());
+      
+              return response()->json(["categoryID"=>$categoryID, "request"=>$request->input()]);
+
     }
 
     public function buildView($recipeID)
