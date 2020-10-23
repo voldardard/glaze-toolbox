@@ -46,15 +46,16 @@ body{
   padding-top: 10px;
   text-align:center;
 }
-.category-page .categories_list .selector_disabled{
-  display:none;
-}
+
 .category-page .categories_list .selector_list{
   z-index: 15;
   display: block;
   background-color: aqua;
   position: absolute;
   margin-top: -10px;
+}
+.category-page .categories_list .selector_disabled{
+  display:none;
 }
 .category-page .categories_list .selector_list .selector_item {
   list-style: none;
