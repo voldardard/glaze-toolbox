@@ -46,9 +46,12 @@ class Categories extends Controller{
     public function editCategories(Request $request, $categoryID){
 
               $category=json_decode($request->getContent(), true);
+              $validation = Validator::make($category,[
+                    'name' => 'string|max:45',
+                    'id' => 'integer',
+              ]);
 
-
-              return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$category['name']]);
+              return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$category['name'], "validation"=>$validation]);
 
     }
 
