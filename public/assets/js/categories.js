@@ -22,7 +22,7 @@ function closeSelectorEvent(){
 };
 function closeAll(){
   console.log('closeAll triggered');
-  var uls = document.getElementsByClassName("selector-disabled");
+  var uls = document.getElementsByClassName("selector_disabled");
   console.log('got element'+uls.length);
   for (var i = 0; i < uls.length; i++) {
       console.log("close"+i);
