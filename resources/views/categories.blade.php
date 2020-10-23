@@ -16,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
 
+    <script src="{{ asset('js/categories.js') }}"></script>
+
+
 </head>
 <body>
 @include('menu')
