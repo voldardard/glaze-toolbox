@@ -49,8 +49,8 @@ class Categories extends Controller{
                   'parent_id' => 'integer'
               ]);
 
-      
-              return response()->json(["categoryID"=>$categoryID, "request"=>$request->input()]);
+
+              return response()->json(["categoryID"=>$categoryID, "request"=>$request->all()]);
 
     }
 
