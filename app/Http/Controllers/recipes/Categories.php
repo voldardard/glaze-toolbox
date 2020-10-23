@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
-//use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Redirect;
@@ -51,7 +51,7 @@ class Categories extends Controller{
               ]);
 
 
-              return response()->json(["categoryID"=>$categoryID, "request"=>$request->all()]);
+              return response()->json(["categoryID"=>$categoryID, "request"=>$request->getContent()]);
 
     }
 
