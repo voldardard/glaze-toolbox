@@ -27,10 +27,12 @@
 
     </script>
     <script src="{{ asset('js/categories.js') }}"></script>
+    <script src="{{ asset('js/errors.js') }}"></script>
 
 
 </head>
 <body>
+@include('partials.errors')
 @include('menu')
 <div class="category-page">
   @if(count($Params->categories) > 0)

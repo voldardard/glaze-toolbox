@@ -52,22 +52,12 @@
     </script>
     <script src="{{ asset('js/insert.js') }}"></script>
     <script src="{{ asset('js/autocomplete.js') }}"></script>
+    <script src="{{ asset('js/errors.js') }}"></script>
 
 
 </head>
 <body>
-<div id="alert">
-
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        <div class="alert alert-danger alert-dismissible fade show fixed-top">
-            {{ $error }}
-            <button class="close" type="button" data-dissmiss="alert">x</button>
-        </div>
-        @endforeach
-    @endif
-
-</div>
+@include('partials.errors')
 
 @include('menu')
 <div class="insert-page">
