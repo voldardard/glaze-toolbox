@@ -132,7 +132,6 @@ function save_name(id){
                         }
                     }
                     stop_loading(lmnt, "fa-floppy-o");
-                    document.getElementById(id).value="";
                 })
             }else {
                 throw Error(response.statusText);
