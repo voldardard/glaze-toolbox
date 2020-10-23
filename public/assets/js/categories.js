@@ -1,8 +1,6 @@
-focusin=false;
-
 function selector(element, ul){
   element.addEventListener("click", function (e) {
-    focusin=true;
+    closeAll();
       console.log('click on selector');
         ul.setAttribute("style", "display: block;");
   });
@@ -13,11 +11,7 @@ function closeSelectorEvent(){
   //closeSelectorEvent()=function(){};
   document.addEventListener("click", function (e) {
     console.log('click outside');
-      if (!focusin) {
-          console.log('removed');
-          closeAll();
-          focusin=false;
-      }
+    closeAll();
   });
 };
 function closeAll(){
