@@ -1,4 +1,14 @@
 focusin=false;
+function start_loading(icon, name="fa-check-circle"){
+    console.log('start_loading');
+    icon.classList.remove(name);
+    icon.classList.add("fa-spinner");
+}
+function stop_loading(icon, name="fa-check-circle"){
+    console.log('stop_loading');
+    icon.classList.remove("fa-spinner");
+    icon.classList.add(name);
+}
 function selector(element, ul){
   element.addEventListener("click", function (e) {
       console.log('click on selector');
@@ -91,5 +101,28 @@ function cancel_name(id, value){
 
   div.append(a);
   div.append(i);
+
+}
+function save_name(id){
+    start_loading(this, "fa-floppy-o");
+    value=document.getElementById('category_name_input-'+id).value;
+    console.log(value);
+    const csrf = document.getElementsByName('_csrf-token')[0].content;
+
+    var category = {};
+    category.id = id;
+    category._token = csrf;
+    category.name = value;
+
+    $.ajax({
+        type: "PATCH",
+        url: "/category/"+id,
+        dataType: 'json',
+        data: category,
+        success: function(msg){
+            console.log(msg);
+            stop_loading(this, 'fa-floppy-o');
+        }
+    });
 
 }
