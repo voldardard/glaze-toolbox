@@ -8,7 +8,7 @@
           <ul class="selector_list">
           @foreach ($Params['childrens'] as $category22)
             <li class="selector_item" onclick="change_category({{ $category['id'] }}, {{ $category22['id'] }})">{{ $category22['name'] }}</li>
-            @include('partials.categories', ['Params'=>$category])
+            @include('partials.categories', ['Params'=>$category22])
           @endforeach
           </ul>
         </div>
