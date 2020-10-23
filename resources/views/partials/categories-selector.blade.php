@@ -3,7 +3,7 @@
   <span>Déplacer</span>
   <ul id="selector-list-{{ $category['id'] }}" class="selector_list selector_disabled">
   @foreach ($Params->categories as $sub_category)
-    <li class="selector_item" onclick="change_category({{ $category['id'] }}, {{ $sub_category['id'] }})">{{ $sub_category['name'] }}</li>
+    <li class="selector_item" onclick="change_category({{ $categoryID }}, {{ $sub_category['id'] }})">{{ $sub_category['name'] }}</li>
     @include('partials.categories-selector-childrens', ['Params'=>$sub_category])
   @endforeach
   </ul>
