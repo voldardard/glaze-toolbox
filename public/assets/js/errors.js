@@ -32,7 +32,9 @@ function alert_warning(message){
 function dismiss(id){
   elmnt=document.getElementById(id);
   if (elmnt) {
-    elmnt.removeChild();
+    while(elmnt.firstChild){
+        elmnt.removeChild(elmnt.firstChild);
+    }
     elmnt.remove();
   }
 };
