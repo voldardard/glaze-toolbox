@@ -69,6 +69,7 @@ function update_name(id, value){
   var i= document.createElement('i');
   i.setAttribute("class", "fa fa-floppy-o");
   i.setAttribute("aria-hidden", "true");
+  input.setAttribute("id", 'category_name_dave-'+id);
   i.setAttribute("onclick", "save_name("+(id)+")");
 
 
@@ -104,7 +105,8 @@ function cancel_name(id, value){
 
 }
 function save_name(id){
-    start_loading(this, "fa-floppy-o");
+  lmnt=document.getElementById('category_name_dave-'+id);
+    start_loading(lmnt, "fa-floppy-o");
     value=document.getElementById('category_name_input-'+id).value;
     console.log(value);
     const csrf = document.getElementsByName('_csrf-token')[0].content;
@@ -121,7 +123,7 @@ function save_name(id){
         data: category,
         success: function(msg){
             console.log(msg);
-            stop_loading(this, 'fa-floppy-o');
+            stop_loading(lmnt, 'fa-floppy-o');
         }
     });
 
