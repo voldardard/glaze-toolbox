@@ -124,7 +124,7 @@ function save_name(id){
     var category = {};
     category.name = value;
 
-    fetch("/category/"+id, {
+    fetch("/"+locale+"/category/"+id, {
         method: 'PATCH',
         headers,
         body: JSON.stringify(category),

@@ -17,6 +17,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
 
+    <script type="text/javascript">
+        var locale = "{{ str_replace('_', '-', app()->getLocale()) }}";
+        var lang = {
+            "formula": "@lang('insert.i-017-formula')",
+
+        };
+
+
+    </script>
     <script src="{{ asset('js/categories.js') }}"></script>
 
 
