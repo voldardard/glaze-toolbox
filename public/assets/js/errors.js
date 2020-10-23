@@ -28,11 +28,11 @@ function alert_warning(message){
 
     i++;
 
-}
-dismiss(id){
+};
+function dismiss(id){
   elmnt=document.getElementById(id);
   if (elmnt) {
     elmnt.removeChild();
     elmnt.remove();
   }
-}
+};
