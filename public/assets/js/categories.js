@@ -6,17 +6,20 @@ function selector(element, ul){
         ul.setAttribute("style", "display: block;");
   });
 
+}
+function closeSelectorEvent(){
+  console.log('Close Selector triggered');
+  closeSelectorEvent()=function(){};
 
   function closeAll(elmnt){
     console.log('closeAll triggered');
     var uls = document.getElementsByClassName("selector-disabled");
     for (var i = 0; i < uls.length; i++) {
         if (elmnt != uls[i]) {
-            uls.setAttribute("style", "display: none;");
+            uls[i].setAttribute("style", "display: none;");
         }
     }
   }
-
 
   document.addEventListener("click", function (e) {
     console.log('click outside');
@@ -25,5 +28,4 @@ function selector(element, ul){
           closeAll(e.target);
       }
   });
-
 }
