@@ -1,8 +1,14 @@
+focusin=false;
 function selector(element, ul){
   element.addEventListener("click", function (e) {
-    closeAll();
       console.log('click on selector');
-        ul.setAttribute("style", "display: block;");
+      focusin=true;
+
+      closeAll();
+      console.log('Close All before open one');
+
+      ul.setAttribute("style", "display: block;");
+      console.log('set attribute block');
   });
 
 };
@@ -11,7 +17,11 @@ function closeSelectorEvent(){
   //closeSelectorEvent()=function(){};
   document.addEventListener("click", function (e) {
     console.log('click outside');
-    closeAll();
+    if (!focusin){
+        closeAll();
+        console.log('closeAll')
+    }
+
   });
 };
 function closeAll(){
