@@ -11,17 +11,6 @@ function selector(element, ul){
 function closeSelectorEvent(){
   console.log('Close Selector triggered');
   //closeSelectorEvent()=function(){};
-
-  function closeAll(elmnt){
-    console.log('closeAll triggered');
-    var uls = document.getElementsByClassName("selector-disabled");
-    for (var i = 0; i < uls.length; i++) {
-        if (elmnt != uls[i]) {
-            uls[i].setAttribute("style", "display: none;");
-        }
-    }
-  }
-
   document.addEventListener("click", function (e) {
     console.log('click outside');
       if (!focusin) {
@@ -30,4 +19,13 @@ function closeSelectorEvent(){
           focusin=false;
       }
   });
+};
+function closeAll(elmnt){
+  console.log('closeAll triggered');
+  var uls = document.getElementsByClassName("selector-disabled");
+  for (var i = 0; i < uls.length; i++) {
+      if (elmnt != uls[i]) {
+          uls[i].setAttribute("style", "display: none;");
+      }
+  }
 };
