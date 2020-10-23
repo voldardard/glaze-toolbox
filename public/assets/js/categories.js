@@ -89,7 +89,7 @@ function cancel_name(id, value){
   i.setAttribute("aria-hidden", "true");
   i.setAttribute("onclick", "update_name("+(id)+", '"+(value)+"')");
 
-  div.append(input);
+  div.append(a);
   div.append(i);
 
 }
