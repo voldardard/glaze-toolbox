@@ -27,7 +27,10 @@
     <ul class="categories_list">
     @foreach ($Params->categories as $category)
 	   <li class="categories_item">
-  		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+      <div class="category_name">
+    		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </div>
       @include('partials.categories-selector', ['Params'=>$Params])
 	   </li>
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
