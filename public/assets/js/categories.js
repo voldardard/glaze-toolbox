@@ -43,3 +43,27 @@ function closeAll(){
       //}
   }
 };
+function update_name(id, value){
+  div= document.getElementById('name-'+id);
+  div.innerHTML('');
+
+  var input = document.createElement('input');
+  input.setAttribute("required", "required");
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", translate('Category name'));
+  input.setAttribute("name", 'category_name_input');
+  input.setAttribute("value", value);
+
+
+  var i= document.createElement('i');
+  i.setAttribute("class", "fa fa-floppy-o");
+  i.setAttribute("aria-hidden", "true");
+
+  var i2= document.createElement('i');
+  i2.setAttribute("class", "fa fa-times");
+  i2.setAttribute("aria-hidden", "true");
+
+  div.append(input);
+  div.append(i);
+  div.append(i2);
+};

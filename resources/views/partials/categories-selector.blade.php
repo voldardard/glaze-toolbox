@@ -1,5 +1,5 @@
 @if(count($Params->categories) > 0)
-<div class="selector" id="{{ $category['id'] }}">
+<div class="selector" id="selector-{{ $category['id'] }}">
   <span>Déplacer</span>
   <ul id="selector-list-{{ $category['id'] }}" class="selector_list selector_disabled">
   @foreach ($Params->categories as $sub_category)
@@ -10,6 +10,6 @@
 
 </div>
 <script type="text/javascript">
-  selector(document.getElementById("{{ $category['id'] }}"), document.getElementById("selector-list-{{ $category['id'] }}"));
+  selector(document.getElementById("selector-{{ $category['id'] }}"), document.getElementById("selector-list-{{ $category['id'] }}"));
 </script>
 @endif
