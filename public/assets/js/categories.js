@@ -51,7 +51,7 @@ function update_name(id, value){
   var input = document.createElement('input');
   input.setAttribute("required", "required");
   input.setAttribute("type", "text");
-  input.setAttribute("placeholder", translate('Category name'));
+  input.setAttribute("placeholder", 'Category name');
   input.setAttribute("name", 'category_name_input');
   input.setAttribute("value", value);
 
