@@ -122,7 +122,6 @@ function save_name(id){
 
     //create object
     var category = {};
-    category.id = id;
     category.name = value;
 
     fetch("/category/"+id, {
