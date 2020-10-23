@@ -1,3 +1,4 @@
+@if(count($Params->categories) > 0)
 <div id="{{ $category['id'] }}">
   <span>Déplacer</span>
   <ul class="selector_list">
@@ -7,3 +8,4 @@
   @endforeach
   </ul>
 </div>
+@endif
