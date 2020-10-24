@@ -1,7 +1,7 @@
 @if(count($Params->categories) > 0)
-<div class="selector" id="selector-{{ $category['id'] }}">
+<div class="selector" id="selector-{{ $categoryID }}">
   <span>Déplacer</span>
-  <ul id="selector-list-{{ $category['id'] }}" class="selector_list selector_disabled">
+  <ul id="selector-list-{{ $categoryID }}" class="selector_list selector_disabled">
   <li class="selector_item" onclick="change_category({{ $categoryID }}, null)">==Add to root==</li>
   @foreach ($Params->categories as $sub_category)
     @if($categoryID==$sub_category['id'])
@@ -15,6 +15,6 @@
 
 </div>
 <script type="text/javascript">
-  selector(document.getElementById("selector-{{ $category['id'] }}"), document.getElementById("selector-list-{{ $category['id'] }}"));
+  selector(document.getElementById("selector-{{ $categoryID }}"), document.getElementById("selector-list-{{ $categoryID }}"));
 </script>
 @endif

@@ -1,1 +1,1 @@
-You have no projects!
+You have no Categories!
