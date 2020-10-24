@@ -2,7 +2,7 @@
 <div class="selector" id="selector-{{ $categoryID }}">
   <span>Déplacer</span>
   <ul id="selector-list-{{ $categoryID }}" class="selector_list selector_disabled">
-  <li class="selector_item" onclick="change_category({{ $categoryID }}, null)">==Add to root==</li>
+  <li class="selector_item" onclick="{{ $functionName }}({{ $categoryID }}, null)">==Add to root==</li>
   @foreach ($Params->categories as $sub_category)
     @if($categoryID==$sub_category['id'])
       <li class="selector_item selector_greyed">{{ $sub_category['name'] }}</li>
