@@ -43,7 +43,7 @@
   </div>
   @if(count($Params->categories) > 0)
     <ul class="categories_list">
-      <li>
+      <li class="categories_item">
         <input type="text" name="category_name" placeholder="Nom de la catégorie"/>
         <input type="hidden" name="parent_id"/>
         @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>"null", 'functionName'=>"create_category"])
