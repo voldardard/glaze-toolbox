@@ -40,7 +40,7 @@
   <div id="category_add">
     <ul class="categories_list">
       <input type="text" placeholder="Nom de la catégorie"/>
-      <i onclick="create_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <i onclick="create_name(null, null)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </ul>
   </div>
   @if(count($Params->categories) > 0)
