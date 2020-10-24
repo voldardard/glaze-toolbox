@@ -145,6 +145,7 @@ function save_name(id){
         json_answer = data;
         stop_loading(lmnt, "fa-floppy-o");
         cancel_name(id, value);
+        alert_success(data['message']);
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
