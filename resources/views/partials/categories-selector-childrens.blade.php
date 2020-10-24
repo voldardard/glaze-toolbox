@@ -4,7 +4,7 @@
     @if($categoryID==$category['id'])
       <li class="selector_item selector_greyed">{{ $category['name'] }}</li>
     @else
-      <li class="selector_item" onclick="change_category({{ $categoryID }}, {{ $category['id'] }})">{{ $category['name'] }}</li>
+      <li class="selector_item" onclick="{{ $functionName }}({{ $categoryID }}, {{ $category['id'] }})">{{ $category['name'] }}</li>
       @include('partials.categories-selector-childrens', ['Params'=>$category])
     @endif
 
