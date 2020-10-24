@@ -46,7 +46,7 @@
       <li class="categories_item">
         <input type="text" name="category_name" placeholder="Nom de la catégorie"/>
         <input type="hidden" name="parent_id"/>
-        @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>"null", 'functionName'=>"create_category"])
+        @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>"null", 'function'=>["name"=>"create_category", "description"=>"Catégorie"]])
         <i onclick="create_name(null, null)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </li>
     @foreach ($Params->categories as $category)
@@ -55,7 +55,7 @@
     		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
         <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
-      @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>$category['id'], 'functionName'=>"change_category"])
+      @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>$category['id'], 'function'=>["name"=>"create_category", "description"=>"Déplacer"]])
 	   </li>
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
