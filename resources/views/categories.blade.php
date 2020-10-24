@@ -39,7 +39,9 @@
 <div class="category-page">
   <div id="category_add">
     <ul class="categories_list">
-      <input type="text" placeholder="Nom de la catégorie"/>
+      <input type="text" name="category_name" placeholder="Nom de la catégorie"/>
+      <input type="hidden" name="parent_id"/>
+      @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>null, 'functionName'=>"create_category"])
       <i onclick="create_name(null, null)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </ul>
   </div>

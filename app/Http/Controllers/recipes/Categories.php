@@ -43,6 +43,20 @@ class Categories extends Controller{
         }
         return $child;
     }
+    private function update_level_recurse($parent_id, $parent_level){
+       $categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['parent_id' => $parent_id])->get();
+       foreach ($categories as $key => $value) {
+         try {
+           DB::table('categories')->where('id',  $value->id)->update([
+             'level'=>($parent_level+1),
+             'updated_at'=>now()
+           ]);
+         } catch (\Throwable $e) {
+             Throw $e;
+         }
+         update_level_recurse($value->id, ($parent_level+1));
+       }
+    }
     public function editCategories(Request $request, $categoryID){
       $validatedData = $request->validate([
             'name' => 'string|max:45',
@@ -69,6 +83,7 @@ class Categories extends Controller{
                 'level'=>$level,
                 'updated_at'=>now()
               ]);
+              update_level_recurse($categoryID, $level);
               DB::commit();
             } catch (\Throwable $e) {
                 DB::rollback();
