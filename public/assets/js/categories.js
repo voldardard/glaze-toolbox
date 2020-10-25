@@ -238,21 +238,21 @@ function create_name(name, parent_id){
         console.log(response);
         if (!response.ok) {
             if(response.status===422){
-                response.json().then(data=>{
-                    for (let i in data['errors']){
-                        for (let j in data['errors'][i]) {
-                            alert_warning(translate('validationFailed') + data['errors'][i][j]);
-                            console.log(data['errors'][i][j][0]);
+                data= response.json()
+                for (let i in data['errors']){
+                    for (let j in data['errors'][i]) {
+                        alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                        console.log(data['errors'][i][j][0]);
 
-                        }
                     }
-                    return ['message':'Error validating data');
-                })
+                }
+                throw Error('Error validating data');
+                
             }else if (response.status===400) {
-              response.json().then(data=>{
-                alert_warning(data['message']);
-                return data;
-              })
+              data=response.json();
+              //alert_warning(data['message']);
+              throw Error(data['message']);
+
             }else {
               throw Error(translate('problemConnecting') +response.statusText);
             }
