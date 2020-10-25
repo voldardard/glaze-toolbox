@@ -75,7 +75,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
-            $Params->categories = json_decode($Controller->getCategoryProducts($categoryID)->content(), true);
+            $Params->recipes = json_decode($Controller->getCategoryProducts($categoryID)->content(), true);
             return view('category')->with('Params', $Params);
         })->where(['categoryID' => '[a-zA-Z0-9]+'])->name('getCategory');
         Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');

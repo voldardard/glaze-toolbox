@@ -83,8 +83,8 @@ class Categories extends Controller{
           $recipes[$key]->{'name'}= $user->name;
           $recipes[$key]->{"fsname"}=$user->fsname;
         }
-        print_r($recipes);
 
+        return response()->json($recipes);
 
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
