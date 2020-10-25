@@ -246,12 +246,12 @@ function create_name(name, parent_id){
 
                         }
                     }
-                    throw Error('Error validating data')
+                    return ['message':'Error validating data');
                 })
             }else if (response.status===400) {
               response.json().then(data=>{
-                //alert_warning(data['message']);
-                throw Error(data['message'])
+                alert_warning(data['message']);
+                return data;
               })
             }else {
               throw Error(translate('problemConnecting') +response.statusText);
@@ -259,11 +259,9 @@ function create_name(name, parent_id){
         }else{
             return response.json();
         }
-    }).catch(e => {
-    alert_warning(e);
     }).then(data => {
         // Work with JSON data here
-        //alert_success(data['message']);
+        alert_success(data['message']);
         location.reload();
 
     }).catch(function(error) {
