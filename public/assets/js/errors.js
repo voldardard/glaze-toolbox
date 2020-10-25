@@ -3,6 +3,8 @@ let i=0;
 const AUTOMATIC_DISMISS_IN_SECOND=5;
 
 function alert_warning(message){
+    i++;
+
     var container = document.getElementById("alert");
 
 
@@ -31,11 +33,11 @@ function alert_warning(message){
     setTimeout(function(){
       dismiss('alert-'+i);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
-    i++;
 
 
 };
 function alert_success(message){
+    i++;
     var container = document.getElementById("alert");
 
 
@@ -64,7 +66,6 @@ function alert_success(message){
     setTimeout(function(){
       dismiss('alert-'+i);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
-    i++;
 
 
 };
