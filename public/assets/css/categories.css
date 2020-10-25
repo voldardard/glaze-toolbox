@@ -58,8 +58,9 @@ body{
   right: 60px;
   cursor:pointer;
 }
+.category-page .categories_list .categories_item .selector:hover,
 .category-page .categories_list .categories_item .selector_target{
-  background-color: #5c5c5c;
+background-color: #5c5c5c;
 }
 .category-page .categories_list .categories_item .selector span{
   height: 30px;

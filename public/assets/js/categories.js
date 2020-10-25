@@ -17,12 +17,9 @@ function selector(element, ul){
   element.addEventListener("mouseout", function (e) {
       focusin=false;
       element.add
-      element.classList.remove("selector_target");
-
   });
   element.addEventListener("mouseover", function (e) {
       focusin=true;
-      element.classList.add("selector_target");
 
   });
 
@@ -47,6 +44,7 @@ function closeAll(){
       //console.log("close"+i);
       //if (elmnt != uls[i]) {
           uls[i].setAttribute("style", "display: none;");
+          uls[i].parentElement.classList.remove("selector_target");
       //}
   }
 };
