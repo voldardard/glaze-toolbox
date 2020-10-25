@@ -28,10 +28,10 @@ function alert_warning(message){
 
     container.appendChild(div);
 
-    i++;
     setTimeout(function(){
       dismiss('alert-'+i);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
+    i++;
 
 
 };
@@ -61,10 +61,11 @@ function alert_success(message){
 
     container.appendChild(div);
 
-    i++;
     setTimeout(function(){
       dismiss('alert-'+i);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
+    i++;
+
 
 };
 function dismiss(id){
