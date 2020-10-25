@@ -81,7 +81,7 @@ class Categories extends Controller{
           $recipe[]=$value->id;
         }
 
-        return response()->json(['message'=>array(["dependent_recipe"=>$recipe, "dependent_category"=>$allCatIdBelow])]);
+        return response()->json(['message'=>array("dependent_recipe"=>$recipe, "dependent_category"=>$allCatIdBelow]));
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
       }
