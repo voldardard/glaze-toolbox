@@ -247,9 +247,9 @@ function create_name(name, parent_id){
                     }
                 }
                 throw 'Error validating data';
-              }).catch(e){
-                throw new Error(e);
-              }
+              }).catch(function(error) {
+                throw new Error(error)
+              });
             }else {
               response.json().then(data=>{
                 console.log(data);
@@ -258,9 +258,9 @@ function create_name(name, parent_id){
                 }else{
                   throw translate('problemConnecting') +response.statusText);
                 }
-              }).catch(e){
-                throw new Error(e);
-              }
+              }).catch(function(error) {
+                throw new Error(error)
+              });
             }
         }else{
             return response.json();
