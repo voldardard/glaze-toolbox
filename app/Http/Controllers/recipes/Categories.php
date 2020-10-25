@@ -65,7 +65,7 @@ class Categories extends Controller{
 
       $categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['parent_id' => $categoryID])->get();
       foreach ($categories as $key => $value) {
-        $category[]=$value->id
+        $category[]=$value->id;
         $array =self::getCategoryBelow($value->id);
         $category = array_merge($array, $category);
       }
