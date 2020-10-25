@@ -256,7 +256,7 @@ function create_name(name, parent_id){
                 if(data['message']){
                   throw (data['message']);
                 }else{
-                  throw translate('problemConnecting') +response.statusText);
+                  throw (translate('problemConnecting') +response.statusText);
                 }
               }).catch(function(error) {
                 throw new Error(error);
