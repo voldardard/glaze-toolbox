@@ -249,7 +249,7 @@ function create_name(name, parent_id){
                 })
             }else {
               response.json().then(data=>{
-                throw Error(data['message']);
+                throw Error(data);
 
               })
             }
