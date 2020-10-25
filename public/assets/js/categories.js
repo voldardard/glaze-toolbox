@@ -246,16 +246,15 @@ function create_name(name, parent_id){
 
                         }
                     }
-                    break create_name;
+                    throw Error('Error validating data')
                 })
             }else if (response.status===400) {
               response.json().then(data=>{
-                alert_warning(data['message']);
-                break create_name;
-
+                //alert_warning(data['message']);
+                throw Error(data['message'])
               })
             }else {
-              throw Error(response.statusText);
+              throw Error(translate('problemConnecting') +response.statusText);
             }
         }else{
             return response.json();
@@ -267,7 +266,7 @@ function create_name(name, parent_id){
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-        alert_warning(translate('problemConnecting') + error.message);
+        alert_warning(error.message);
     });
   }else{
     alert_warning('Name is empty');
