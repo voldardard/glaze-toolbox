@@ -3,10 +3,11 @@ let i=0;
 const AUTOMATIC_DISMISS_IN_SECOND=5;
 
 function alert_warning(message){
-    i++;
 
     var container = document.getElementById("alert");
     id="alert-"+i;
+    console.log('set id:'+id);
+
 
     var div = document.createElement('div');
     div.classList.add("alert");
@@ -34,12 +35,13 @@ function alert_warning(message){
       dismiss(id);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
 
+    i++;
 
 };
 function alert_success(message){
-    i++;
     var container = document.getElementById("alert");
     id="alert-"+i;
+    console.log('set id:'+id);
 
 
     var div = document.createElement('div');
@@ -68,6 +70,7 @@ function alert_success(message){
       dismiss(id);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
 
+    i++;
 
 };
 function dismiss(id){
