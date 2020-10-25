@@ -246,12 +246,12 @@ function create_name(name, parent_id){
 
                         }
                     }
-                    return "Error in field you filled up";
+                    break create_name;
                 })
             }else if (response.status===400) {
               response.json().then(data=>{
                 alert_warning(data['message']);
-                return data['message'];
+                break create_name;
 
               })
             }else {
