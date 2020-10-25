@@ -255,7 +255,7 @@ function create_name(name, parent_id){
          console.log(data);
         json_answer = data;
         alert_success(data['message']);
-        //location.reload();
+        location.reload();
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
