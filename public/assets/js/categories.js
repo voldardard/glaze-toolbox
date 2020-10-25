@@ -156,7 +156,7 @@ function save_name(id){
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-        alert_warning(translate('problemConnecting') + error.message);
+         alert_warning(error.message);
         stop_loading(lmnt, "fa-floppy-o");
     });
 
@@ -217,7 +217,7 @@ function change_category(id, parent_id, name="NoName"){
 
   }).catch(function(error) {
        /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-      alert_warning(translate('problemConnecting') + error.message);
+       alert_warning(error.message);
   });
 }
 function choose_category(id, parent_id, name="NoName"){
