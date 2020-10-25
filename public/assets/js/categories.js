@@ -246,15 +246,15 @@ function create_name(name, parent_id){
 
                     }
                 }
-                throw Error('Error validating data');
+                throw new Error('Error validating data');
 
             }else if (response.status===400) {
               data=response.json();
               //alert_warning(data['message']);
-              throw Error(data['message']);
+              throw new Error(data['message']);
 
             }else {
-              throw Error(translate('problemConnecting') +response.statusText);
+              throw new Error(translate('problemConnecting') +response.statusText);
             }
         }else{
             return response.json();
