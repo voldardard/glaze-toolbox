@@ -238,7 +238,7 @@ function create_name(name, parent_id){
         console.log(response);
         if (!response.ok) {
             if(response.status===422){
-                data= response.json()
+              response.json().then(data=>{
                 for (let i in data['errors']){
                     for (let j in data['errors'][i]) {
                         alert_warning(translate('validationFailed') + data['errors'][i][j]);
@@ -246,15 +246,20 @@ function create_name(name, parent_id){
 
                     }
                 }
-                throw new Error('Error validating data');
-
+                throw 'Error validating data';
+              }.catch(e){
+                throw new Error(e);
+              }
             }else {
-              data=response.json();
-              console.log(data);
-              if(data['message']){
-                throw new Error(data['message']);
-              }else{
-                throw new Error(translate('problemConnecting') +response.statusText);
+              response.json().then(data=>{
+                console.log(data);
+                if(data['message']){
+                  throw (data['message']);
+                }else{
+                  throw translate('problemConnecting') +response.statusText);
+                }
+              }.catch(e){
+                throw new Error(e);
               }
             }
         }else{
