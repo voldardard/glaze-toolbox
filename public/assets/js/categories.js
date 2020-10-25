@@ -247,7 +247,7 @@ function create_name(name, parent_id){
                     }
                 }
                 throw Error('Error validating data');
-                
+
             }else if (response.status===400) {
               data=response.json();
               //alert_warning(data['message']);
@@ -265,7 +265,7 @@ function create_name(name, parent_id){
         location.reload();
 
     }).catch(function(error) {
-      console.log(error);
+      console.log(error.message);
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
         alert_warning(error.message);
     });
