@@ -37,6 +37,13 @@
     @include('partials.errors')
     @include('menu')
     <div class="category-page">
+      @if(count($Params->recipes) > 0)
+        <ul>
+          @foreach ($Params->recipes as recipe)
+            <li><span class="name">{{ $recipe['name'] }}</span><span class="version">{{ $recipe['version']}}</span> <span class="author">Created by {{$recipe['users_fsname']." ".$recipe['users_name']}}</span></li>
+          @endforeach
+        </ul>
+      @endif
 
     </div>
 
