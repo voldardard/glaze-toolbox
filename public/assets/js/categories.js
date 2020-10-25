@@ -204,6 +204,18 @@ function choose_category(id, parent_id, name="NoName"){
   //Set Action in field
   document.getElementById('selector-description-'+id).innerHTML=name;
   console.log('set value');
-  document.getElementById('insert_parent_id').value=name;
+  document.getElementById('insert_parent_id').value=parent_id;
+
+}
+function create_name(name, parent_id){
+  if ((name.trim()!='') || (!(isNaN(name))){
+    if ((parent_id.trim()!='') || (!(isNaN(parent_id))){
+      alert_success(name.trim()+parent_id.trim())
+    }else{
+      alert_warning('Parent category is empty ');
+    }
+  }else{
+    alert_warning('Name is empty');
+  }
 
 }

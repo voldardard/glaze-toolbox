@@ -43,7 +43,7 @@
         <input id="insert_category_name" required type="text" name="category_name" placeholder="Nom de la catégorie"/>
         <input id="insert_parent_id" required type="hidden" name="parent_id"/>
         @include('partials.categories-selector', ['categoryID'=>"null", 'function'=>["name"=>"choose_category", "description"=>"Catégorie parente"]])
-        <i onclick="create_name(null, null)" class="fa fa-floppy-o categories_save" aria-hidden="true"></i>
+        <i onclick="create_name(document.getElementById('insert_category_name').value, document.getElementById('insert_parent_id').value)" class="fa fa-floppy-o categories_save" aria-hidden="true"></i>
       </li>
     @foreach ($Params->categories as $category)
 	   <li class="categories_item">

@@ -32,7 +32,11 @@ body{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-bottom: 5px;
 }
+.category-page .categories_list .categories_add {
+    margin-bottom: 30px;
+}
 .category-page .categories_list .categories_item .category_name{
+  padding-top: 10px;
   display: inline-block;
 }
 .category-page .categories_list .categories_item i{
