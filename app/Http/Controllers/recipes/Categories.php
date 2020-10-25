@@ -57,7 +57,7 @@ class Categories extends Controller{
             Log::error("Error when updating category id: ".$value->id);
              Throw $e;
          }
-         update_level_recurse($value->id, ($parent_level+1));
+         self::update_level_recurse($value->id, ($parent_level+1));
        }
     }
     public function editCategories(Request $request, $categoryID){
@@ -86,7 +86,7 @@ class Categories extends Controller{
                 'level'=>$level,
                 'updated_at'=>now()
               ]);
-              update_level_recurse($categoryID, $level);
+              self::update_level_recurse($categoryID, $level);
               DB::commit();
             } catch (\Throwable $e) {
                 Log::info("Rollback !");
