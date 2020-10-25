@@ -74,7 +74,7 @@ class Categories extends Controller{
             'name'=>$validatedData['name'],
             'updated_at'=>now()
           ]);
-          $message+=" 'name'";
+          $message.=" 'name'";
         }
         if( (isset($validatedData['parent_id'])) && (!empty($validatedData['parent_id'])) ){
           $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
@@ -96,7 +96,7 @@ class Categories extends Controller{
                 Log::error($e);
                 return response()->json(['message'=>$e], 400);
             }
-            $message+=" 'parent_id'";
+            $message.=" 'parent_id'";
 
 
 
@@ -104,7 +104,7 @@ class Categories extends Controller{
             return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
           }
         }elseif (is_null($validatedData['parent_id'])) {
-          $message+=" 'but is null'";
+          $message.=" 'but is null'";
 
         }
         return response()->json(['message'=>$message." updated successfully"]);
