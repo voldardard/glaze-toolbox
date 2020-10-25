@@ -5,7 +5,7 @@ const AUTOMATIC_DISMISS_IN_SECOND=5;
 function alert_warning(message){
 
     var container = document.getElementById("alert");
-    id="alert-"+i;
+    var id="alert-"+i;
     console.log('set id:'+id);
 
 
@@ -40,7 +40,7 @@ function alert_warning(message){
 };
 function alert_success(message){
     var container = document.getElementById("alert");
-    id="alert-"+i;
+    var id="alert-"+i;
     console.log('set id:'+id);
 
 
