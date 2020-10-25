@@ -208,8 +208,9 @@ function choose_category(id, parent_id, name="NoName"){
 
 }
 function create_name(name, parent_id){
-  console.log(name.trim());
-  if ( name.trim()!='' && !isNaN(name) ){
+  console.log('name: '+name.trim());
+  console.log('isnan: '+isNaN(name))
+  if ( name.trim()!='' && !(isNaN(name)) ){
     if ( parent_id.trim()!='' && !isNaN(parent_id) ){
       alert_success(name.trim()+parent_id.trim())
     }else{
