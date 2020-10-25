@@ -63,11 +63,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
         Route::post('/insert', 'recipes\Insert');
 
-        Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
-        Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
-
-
-        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
         Route::get('/categories', function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
@@ -75,6 +70,19 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Params->categories = json_decode($Controller->getAllCategories()->content(), true);
             return view('categories')->with('Params', $Params);
         })->name('categories');
+
+        Route::get('/category/{categoryID}', function () {
+            session(['current_route' => '/categories']);
+            $Controller = new \App\Http\Controllers\recipes\Categories();
+            $Params = new \stdClass();
+            $Params->categories = json_decode($Controller->getCategoryProducts()->content(), true);
+            return view('category')->with('Params', $Params);
+        })->where(['categoryID' => '[a-zA-Z0-9]+'])->name('getCategory');
+        Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
+        Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
+        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
+
+
 
 
         Route::group(['prefix' => 'autocomplete'], function () {

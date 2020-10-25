@@ -22,7 +22,6 @@ class CreateCategoriesTable extends Migration
 
             $table->string('name');
             $table->timestamps();
-            $table->boolean('delete')->default(false);
 
         });
     }

@@ -72,6 +72,23 @@ class Categories extends Controller{
       return $category;
 
     }
+    public function getCategoryProducts($categoryID){
+      if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
+        $allCatIdBelow=self::getCategoryBelow($categoryID);
+        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('parent_id', $allCatIdBelow)->get();
+
+        foreach ($recipes as $key => $value) {
+          $user=DB::table('users')->select('name', 'fsname')->where('id', $value->id)->get();
+          $recipes[$key]->name=$user->name;
+          $recipes[$key]->fsname=$user->fsname;
+        }
+        return response()->json(['message'=>$recipes]);
+
+
+      }else{
+        return response()->json(['message'=>"Category does not exist"], 400);
+      }
+    }
     public function deleteCategory(Request $request, $categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $recipe=array();
