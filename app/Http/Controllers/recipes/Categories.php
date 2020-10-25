@@ -77,12 +77,12 @@ class Categories extends Controller{
         $allCatIdBelow=self::getCategoryBelow($categoryID);
         $allCatIdBelow[]=$categoryID;
         $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('categories_id', $allCatIdBelow)->get();
-        print_r(json_decode(json_encode($recipes), true));
+        $recipes =(json_decode(json_encode($recipes), true));
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
-          $user=DB::table('users')->select('name', 'fsname')->where('id', $value->id)->first();
-          $recipes[$key]->{'users_name'}= $user->name;
-          $recipes[$key]->{"users_fsname"}=$user->fsname;
+          $user=DB::table('users')->select('name', 'fsname')->where('id', $value['id'])->first();
+          $recipes[$key]['users_name']= $user->name;
+          $recipes[$key]["users_fsname"]=$user->fsname;
         }
 
         return response()->json($recipes);
