@@ -18,6 +18,7 @@ use Lang;
 use Config;
 use App;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -52,6 +53,8 @@ class Categories extends Controller{
              'updated_at'=>now()
            ]);
          } catch (\Throwable $e) {
+           Log::error($e);
+            Log::error("Error when updating category id: ".$value->id);
              Throw $e;
          }
          update_level_recurse($value->id, ($parent_level+1));
@@ -86,7 +89,9 @@ class Categories extends Controller{
               update_level_recurse($categoryID, $level);
               DB::commit();
             } catch (\Throwable $e) {
+                Log::info("Rollback !");
                 DB::rollback();
+                Log::error($e);
                 return response()->json(['message'=>$e], 400);
             }
             return response()->json(['message'=>"Cetegory updated successfully"]);
