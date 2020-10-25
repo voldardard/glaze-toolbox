@@ -62,7 +62,10 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
 
         Route::post('/insert', 'recipes\Insert');
-        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategories')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
+
+        Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
+
+        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
         Route::get('/categories', function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();

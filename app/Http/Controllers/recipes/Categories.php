@@ -60,7 +60,7 @@ class Categories extends Controller{
          self::update_level_recurse($value->id, ($parent_level+1));
        }
     }
-    public function editCategories(Request $request, $categoryID){
+    public function editCategory(Request $request, $categoryID){
       $message ="Category";
       $validatedData = $request->validate([
             'name' => 'string|max:45',
@@ -128,6 +128,66 @@ class Categories extends Controller{
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
       }
+
+    }
+    insertCategory(Request $request){
+      $validatedData = $request->validate([
+        'name' => 'string|max:45',
+        'parent_id' => 'integer|nullable',
+      ]);
+        if( (isset($validatedData['name'])) && (!empty($validatedData['name']))){
+          if( (isset($validatedData['parent_id'])) && (!empty($validatedData['parent_id'])) ){
+            $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
+            if(!empty($parent)){
+              $level=($parent->level+1);
+              DB::beginTransaction();
+
+              try {
+                DB::table('categories')->insert([
+                  'name'=>$validatedData['name'],
+                  'parent_id'=>$validatedData['parent_id'],
+                  'level'=>$level,
+                  'updated_at'=>now()
+                  'created_at'=>now()
+
+                ]);
+                DB::commit();
+              } catch (\Throwable $e) {
+                  Log::info("Rollback !");
+                  DB::rollback();
+                  Log::error($e);
+                  return response()->json(['message'=>$e], 400);
+              }
+            }else{
+              return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
+            }
+
+          }elseif (is_null($validatedData['parent_id'])) {
+            $level=0;
+            DB::beginTransaction();
+
+            try {
+              DB::table('categories')->insert([
+                'name'=>$validatedData['name'],
+                'parent_id'=>$validatedData['parent_id'],
+                'level'=>$level,
+                'updated_at'=>now()
+                'created_at'=>now()
+
+              ]);
+              DB::commit();
+            } catch (\Throwable $e) {
+                Log::info("Rollback !");
+                DB::rollback();
+                Log::error($e);
+                return response()->json(['message'=>$e], 400);
+            }
+          }else{
+            return response()->json(['message'=>"Error with Parent id"+$validatedData['parent_id']], 400);
+          }
+          return response()->json(['message'=>"Category created successfully"]);
+
+        }
 
     }
 
