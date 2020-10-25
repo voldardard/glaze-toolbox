@@ -42,6 +42,16 @@ body{
 .category-page .categories_list .categories_item .category_name_activated{
   padding-top: 0px;
 }
+.category-page .categories_list .categories_item .delete_category{
+  height: 30px;
+  position: absolute;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 40px;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+}
 .category-page .categories_list .categories_item i{
   cursor:pointer;
   margin-left: 10px;
