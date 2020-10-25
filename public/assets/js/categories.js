@@ -253,7 +253,7 @@ function create_name(name, parent_id){
 
               });
             }else {
-              response.json().then(data=>{
+              promise =response.json().then(data=>{
                 console.log(data);
                 if(data['message']){
                   throw (data['message']);
@@ -264,9 +264,9 @@ function create_name(name, parent_id){
                 console.log(error);
                 //reject( new Error(error));
                 return Promise.reject(error);
-              }).then(promise=>{
-                return promise;
               });
+              return promise;
+
             }
         }else{
             return response.json();
