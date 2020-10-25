@@ -267,7 +267,7 @@ function create_name(name, parent_id){
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-        alert_warning(translate('problemConnecting') + error.message);
+        alert_warning(translate('problemConnecting') + error);
     });
   }else{
     alert_warning('Name is empty');
