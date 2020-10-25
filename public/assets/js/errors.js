@@ -2,7 +2,7 @@
 let i=0;
 const AUTOMATIC_DISMISS_IN_SECOND=5;
 
-function alert_warning(message){
+function alert_warning(message, automatic_dismiss=true){
 
     var container = document.getElementById("alert");
     var id="alert-"+i;
@@ -30,15 +30,15 @@ function alert_warning(message){
     div.appendChild(button);
 
     container.appendChild(div);
-
-    setTimeout(function(){
-      dismiss(id);
-    }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
-
+    if(automatic_dismiss){
+      setTimeout(function(){
+        dismiss(id);
+      }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
+    }
     i++;
 
 };
-function alert_success(message){
+function alert_success(message, automatic_dismiss=true){
     var container = document.getElementById("alert");
     var id="alert-"+i;
     console.log('set id:'+id);
@@ -66,10 +66,12 @@ function alert_success(message){
 
     container.appendChild(div);
 
-    setTimeout(function(){
-      dismiss(id);
-    }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
-
+    if(automatic_dismiss){
+      setTimeout(function(){
+        dismiss(id);
+      }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
+    }
+    
     i++;
 
 };
