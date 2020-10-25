@@ -69,6 +69,7 @@ function update_name(id, value){
   div.append(input);
   div.append(i);
   div.append(i2);
+  div.classList.add('category_name_activated');
 };
 function cancel_name(id, value){
   div= document.getElementById('name-'+id);

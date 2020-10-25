@@ -39,6 +39,9 @@ body{
   padding-top: 10px;
   display: inline-block;
 }
+.category-page .categories_list .categories_item .category_name_activated{
+  padding-top: 0px;
+}
 .category-page .categories_list .categories_item i{
   cursor:pointer;
   margin-left: 10px;
