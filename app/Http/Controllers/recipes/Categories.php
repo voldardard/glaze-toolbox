@@ -80,8 +80,9 @@ class Categories extends Controller{
         $recipes =(json_decode(json_encode($recipes), true));
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
-          print_r($value);
+          print_r($value['id']);
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value['id'])->first();
+          print_r("DB pass")
           print_r(json_decode(json_encode($user), true));
           $recipes[$key]['users_name']= $user->name;
           $recipes[$key]["users_fsname"]=$user->fsname;
