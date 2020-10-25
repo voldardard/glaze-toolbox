@@ -98,13 +98,29 @@ class Categories extends Controller{
             }
             $message.=" 'parent_id'";
 
-
-
           }else{
             return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
           }
         }elseif (is_null($validatedData['parent_id'])) {
-          $message.=" 'but is null'";
+          $level=0;
+          DB::beginTransaction();
+
+          try {
+            DB::table('categories')->where('id',  $categoryID)->update([
+              'parent_id'=>null,
+              'level'=>$level,
+              'updated_at'=>now()
+            ]);
+            self::update_level_recurse($categoryID, $level);
+            DB::commit();
+          } catch (\Throwable $e) {
+              Log::info("Rollback !");
+              DB::rollback();
+              Log::error($e);
+              return response()->json(['message'=>$e], 400);
+          }
+          $message.=" 'parent_id'";
+
 
         }
         return response()->json(['message'=>$message." updated successfully"]);
