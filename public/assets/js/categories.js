@@ -3,13 +3,15 @@ focusin=false;
 function selector(element, ul){
   element.addEventListener("click", function (e) {
     console.log('add-selecto-target');
-      element.classList.add("selector_target");
-      console.log('click on selector');
+
       focusin=true;
 
       closeAll();
       console.log('Close All before open one');
 
+      element.classList.add("selector_target");
+      console.log(element.outerHTML);
+      
       ul.setAttribute("style", "display: block;");
       console.log('set attribute block');
 
