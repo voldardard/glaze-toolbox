@@ -259,6 +259,7 @@ function create_name(name, parent_id){
                   throw (translate('problemConnecting') +response.statusText);
                 }
               }).catch(function(error) {
+                console.log(error);
                 throw new Error(error);
               });
             }
