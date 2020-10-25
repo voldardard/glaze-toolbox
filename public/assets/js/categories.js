@@ -210,6 +210,57 @@ function choose_category(id, parent_id, name="NoName"){
 function create_name(name, parent_id){
   console.log('name: '+name.trim());
   if ( name.trim()!='' ){
+    if( parent_id.trim()+=''){
+      parent_id=null;
+    }else{
+        parent_id=parent_id.trim();
+    }
+    //get csrf and set headers
+    const csrf = document.getElementsByName('_csrf-token')[0].content;
+    const headers = new Headers({
+        'X-CSRF-TOKEN': csrf,
+        'Accept': 'application/json'
+    });
+
+    //create object
+    var category = {};
+    category.name = name.trim();
+    category.parent_id = parent_id;
+
+    fetch("/"+locale+"/category/"+id, {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify(category),
+    }).then(function(response) {
+        console.log(response);
+        if (!response.ok) {
+            if(response.status===422){
+                response.json().then(data=>{
+                    for (let i in data['errors']){
+                        for (let j in data['errors'][i]) {
+                            alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                            console.log(data['errors'][i][j][0]);
+
+                        }
+                    }
+                })
+            }else {
+                throw Error(response.statusText);
+            }
+        }else{
+            return response.json();
+        }
+    }).then(data => {
+        // Work with JSON data here
+         console.log(data);
+        json_answer = data;
+        alert_success(data['message']);
+        //location.reload();
+
+    }).catch(function(error) {
+         /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
+        alert_warning(translate('problemConnecting') + error.message);
+    });
     alert_success(name.trim()+parent_id.trim())
   }else{
     alert_warning('Name is empty');
