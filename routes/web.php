@@ -64,6 +64,8 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
         Route::post('/insert', 'recipes\Insert');
 
         Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
+        Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
+
 
         Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
         Route::get('/categories', function () {
