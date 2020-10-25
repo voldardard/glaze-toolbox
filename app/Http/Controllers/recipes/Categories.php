@@ -60,6 +60,27 @@ class Categories extends Controller{
          self::update_level_recurse($value->id, ($parent_level+1));
        }
     }
+    private function getCategoryBelow($categoryID){
+      $category=array();
+
+      $categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['parent_id' => $categoryID])->get();
+      foreach ($categories as $key => $value) {
+        $category[]=$value->id
+        $array =self::getCategoryBelow($value->id);
+        $category = array_merge($array, $category);
+      }
+      return $category;
+
+    }
+    public function deleteCategory(Request $request, $categoryID){
+      if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
+        $allCatIdBelow=getCategoryBelow($categoryID);
+        return response()->json(['message'=>$allCatIdBelow]);
+      }else{
+        return response()->json(['message'=>"Category does not exist"], 400);
+
+      }
+    }
     public function editCategory(Request $request, $categoryID){
       $validatedData = $request->validate([
             'name' => 'string|max:45',
