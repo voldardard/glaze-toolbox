@@ -2,6 +2,7 @@ focusin=false;
 
 function selector(element, ul){
   element.addEventListener("click", function (e) {
+      element.classList.add("selector_target");
       console.log('click on selector');
       focusin=true;
 
@@ -10,17 +11,24 @@ function selector(element, ul){
 
       ul.setAttribute("style", "display: block;");
       console.log('set attribute block');
+
+
   });
   element.addEventListener("mouseout", function (e) {
       focusin=false;
+      element.add
+      element.classList.remove("selector_target");
+
   });
   element.addEventListener("mouseover", function (e) {
       focusin=true;
+      element.classList.add("selector_target");
+
   });
 
 };
 function closeSelectorEvent(){
-  console.log('Close Selector triggered');
+  console.log('Close Selector enable');
   //closeSelectorEvent()=function(){};
   document.addEventListener("click", function (e) {
     console.log('click outside');
