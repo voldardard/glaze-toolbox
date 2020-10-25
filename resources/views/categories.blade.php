@@ -52,7 +52,8 @@
         <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
       @include('partials.categories-selector', [ 'categoryID'=>$category['id'], 'function'=>["name"=>"change_category", "description"=>"Déplacer"]])
-	   </li>
+      <i class="delete-{{ $category['id'] }}"  onclick="delete_category({{ $category['id'] }})" class="fa fa-times" aria-hidden="true"></i>
+     </li>
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
     </ul>
