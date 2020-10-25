@@ -250,6 +250,7 @@ function create_name(name, parent_id){
 
             }else {
               data=response.json();
+              console.log(data);
               if(data['message']){
                 throw new Error(data['message']);
               }else{
