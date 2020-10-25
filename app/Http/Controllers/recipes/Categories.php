@@ -77,8 +77,10 @@ class Categories extends Controller{
         $allCatIdBelow=self::getCategoryBelow($categoryID);
         $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('parent_id', $allCatIdBelow)->get();
         $recipes=(array)$recipes;
+        print_r($recipes);
+        die;
         foreach ($recipes as $key => $value) {
-          $user=DB::table('users')->select('name', 'fsname')->where('id', $value['id'])->get();
+          //$user=DB::table('users')->select('name', 'fsname')->where('id', $value['id'])->get();
           $recipes[$key]->{"name"}=$user->name;
           $recipes[$key]->{"fsname"}=$user->fsname;
         }
