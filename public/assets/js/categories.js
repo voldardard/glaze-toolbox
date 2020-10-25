@@ -12,11 +12,9 @@ function selector(element, ul){
       console.log('set attribute block');
   });
   element.addEventListener("mouseout", function (e) {
-      console.log('mouseout of div');
       focusin=false;
   });
   element.addEventListener("mouseover", function (e) {
-      console.log('mouseover of div');
       focusin=true;
   });
 
