@@ -2,28 +2,17 @@ focusin=false;
 
 function selector(element, ul){
   element.addEventListener("click", function (e) {
-    console.log('add-selecto-target');
-
       focusin=true;
 
       closeAll();
-      console.log('Close All before open one');
-
       element.classList.add("selector_target");
-      console.log(element.outerHTML);
-      
       ul.setAttribute("style", "display: block;");
-      console.log('set attribute block');
-
-
   });
   element.addEventListener("mouseout", function (e) {
       focusin=false;
-      element.add
   });
   element.addEventListener("mouseover", function (e) {
       focusin=true;
-
   });
 
 };
@@ -211,14 +200,10 @@ function change_category(id, parent_id, name="NoName"){
       alert_warning(translate('problemConnecting') + error.message);
   });
 }
-function create_category(id, parent_id, name="NoName"){
+function choose_category(id, parent_id, name="NoName"){
   //Set Action in field
   document.getElementById('selector-description-'+id).innerHTML=name;
   console.log('set value');
-  document.getElementById('parent_id').value=name;
-  console.log('click value');
-  document.getElementById('parent_id').click();
-
-  closeAll();
+  document.getElementById('insert_parent_id').value=name;
 
 }
