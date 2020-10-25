@@ -335,6 +335,9 @@ function delete_category(id){
       }
   }).then(data => {
       // Work with JSON data here
+      console.log(data['message']);
+      console.log(data);
+
       alert_success(data['message']);
       //location.reload();
 
