@@ -58,7 +58,7 @@ function update_name(id, value){
 
 
   var i= document.createElement('i');
-  i.setAttribute("class", "fa fa-floppy-o");
+  i.setAttribute("class", "fa fa-check");
   i.setAttribute("aria-hidden", "true");
   i.setAttribute("id", 'category_name_save-'+id);
   i.setAttribute("onclick", "save_name("+(id)+")");

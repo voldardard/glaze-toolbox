@@ -37,17 +37,13 @@
 @include('partials.errors')
 @include('menu')
 <div class="category-page">
-  <div id="category_add">
-    <ul class="categories_list">
-    </ul>
-  </div>
   @if(count($Params->categories) > 0)
     <ul class="categories_list">
-      <li class="categories_item">
-        <input type="text" name="category_name" placeholder="Nom de la catégorie"/>
-        <input type="hidden" name="parent_id"/>
-        @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>"null", 'function'=>["name"=>"create_category", "description"=>"Catégorie"]])
-        <i onclick="create_name(null, null)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <li class="categories_item categories_add">
+        <input required type="text" name="category_name" placeholder="Nom de la catégorie"/>
+        <input required type="hidden" name="parent_id"/>
+        @include('partials.categories-selector', ['categoryID'=>"null", 'function'=>["name"=>"create_category", "description"=>"Catégorie parente"]])
+        <i onclick="create_name(null, null)" class="fa fa-floppy-o" aria-hidden="true"></i>
       </li>
     @foreach ($Params->categories as $category)
 	   <li class="categories_item">
@@ -55,7 +51,7 @@
     		<a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
         <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
-      @include('partials.categories-selector', ['Params'=>$Params, 'categoryID'=>$category['id'], 'function'=>["name"=>"create_category", "description"=>"Déplacer"]])
+      @include('partials.categories-selector', [ 'categoryID'=>$category['id'], 'function'=>["name"=>"change_category", "description"=>"Déplacer"]])
 	   </li>
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
