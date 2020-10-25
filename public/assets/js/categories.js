@@ -73,6 +73,8 @@ function update_name(id, value){
 };
 function cancel_name(id, value){
   div= document.getElementById('name-'+id);
+  div.classList.remove('category_name_activated');
+
   while(div.firstChild){
       div.removeChild(div.firstChild);
   }
