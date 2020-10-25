@@ -227,7 +227,7 @@ function create_name(name, parent_id){
     category.name = name.trim();
     category.parent_id = parent_id;
 
-    fetch("/"+locale+"/category/"+id, {
+    fetch("/"+locale+"/category", {
         method: 'PUT',
         headers,
         body: JSON.stringify(category),
