@@ -247,11 +247,13 @@ function create_name(name, parent_id){
                         }
                     }
                 })
-            }else {
+            }else if (response.status===400) {
               response.json().then(data=>{
-                throw Error(data);
+                alert_warning(data['message']);
 
               })
+            }else {
+              throw Error(response.statusText);
             }
         }else{
             return response.json();
