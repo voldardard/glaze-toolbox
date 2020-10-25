@@ -76,7 +76,8 @@ class Categories extends Controller{
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $allCatIdBelow=self::getCategoryBelow($categoryID);
         $allCatIdBelow[]=$categoryID;
-        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('parent_id', $allCatIdBelow)->get();
+        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('categories_id', $allCatIdBelow)->get();
+
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value->id)->first();
