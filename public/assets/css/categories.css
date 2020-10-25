@@ -77,6 +77,7 @@ body{
   position: relative;
 }
 .category-page .categories_list .selector_disabled{
+  color: #636b6f;
   display:none;
   padding-left: 10px;
   padding-top: 10px;
