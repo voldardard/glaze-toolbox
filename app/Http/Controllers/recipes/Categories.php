@@ -136,6 +136,11 @@ class Categories extends Controller{
             $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
             if(!empty($parent)){
               $level=($parent->level+1);
+              if(DB::table('categories')->where(['name' => $validatedData['name'], 'level'=>$level, 'parent_id'=>$validatedData['parent_id']])->exists()){
+                return response()->json(['message'=>"Category already exist"], 403);
+
+              }
+
               DB::beginTransaction();
 
               try {
@@ -160,12 +165,16 @@ class Categories extends Controller{
 
           }elseif (is_null($validatedData['parent_id'])) {
             $level=0;
+            if(DB::table('categories')->where(['name' => $validatedData['name'], 'level'=>$level, 'parent_id'=>null])->exists()){
+              return response()->json(['message'=>"Category already exist"], 403);
+
+            }
             DB::beginTransaction();
 
             try {
               DB::table('categories')->insert([
                 'name'=>$validatedData['name'],
-                'parent_id'=>$validatedData['parent_id'],
+                'parent_id'=>null,
                 'level'=>$level,
                 'updated_at'=>now(),
                 'created_at'=>now()
@@ -182,6 +191,9 @@ class Categories extends Controller{
             return response()->json(['message'=>"Error with Parent id"+$validatedData['parent_id']], 400);
           }
           return response()->json(['message'=>"Category created successfully"]);
+
+        }else{
+          return response()->json(['message'=>"Error with name"], 400);
 
         }
 
