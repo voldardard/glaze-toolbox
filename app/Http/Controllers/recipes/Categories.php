@@ -74,7 +74,7 @@ class Categories extends Controller{
     }
     public function deleteCategory(Request $request, $categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
-        $allCatIdBelow=getCategoryBelow($categoryID);
+        $allCatIdBelow=self::getCategoryBelow($categoryID);
         return response()->json(['message'=>$allCatIdBelow]);
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
