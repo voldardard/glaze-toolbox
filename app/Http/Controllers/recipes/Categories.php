@@ -166,7 +166,7 @@ class Categories extends Controller{
           }elseif (is_null($validatedData['parent_id'])) {
             $level=0;
             if(DB::table('categories')->where(['name' => $validatedData['name'], 'level'=>$level, 'parent_id'=>null])->exists()){
-              return response()->json(['message'=>"Category already exist"], 403);
+              return response()->json(['message'=>"Category already exist"], 400);
 
             }
             DB::beginTransaction();
