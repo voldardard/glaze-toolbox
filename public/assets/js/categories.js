@@ -260,8 +260,6 @@ function create_name(name, parent_id){
         }
     }).then(data => {
         // Work with JSON data here
-         console.log(data);
-        json_answer = data;
         alert_success(data['message']);
         location.reload();
 
