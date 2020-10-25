@@ -1,5 +1,7 @@
 
 let i=0;
+const AUTOMATIC_DISMISS_IN_SECOND=5;
+
 function alert_warning(message){
     var container = document.getElementById("alert");
 
@@ -27,6 +29,10 @@ function alert_warning(message){
     container.appendChild(div);
 
     i++;
+    setTimeout(function(){
+      dismiss('alert-'+i);
+    }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
+
 
 };
 function alert_success(message){
@@ -56,6 +62,9 @@ function alert_success(message){
     container.appendChild(div);
 
     i++;
+    setTimeout(function(){
+      dismiss('alert-'+i);
+    }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
 
 };
 function dismiss(id){
