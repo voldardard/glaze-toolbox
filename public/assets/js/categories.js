@@ -41,7 +41,7 @@ function closeAll(){
   }
 };
 function update_name(id, value){
-  div= document.getElementById('name-'+id);
+  var div= document.getElementById('name-'+id);
   while(div.firstChild){
       div.removeChild(div.firstChild);
   }
@@ -72,7 +72,7 @@ function update_name(id, value){
   div.classList.add('category_name_activated');
 };
 function cancel_name(id, value){
-  div= document.getElementById('name-'+id);
+  var div= document.getElementById('name-'+id);
   div.classList.remove('category_name_activated');
 
   while(div.firstChild){
@@ -96,11 +96,11 @@ function cancel_name(id, value){
 }
 function save_name(id){
   //loading
-  lmnt=document.getElementById('category_name_save-'+id);
+  var lmnt=document.getElementById('category_name_save-'+id);
     start_loading(lmnt, "fa-floppy-o");
 
     //get new value
-    value=document.getElementById('category_name_input-'+id).value;
+    var value=document.getElementById('category_name_input-'+id).value;
     console.log(value);
 
     //get csrf and set headers

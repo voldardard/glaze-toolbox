@@ -75,7 +75,7 @@ function alert_success(message){
 };
 function dismiss(id){
   console.log('dissmis'+id);
-  elmnt=document.getElementById(id);
+  var elmnt=document.getElementById(id);
   if (elmnt) {
     while(elmnt.firstChild){
         elmnt.removeChild(elmnt.firstChild);
