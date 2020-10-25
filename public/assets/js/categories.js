@@ -312,7 +312,7 @@ function delete_category(id){
             return response.json().then(data=>{
               for (let i in data['errors']){
                   for (let j in data['errors'][i]) {
-                      alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                      alert_warning("Dependance failed: " + data['errors'][i][j]);
                       console.log(data['errors'][i][j][0]);
 
                   }
@@ -335,11 +335,11 @@ function delete_category(id){
       }
   }).then(data => {
       // Work with JSON data here
-      console.log(data['message']);
-      console.log(data);
+      //console.log(data['message']);
+      //console.log(data);
 
       alert_success(data['message']);
-      //location.reload();
+      location.reload();
 
   }).catch(function(error) {
        /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
