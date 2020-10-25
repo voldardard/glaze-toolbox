@@ -192,7 +192,7 @@ function change_category(id, parent_id, name="NoName"){
 
                 }
             }
-            throw new Error('Error validating data');
+            throw new Error(data['message']);
           });
         }else {
           return response.json().then(data=>{
@@ -263,7 +263,7 @@ function create_name(name, parent_id){
 
                     }
                 }
-                throw new Error('Error validating data');
+                throw new Error(data['message']);
               });
             }else {
               return response.json().then(data=>{
@@ -317,7 +317,7 @@ function delete_category(id){
 
                   }
               }
-              throw new Error('Error validating data');
+              throw new Error(data['message']);
             });
           }else {
             return response.json().then(data=>{
