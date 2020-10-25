@@ -336,7 +336,7 @@ function delete_category(id){
   }).then(data => {
       // Work with JSON data here
       alert_success(data['message']);
-      location.reload();
+      //location.reload();
 
   }).catch(function(error) {
        /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
