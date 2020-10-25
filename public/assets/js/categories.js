@@ -293,3 +293,54 @@ function create_name(name, parent_id){
   }
 
 }
+function delete_category(id){
+
+  //get csrf and set headers
+  const csrf = document.getElementsByName('_csrf-token')[0].content;
+  const headers = new Headers({
+      'X-CSRF-TOKEN': csrf,
+      'Accept': 'application/json'
+  });
+
+  fetch("/"+locale+"/category/"+id, {
+      method: 'DELETE',
+      headers,
+  }).then(function(response) {
+      console.log(response);
+      if (!response.ok) {
+          if(response.status===422){
+            return response.json().then(data=>{
+              for (let i in data['errors']){
+                  for (let j in data['errors'][i]) {
+                      alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                      console.log(data['errors'][i][j][0]);
+
+                  }
+              }
+              throw new Error('Error validating data');
+            });
+          }else {
+            return response.json().then(data=>{
+              console.log(data);
+              if(data['message']){
+                throw new Error(data['message']);
+              }else{
+                throw new Error(translate('problemConnecting') +response.statusText);
+              }
+            });
+
+          }
+      }else{
+          return response.json();
+      }
+  }).then(data => {
+      // Work with JSON data here
+      alert_success(data['message']);
+      location.reload();
+
+  }).catch(function(error) {
+       /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
+      alert_warning(error.message);
+  });
+
+}
