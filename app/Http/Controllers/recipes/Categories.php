@@ -83,7 +83,18 @@ class Categories extends Controller{
 
         $nrOfDependant= (count($allCatIdBelow)+count($recipe));
         if ($nrOfDependant == 0){
-          return response()->json(['message'=>"Deletion available"]);
+          DB::beginTransaction();
+
+          try {
+            DB::table('categories')->where('id',  $categoryID)->delete();
+            DB::commit();
+          } catch (\Throwable $e) {
+              Log::info("Rollback !");
+              DB::rollback();
+              Log::error($e);
+              return response()->json(['message'=>$e], 400);
+          }
+          return response()->json(['message'=>"Category deleted successfully"]);
         }else{
           return response()->json(['message'=>"Cannot delete category", "errors"=>array("name"=>array("There is ".count($recipe)." recipe dependant on this category", "There is ".count($allCatIdBelow)." sub category dependant on this category"))], 422);
 
