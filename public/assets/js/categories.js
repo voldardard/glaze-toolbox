@@ -248,7 +248,10 @@ function create_name(name, parent_id){
                     }
                 })
             }else {
-                throw Error(response.statusText);
+              response.json().then(data=>{
+                throw Error(data['message']);
+
+              })
             }
         }else{
             return response.json();
