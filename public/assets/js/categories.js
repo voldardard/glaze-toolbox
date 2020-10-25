@@ -154,7 +154,10 @@ function save_name(id){
     });
 
 }
-function change_category(id, parent_id){
+function change_category(id, parent_id, name="NoName"){
+  //Set Action in field
+  document.getElementById('selector-description-'+id).innerHTML=name;
+
   //get csrf and set headers
   const csrf = document.getElementsByName('_csrf-token')[0].content;
   const headers = new Headers({

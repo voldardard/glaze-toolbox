@@ -133,6 +133,7 @@
     display: none;
     position: fixed;
     width: 140px;
+    z-index: 3;
 }
 
 #cssmenu #langsContainer:hover div,
