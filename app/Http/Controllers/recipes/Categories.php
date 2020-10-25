@@ -94,14 +94,13 @@ class Categories extends Controller{
                 Log::error($e);
                 return response()->json(['message'=>$e], 400);
             }
-            return response()->json(['message'=>"Cetegory updated successfully"]);
 
 
           }else{
             return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
           }
         }
-        return response()->json(["categoryID"=>$categoryID, "request"=> $request->all(), "categoryName"=>$validatedData['name'], "validation"=>$validatedData]);
+        return response()->json(['message'=>"Cetegory updated successfully"]);
 
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
