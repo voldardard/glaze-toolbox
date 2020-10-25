@@ -130,7 +130,7 @@ class Categories extends Controller{
       }
 
     }
-    insertCategory(Request $request){
+    public function insertCategory(Request $request){
       $validatedData = $request->validate([
         'name' => 'string|max:45',
         'parent_id' => 'integer|nullable',
