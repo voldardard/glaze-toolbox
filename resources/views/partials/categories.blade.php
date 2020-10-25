@@ -3,7 +3,7 @@
   @foreach ($Category['childrens'] as $category)
       <li  class="categories_item">
         <div id="name-{{ $category['id'] }}" class="category_name">
-        <a href="/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+        <a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
         <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </div>
         @include('partials.categories-selector', ['categoryID'=>$category['id'],'function'=>["name"=>"change_category", "description"=>"Déplacer"]])
