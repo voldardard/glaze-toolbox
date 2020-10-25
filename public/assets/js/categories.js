@@ -119,25 +119,33 @@ function save_name(id){
         headers,
         body: JSON.stringify(category),
     }).then(function(response) {
-        console.log(response);
-        if (!response.ok) {
-            if(response.status===422){
-                response.json().then(data=>{
-                    for (let i in data['errors']){
-                        for (let j in data['errors'][i]) {
-                            alert_warning(translate('validationFailed') + data['errors'][i][j]);
-                            console.log(data['errors'][i][j][0]);
+      console.log(response);
+      if (!response.ok) {
+          if(response.status===422){
+            return response.json().then(data=>{
+              for (let i in data['errors']){
+                  for (let j in data['errors'][i]) {
+                      alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                      console.log(data['errors'][i][j][0]);
 
-                        }
-                    }
-                    stop_loading(lmnt, "fa-floppy-o");
-                })
-            }else {
-                throw Error(response.statusText);
-            }
-        }else{
-            return response.json();
-        }
+                  }
+              }
+              throw new Error('Error validating data');
+            });
+          }else {
+            return response.json().then(data=>{
+              console.log(data);
+              if(data['message']){
+                throw new Error(data['message']);
+              }else{
+                throw new Error(translate('problemConnecting') +response.statusText);
+              }
+            });
+
+          }
+      }else{
+          return response.json();
+      }
     }).then(data => {
         // Work with JSON data here
          console.log(data);
@@ -173,24 +181,33 @@ function change_category(id, parent_id, name="NoName"){
       headers,
       body: JSON.stringify(category),
   }).then(function(response) {
-      console.log(response);
-      if (!response.ok) {
-          if(response.status===422){
-              response.json().then(data=>{
-                  for (let i in data['errors']){
-                      for (let j in data['errors'][i]) {
-                          alert_warning(translate('validationFailed') + data['errors'][i][j]);
-                          console.log(data['errors'][i][j][0]);
+    console.log(response);
+    if (!response.ok) {
+        if(response.status===422){
+          return response.json().then(data=>{
+            for (let i in data['errors']){
+                for (let j in data['errors'][i]) {
+                    alert_warning(translate('validationFailed') + data['errors'][i][j]);
+                    console.log(data['errors'][i][j][0]);
 
-                      }
-                  }
-              })
-          }else {
-              throw Error(response.statusText);
-          }
-      }else{
-          return response.json();
-      }
+                }
+            }
+            throw new Error('Error validating data');
+          });
+        }else {
+          return response.json().then(data=>{
+            console.log(data);
+            if(data['message']){
+              throw new Error(data['message']);
+            }else{
+              throw new Error(translate('problemConnecting') +response.statusText);
+            }
+          });
+
+        }
+    }else{
+        return response.json();
+    }
   }).then(data => {
       // Work with JSON data here
        console.log(data);
@@ -247,10 +264,6 @@ function create_name(name, parent_id){
                     }
                 }
                 throw new Error('Error validating data');
-              }).catch(function(error) {
-                //Throw( new Error(error));
-                return Promise.reject(error);
-
               });
             }else {
               return response.json().then(data=>{
@@ -272,7 +285,6 @@ function create_name(name, parent_id){
         location.reload();
 
     }).catch(function(error) {
-      console.log(error);
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
         alert_warning(error.message);
     });
