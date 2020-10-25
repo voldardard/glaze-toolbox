@@ -259,6 +259,8 @@ function create_name(name, parent_id){
         }else{
             return response.json();
         }
+    }).catch(e => {
+    alert_warning(e);
     }).then(data => {
         // Work with JSON data here
         alert_success(data['message']);
