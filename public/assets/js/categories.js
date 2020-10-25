@@ -207,5 +207,6 @@ function create_category(id, parent_id, name="NoName"){
   document.getElementById('selector-description-'+id).innerHTML=name;
   document.getElementById('parent_id').value=name;
   closeAll();
+  document.click();
 
 }
