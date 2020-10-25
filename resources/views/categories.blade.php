@@ -41,7 +41,7 @@
     <ul class="categories_list">
       <li class="categories_item categories_add">
         <input required type="text" name="category_name" placeholder="Nom de la catégorie"/>
-        <input required type="hidden" name="parent_id"/>
+        <input id="parent_id" required type="hidden" name="parent_id"/>
         @include('partials.categories-selector', ['categoryID'=>"null", 'function'=>["name"=>"create_category", "description"=>"Catégorie parente"]])
         <i onclick="create_name(null, null)" class="fa fa-floppy-o categories_save" aria-hidden="true"></i>
       </li>
