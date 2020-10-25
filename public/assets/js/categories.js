@@ -210,7 +210,7 @@ function choose_category(id, parent_id, name="NoName"){
 function create_name(name, parent_id){
   console.log('name: '+name.trim());
   if ( name.trim()!='' ){
-    if( parent_id.trim()+=''){
+    if( parent_id.trim()==''){
       parent_id=null;
     }else{
         parent_id=parent_id.trim();
