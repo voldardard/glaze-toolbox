@@ -60,7 +60,8 @@ body{
 }
 .category-page .categories_list .categories_item .selector:hover,
 .category-page .categories_list .categories_item .selector_target{
-background-color: #5c5c5c;
+  background-color: #5c5c5c;
+    color:white;
 }
 .category-page .categories_list .categories_item .selector span{
   height: 30px;

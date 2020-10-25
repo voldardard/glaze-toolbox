@@ -2,6 +2,7 @@ focusin=false;
 
 function selector(element, ul){
   element.addEventListener("click", function (e) {
+    console.log('add-selecto-target');
       element.classList.add("selector_target");
       console.log('click on selector');
       focusin=true;
