@@ -263,7 +263,7 @@ function create_name(name, parent_id){
     alert_warning(e);
     }).then(data => {
         // Work with JSON data here
-        alert_success(data['message']);
+        //alert_success(data['message']);
         location.reload();
 
     }).catch(function(error) {
