@@ -259,7 +259,7 @@ function create_name(name, parent_id){
 
     }).catch(function(error) {
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
-        alert_warning(translate('problemConnecting') + error.message);
+        alert_warning(translate('problemConnecting') + error.message));
     });
     alert_success(name.trim()+parent_id;
   }else{
