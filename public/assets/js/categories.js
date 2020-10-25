@@ -264,6 +264,8 @@ function create_name(name, parent_id){
                 console.log(error);
                 //reject( new Error(error));
                 return Promise.reject(error);
+              }).then(promise=>{
+                return promise;
               });
             }
         }else{
