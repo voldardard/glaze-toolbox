@@ -6,7 +6,7 @@ function alert_warning(message){
     i++;
 
     var container = document.getElementById("alert");
-
+    id="alert-"+i;
 
     var div = document.createElement('div');
     div.classList.add("alert");
@@ -15,7 +15,7 @@ function alert_warning(message){
     div.classList.add("fade");
     div.classList.add("show");
     div.classList.add("fixed-top");
-    div.setAttribute('id', 'alert-'+i);
+    div.setAttribute('id', id);
 
     div.innerHTML=message;
 
@@ -24,14 +24,14 @@ function alert_warning(message){
     button.classList.add("close");
     button.setAttribute('data-dismiss', 'alert');
     button.innerHTML='x';
-    button.setAttribute("onclick", "dismiss('alert-"+(i)+"')");
+    button.setAttribute("onclick", "dismiss('"+id+"')");
 
     div.appendChild(button);
 
     container.appendChild(div);
 
     setTimeout(function(){
-      dismiss('alert-'+i);
+      dismiss(id);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
 
 
@@ -39,6 +39,7 @@ function alert_warning(message){
 function alert_success(message){
     i++;
     var container = document.getElementById("alert");
+    id="alert-"+i;
 
 
     var div = document.createElement('div');
@@ -48,7 +49,7 @@ function alert_success(message){
     div.classList.add("fade");
     div.classList.add("show");
     div.classList.add("fixed-top");
-    div.setAttribute('id', 'alert-'+i);
+    div.setAttribute('id', id);
 
     div.innerHTML=message;
 
@@ -57,14 +58,14 @@ function alert_success(message){
     button.classList.add("close");
     button.setAttribute('data-dismiss', 'alert');
     button.innerHTML='x';
-    button.setAttribute("onclick", "dismiss('alert-"+(i)+"')");
+    button.setAttribute("onclick", "dismiss('"+id+"')");
 
     div.appendChild(button);
 
     container.appendChild(div);
 
     setTimeout(function(){
-      dismiss('alert-'+i);
+      dismiss(id);
     }, (AUTOMATIC_DISMISS_IN_SECOND*1000));
 
 
