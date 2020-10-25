@@ -248,7 +248,7 @@ function create_name(name, parent_id){
                 }
                 throw 'Error validating data';
               }).catch(function(error) {
-                throw new Error(error);
+                reject( new Error(error));
               });
             }else {
               response.json().then(data=>{
@@ -260,7 +260,7 @@ function create_name(name, parent_id){
                 }
               }).catch(function(error) {
                 console.log(error);
-                throw new Error(error);
+                reject( new Error(error));
               });
             }
         }else{
