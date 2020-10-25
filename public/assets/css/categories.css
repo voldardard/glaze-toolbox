@@ -77,7 +77,8 @@ body{
 }
 .category-page .categories_list .categories_item .selector:hover,
 .category-page .categories_list .categories_item .selector_target,
-.category-page .categories_add .categories_save:hover{
+.category-page .categories_add .categories_save:hover,
+.category-page .categories_list .categories_item .delete_category:hover{
   background-color: #5c5c5c;
     color:white;
 }
