@@ -96,7 +96,14 @@ class Categories extends Controller{
           }
           return response()->json(['message'=>"Category deleted successfully"]);
         }else{
-          return response()->json(['message'=>"Cannot delete category", "errors"=>array("name"=>array("There is ".count($recipe)." recipe dependant on this category", "There is ".count($allCatIdBelow)." sub category dependant on this category"))], 422);
+          $answer=array();
+          if(count($recipe)>0){
+            $answer[]="There is ".count($recipe)." recipe(s) dependant on this category";
+          }
+          if(count($allCatIdBelow)>0){
+            $answer[]="There is ".count($allCatIdBelow)." category(ies) dependant on this category";
+          }
+          return response()->json(['message'=>"Cannot delete category", "errors"=>array("name"=>$answer)], 422);
 
         }
 
