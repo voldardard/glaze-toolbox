@@ -79,8 +79,8 @@ class Categories extends Controller{
 
         foreach ($recipes as $key => $value) {
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value->id)->get();
-          $recipes[$key]->name=$user->name;
-          $recipes[$key]->fsname=$user->fsname;
+          $recipes[$key]->{"name"}=$user->name;
+          $recipes[$key]->{"fsname"}=$user->fsname;
         }
         return response()->json(['message'=>$recipes]);
 
