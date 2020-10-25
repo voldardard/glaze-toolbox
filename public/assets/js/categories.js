@@ -266,6 +266,10 @@ function create_name(name, parent_id){
         }else{
             return response.json();
         }
+    }).catch(function(error) {
+      console.log(error.message);
+         /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
+        alert_warning(error.message);
     }).then(data => {
         // Work with JSON data here
         alert_success(data['message']);
