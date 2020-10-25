@@ -63,7 +63,7 @@ class Categories extends Controller{
     public function editCategories(Request $request, $categoryID){
       $validatedData = $request->validate([
             'name' => 'string|max:45',
-            'parent_id' => 'integer',
+            'parent_id' => 'integer|nullable',
       ]);
 
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
@@ -100,7 +100,7 @@ class Categories extends Controller{
             return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
           }
         }
-        return response()->json(['message'=>"Cetegory updated successfully"]);
+        return response()->json(['message'=>"Category updated successfully"]);
 
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
