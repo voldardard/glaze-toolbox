@@ -68,6 +68,7 @@ function alert_success(message){
 
 };
 function dismiss(id){
+  console.log('dissmis'+id);
   elmnt=document.getElementById(id);
   if (elmnt) {
     while(elmnt.firstChild){
