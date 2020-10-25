@@ -79,6 +79,11 @@ class Categories extends Controller{
           $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
           if(!empty($parent)){
             $level=($parent->level+1);
+            $category=DB::table('categories')->select('name')->where(['id' => $categoryID])->first()
+            if(DB::table('categories')->where(['name' => $category->name, 'level'=>$level, 'parent_id'=>$validatedData['parent_id']])->exists()){
+              return response()->json(['message'=>"Category with same name already exist at this level"], 400);
+
+            }
             DB::beginTransaction();
 
             try {
@@ -102,6 +107,11 @@ class Categories extends Controller{
           }
         }elseif (is_null($validatedData['parent_id'])) {
           $level=0;
+          $category=DB::table('categories')->select('name')->where(['id' => $categoryID])->first()
+          if(DB::table('categories')->where(['name' => $category->name, 'level'=>$level, 'parent_id'=>null])->exists()){
+            return response()->json(['message'=>"Category with same name already exist at this level"], 400);
+
+          }
           DB::beginTransaction();
 
           try {
