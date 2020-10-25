@@ -82,7 +82,7 @@ class Categories extends Controller{
         }
 
         $nrOfDependant= (count($allCatIdBelow)+count($recipe));
-        if ($nrOfDependant > 0){
+        if ($nrOfDependant == 0){
           return response()->json(['message'=>"Deletion available"]);
         }else{
           return response()->json(['message'=>"Cannot delete category", "errors"=>array("name"=>array("There is ".count($recipe)." recipe dependant on this category", "There is ".count($allCatIdBelow)." sub category dependant on this category"))], 422);
