@@ -61,6 +61,7 @@ class Categories extends Controller{
        }
     }
     public function editCategories(Request $request, $categoryID){
+      $message ="Category";
       $validatedData = $request->validate([
             'name' => 'string|max:45',
             'parent_id' => 'integer|nullable',
@@ -73,6 +74,7 @@ class Categories extends Controller{
             'name'=>$validatedData['name'],
             'updated_at'=>now()
           ]);
+          $message+=" 'name'";
         }
         if( (isset($validatedData['parent_id'])) && (!empty($validatedData['parent_id'])) ){
           $parent = DB::table('categories')->select('level')->where(['id' => $validatedData['parent_id']])->first();
@@ -94,13 +96,18 @@ class Categories extends Controller{
                 Log::error($e);
                 return response()->json(['message'=>$e], 400);
             }
+            $message+=" 'parent_id'";
+
 
 
           }else{
             return response()->json(['message'=>"Parent category does not exist does not exist"], 400);
           }
+        }elseif (is_null($validatedData['parent_id'])) {
+          $message+=" 'but is null'";
+
         }
-        return response()->json(['message'=>"Category updated successfully"]);
+        return response()->json(['message'=>$message." updated successfully"]);
 
       }else{
         return response()->json(['message'=>"Category does not exist"], 400);
