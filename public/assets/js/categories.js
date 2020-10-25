@@ -265,6 +265,7 @@ function create_name(name, parent_id){
         location.reload();
 
     }).catch(function(error) {
+      console.log(error);
          /*   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);*/
         alert_warning(error.message);
     });
