@@ -147,7 +147,7 @@ class Categories extends Controller{
                   'name'=>$validatedData['name'],
                   'parent_id'=>$validatedData['parent_id'],
                   'level'=>$level,
-                  'updated_at'=>now()
+                  'updated_at'=>now(),
                   'created_at'=>now()
 
                 ]);
@@ -171,7 +171,7 @@ class Categories extends Controller{
                 'name'=>$validatedData['name'],
                 'parent_id'=>$validatedData['parent_id'],
                 'level'=>$level,
-                'updated_at'=>now()
+                'updated_at'=>now(),
                 'created_at'=>now()
 
               ]);
