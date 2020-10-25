@@ -205,8 +205,11 @@ function change_category(id, parent_id, name="NoName"){
 function create_category(id, parent_id, name="NoName"){
   //Set Action in field
   document.getElementById('selector-description-'+id).innerHTML=name;
+  console.log('set value');
   document.getElementById('parent_id').value=name;
-  closeAll();
+  console.log('click value');
   document.getElementById('parent_id').click();
+
+  closeAll();
 
 }
