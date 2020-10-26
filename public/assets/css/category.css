@@ -7,3 +7,17 @@
     height: 200px;
   }
 }
+#head{
+  margin-top: 10px;
+  color: #444444;
+  margin-bottom: 40px;
+}
+#head .block {
+    margin-left: 10px;
+    display: inline;
+}
+#head .block a {
+    text-decoration: none;
+    color: #444444;
+    font-weight: bold;
+}

@@ -42,7 +42,9 @@
     @include('partials.errors')
     @include('menu')
     <div class="category-page">
-      @include('partials.sub-categories', ['Head'=>$Params->category])
+      <div id="head">
+        @include('partials.sub-categories', ['Head'=>$Params->category])
+      </div>
       @include('partials.recipes-list', ['Recipes'=>$Params->recipes])
 
     </div>
