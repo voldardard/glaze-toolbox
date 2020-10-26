@@ -73,7 +73,9 @@
         @endif
     </div>
     <div id="left">
+      @if(!empty($Params->pictures))
         @include('partials.carousel', ['Pictures'=>$Params->pictures])
+        @endif
         @if(! empty($Params->remark))
             <div id="remarks">
                 <h3>Remarques</h3>
