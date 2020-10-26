@@ -431,3 +431,11 @@ body {
 .flickity-page-dots .dot.is-selected {
   background: white;
 }
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.carousel-cell img {
+  display: block;
+  max-height: 100%;
+}
