@@ -14,6 +14,7 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
       <!-- Styles -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/flickity.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/recipes-list.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/carousel.css') }}" >
       <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}" >-->
@@ -29,6 +30,7 @@
 
 
       </script>
+      <script src="{{ asset('js/flickity.min.js') }}"></script>
       <script src="{{ asset('js/utils.js') }}"></script>
       <script src="{{ asset('js/carousel.js') }}"></script>
       <script src="{{ asset('js/recipes-list.js') }}"></script>
