@@ -39,6 +39,7 @@
     <div class="category-page">
       @if(count($Params->recipes) > 0)
         <ul>
+          {{ print_r($Params->recipe) }}
           @foreach($Params->recipes as recipe)
             <li>
               <span class="name">{{ $recipe['name'] }}</span>
