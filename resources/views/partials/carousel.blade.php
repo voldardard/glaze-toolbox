@@ -5,9 +5,9 @@
             <div class="slider-content">
                 @foreach($Pictures as $picture)
                     <div class="slider-single">
-                        <img onclick="openInFullscreen(this)" class="slider-single-image" src="{{$picture->path}}"
-                             alt="{{$picture->name}}"/>
-                        <h1 class="slider-single-title">{{$picture->name}}</h1>
+                        <img onclick="openInFullscreen(this)" class="slider-single-image" src="{{$picture['path']}}"
+                             alt="{{$picture['name']}}"/>
+                        <h1 class="slider-single-title">{{$picture['name']}}</h1>
                     </div>
                 @endforeach
             </div>
