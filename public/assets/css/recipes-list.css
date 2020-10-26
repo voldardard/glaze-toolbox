@@ -31,3 +31,12 @@
 .is-flickity-fullscreen .recipes-list .recipes-list_left-pic .carousel-cell h1{
   font-size: 20px;
 }
+
+.recipes-list .flickity-prev-next-button,
+.recipes-list .flickity-button-icon{
+  display: none;
+}
+.is-flickity-fullscreen .recipes-list .flickity-prev-next-button,
+.is-flickity-fullscreen .recipes-list .flickity-button-icon{
+  display: block;
+}
