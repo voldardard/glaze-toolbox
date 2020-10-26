@@ -81,7 +81,7 @@ class Categories extends Controller{
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value['users_id'])->first();
-
+          $recipes[$key]['id']=Crypt::encryptString($value['id']);
           $recipes[$key]['users_name']= $user->name;
           $recipes[$key]["users_fsname"]=$user->fsname;
         }
