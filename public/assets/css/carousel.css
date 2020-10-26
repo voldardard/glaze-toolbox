@@ -459,11 +459,7 @@ body {
   display: block;
   max-height: 100%;
 }
-#cssmenu{
-  -webkit-animation-duration: 1s;animation-duration: 1s;
-  -webkit-animation-fill-mode: both;animation-fill-mode: both;
-}
+
 .is-flickity-fullscreen #cssmenu{
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
+  pointer-events: none;
 }
