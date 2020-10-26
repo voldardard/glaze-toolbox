@@ -88,6 +88,7 @@ class Categories extends Controller{
 
           //Get pictures details
           $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $value['id'], 'deleted' => false])->get();
+          $recipes[$key]["pictures"]= array();
           foreach ($pictures as $picture) {
               $recipes[$key]["pictures"][] = $picture;
           }
