@@ -292,7 +292,7 @@ class Insert extends Controller{
         }
 
         print_r(Crypt::encryptString($recipeID));
-        return Redirect::to(route('view', ['recipeID' => Crypt::encryptString($recipeID)]));
+        return Redirect::to(route('recipe', ['recipeID' => Crypt::encryptString($recipeID)]));
 
 
     }

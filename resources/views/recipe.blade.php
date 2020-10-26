@@ -19,14 +19,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flickity.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/carousel.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/view.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/recipe.css') }}">
 
 
     <!-- Scripts -->
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
     <script src="{{ asset('js/flickity.min.js') }}"></script>
-    <script src="{{ asset('js/view.js') }}"></script>
+<!--    <script src="{{ asset('js/recipe.js') }}"></script>-->
     <script type="text/javascript">
         var locale = "{{ str_replace('_', '-', app()->getLocale()) }}";
 
@@ -39,6 +39,8 @@
 @include('menu')
 <div id="page" class="view-page">
     <div id="head">
+        @include('partials.sub-categories', ['Head'=>$Params])
+
         @foreach($Params['categories'] as $category)
             <span class="block"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{$category['id']}}"><i
                             class="fa fa-chevron-right"></i> {{$category['name']}}</a></span>
@@ -48,6 +50,7 @@
         <div id="author">
             <span>Created by {{$Params['creator']['fsname']." ".$Params['creator']['name']}}</span>
         </div>
+
         @if(!empty($Params['labels']))
 
             <div id="labels">

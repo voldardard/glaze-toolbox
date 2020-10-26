@@ -35,15 +35,7 @@ class Categories extends Controller{
 
     }
 
-    public function createCategoriesTree($catId, $child = array())
-    {
-        $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
-        $child[$category->level] = $category;
-        if ($category->level > 0) {
-            $child = $this->createCategoriesTree($category->parent_id, $child);
-        }
-        return $child;
-    }
+
     private function update_level_recurse($parent_id, $parent_level){
        $categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['parent_id' => $parent_id])->get();
        foreach ($categories as $key => $value) {
@@ -60,13 +52,22 @@ class Categories extends Controller{
          self::update_level_recurse($value->id, ($parent_level+1));
        }
     }
-    private function getCategoryBelow($categoryID){
+    private function getCategoriesAbove($catId, $child = array())
+    {
+        $category = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['id' => $catId])->first();
+        $child[$category->level] = $category;
+        if ($category->level > 0) {
+            $child = self::getCategoriesAbove($category->parent_id, $child);
+        }
+        return $child;
+    }
+    private function getCategoriesBelow($categoryID){
       $category=array();
 
       $categories = DB::table('categories')->select(['id', 'name', 'parent_id', 'level'])->where(['parent_id' => $categoryID])->get();
       foreach ($categories as $key => $value) {
         $category[]=$value->id;
-        $array =self::getCategoryBelow($value->id);
+        $array =self::getCategoriesBelow($value->id);
         $category = array_merge($array, $category);
       }
       return $category;
@@ -74,17 +75,17 @@ class Categories extends Controller{
     }
     public function getCategoryProducts($categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
-        $allCatIdBelow=self::getCategoryBelow($categoryID);
+        $allCatIdBelow=self::getCategoriesBelow($categoryID);
         $allCatIdBelow[]=$categoryID;
-        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale')->whereIn('categories_id', $allCatIdBelow)->get();
+        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale', 'categories_id')->whereIn('categories_id', $allCatIdBelow)->get();
         $recipes =(json_decode(json_encode($recipes), true));
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
           //Get user details
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value['users_id'])->first();
           $recipes[$key]['id']=Crypt::encryptString($value['id']);
-          $recipes[$key]['users_name']= $user->name;
-          $recipes[$key]["users_fsname"]=$user->fsname;
+          $recipes[$key]['creator']['name']= $user->name;
+          $recipes[$key]['creator']["fsname"]=$user->fsname;
 
           //Get pictures details
           $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $value['id'], 'deleted' => false])->get();
@@ -92,6 +93,10 @@ class Categories extends Controller{
           foreach ($pictures as $picture) {
               $recipes[$key]["pictures"][] = $picture;
           }
+
+          //Get Categories getCategoriesAbove
+          $recipes[$key]['categories'] = array_reverse(self::getCategoriesAbove($recipe->categories_id), true);
+
         }
 
         return response()->json($recipes);
@@ -103,7 +108,7 @@ class Categories extends Controller{
     public function deleteCategory(Request $request, $categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $recipe=array();
-        $allCatIdBelow=self::getCategoryBelow($categoryID);
+        $allCatIdBelow=self::getCategoriesBelow($categoryID);
         $recipes=DB::table('recipes')->select('id')->whereIn('parent_id', $allCatIdBelow)->get();
         foreach ($recipes as $key => $value) {
           $recipe[]=$value->id;
@@ -306,7 +311,7 @@ class Categories extends Controller{
         }
         $view->id = $recipe->id;
         $view->crypted_id = $recipeID;
-        $view->categories = array_reverse(self::createCategoriesTree($recipe->categories_id), true);
+        $view->categories = array_reverse(self::getCategoriesAbove($recipe->categories_id), true);
         $view->name = $recipe->name;
         $view->version = $recipe->version;
         $view->creator = DB::table('users')->select(['name', 'fsname', 'username', 'email'])->where(['id' => $recipe->users_id])->first();
