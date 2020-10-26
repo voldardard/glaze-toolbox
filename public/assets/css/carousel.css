@@ -347,7 +347,7 @@ body {
           transition: opacity 0.3s, transform 0.3s, filter 0.3s;
 }
 
-/* brighten selected image 
+/* brighten selected image
 .carousel-cell.is-selected img {
   opacity: 1;
   -webkit-transform: scale(1);
@@ -368,13 +368,6 @@ body {
   }
 }
 
-/* buttons, no circle */
-.flickity-prev-next-button {
-  width: 60px;
-  height: 60px;
-  background: transparent;
-  opacity: 0.6;
-}
 .flickity-prev-next-button:hover {
   background: transparent;
   opacity: 1;
