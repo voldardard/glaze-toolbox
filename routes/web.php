@@ -54,12 +54,12 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
             return view('insert')->with('Params', $Params);
         })->name('insert');
-        Route::get('/view/{recipeID}', function ($recipeID) {
-            session(['current_route' => '/view']);
+        Route::get('/recipe/{recipeID}', function ($recipeID) {
+            session(['current_route' => '/recipe']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
-            $Params = json_decode($Controller->buildView($recipeID)->content());
-            return view('view')->with('Params', $Params);
-        })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('view');
+            $Params = json_decode($Controller->buildView($recipeID)->content(), true);
+            return view('recipe')->with('Params', $Params);
+        })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('recipe');
 
         Route::post('/insert', 'recipes\Insert');
 
