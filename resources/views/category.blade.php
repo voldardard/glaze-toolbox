@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="_csrf-token" content="{{ csrf_token() }}">
-      <title>Catégorie</title>
+      <title>{{ $Params->category['name'] }}</title>
 
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -43,7 +43,7 @@
     @include('menu')
     <div class="category-page">
       @include('partials.sub-categories', ['Head'=>$Params->category])
-      @include('partials.recipes-list' ['Recipes'=>$Params->recipes])
+      @include('partials.recipes-list', ['Recipes'=>$Params->recipes])
 
     </div>
 
