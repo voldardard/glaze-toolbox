@@ -33,10 +33,10 @@
 }
 
 .recipes-list .flickity-prev-next-button,
-.recipes-list .flickity-button-icon{
+.recipes-list .flickity-page-dots{
   display: none;
 }
 .is-flickity-fullscreen .recipes-list .flickity-prev-next-button,
-.is-flickity-fullscreen .recipes-list .flickity-button-icon{
+.is-flickity-fullscreen .recipes-list .flickity-page-dots{
   display: block;
 }
