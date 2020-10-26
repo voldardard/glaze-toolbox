@@ -40,7 +40,7 @@
 <div id="page" class="view-page">
     <div id="head">
         @foreach($Params['categories'] as $category)
-            <span class="block"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{$category->id}}"><i
+            <span class="block"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{$category['id']}}"><i
                             class="fa fa-chevron-right"></i> {{$category['name']}}</a></span>
         @endforeach
         <i class="fa fa-chevron-right"></i>
