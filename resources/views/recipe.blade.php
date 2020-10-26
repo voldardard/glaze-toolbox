@@ -148,7 +148,7 @@
                             <td>{{ $value['formula'] }}</td>
                             <td>{{ $value['quantity'] }}</td>
                         </tr>
-                        <div style="display: none">{{ $quantity += $value[quantity'] }}</div>
+                        <div style="display: none">{{ $quantity += $value['quantity'] }}</div>
 
                     @endif
 
