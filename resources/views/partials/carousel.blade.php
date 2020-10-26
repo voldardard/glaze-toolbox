@@ -5,7 +5,7 @@
       @foreach($Pictures as $picture)
       <div class="carousel-cell">
           <img  class="slider-single-image" data-flickity-lazyload="{{$picture['path']}}" alt="{{$picture['name']}}"/>
-          @if($disableTitle) <h1 style="position:absolute; bottom:0;" class="slider-single-title">{{$picture['name']}}</h1> @endif
+          <h1 style="position:absolute; bottom:0;" class="slider-single-title">{{$picture['name']}}</h1>
       </div>
       @endforeach
     </div>

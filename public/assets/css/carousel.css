@@ -355,6 +355,18 @@ body {
   -webkit-filter: none;
           filter: none;
 }
+.carousel-cell h1{
+  opacity: 0
+  position:absolute;
+  bottom:0;
+}
+.carousel-cell.is-selected h1{
+  background-color: #5c5c5c;
+  color: white;
+  padding: 10px;
+  opacity: 0.7;
+  border-radius: 15px;
+}
 
 @media screen and ( min-width: 768px ) {
   .carousel-cell {
