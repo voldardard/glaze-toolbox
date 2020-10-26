@@ -17,7 +17,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('css/flickity.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/recipes-list.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/carousel.css') }}" >
-      <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}" >-->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/errors.css') }}" >
 
