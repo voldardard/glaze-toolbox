@@ -73,6 +73,16 @@ class Categories extends Controller{
       return $category;
 
     }
+    public function getCategoryDetails($categoryID){
+      if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
+        $category =DB::table('categories')->select('name')->where(['id' => $categoryID])->first();
+        $category['categories'] = array_reverse(self::getCategoriesAbove($value['categories_id']), true);
+        return response()->json($category);
+
+      }else{
+        return response()->json(['message'=>"Category does not exist"], 400);
+      }
+    }
     public function getCategoryProducts($categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $allCatIdBelow=self::getCategoriesBelow($categoryID);

@@ -1,7 +1,7 @@
-@if(count($Params->recipes) > 0)
+@if(count($Recipes) > 0)
   <ul class="recipes-list">
 
-    @foreach($Params->recipes as $recipe)
+    @foreach($Recipes as $recipe)
     <li class="recipes-list_item">
       <div class="recipes-list_left-pic">
         @include('partials.carousel',  ['Pictures'=>$recipe['pictures'], 'Carousel_options'=>'{ "wrapAround": true, "fullscreen": true, "lazyLoad": true}'])
