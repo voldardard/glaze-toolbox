@@ -1,17 +1,28 @@
-@if(!empty($Params->pictures))
+@if(!empty($Pictures))
     <div id="carousel">
         <div class="slider-container">
 
             <div class="slider-content">
-                @foreach($Params->pictures as $key => $photo)
-
+                @foreach($Pictures as $picture)
                     <div class="slider-single">
-                        <img onclick="openInFullscreen(this)" class="slider-single-image" src="{{$photo->path}}"
-                             alt="{{$photo->name}}"/>
-                        <h1 class="slider-single-title">{{$photo->name}}</h1>
+                        <img onclick="openInFullscreen(this)" class="slider-single-image" src="{{$picture->path}}"
+                             alt="{{$picture->name}}"/>
+                        <h1 class="slider-single-title">{{$picture->name}}</h1>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
+@else
+  <div id="carousel">
+      <div class="slider-container">
+          <div class="slider-content">
+              <div class="slider-single">
+                  <img onclick="openInFullscreen(this)" class="slider-single-image" src="/pictures/no-pic.jpg"
+                       alt="Missing picture"/>
+                  <h1 class="slider-single-title">Missing picture</h1>
+              </div>
+          </div>
+      </div>
+  </div>
 @endif

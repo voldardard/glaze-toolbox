@@ -73,7 +73,7 @@
         @endif
     </div>
     <div id="left">
-        @include('partials.carousel')
+        @include('partials.carousel', ['Pictures'=>$Params->pictures])
         @if(! empty($Params->remark))
             <div id="remarks">
                 <h3>Remarques</h3>
