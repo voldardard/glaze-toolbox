@@ -54,7 +54,7 @@
     <div id="left">
       @if(!empty($Params['pictures']))
         <div id="carousel">
-          @include('partials.carousel', ['Pictures'=>$Params['pictures']])
+          @include('partials.carousel', ['Pictures'=>$Params['pictures'], 'Carousel_options'=>'{ "wrapAround": true, "fullscreen": true, "lazyLoad": 1 }'])
         </div>
         @endif
         @if(! empty($Param['remark']))

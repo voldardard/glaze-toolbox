@@ -1,7 +1,7 @@
-@if(!empty($Pictures))
+@if(!empty($Pictures) && !(empty($Carousel_options)))
 
     <!-- Flickity HTML init -->
-    <div class="carousel js-flickity" data-flickity-options='{ "wrapAround": true, "fullscreen": true, "lazyLoad": 1 }'>
+    <div class="carousel js-flickity" data-flickity-options='{{ $Carousel_options }}'>
       @foreach($Pictures as $picture)
       <div class="carousel-cell">
           <img  class="slider-single-image" data-flickity-lazyload="{{$picture['path']}}" alt="{{$picture['name']}}"/>
