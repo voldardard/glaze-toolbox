@@ -60,7 +60,9 @@
     </div>
     <div id="left">
       @if(!empty($Params['pictures']))
-        @include('partials.carousel', ['Pictures'=>$Params['pictures']])
+        <div id="carousel">
+          @include('partials.carousel', ['Pictures'=>$Params['pictures']])
+        </div>
         @endif
         @if(! empty($Param['remark']))
             <div id="remarks">
