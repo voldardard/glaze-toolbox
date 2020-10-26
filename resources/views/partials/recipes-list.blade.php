@@ -3,7 +3,9 @@
 
     @foreach($Params->recipes as $recipe)
     <li class="recipes-list_item">
-      <div class="recipes-list_left-pic"></div>
+      <div class="recipes-list_left-pic">
+        @include('partials.carousel')
+      </div>
       <a href="/{{ str_replace('_', '-', app()->getLocale()) }}/recipe/{{ $recipe['id'] }}" >
         <div class="recipes-list_right-text">
           <span class="name">{{ $recipe['name'] }}</span>
