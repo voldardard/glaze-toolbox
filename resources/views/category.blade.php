@@ -42,7 +42,7 @@
           <pre>
           {{ var_dump($Params->recipes) }}
         </pre>
-          @foreach($Params->recipes as recipe)
+          @foreach($Params->recipes as $recipe)
             <li>
               <span class="name">{{-- $recipe['name'] --}}</span>
               <span class="version">{{-- $recipe['version'] --}}</span>
