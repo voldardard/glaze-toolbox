@@ -32,7 +32,6 @@
       </script>
       <script src="{{ asset('js/flickity.min.js') }}"></script>
       <script src="{{ asset('js/utils.js') }}"></script>
-      <script src="{{ asset('js/carousel.js') }}"></script>
       <script src="{{ asset('js/recipes-list.js') }}"></script>
       <!--<script src="{{ asset('js/category.js') }}"></script>-->
       <script src="{{ asset('js/errors.js') }}"></script>

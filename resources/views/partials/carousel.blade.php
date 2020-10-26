@@ -4,7 +4,7 @@
     <div class="carousel js-flickity" data-flickity-options='{ "wrapAround": true, fullscreen: true }'>
       @foreach($Pictures as $picture)
       <div class="carousel-cell">
-          <img  class="slider-single-image" src="{{$picture['path']}}" alt="{{$picture['name']}}"/>
+          <img  class="slider-single-image" src="{{$picture['path']}}" data-flickity-lazyload="{{$picture['path']}}" alt="{{$picture['name']}}"/>
           <h1 class="slider-single-title">{{$picture['name']}}</h1>
       </div>
       @endforeach
