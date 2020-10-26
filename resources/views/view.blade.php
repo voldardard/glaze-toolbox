@@ -111,6 +111,7 @@
             </table>
         </div>
         @endif
+        @if(!empty($Params->components))
         <div id="components">
             <div style="display: none">{{ $quantity=100 }}</div>
             <h3>Matière première / composants de la recette</h3>
@@ -178,6 +179,7 @@
 
 
         </div>
+        @endif
         <div id="sources">
 
         </div>
