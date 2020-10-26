@@ -2,7 +2,7 @@
     <span class="block"><object type="owo/uwu"><a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{$category['id']}}"><i
                     class="fa fa-chevron-right"></i> {{$category['name']}}</a></object></span>
 @endforeach
-@if(!empty($Head['creator']))
+@if(!empty($Head['name']))
 <i class="fa fa-chevron-right"></i>
 @endif
 
