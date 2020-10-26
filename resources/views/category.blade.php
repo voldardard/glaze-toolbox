@@ -14,7 +14,8 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
       <!-- Styles -->
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}" >
+      <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}" >-->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/recipes-list.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}" >
       <link rel="stylesheet" type="text/css" href="{{ asset('css/errors.css') }}" >
 
@@ -28,7 +29,8 @@
 
       </script>
       <script src="{{ asset('js/utils.js') }}"></script>
-      <script src="{{ asset('js/categories.js') }}"></script>
+      <!--<script src="{{ asset('js/category.js') }}"></script>-->
+      <script src="{{ asset('js/recipes-list.js') }}"></script>
       <script src="{{ asset('js/errors.js') }}"></script>
 
 
@@ -37,19 +39,7 @@
     @include('partials.errors')
     @include('menu')
     <div class="category-page">
-      @if(count($Params->recipes) > 0)
-        <ul>
-
-          @foreach($Params->recipes as $recipe)
-            <a href="/{{ str_replace('_', '-', app()->getLocale()) }}/recipe/{{ $recipe['id'] }}" ><li>
-              <span class="name">{{ $recipe['name'] }}</span>
-              <span class="version">{{ $recipe['version'] }}</span>
-              <span class="author">Created by {{ $recipe['users_fsname']." ".$recipe['users_name'] }}</span>
-            </li>
-          </a>
-          @endforeach
-        </ul>
-      @endif
+      @include('partials.recipes-list')
 
     </div>
 

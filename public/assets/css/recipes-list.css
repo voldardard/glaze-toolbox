@@ -1,0 +1,17 @@
+.recipes-list a{
+  text-decoration: none;
+  color: #5C5C5C;
+  margin-left: 10px;
+  font: bold 20px arial,sans-serif;
+}
+.recipes-list .recipes-list_item{
+  list-style: none;
+  line-height: 1;
+  display: block;
+  height: 40px;
+  position: relative;
+  background: #FFFFFF;
+  padding-left: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 5px;
+}
