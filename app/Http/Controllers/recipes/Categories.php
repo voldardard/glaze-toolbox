@@ -95,7 +95,7 @@ class Categories extends Controller{
           }
 
           //Get Categories getCategoriesAbove
-          $recipes[$key]['categories'] = array_reverse(self::getCategoriesAbove($value['cagories_id']), true);
+          $recipes[$key]['categories'] = array_reverse(self::getCategoriesAbove($value['categories_id']), true);
 
         }
 
