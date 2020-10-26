@@ -75,8 +75,8 @@ class Categories extends Controller{
     }
     public function getCategoryDetails($categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
-        $category =DB::table('categories')->select('name')->where(['id' => $categoryID])->first();
-        $category->categories = array_reverse(self::getCategoriesAbove($categoryID), true);
+        $category =DB::table('categories')->select('name', 'parent_id')->where(['id' => $categoryID])->first();
+        $category->categories = array_reverse(self::getCategoriesAbove($category->parent_id), true);
         return response()->json($category);
 
       }else{
