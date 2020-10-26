@@ -25,3 +25,6 @@
   float: right;
   height: 200px;
 }
+.recipes-list .recipes-list_left-pic .carousel-cell h1{
+  font-size: 10px;
+}
