@@ -41,11 +41,12 @@
         <ul>
 
           @foreach($Params->recipes as $recipe)
-            <li>
+            <a href="/{{ str_replace('_', '-', app()->getLocale()) }}/recipe/{{ $recipe['id'] }}" ><li>
               <span class="name">{{ $recipe['name'] }}</span>
               <span class="version">{{ $recipe['version'] }}</span>
               <span class="author">Created by {{ $recipe['users_fsname']." ".$recipe['users_name'] }}</span>
             </li>
+          </a>
           @endforeach
         </ul>
       @endif
