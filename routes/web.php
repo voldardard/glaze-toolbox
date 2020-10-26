@@ -76,9 +76,9 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
             $Params->recipes = json_decode($Controller->getCategoryProducts($categoryID)->content(), true);
-            print_r('<pre>');
-              print_r($Params->recipes);
-            print_r('</pre>');
+          //  print_r('<pre>');
+            //  print_r($Params->recipes);
+          //  print_r('</pre>');
 
             return view('category')->with('Params', $Params);
         })->where(['categoryID' => '[a-zA-Z0-9]+'])->name('getCategory');
