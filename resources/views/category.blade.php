@@ -42,9 +42,9 @@
           {{ print_r($Params->recipes) }}
           <!--foreach($Params->recipes as recipe)-->
             <li>
-              <span class="name">{{ $recipe['name'] }}</span>
-              <span class="version">{{ $recipe['version'] }}</span>
-              <span class="author">Created by {{ $recipe['users_fsname']." ".$recipe['users_name'] }}</span>
+              <span class="name">{{-- $recipe['name'] --}}</span>
+              <span class="version">{{-- $recipe['version'] --}}</span>
+              <span class="author">Created by {{-- $recipe['users_fsname']." ".$recipe['users_name'] --}}</span>
             </li>
           <!--endforeach-->
         </ul>
