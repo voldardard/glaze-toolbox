@@ -80,10 +80,17 @@ class Categories extends Controller{
         $recipes =(json_decode(json_encode($recipes), true));
         //$recipes=(array)$recipes;
         foreach ($recipes as $key => $value) {
+          //Get user details
           $user=DB::table('users')->select('name', 'fsname')->where('id', $value['users_id'])->first();
           $recipes[$key]['id']=Crypt::encryptString($value['id']);
           $recipes[$key]['users_name']= $user->name;
           $recipes[$key]["users_fsname"]=$user->fsname;
+
+          //Get pictures details
+          $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $value['id'], 'deleted' => false])->get();
+          foreach ($pictures as $picture) {
+              $recipes[$key]["pictures"][] = $picture;
+          }
         }
 
         return response()->json($recipes);
