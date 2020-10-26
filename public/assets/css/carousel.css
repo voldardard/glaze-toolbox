@@ -319,7 +319,7 @@ body {
 }
 .carousel-cell {
   width: 70%;
-  height: 200px;
+  height: 600px;
   /* flex-box, center image in cell */
   display: -webkit-box;
   display: -webkit-flex;
@@ -383,7 +383,7 @@ body {
 
 @media screen and ( min-width: 768px ) {
   .carousel-cell {
-    height: 200px;
+    height: 600px;
   }
 }
 
