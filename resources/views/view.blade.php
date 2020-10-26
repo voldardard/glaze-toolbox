@@ -87,6 +87,7 @@
         @endif
     </div>
     <div id="right">
+      @if(!empty($Params->baking))
         <div id="baking">
             <h3>Cuisson</h3>
             <table class="table">
@@ -108,6 +109,7 @@
                 </tbody>
             </table>
         </div>
+        @endif
         <div id="components">
             <div style="display: none">{{ $quantity=100 }}</div>
             <h3>Matière première / composants de la recette</h3>
