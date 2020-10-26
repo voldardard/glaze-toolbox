@@ -57,8 +57,7 @@
 	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
     @endforeach
     </ul>
-@else
-    @include('partials.categories-none')
+
 @endif
 </div>
 <script type="text/javascript">closeSelectorEvent()</script>
