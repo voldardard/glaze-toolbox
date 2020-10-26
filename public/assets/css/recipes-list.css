@@ -15,7 +15,7 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-bottom: 5px;
 }
-.recipes-list recipes-list_left-pic{
+.recipes-list .recipes-list_left-pic{
   width: 20%;
   height: 80px;
   float:left;
