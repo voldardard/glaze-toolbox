@@ -111,7 +111,7 @@
                 </thead>
                 <tbody>
                 @foreach($Params['components'] as $key => $value)
-                    @if(! $value->extra)
+                    @if(! $value['extra'])
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $value['name'] }}</td>
