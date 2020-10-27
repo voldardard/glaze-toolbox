@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
       'merge.json'=>\App\Http\Middleware\MergeJsonInput::class,
         'auth.classic'=>\App\Http\Middleware\auth::class,
+        'auth.admin'=>\App\Http\Middleware\auth_admin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

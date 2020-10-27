@@ -101,7 +101,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
             Route::get('/jsonview/{recipeID}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
         });
-        Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
         });
 
     });
