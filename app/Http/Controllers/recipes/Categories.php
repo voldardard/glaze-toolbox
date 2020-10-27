@@ -309,7 +309,7 @@ class Categories extends Controller{
     }
     public function getLabelProducts($labelID){
       if (DB::table('labels')->where(['id' => $labelID])->exists()) {
-        $label_recipes =DB::table('recipe_labels')->select('recipes_id')->where(['labels_id' => $labelID])->first();
+        $label_recipes =DB::table('recipe_labels')->select('recipes_id')->where(['labels_id' => $labelID])->get();
         $recipes_id=array();
         foreach ($label_recipes as $key => $value) {
           $recipes_id[]=$value->id;
