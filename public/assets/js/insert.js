@@ -481,7 +481,7 @@ function tmp_upload(id, iconId, container){
         formData.append('pic[]', file);
     }
 
-    fetch(url, {
+    fetch('/'+locale+url, {
         method: 'POST',
         headers,
         body: formData,

@@ -30,7 +30,6 @@ Route::get('/', function () {
 })->middleware('auth.classic');;
 
 
-Route::post('/upload', 'tools\Upload')->middleware('auth.classic');
 //Route::post('/upload', 'tools\Upload');
 
 
@@ -61,6 +60,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('recipe')->with('Params', $Params);
         })->where(['recipeID' => '[a-zA-Z0-9]+'])->name('recipe');
 
+        Route::post('/upload', 'tools\Upload');
         Route::post('/insert', 'recipes\Insert');
 
         Route::get('/categories', function () {
