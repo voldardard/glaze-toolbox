@@ -40,7 +40,7 @@ class auth_admin
         if(! DB::table('users')->where(['username'=>session()->get('username'), 'admin'=>true])->exists()){
             $request->session()->flush();
             $request->session()->regenerate();
-            return Redirect::to(route('login'))->withError(Lang::get('login.l-018-unauthorized'));
+            return Redirect::to(route('home'))->withError(Lang::get('login.l-018-unauthorized'));
         }
 
         return $next($request);
