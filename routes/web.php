@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,6 @@ Route::get('/logout', 'auth\Login@logout')->name('logout-classic');
 Route::get('/', function () {
     return Redirect::to(\route('home'));
 })->middleware('auth.classic');;
-
-
-//Route::post('/upload', 'tools\Upload');
 
 
 Route::group(['prefix' => Config::get('app.locale')], function () {
@@ -102,25 +101,30 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             Route::get('/sources/author/type/{typeID?}', 'recipes\Categories@getAuthor')->where(['typeID' => '[0-9]+']);
             Route::get('/jsonview/{recipeID}', 'recipes\Categories@buildView')->where(['recipeID' => '[a-zA-Z0-9]+']);
         });
+        Route::group(['prefix' => 'admin'], function () {
+        });
 
     });
 
-    Route::get('/login', function () {
+    Route::middleware(['throttle:5,1'])->group(function () {
+      Route::get('/login', function () {
 
-        $back_url = url()->previous();
-        if ( (strpos($back_url, 'logout') !== false) OR (strpos($back_url, 'login') !== false) ) {
-            $back_url = route('home');
-        }
-        session(['link' => $back_url, 'current_route'=>'/login']);
-        return view('login');
-    })->name('login');
-    Route::post('/login', 'auth\Login');
+          $back_url = url()->previous();
+          if ( (strpos($back_url, 'logout') !== false) OR (strpos($back_url, 'login') !== false) ) {
+              $back_url = route('home');
+          }
+          session(['link' => $back_url, 'current_route'=>'/login']);
+          return view('login');
+      })->name('login');
+      Route::post('/login', 'auth\Login');
+      Route::get('/register', function () {
+          session(['current_route'=>'/register']);
+          return view('register');
+      })->name('register');
+      Route::post('/register', 'auth\Register');
+    });
 
-    Route::get('/register', function () {
-        session(['current_route'=>'/register']);
-        return view('register');
-    })->name('register');
-    Route::post('/register', 'auth\Register');
+
     Route::get('/logout', 'auth\Login@logout')->name('logout');
 
 });
