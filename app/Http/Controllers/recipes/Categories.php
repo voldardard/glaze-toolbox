@@ -78,6 +78,8 @@ class Categories extends Controller{
         $category =DB::table('categories')->select('name', 'parent_id', 'level')->where(['id' => $categoryID])->first();
         if($category->level!=0){
           $category->categories = array_reverse(self::getCategoriesAbove($category->parent_id), true);
+        }else{
+          $category->categories=array();
         }
         return response()->json($category);
 
