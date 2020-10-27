@@ -84,7 +84,7 @@ class Categories extends Controller{
         return response()->json($category);
 
       }else{
-        abort(404);
+        abort(404,'Category not found.');
       }
     }
 
@@ -117,7 +117,7 @@ class Categories extends Controller{
         return response()->json($recipes);
 
       }else{
-        abort(404);
+        abort(404,'Category not found.');
       }
     }
     public function deleteCategory(Request $request, $categoryID){
@@ -339,7 +339,7 @@ class Categories extends Controller{
 
 
       }else{
-        abort(404);
+        abort(404,'Label not found.');
       }
     }
     public function getLabeldetails($labelID){
@@ -349,7 +349,7 @@ class Categories extends Controller{
         return response()->json($label);
 
       }else{
-        abort(404);
+        abort(404,'Label not found.');
       }
     }
 
