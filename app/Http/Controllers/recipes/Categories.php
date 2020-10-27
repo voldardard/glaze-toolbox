@@ -84,9 +84,10 @@ class Categories extends Controller{
         return response()->json($category);
 
       }else{
-        return response()->json(['message'=>"Category does not exist"], 400);
+        abort(404);
       }
     }
+
     public function getCategoryProducts($categoryID){
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $allCatIdBelow=self::getCategoriesBelow($categoryID);
@@ -116,7 +117,7 @@ class Categories extends Controller{
         return response()->json($recipes);
 
       }else{
-        return response()->json(['message'=>"Category does not exist"], 400);
+        abort(404);
       }
     }
     public function deleteCategory(Request $request, $categoryID){
@@ -305,6 +306,51 @@ class Categories extends Controller{
 
         }
 
+    }
+    public function getLabelProducts($labelID){
+      if (DB::table('labels')->where(['id' => $labelID])->exists()) {
+        $label_recipes =DB::table('recipe_labels')->select('recipes_id')->where(['labels_id' => $labelID])->first();
+        $recipes_id=array();
+        foreach ($label_recipes as $key => $value) {
+          $recipes_id[]=$value->id;
+        }
+        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale', 'categories_id')->whereIn('id', $recipes_id)->get();
+        $recipes =(json_decode(json_encode($recipes), true));
+        foreach ($recipes as $key => $value) {
+          $recipes[$key]['id']=Crypt::encryptString($value['id']);
+
+          //Get user details
+          $user=DB::table('users')->select('name', 'fsname')->where('id', $value['users_id'])->first();
+          $recipes[$key]['creator']['name']= $user->name;
+          $recipes[$key]['creator']["fsname"]=$user->fsname;
+
+          //Get pictures details
+          $pictures = DB::table('pictures')->select(['name', 'path'])->where(['recipes_id' => $value['id'], 'deleted' => false])->get();
+          $recipes[$key]["pictures"]= array();
+          foreach ($pictures as $picture) {
+              $recipes[$key]["pictures"][] = $picture;
+          }
+
+          //Get Categories getCategoriesAbove
+          $recipes[$key]['categories'] = array_reverse(self::getCategoriesAbove($value['categories_id']), true);
+
+        }
+        return response()->json($recipes);
+
+
+      }else{
+        abort(404);
+      }
+    }
+    public function getLabeldetails($labelID){
+      if (DB::table('labels')->where(['id' => $labelID])->exists()) {
+        $label =DB::table('labels')->select('name')->where(['id' => $labelID])->first();
+
+        return response()->json($label);
+
+      }else{
+        abort(404);
+      }
     }
 
     public function buildView($recipeID)

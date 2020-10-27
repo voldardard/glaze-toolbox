@@ -74,25 +74,28 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
+
+
             $Params->recipes = json_decode($Controller->getCategoryProducts($categoryID)->content(), true);
             $Params->category = json_decode($Controller->getCategorydetails($categoryID)->content(), true);
 
             return view('category')->with('Params', $Params);
-        })->where(['categoryID' => '[a-zA-Z0-9]+'])->name('getCategory');
+        })->where(['categoryID' => '[0-9]+'])->name('getCategory');
         Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
-        Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
-        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[a-zA-Z0-9]+'])->middleware('merge.json');
+        Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
+        Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
+
 
         Route::get('/label/{labelID}', function ($labelID) {
             session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
+
             $Params->recipes = json_decode($Controller->getLabelProducts($labelID)->content(), true);
             $Params->label = json_decode($Controller->getLabeldetails($labelID)->content(), true);
 
-            return view('category')->with('Params', $Params);
-        })->where(['labelID' => '[a-zA-Z0-9]+'])->name('getLabel');
-
+            return view('label')->with('Params', $Params);
+        })->where(['labelID' => '[0-9]+'])->name('getLabel');
 
         Route::group(['prefix' => 'autocomplete'], function () {
           Route::get('/categories', 'recipes\Categories@getAllCategories');
