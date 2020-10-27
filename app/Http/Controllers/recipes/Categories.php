@@ -309,12 +309,10 @@ class Categories extends Controller{
     }
     public function getLabelProducts($labelID){
       if (DB::table('labels')->where(['id' => $labelID])->exists()) {
-        $label_recipes =DB::table('recipe_labels')->select('recipes_id')->where(['labels_id' => $labelID])->get();
-        $recipes_id=array();
-        foreach ($label_recipes as $key => $value) {
-          $recipes_id[]=$value->id;
-        }
-        $recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale', 'categories_id')->whereIn('id', $recipes_id)->get();
+        
+        $recipes = DB::table('recipe_labels')->select('recipes.id', 'recipes.name', 'recipes.version', 'recipes.users_id', 'recipes.locale', 'recipes.categories_id')->leftJoin('recipes', 'recipes.id', '=', 'recipe_labels.recipes_id')->where(['recipe_labels.labels_id' => $labelID])->get();
+
+        //$recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale', 'categories_id')->whereIn('id', $recipes_id)->get();
         $recipes =(json_decode(json_encode($recipes), true));
         foreach ($recipes as $key => $value) {
           $recipes[$key]['id']=Crypt::encryptString($value['id']);
