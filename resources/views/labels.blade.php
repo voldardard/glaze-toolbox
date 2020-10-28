@@ -37,24 +37,26 @@
 @include('partials.errors')
 @include('menu')
 <div class="label-page">
-  @if(count($Params->labels) > 0)
-    <ul class="labels_list">
-      <li class="labels_item labels_add">
-        <input id="insert_label_name" required type="text" name="label_name" placeholder="Nom du label"/>
-        <i onclick="create_name(document.getElementById('insert_label_name').value)" class="fa fa-floppy-o labels_save" aria-hidden="true"></i>
-      </li>
-    @foreach ($Params->labels as $label)
-	   <li class="labels_item">
-      <div id="name-{{ $label['id'] }}" class="label_name">
-    		<a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{ $label['id'] }}">{{ $label['name'] }}</a>
-        <i onclick="update_name({{ $label['id'] }}, '{{ $label['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </div>
-      <i  onclick="delete_label({{ $label['id'] }})" class="fa fa-times delete-{{ $label['id'] }} delete_label" aria-hidden="true"></i>
-     </li>
-    @endforeach
-    </ul>
+  @if(!empty($Params->labels))
+    @if(count($Params->labels) > 0)
+      <ul class="labels_list">
+        <li class="labels_item labels_add">
+          <input id="insert_label_name" required type="text" name="label_name" placeholder="Nom du label"/>
+          <i onclick="create_name(document.getElementById('insert_label_name').value)" class="fa fa-floppy-o labels_save" aria-hidden="true"></i>
+        </li>
+      @foreach ($Params->labels as $label)
+  	   <li class="labels_item">
+        <div id="name-{{ $label['id'] }}" class="label_name">
+      		<a href="/{{ str_replace('_', '-', app()->getLocale()) }}/label/{{ $label['id'] }}">{{ $label['name'] }}</a>
+          <i onclick="update_name({{ $label['id'] }}, '{{ $label['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        <i  onclick="delete_label({{ $label['id'] }})" class="fa fa-times delete-{{ $label['id'] }} delete_label" aria-hidden="true"></i>
+       </li>
+      @endforeach
+      </ul>
 
-@endif
+    @endif
+  @endif
 </div>
 
 </body>
