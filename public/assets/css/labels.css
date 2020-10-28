@@ -1,0 +1,208 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+body{
+    font-family: "Roboto", sans-serif;
+}
+.label-page {
+    width: 98%;
+}
+.label-page .labels_list .labels_item {
+  list-style: none;
+  line-height: 1;
+  display: block;
+  height: 40px;
+  position: relative;
+  background: #FFFFFF;
+  padding-left: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 5px;
+}
+.label-page .labels_list .labels_add {
+    margin-bottom: 30px;
+}
+.label-page .labels_list .labels_item .label_name{
+  padding-top: 10px;
+  display: inline-block;
+}
+.label-page .labels_list .labels_item .label_name_activated{
+  padding-top: 0px;
+}
+.label-page .labels_list .labels_item .delete_label{
+  height: 30px;
+  position: absolute;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 40px;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+}
+.label-page .labels_list .labels_item i{
+  cursor:pointer;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.label-page .labels_list .labels_item input{
+  font-size: 20px;
+  padding-left: 25px;
+  height: 38px;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+}
+.label-page .labels_list .labels_item .selector{
+  min-height: 40px;
+  display: inline-block;
+  position: absolute;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  min-width: 200px;
+  right: 60px;
+  cursor:pointer;
+}
+.label-page .labels_list .labels_item .selector:hover,
+.label-page .labels_list .labels_item .selector_target,
+.label-page .labels_add .labels_save:hover,
+.label-page .labels_list .labels_item .delete_label:hover{
+  background-color: #5c5c5c;
+    color:white;
+}
+.label-page .labels_list .labels_item .selector span{
+  height: 30px;
+  display: block;
+  padding-top: 10px;
+  text-align:center;
+}
+
+.label-page .labels_list .selector_list{
+  padding-left: 25px;
+  z-index: 15;
+  background: #f2f2f2;
+  position: relative;
+}
+.label-page .labels_list .selector_disabled{
+  color: #636b6f;
+  display:none;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 20px;
+  overflow: scroll;
+  height: 80vh;
+}
+.label-page .labels_list .selector_list .selector_item {
+  list-style: none;
+  display: block;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.label-page .labels_list .selector_list .selector_greyed {
+  cursor:default;
+  color:white;
+}
+.label-page .labels_add .labels_save{
+  height: 30px;
+  position: absolute;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 40px;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+}
+.label-page ul li a{
+    text-decoration: none;
+    color: #5C5C5C;
+    margin-left: 10px;
+    font: bold 20px arial,sans-serif;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 25px;
+    padding: 25px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #151515;
+    width: 100%;
+    border: 0;
+    padding: 25px;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition: all;
+    cursor: pointer;
+}
+.form .label-button{
+    position: absolute;
+    right: 45px;
+    width: inherit;
+}
+.form button:hover,.form button:active,.form button:focus {
+    background: #434343;
+}
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.form .message a {
+    color: #151515;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.form h1 {
+    color: #5C5C5C;
+    text-align: center;
+    font: bold 80px arial,sans-serif;
+    margin-bottom: 40px;
+}
+.red{
+    color:red;
+    font-weight: bolder;
+    text-align: center;
+}
+.green{
+    color:green;
+    font-weight: bolder;
+    text-align: center;
+}
+.orange{
+    color: rgb(249, 190, 18);
+}
+.grey{
+    color: #646460;
+    cursor: auto;
+}

@@ -85,7 +85,6 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
 
         Route::get('/label/{labelID}', function ($labelID) {
-            session(['current_route' => '/categories']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
 

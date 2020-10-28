@@ -6,6 +6,7 @@ return [
     'm-003-list' => 'My recipes',
     'm-004-logout' => 'Log-out',
     'm-005-insert' => 'New recipe',
+    'm-006-labels'=>"Labels"
 
 
 
