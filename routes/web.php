@@ -78,11 +78,19 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Params->category = json_decode($Controller->getCategorydetails($categoryID)->content(), true);
 
             return view('category')->with('Params', $Params);
-        })->where(['categoryID' => '[0-9]+'])->name('getCategory');
+        })->where(['categoryID' => '[0-9]+'])->name('category');
+        
         Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
         Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
         Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
 
+        Route::get('/labels', function () {
+            session(['current_route' => '/labels']);
+            $Controller = new \App\Http\Controllers\recipes\Categories();
+            $Params = new \stdClass();
+            //$Params->categories = json_decode($Controller->getAllCategories()->content(), true);
+            return view('labels')->with('Params', $Params);
+        })->name('labels');
 
         Route::get('/label/{labelID}', function ($labelID) {
           session(['current_route' => '/labels']);
@@ -93,7 +101,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             $Params->label = json_decode($Controller->getLabeldetails($labelID)->content(), true);
 
             return view('label')->with('Params', $Params);
-        })->where(['labelID' => '[0-9]+'])->name('getLabel');
+        })->where(['labelID' => '[0-9]+'])->name('label');
 
         Route::group(['prefix' => 'autocomplete'], function () {
           Route::get('/categories', 'recipes\Categories@getAllCategories');

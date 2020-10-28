@@ -2,6 +2,7 @@
     <ul>
         <li @if(session('current_route')=="/") class='active' @endif><a href='/{{ app()->getLocale() }}/'>@lang('menu.m-001-home')</a></li>
         <li @if(session('current_route')=="/categories") class='active' @endif><a href='/{{ app()->getLocale() }}/categories'>@lang('menu.m-002-categories')</a></li>
+        <li @if(session('current_route')=="/labels") class='active' @endif><a href='/{{ app()->getLocale() }}/labels'>@lang('menu.m-006-labels')</a></li>
         <li @if(session('current_route')=="/insert") class='active' @endif><a href='/{{ app()->getLocale() }}/insert'>@lang('menu.m-005-insert')</a></li>
 
         <li @if(session('current_route')=="/profile") class='active' @endif class="right" id="profileContainer"><a href='#'><i class="fa fa-user" aria-hidden="true"></i> {{session('username')}}</a>
