@@ -79,7 +79,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
 
             return view('category')->with('Params', $Params);
         })->where(['categoryID' => '[0-9]+'])->name('category');
-        
+
         Route::put('/category', 'recipes\Categories@insertCategory')->middleware('merge.json');
         Route::delete('/category/{categoryID}', 'recipes\Categories@deleteCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
         Route::patch('/category/{categoryID}', 'recipes\Categories@editCategory')->where(['categoryID' => '[0-9]+'])->middleware('merge.json');
@@ -88,7 +88,7 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             session(['current_route' => '/labels']);
             $Controller = new \App\Http\Controllers\recipes\Categories();
             $Params = new \stdClass();
-            //$Params->categories = json_decode($Controller->getAllCategories()->content(), true);
+            $Params->labels = json_decode($Controller->getAllLabels()->content(), true);
             return view('labels')->with('Params', $Params);
         })->name('labels');
 

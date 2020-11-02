@@ -309,7 +309,7 @@ class Categories extends Controller{
     }
     public function getLabelProducts($labelID){
       if (DB::table('labels')->where(['id' => $labelID])->exists()) {
-        
+
         $recipes = DB::table('recipe_labels')->select('recipes.id', 'recipes.name', 'recipes.version', 'recipes.users_id', 'recipes.locale', 'recipes.categories_id')->leftJoin('recipes', 'recipes.id', '=', 'recipe_labels.recipes_id')->where(['recipe_labels.labels_id' => $labelID])->get();
 
         //$recipes=DB::table('recipes')->select('id', 'name', 'version', 'users_id', 'locale', 'categories_id')->whereIn('id', $recipes_id)->get();
@@ -493,6 +493,9 @@ class Categories extends Controller{
       }
       return response()->json($data);
     }
-
+    public function getAllLabels(){
+      $labels = DB::table('labels')->select(['id', 'name'])->get();
+      return response()->json($labels);
+    }
 
 }
