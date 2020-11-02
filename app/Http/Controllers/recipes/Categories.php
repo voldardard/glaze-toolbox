@@ -544,7 +544,7 @@ class Categories extends Controller{
         DB::table('labels')->where('id',  $labelID)->delete();
         return response()->json(['message'=>"Label deleted successfully"]);
       }else{
-        return response()->json(['message'=>"Cannot delete label", 'errors'=>array('There is '.$count.' recipes dependent on thid label')], 422);
+        return response()->json(['message'=>"Cannot delete label", 'errors'=>array(['There is '.$count.' recipes dependent on thid label'])], 422);
       }
   }else{
     return response()->json(['message'=>"Label does not exist"], 400);
