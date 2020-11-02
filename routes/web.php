@@ -103,6 +103,10 @@ Route::group(['prefix' => Config::get('app.locale')], function () {
             return view('label')->with('Params', $Params);
         })->where(['labelID' => '[0-9]+'])->name('label');
 
+        Route::put('/label', 'recipes\Categories@insertLabel')->middleware('merge.json');
+        Route::delete('/label/{labelID}', 'recipes\Categories@deleteLabel')->where(['labelID' => '[0-9]+'])->middleware('merge.json');
+        Route::patch('/label/{labelID}', 'recipes\Categories@editLabel')->where(['labelID' => '[0-9]+'])->middleware('merge.json');
+
         Route::group(['prefix' => 'autocomplete'], function () {
           Route::get('/categories', 'recipes\Categories@getAllCategories');
             Route::get('/category/{parentID?}', 'recipes\Categories@getCategory')->where(['parentID' => '[0-9]+']);

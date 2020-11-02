@@ -497,5 +497,24 @@ class Categories extends Controller{
       $labels = DB::table('labels')->select(['id', 'name'])->get();
       return response()->json($labels);
     }
+    public function editLabel(Request $request, $labelID){
+      $validatedData = $request->validate([
+            'name' => 'required|string|max:45',
+      ]);
+
+      if (DB::table('labels')->where(['id' => $labelID])->exists()) {
+        if ( ! DB::table('labels')->where(['name' => $validatedData['name']])->exists()) {
+
+          DB::table('labels')->where('id',  $labelID)->update([
+            'name'=>$validatedData['name'],
+            'updated_at'=>now()
+          ]);
+          return response()->json(['message'=>"Label name updated successfully"]);
+        }else{
+          return response()->json(['message'=>"A label with same name exist already"], 400);
+        }
+    }else{
+      return response()->json(['message'=>"Label does not exist"], 400);
+    }
 
 }
