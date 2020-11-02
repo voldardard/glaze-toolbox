@@ -538,7 +538,7 @@ class Categories extends Controller{
 
     if (DB::table('labels')->where(['id' => $labelID])->exists()) {
 
-      if( ! DB::table('recipe_label')->where(['labels_id'=>$labelID]->exists()))
+      if( ! DB::table('recipe_label')->where(['labels_id'=>$labelID]->exists())){
         DB::table('labels')->where('id',  $labelID)->delete();
         return response()->json(['message'=>"Label name updated successfully"]);
       }else{
