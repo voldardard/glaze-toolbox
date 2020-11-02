@@ -519,7 +519,7 @@ class Categories extends Controller{
   }
   public function insertLabel(Request $request){
     $validatedData = $request->validate([
-      'name' => 'requires|string|max:45',
+      'name' => 'required|string|max:45',
     ]);
     if ( ! DB::table('labels')->where(['name' => $validatedData['name']])->exists()) {
 
