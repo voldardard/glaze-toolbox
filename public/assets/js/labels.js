@@ -123,11 +123,7 @@ function save_name(id){
 function create_name(name){
   console.log('name: '+name.trim());
   if ( name.trim()!='' ){
-    if( parent_id.trim()==''){
-      parent_id=null;
-    }else{
-        parent_id=parent_id.trim();
-    }
+
     //get csrf and set headers
     const csrf = document.getElementsByName('_csrf-token')[0].content;
     const headers = new Headers({
@@ -138,7 +134,6 @@ function create_name(name){
     //create object
     var label = {};
     label.name = name.trim();
-    label.parent_id = parent_id;
 
     fetch("/"+locale+"/label", {
         method: 'PUT',
