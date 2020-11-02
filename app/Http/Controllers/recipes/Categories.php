@@ -539,7 +539,7 @@ class Categories extends Controller{
     if (DB::table('labels')->where(['id' => $labelID])->exists()) {
 
       $count = DB::table('recipe_label')->where(['labels_id'=>$labelID]->count());
-      if($count === 0)
+      if($count === 0){
         DB::table('labels')->where('id',  $labelID)->delete();
         return response()->json(['message'=>"Label deleted successfully"]);
       }else{
