@@ -517,5 +517,20 @@ class Categories extends Controller{
       return response()->json(['message'=>"Label does not exist"], 400);
     }
   }
+  public function insertLabel(Request $request){
+    $validatedData = $request->validate([
+      'name' => 'requires|string|max:45',
+    ]);
+    if ( ! DB::table('labels')->where(['name' => $validatedData['name']])->exists()) {
 
+      DB::table('labels')->insert([
+        'name'=>$validatedData['name'],
+        'updated_at'=>now(),
+        'created_at'=>now()
+      ]);
+      return response()->json(['message'=>"Label created successfully"]);
+    }else{
+      return response()->json(['message'=>"A label with same name exist already"], 400);
+    }
+  }
 }
