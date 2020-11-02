@@ -37,28 +37,30 @@
 @include('partials.errors')
 @include('menu')
 <div class="category-page">
-  @if(count($Params->categories) > 0)
-    <ul class="categories_list">
-      <li class="categories_item categories_add">
-        <input id="insert_category_name" required type="text" name="category_name" placeholder="Nom de la catégorie"/>
-        <input id="insert_parent_id" required type="hidden" name="parent_id"/>
-        @include('partials.categories-selector', ['categoryID'=>"null", 'function'=>["name"=>"choose_category", "description"=>"Catégorie parente"]])
-        <i onclick="create_name(document.getElementById('insert_category_name').value, document.getElementById('insert_parent_id').value)" class="fa fa-floppy-o categories_save" aria-hidden="true"></i>
-      </li>
-    @foreach ($Params->categories as $category)
-	   <li class="categories_item">
-      <div id="name-{{ $category['id'] }}" class="category_name">
-    		<a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
-        <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </div>
-      @include('partials.categories-selector', [ 'categoryID'=>$category['id'], 'function'=>["name"=>"change_category", "description"=>"Déplacer"]])
-      <i  onclick="delete_category({{ $category['id'] }})" class="fa fa-times delete-{{ $category['id'] }} delete_category" aria-hidden="true"></i>
-     </li>
-	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
-    @endforeach
-    </ul>
+  @if(!empty($Params->categories))
+    @if(count($Params->categories) > 0)
+      <ul class="categories_list">
+        <li class="categories_item categories_add">
+          <input id="insert_category_name" required type="text" name="category_name" placeholder="Nom de la catégorie"/>
+          <input id="insert_parent_id" required type="hidden" name="parent_id"/>
+          @include('partials.categories-selector', ['categoryID'=>"null", 'function'=>["name"=>"choose_category", "description"=>"Catégorie parente"]])
+          <i onclick="create_name(document.getElementById('insert_category_name').value, document.getElementById('insert_parent_id').value)" class="fa fa-floppy-o categories_save" aria-hidden="true"></i>
+        </li>
+      @foreach ($Params->categories as $category)
+  	   <li class="categories_item">
+        <div id="name-{{ $category['id'] }}" class="category_name">
+      		<a href="/{{ str_replace('_', '-', app()->getLocale()) }}/category/{{ $category['id'] }}">{{ $category['name'] }}</a>
+          <i onclick="update_name({{ $category['id'] }}, '{{ $category['name'] }}')" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        @include('partials.categories-selector', [ 'categoryID'=>$category['id'], 'function'=>["name"=>"change_category", "description"=>"Déplacer"]])
+        <i  onclick="delete_category({{ $category['id'] }})" class="fa fa-times delete-{{ $category['id'] }} delete_category" aria-hidden="true"></i>
+       </li>
+  	@include('partials.categories', ['Params'=>$Params, 'Category'=>$category])
+      @endforeach
+      </ul>
 
-@endif
+    @endif
+  @endif
 </div>
 <script type="text/javascript">closeSelectorEvent()</script>
 

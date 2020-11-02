@@ -37,7 +37,7 @@
 @include('partials.errors')
 @include('menu')
 <div class="label-page">
-  @if(!empty($Params->labels))
+  @if(!empty($Params->labels)) 
     @if(count($Params->labels) > 0)
       <ul class="labels_list">
         <li class="labels_item labels_add">
