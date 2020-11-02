@@ -538,11 +538,12 @@ class Categories extends Controller{
 
     if (DB::table('labels')->where(['id' => $labelID])->exists()) {
 
-      if( ! DB::table('recipe_label')->where(['labels_id'=>$labelID]->exists())){
+      $count = DB::table('recipe_label')->where(['labels_id'=>$labelID]->count());
+      if($count === 0)
         DB::table('labels')->where('id',  $labelID)->delete();
-        return response()->json(['message'=>"Label name updated successfully"]);
+        return response()->json(['message'=>"Label deleted successfully"]);
       }else{
-        return response()->json(['message'=>"Some recipes depend on this label"], 400);
+        return response()->json(['message'=>"Cannot delete label", 'errors'=>array('There is '.$count.' recipes dependent on thid label')], 422);
       }
   }else{
     return response()->json(['message'=>"Label does not exist"], 400);
