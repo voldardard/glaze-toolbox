@@ -124,7 +124,7 @@ class Categories extends Controller{
       if (DB::table('categories')->where(['id' => $categoryID])->exists()) {
         $recipe=array();
         $allCatIdBelow=self::getCategoriesBelow($categoryID);
-        $recipes=DB::table('recipes')->select('id')->whereIn('parent_id', $allCatIdBelow)->get();
+        $recipes=DB::table('recipes')->select('id')->whereIn('categories_id', $allCatIdBelow)->get();
         foreach ($recipes as $key => $value) {
           $recipe[]=$value->id;
         }
@@ -457,7 +457,7 @@ class Categories extends Controller{
     }
 
     public function getType()
-    {
+    {parent_id
         $type = DB::table('sources_types')->distinct()->select(['id', 'name'])->groupBy('name', 'id')->where(['locale' => Config::get('app.locale')])->get();
         return response()->json($type);
     }
@@ -533,4 +533,19 @@ class Categories extends Controller{
       return response()->json(['message'=>"A label with same name exist already"], 400);
     }
   }
+  public function deleteLabel($labelID){
+
+
+    if (DB::table('labels')->where(['id' => $labelID])->exists()) {
+
+      if( ! DB::table('recipe_label')->where(['labels_id'=>$labelID]->exists()))
+        DB::table('labels')->where('id',  $labelID)->delete();
+        return response()->json(['message'=>"Label name updated successfully"]);
+      }else{
+        return response()->json(['message'=>"Some recipes depend on this label"], 400);
+      }
+  }else{
+    return response()->json(['message'=>"Label does not exist"], 400);
+  }
+}
 }
