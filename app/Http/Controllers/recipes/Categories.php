@@ -516,5 +516,6 @@ class Categories extends Controller{
     }else{
       return response()->json(['message'=>"Label does not exist"], 400);
     }
+  }
 
 }
